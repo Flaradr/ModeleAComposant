@@ -1,4 +1,6 @@
 package my.company.firstPack {
+	import static extension my.company.secondPack.*
+
 	Component A{
 		provided = {m1,m2,m8}
 		requiered = {m3}
@@ -26,22 +28,24 @@ package my.company.firstPack {
 		a2 : A
 		b1 : B
 		bindings
-		a1.m3 - b1.m3
-		a2.m3 - b1.m3
-		b1.m1 - a1.m1
-		b1.m4 - a2.m8
+		a1.A.m3 - b1.B.m3
+		a2.A.m3 - b1.B.m3
+		b1.B.m1 - a1.A.m1
+		b1.B.m4 - a2.A.m8
 	}
 }
 
 package my.company.secondPack{
-	import my.company.firstPack.*
+	import static extension my.company.firstPack.*
+	import static extension my.company.thirdPack.*
+
 
 	Component C{
 		provided = {m1,m2}
 		requiered = {r3}
 
-		service provided type1 m1 (p1 : type1) {}
-		service provided type2 m2 (p3 : type1) {}
+		service provided type2 m1 (p1 : type1) {}
+		service provided type3 m2 (p3 : type4) {}
 
 		service requiered void r3();
 	}
@@ -52,9 +56,9 @@ package my.company.secondPack{
 		b : B
 		c : C
 		bindings
-		a.m3 - c.m3
-		b.m1 - c.m1
-		b.m4 - a.m8
-		c.r3 - a.m2
+		a.A.m3 - c.C.m2
+		b.B.m1 - c.C.m1
+		b.B.m4 - a.A.m8
+		c.C.r3 - a.A.m2
 	}
 }
