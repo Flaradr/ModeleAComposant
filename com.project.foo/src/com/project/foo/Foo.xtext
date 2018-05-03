@@ -1,0 +1,91 @@
+grammar com.project.foo.Foo with org.eclipse.xtext.common.Terminals
+
+generate foo "http://www.project.com/foo/Foo"
+
+//Concerne les modeles
+DomainModel:
+	(models+=Model)*;
+
+Model:
+	'package' name=QualifiedName '{'
+	(imports+=Import)*
+	(component+=Component)*
+	(assembly+=Assembly)*
+	'}';
+
+QualifiedName:
+    ID ('.' ID)*;
+
+Import:
+    'import' importedNamespace=QualifiedNameWithWildcard;
+
+QualifiedNameWithWildcard:
+    QualifiedName '.*'?;
+
+//Concernce les assemblages
+Assembly:
+	{Assembly}'Assembly' name=ID '{'
+	'components'
+	attributes+=ComponentAttribute
+	(attributes+=ComponentAttribute)+
+	'bindings'
+	(bindings+=Binding)*
+	'}';
+
+//Les composants constituant un assemblage
+ComponentAttribute:
+	name=ID ':' type=[Component|QualifiedName];
+
+Binding:
+	mG=BindingRequiered '-' mD=BindingProvided ;
+
+BindingRequiered:
+	name=[ComponentAttribute]'.'type=[RequieredService|QualifiedName];
+
+BindingProvided:
+	name=[ComponentAttribute]'.'type=[ProvidedService|QualifiedName];
+
+//Concerne les composants
+Component:
+	'Component' name=ID '{'
+	provided = Provided
+	requiered = Requiered
+	(mProvServices += MProvidedService)+
+	(mReqServices += MRequieredService)*
+	'}';
+
+//Liste des services pourvus par un composant X
+Provided:
+	'provided' '=' '{'
+		(providedServices+=ProvidedService
+		(',' providedServices+=ProvidedService)*)
+	'}';
+
+ProvidedService:
+	name=ID;
+
+//Liste des services requis par un composant X
+Requiered:
+	{Requiered}'requiered' '=' '{'
+		(requieredServices+=RequieredService?
+		(',' requieredServices+=RequieredService)*)
+	'}';
+
+RequieredService:
+	name=ID;
+
+MProvidedService:
+	'service' 'provided' signature=PSignature'{'
+	'}';
+
+PSignature:
+	type=ID name=[ProvidedService]'('attributes+=Attribute?(','attributes+=Attribute)*')';
+
+MRequieredService:
+	'service' 'requiered' signature=RSignature  ';';
+
+RSignature:
+	type=ID name=[RequieredService]'('attributes+=Attribute?(','attributes+=Attribute)*')';
+
+Attribute:
+	name=ID ':' type=ID;

@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: com.project.foo
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.project.foo; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.13.0",
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.eclipse.xtend.lib;bundle-version="2.13.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.project.foo.services,
+ com.project.foo.foo.impl,
+ com.project.foo.foo.util,
+ com.project.foo.parser.antlr.internal,
+ com.project.foo.validation,
+ com.project.foo.scoping,
+ com.project.foo.generator,
+ com.project.foo,
+ com.project.foo.serializer,
+ com.project.foo.foo,
+ com.project.foo.parser.antlr
+Import-Package: org.apache.log4j
