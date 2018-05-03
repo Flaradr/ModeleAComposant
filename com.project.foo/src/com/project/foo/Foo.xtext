@@ -17,9 +17,9 @@ QualifiedName:
     ID ('.' ID)*;
 
 Import:
-    'import' importedNamespace=QualifiedNameWithWildcard;
+    'import' 'static' 'extension' importedNamespace=FqnWithWildCard;
 
-QualifiedNameWithWildcard:
+FqnWithWildCard:
     QualifiedName '.*'?;
 
 //Concernce les assemblages

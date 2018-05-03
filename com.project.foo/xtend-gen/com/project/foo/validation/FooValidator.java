@@ -9,12 +9,9 @@ import com.project.foo.foo.Attribute;
 import com.project.foo.foo.Binding;
 import com.project.foo.foo.Component;
 import com.project.foo.foo.ComponentAttribute;
-import com.project.foo.foo.DomainModel;
 import com.project.foo.foo.FooPackage;
-import com.project.foo.foo.Import;
 import com.project.foo.foo.MProvidedService;
 import com.project.foo.foo.MRequieredService;
-import com.project.foo.foo.Model;
 import com.project.foo.foo.ProvidedService;
 import com.project.foo.foo.RequieredService;
 import com.project.foo.validation.AbstractFooValidator;
@@ -221,25 +218,29 @@ public class FooValidator extends AbstractFooValidator {
     final RequieredService nomMethodG = binding.getMG().getType();
     final ProvidedService nomMethodD = binding.getMD().getType();
     EObject _eContainer = binding.getMG().getType().eContainer().eContainer();
-    final EList<MRequieredService> bindingRequiered = ((Component) _eContainer).getMReqServices();
+    final EList<MRequieredService> listOfRequieredServices = ((Component) _eContainer).getMReqServices();
     EObject _eContainer_1 = binding.getMD().getType().eContainer().eContainer();
-    final EList<MProvidedService> bindingProvided = ((Component) _eContainer_1).getMProvServices();
+    final EList<MProvidedService> listOfProvidedServices = ((Component) _eContainer_1).getMProvServices();
+    InputOutput.<String>println(("\n\nValue of nomMethodG : " + nomMethodG));
+    InputOutput.<String>println(("Value of nomMethodD : " + nomMethodD));
+    InputOutput.<String>println(("Value of bindingRequiered : " + listOfRequieredServices));
+    InputOutput.<String>println(("Value of bindingProvided : " + listOfProvidedServices));
     String valRetMReq = "";
     String valRetMProv = "";
-    EList<Attribute> signatureRequiered = null;
-    EList<Attribute> signatureProvided = null;
-    for (final MRequieredService foo : bindingRequiered) {
+    EList<Attribute> signatureofRequieredMethod = null;
+    EList<Attribute> signatureOfProvidedMethod = null;
+    for (final MRequieredService foo : listOfRequieredServices) {
       boolean _equals = foo.getSignature().getName().getName().equals(nomMethodG.getName());
       if (_equals) {
         valRetMReq = foo.getSignature().getType();
-        signatureRequiered = foo.getSignature().getAttributes();
+        signatureofRequieredMethod = foo.getSignature().getAttributes();
       }
     }
-    for (final MProvidedService foo_1 : bindingProvided) {
+    for (final MProvidedService foo_1 : listOfProvidedServices) {
       boolean _equals_1 = foo_1.getSignature().getName().getName().equals(nomMethodD.getName());
       if (_equals_1) {
         valRetMProv = foo_1.getSignature().getType();
-        signatureProvided = foo_1.getSignature().getAttributes();
+        signatureOfProvidedMethod = foo_1.getSignature().getAttributes();
       }
     }
     boolean _equals_2 = valRetMReq.equals(valRetMProv);
@@ -249,7 +250,9 @@ public class FooValidator extends AbstractFooValidator {
         FooPackage.Literals.BINDING__MD, 
         FooValidator.CHECK_BINDING_IS_VALID);
     }
-    this.signatureEquals(signatureRequiered, signatureProvided);
+    InputOutput.<String>println(("Value of signatureRequiered = " + signatureofRequieredMethod));
+    InputOutput.<String>println(("Value of signatureProvided = " + signatureOfProvidedMethod));
+    this.signatureEquals(signatureofRequieredMethod, signatureOfProvidedMethod);
   }
   
   /**
@@ -388,46 +391,6 @@ public class FooValidator extends AbstractFooValidator {
           }
         }
       }
-    }
-  }
-  
-  /**
-   * Check validite import
-   */
-  @Check
-  public void checkImportIsValid(final Import imp) {
-    EObject _eContainer = imp.eContainer().eContainer();
-    EList<Model> listeImport = ((DomainModel) _eContainer).getModels();
-    boolean isPresent = false;
-    int i = 0;
-    while (((i < listeImport.size()) && (!isPresent))) {
-      {
-        String _name = listeImport.get(i).getName();
-        String _plus = ("Value of listeImport.get(i).name : " + _name);
-        InputOutput.<String>println(_plus);
-        String _importedNamespace = imp.getImportedNamespace();
-        String _plus_1 = ("\tValue of (imp.eContainer as Model).name " + _importedNamespace);
-        InputOutput.<String>println(_plus_1);
-        int _length = listeImport.get(i).getName().length();
-        String _plus_2 = ("Value of listeImport.get(i).name.length() : " + Integer.valueOf(_length));
-        InputOutput.<String>println(_plus_2);
-        String _name_1 = listeImport.get(i).getName();
-        String _plus_3 = ("Value of (listeImport.get(i).name : " + _name_1);
-        InputOutput.<String>println(_plus_3);
-        String _substring = imp.getImportedNamespace().substring(0, listeImport.get(i).getName().length());
-        String _plus_4 = ("Value of (imp.eContainer as Model).name.substring(0,listeImport.get(i).name.length()) ---> " + _substring);
-        InputOutput.<String>println(_plus_4);
-        boolean _equals = listeImport.get(i).getName().equals(imp.getImportedNamespace().substring(0, listeImport.get(i).getName().length()));
-        if (_equals) {
-          isPresent = true;
-        }
-        i++;
-      }
-    }
-    if ((!isPresent)) {
-      this.error("This package does not exist", 
-        FooPackage.Literals.IMPORT__IMPORTED_NAMESPACE, 
-        FooValidator.CHECK_IMPORT_IS_VALID);
     }
   }
 }

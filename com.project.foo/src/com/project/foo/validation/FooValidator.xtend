@@ -8,9 +8,7 @@ import com.project.foo.foo.Attribute
 import com.project.foo.foo.Binding
 import com.project.foo.foo.Component
 import com.project.foo.foo.ComponentAttribute
-import com.project.foo.foo.DomainModel
 import com.project.foo.foo.FooPackage
-import com.project.foo.foo.Import
 import com.project.foo.foo.MProvidedService
 import com.project.foo.foo.MRequieredService
 import com.project.foo.foo.ProvidedService
@@ -18,7 +16,6 @@ import com.project.foo.foo.RequieredService
 import org.eclipse.emf.common.util.EList
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.validation.Check
-import com.project.foo.foo.Model
 
 /**
  * This class contains custom validation rules.
@@ -168,24 +165,29 @@ class FooValidator extends AbstractFooValidator {
 	def void checkBindingIsValid(Binding binding){
 		val nomMethodG = binding.getMG().type
 		val nomMethodD = binding.getMD().type
-		val bindingRequiered = (binding.getMG().type.eContainer().eContainer() as Component).MReqServices
-		val bindingProvided = (binding.getMD().type.eContainer().eContainer() as Component).MProvServices
+		val listOfRequieredServices = (binding.getMG().type.eContainer().eContainer() as Component).MReqServices
+		val listOfProvidedServices = (binding.getMD().type.eContainer().eContainer() as Component).MProvServices	
+		
+		println("\n\nValue of nomMethodG : " + nomMethodG)
+		println("Value of nomMethodD : " + nomMethodD)
+		println("Value of bindingRequiered : " + listOfRequieredServices)
+		println("Value of bindingProvided : " + listOfProvidedServices)
+		
 		var String valRetMReq = ""
 		var String valRetMProv = ""
-		var EList<Attribute> signatureRequiered
-		var EList<Attribute> signatureProvided
+		var EList<Attribute> signatureofRequieredMethod
+		var EList<Attribute> signatureOfProvidedMethod
 
-		//Comparaison de
-		for(MRequieredService foo : bindingRequiered){
-			if (foo.getSignature.name.name.equals(nomMethodG.name)){
-				valRetMReq = foo.getSignature.type
-				signatureRequiered = foo.getSignature.attributes
+		for(MRequieredService foo : listOfRequieredServices){
+			if (foo.signature.name.name.equals(nomMethodG.name)){
+				valRetMReq = foo.signature.type
+				signatureofRequieredMethod = foo.signature.attributes
 			}
 		}
-		for(MProvidedService foo : bindingProvided){
-			if(foo.getSignature.name.name.equals(nomMethodD.name)){
-				valRetMProv = foo.getSignature.type
-				signatureProvided = foo.getSignature.attributes
+		for(MProvidedService foo : listOfProvidedServices){
+			if(foo.signature.name.name.equals(nomMethodD.name)){
+				valRetMProv = foo.signature.type
+				signatureOfProvidedMethod = foo.signature.attributes
 			}
 		}
 
@@ -194,7 +196,9 @@ class FooValidator extends AbstractFooValidator {
 				  FooPackage.Literals.BINDING__MD,
 				  CHECK_BINDING_IS_VALID)
 		}
-		signatureEquals(signatureRequiered,signatureProvided)
+		println("Value of signatureRequiered = " + signatureofRequieredMethod)
+		println("Value of signatureProvided = " + signatureOfProvidedMethod)
+		signatureEquals(signatureofRequieredMethod,signatureOfProvidedMethod)
 	}
 
 	/**
@@ -309,30 +313,5 @@ class FooValidator extends AbstractFooValidator {
 		}
 	}
 
-	/**************************************************************
-	 * 				     Check validite import  			  	  *
-	 **************************************************************/
 
-	 @Check
-	 def void checkImportIsValid(Import imp){
-
-		var listeImport = (imp.eContainer.eContainer as DomainModel).models
-	 	var isPresent = false
-	 	var i = 0
-	 	while (i < listeImport.size() && !isPresent){
-	 		println("Value of listeImport.get(i).name : " + listeImport.get(i).name)
-	 		println("\tValue of (imp.eContainer as Model).name " + imp.importedNamespace)
-	 		println("Value of listeImport.get(i).name.length() : " + listeImport.get(i).name.length())
-	 		println("Value of (listeImport.get(i).name : " + (listeImport.get(i).name) )
-	 		println("Value of (imp.eContainer as Model).name.substring(0,listeImport.get(i).name.length()) ---> " + imp.importedNamespace.substring(0,listeImport.get(i).name.length()))
-	 		if (listeImport.get(i).name.equals(imp.importedNamespace.substring(0,listeImport.get(i).name.length())))
-	 			isPresent = true
-	 		i++
-	 	}
-	 	if (!isPresent){
-	 		error("This package does not exist",
-	 			  FooPackage.Literals.IMPORT__IMPORTED_NAMESPACE,
-	 			  CHECK_IMPORT_IS_VALID)
-	 	}
-	 }
 }

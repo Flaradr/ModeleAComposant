@@ -129,32 +129,40 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.Import");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cImportedNamespaceAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0 = (RuleCall)cImportedNamespaceAssignment_1.eContents().get(0);
+		private final Keyword cStaticKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cExtensionKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cImportedNamespaceAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cImportedNamespaceFqnWithWildCardParserRuleCall_3_0 = (RuleCall)cImportedNamespaceAssignment_3.eContents().get(0);
 		
 		//Import:
-		//	'import' importedNamespace=QualifiedNameWithWildcard;
+		//	'import' 'static' 'extension' importedNamespace=FqnWithWildCard;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'import' importedNamespace=QualifiedNameWithWildcard
+		//'import' 'static' 'extension' importedNamespace=FqnWithWildCard
 		public Group getGroup() { return cGroup; }
 		
 		//'import'
 		public Keyword getImportKeyword_0() { return cImportKeyword_0; }
 		
-		//importedNamespace=QualifiedNameWithWildcard
-		public Assignment getImportedNamespaceAssignment_1() { return cImportedNamespaceAssignment_1; }
+		//'static'
+		public Keyword getStaticKeyword_1() { return cStaticKeyword_1; }
 		
-		//QualifiedNameWithWildcard
-		public RuleCall getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0() { return cImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0; }
+		//'extension'
+		public Keyword getExtensionKeyword_2() { return cExtensionKeyword_2; }
+		
+		//importedNamespace=FqnWithWildCard
+		public Assignment getImportedNamespaceAssignment_3() { return cImportedNamespaceAssignment_3; }
+		
+		//FqnWithWildCard
+		public RuleCall getImportedNamespaceFqnWithWildCardParserRuleCall_3_0() { return cImportedNamespaceFqnWithWildCardParserRuleCall_3_0; }
 	}
-	public class QualifiedNameWithWildcardElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.QualifiedNameWithWildcard");
+	public class FqnWithWildCardElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.FqnWithWildCard");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cQualifiedNameParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Keyword cFullStopAsteriskKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
-		//QualifiedNameWithWildcard:
+		//FqnWithWildCard:
 		//	QualifiedName '.*'?;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -835,7 +843,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	private final ModelElements pModel;
 	private final QualifiedNameElements pQualifiedName;
 	private final ImportElements pImport;
-	private final QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
+	private final FqnWithWildCardElements pFqnWithWildCard;
 	private final AssemblyElements pAssembly;
 	private final ComponentAttributeElements pComponentAttribute;
 	private final BindingElements pBinding;
@@ -865,7 +873,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		this.pModel = new ModelElements();
 		this.pQualifiedName = new QualifiedNameElements();
 		this.pImport = new ImportElements();
-		this.pQualifiedNameWithWildcard = new QualifiedNameWithWildcardElements();
+		this.pFqnWithWildCard = new FqnWithWildCardElements();
 		this.pAssembly = new AssemblyElements();
 		this.pComponentAttribute = new ComponentAttributeElements();
 		this.pBinding = new BindingElements();
@@ -946,7 +954,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Import:
-	//	'import' importedNamespace=QualifiedNameWithWildcard;
+	//	'import' 'static' 'extension' importedNamespace=FqnWithWildCard;
 	public ImportElements getImportAccess() {
 		return pImport;
 	}
@@ -955,14 +963,14 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		return getImportAccess().getRule();
 	}
 	
-	//QualifiedNameWithWildcard:
+	//FqnWithWildCard:
 	//	QualifiedName '.*'?;
-	public QualifiedNameWithWildcardElements getQualifiedNameWithWildcardAccess() {
-		return pQualifiedNameWithWildcard;
+	public FqnWithWildCardElements getFqnWithWildCardAccess() {
+		return pFqnWithWildCard;
 	}
 	
-	public ParserRule getQualifiedNameWithWildcardRule() {
-		return getQualifiedNameWithWildcardAccess().getRule();
+	public ParserRule getFqnWithWildCardRule() {
+		return getFqnWithWildCardAccess().getRule();
 	}
 	
 	////Concernce les assemblages

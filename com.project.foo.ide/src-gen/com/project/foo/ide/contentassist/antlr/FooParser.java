@@ -35,7 +35,7 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
-					put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup(), "rule__QualifiedNameWithWildcard__Group__0");
+					put(grammarAccess.getFqnWithWildCardAccess().getGroup(), "rule__FqnWithWildCard__Group__0");
 					put(grammarAccess.getAssemblyAccess().getGroup(), "rule__Assembly__Group__0");
 					put(grammarAccess.getComponentAttributeAccess().getGroup(), "rule__ComponentAttribute__Group__0");
 					put(grammarAccess.getBindingAccess().getGroup(), "rule__Binding__Group__0");
@@ -60,7 +60,7 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelAccess().getImportsAssignment_3(), "rule__Model__ImportsAssignment_3");
 					put(grammarAccess.getModelAccess().getComponentAssignment_4(), "rule__Model__ComponentAssignment_4");
 					put(grammarAccess.getModelAccess().getAssemblyAssignment_5(), "rule__Model__AssemblyAssignment_5");
-					put(grammarAccess.getImportAccess().getImportedNamespaceAssignment_1(), "rule__Import__ImportedNamespaceAssignment_1");
+					put(grammarAccess.getImportAccess().getImportedNamespaceAssignment_3(), "rule__Import__ImportedNamespaceAssignment_3");
 					put(grammarAccess.getAssemblyAccess().getNameAssignment_2(), "rule__Assembly__NameAssignment_2");
 					put(grammarAccess.getAssemblyAccess().getAttributesAssignment_5(), "rule__Assembly__AttributesAssignment_5");
 					put(grammarAccess.getAssemblyAccess().getAttributesAssignment_6(), "rule__Assembly__AttributesAssignment_6");

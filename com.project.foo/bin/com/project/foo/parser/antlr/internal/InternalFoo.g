@@ -263,12 +263,20 @@ ruleImport returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getImportAccess().getImportKeyword_0());
 		}
+		otherlv_1='static'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getImportAccess().getStaticKeyword_1());
+		}
+		otherlv_2='extension'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getImportAccess().getExtensionKeyword_2());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getImportAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getImportAccess().getImportedNamespaceFqnWithWildCardParserRuleCall_3_0());
 				}
-				lv_importedNamespace_1_0=ruleQualifiedNameWithWildcard
+				lv_importedNamespace_3_0=ruleFqnWithWildCard
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getImportRule());
@@ -276,8 +284,8 @@ ruleImport returns [EObject current=null]
 					set(
 						$current,
 						"importedNamespace",
-						lv_importedNamespace_1_0,
-						"com.project.foo.Foo.QualifiedNameWithWildcard");
+						lv_importedNamespace_3_0,
+						"com.project.foo.Foo.FqnWithWildCard");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -285,15 +293,15 @@ ruleImport returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleQualifiedNameWithWildcard
-entryRuleQualifiedNameWithWildcard returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getQualifiedNameWithWildcardRule()); }
-	iv_ruleQualifiedNameWithWildcard=ruleQualifiedNameWithWildcard
-	{ $current=$iv_ruleQualifiedNameWithWildcard.current.getText(); }
+// Entry rule entryRuleFqnWithWildCard
+entryRuleFqnWithWildCard returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getFqnWithWildCardRule()); }
+	iv_ruleFqnWithWildCard=ruleFqnWithWildCard
+	{ $current=$iv_ruleFqnWithWildCard.current.getText(); }
 	EOF;
 
-// Rule QualifiedNameWithWildcard
-ruleQualifiedNameWithWildcard returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+// Rule FqnWithWildCard
+ruleFqnWithWildCard returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 @init {
 	enterRule();
 }
@@ -302,7 +310,7 @@ ruleQualifiedNameWithWildcard returns [AntlrDatatypeRuleToken current=new AntlrD
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getQualifiedNameWithWildcardAccess().getQualifiedNameParserRuleCall_0());
+			newCompositeNode(grammarAccess.getFqnWithWildCardAccess().getQualifiedNameParserRuleCall_0());
 		}
 		this_QualifiedName_0=ruleQualifiedName
 		{
@@ -315,7 +323,7 @@ ruleQualifiedNameWithWildcard returns [AntlrDatatypeRuleToken current=new AntlrD
 			kw='.*'
 			{
 				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getQualifiedNameWithWildcardAccess().getFullStopAsteriskKeyword_1());
+				newLeafNode(kw, grammarAccess.getFqnWithWildCardAccess().getFullStopAsteriskKeyword_1());
 			}
 		)?
 	)
