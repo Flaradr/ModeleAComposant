@@ -393,7 +393,7 @@ class FooParsingTest {
 			  		a1 : A
 			  		b1 : B
 			  		bindings
-			  		a1.m1 - b1.m2
+			  		a1.A.m1 - b1.B.m2
 			  	}
 			}
 	  	'''
@@ -421,15 +421,15 @@ class FooParsingTest {
 			  		a1 : A
 			  		b1 : B
 			  		bindings
-			  		a1.m1 - b1.m2
+			  		a1.A.m1 - b1.B.m2
 			  	}
 			 }
 	  	'''
 	  	input1.parse.assertError(
 	  		FooPackage.Literals.BINDING,
 	  		FooValidator.CHECK_BINDING_IS_VALID,
-	  		input1.indexOf("b1.m2"),
-	  		"b1.m2".length,
+	  		input1.indexOf("b1.B.m2"),
+	  		"b1.B.m2".length,
 	  		"Return type of the provided service do not match the return type of the requiered service")
 
 	  	val input2 = '''
@@ -454,15 +454,15 @@ class FooParsingTest {
 			  		a1 : A
 			  		b1 : B
 			  		bindings
-			  		a1.m1 - b1.m2
+			  		a1.A.m1 - b1.B.m2
 			  	}
 			 }
 	  	'''
 	  	input2.parse.assertError(
 	  		FooPackage.Literals.BINDING,
 	  		FooValidator.CHECK_BINDING_IS_VALID,
-	  		input2.indexOf("b1.m2"),
-	  		"b1.m2".length,
+	  		input2.indexOf("b1.B.m2"),
+	  		"b1.B.m2".length,
 	  		"The type of the parameters of the requiered service and the provided service do not match")
 
 	  	val input3 = '''
@@ -487,15 +487,15 @@ class FooParsingTest {
 			  		a1 : A
 			  		b1 : B
 			  		bindings
-			  		a1.m1 - b1.m2
+			  		a1.A.m1 - b1.B.m2
 			  	}
 			}
 	  	'''
 	  	input3.parse.assertError(
 	  		FooPackage.Literals.BINDING,
 	  		FooValidator.CHECK_BINDING_IS_VALID,
-	  		input3.indexOf("b1.m2"),
-	  		"b1.m2".length,
+	  		input3.indexOf("b1.B.m2"),
+	  		"b1.B.m2".length,
 	  		"Number of parameters between the requiered service and the provided service do not match")
 
 	}
@@ -582,9 +582,9 @@ class FooParsingTest {
 					a2 : A
 					b1 : B
 					bindings
-					a1.m3 - b1.m4
-					a2.m3 - b1.m4
-					b1.m1 - a1.m1
+					a1.A.m3 - b1.B.m4
+					a2.A.m3 - b1.B.m4
+					b1.B.m1 - a1.A.m1
 				}
 			}
 		'''
@@ -617,8 +617,8 @@ class FooParsingTest {
 					a2 : A
 					b1 : B
 					bindings
-					a1.m3 - b1.m4
-					b1.m1 - a1.m1
+					a1.A.m3 - b1.B.m4
+					b1.B.m1 - a1.A.m1
 				}
 			}
 		'''

@@ -779,7 +779,7 @@ public class FooParsingTest {
       _builder.append("bindings");
       _builder.newLine();
       _builder.append("  \t\t");
-      _builder.append("a1.m1 - b1.m2");
+      _builder.append("a1.A.m1 - b1.B.m2");
       _builder.newLine();
       _builder.append("  \t");
       _builder.append("}");
@@ -844,7 +844,7 @@ public class FooParsingTest {
       _builder_1.append("bindings");
       _builder_1.newLine();
       _builder_1.append("  \t\t");
-      _builder_1.append("a1.m1 - b1.m2");
+      _builder_1.append("a1.A.m1 - b1.B.m2");
       _builder_1.newLine();
       _builder_1.append("  \t");
       _builder_1.append("}");
@@ -856,8 +856,8 @@ public class FooParsingTest {
       this._validationTestHelper.assertError(this._parseHelper.parse(input1), 
         FooPackage.Literals.BINDING, 
         FooValidator.CHECK_BINDING_IS_VALID, 
-        input1.indexOf("b1.m2"), 
-        "b1.m2".length(), 
+        input1.indexOf("b1.B.m2"), 
+        "b1.B.m2".length(), 
         "Return type of the provided service do not match the return type of the requiered service");
       StringConcatenation _builder_2 = new StringConcatenation();
       _builder_2.append("package toto {");
@@ -915,7 +915,7 @@ public class FooParsingTest {
       _builder_2.append("bindings");
       _builder_2.newLine();
       _builder_2.append("  \t\t");
-      _builder_2.append("a1.m1 - b1.m2");
+      _builder_2.append("a1.A.m1 - b1.B.m2");
       _builder_2.newLine();
       _builder_2.append("  \t");
       _builder_2.append("}");
@@ -927,8 +927,8 @@ public class FooParsingTest {
       this._validationTestHelper.assertError(this._parseHelper.parse(input2), 
         FooPackage.Literals.BINDING, 
         FooValidator.CHECK_BINDING_IS_VALID, 
-        input2.indexOf("b1.m2"), 
-        "b1.m2".length(), 
+        input2.indexOf("b1.B.m2"), 
+        "b1.B.m2".length(), 
         "The type of the parameters of the requiered service and the provided service do not match");
       StringConcatenation _builder_3 = new StringConcatenation();
       _builder_3.append("package toto {");
@@ -986,7 +986,7 @@ public class FooParsingTest {
       _builder_3.append("bindings");
       _builder_3.newLine();
       _builder_3.append("  \t\t");
-      _builder_3.append("a1.m1 - b1.m2");
+      _builder_3.append("a1.A.m1 - b1.B.m2");
       _builder_3.newLine();
       _builder_3.append("  \t");
       _builder_3.append("}");
@@ -997,8 +997,8 @@ public class FooParsingTest {
       this._validationTestHelper.assertError(this._parseHelper.parse(input3), 
         FooPackage.Literals.BINDING, 
         FooValidator.CHECK_BINDING_IS_VALID, 
-        input3.indexOf("b1.m2"), 
-        "b1.m2".length(), 
+        input3.indexOf("b1.B.m2"), 
+        "b1.B.m2".length(), 
         "Number of parameters between the requiered service and the provided service do not match");
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -1158,13 +1158,13 @@ public class FooParsingTest {
       _builder.append("bindings");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("a1.m3 - b1.m4");
+      _builder.append("a1.A.m3 - b1.B.m4");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("a2.m3 - b1.m4");
+      _builder.append("a2.A.m3 - b1.B.m4");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("b1.m1 - a1.m1");
+      _builder.append("b1.B.m1 - a1.A.m1");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("}");
@@ -1240,10 +1240,10 @@ public class FooParsingTest {
       _builder_1.append("bindings");
       _builder_1.newLine();
       _builder_1.append("\t\t");
-      _builder_1.append("a1.m3 - b1.m4");
+      _builder_1.append("a1.A.m3 - b1.B.m4");
       _builder_1.newLine();
       _builder_1.append("\t\t");
-      _builder_1.append("b1.m1 - a1.m1");
+      _builder_1.append("b1.B.m1 - a1.A.m1");
       _builder_1.newLine();
       _builder_1.append("\t");
       _builder_1.append("}");

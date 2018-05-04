@@ -54,7 +54,12 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAssemblyAssemblyParserRuleCall_5_0 = (RuleCall)cAssemblyAssignment_5.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		//Model:
+		///*
+		// * 
+		// * Structure d'un modele, correspond
+		// * à un paquet pouvant contenir plusieurs
+		// * composants et assemblages
+		// */ Model:
 		//	'package' name=QualifiedName '{'
 		//	imports+=Import*
 		//	component+=Component*
@@ -193,7 +198,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBindingsBindingParserRuleCall_8_0 = (RuleCall)cBindingsAssignment_8.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
-		////Concernce les assemblages
+		////Structure d'un assemblage
 		//Assembly:
 		//	{Assembly} 'Assembly' name=ID '{'
 		//	'components'
@@ -260,7 +265,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cTypeComponentCrossReference_2_0 = (CrossReference)cTypeAssignment_2.eContents().get(0);
 		private final RuleCall cTypeComponentQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cTypeComponentCrossReference_2_0.eContents().get(1);
 		
-		////Les composants constituant un assemblage
+		////Structure d'un composant
 		//ComponentAttribute:
 		//	name=ID ':' type=[Component|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
@@ -295,6 +300,8 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cMDAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cMDBindingProvidedParserRuleCall_2_0 = (RuleCall)cMDAssignment_2.eContents().get(0);
 		
+		////Lien entre d'un service requis d'un composant X et d'un
+		////service fourni d'un composant Y
 		//Binding:
 		//	mG=BindingRequiered '-' mD=BindingProvided;
 		@Override public ParserRule getRule() { return rule; }
@@ -412,7 +419,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMReqServicesMRequieredServiceParserRuleCall_6_0 = (RuleCall)cMReqServicesAssignment_6.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
-		////Concerne les composants
+		////Structure d'un composant
 		//Component:
 		//	'Component' name=ID '{'
 		//	provided=Provided
@@ -480,7 +487,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cProvidedServicesProvidedServiceParserRuleCall_3_1_1_0 = (RuleCall)cProvidedServicesAssignment_3_1_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		////Liste des services pourvus par un composant X
+		////Liste des services fourni par un composant X
 		//Provided:
 		//	'provided' '=' '{' (providedServices+=ProvidedService (',' providedServices+=ProvidedService)*)
 		//	'}';
@@ -666,6 +673,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAttributesAttributeParserRuleCall_4_1_0 = (RuleCall)cAttributesAssignment_4_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
+		////Signature d'un service fourni
 		//PSignature:
 		//	type=ID name=[ProvidedService] '(' attributes+=Attribute? (',' attributes+=Attribute)* ')';
 		@Override public ParserRule getRule() { return rule; }
@@ -760,6 +768,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAttributesAttributeParserRuleCall_4_1_0 = (RuleCall)cAttributesAssignment_4_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
+		////Signature d'un service requis
 		//RSignature:
 		//	type=ID name=[RequieredService] '(' attributes+=Attribute? (',' attributes+=Attribute)* ')';
 		@Override public ParserRule getRule() { return rule; }
@@ -929,7 +938,12 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		return getDomainModelAccess().getRule();
 	}
 	
-	//Model:
+	///*
+	// * 
+	// * Structure d'un modele, correspond
+	// * à un paquet pouvant contenir plusieurs
+	// * composants et assemblages
+	// */ Model:
 	//	'package' name=QualifiedName '{'
 	//	imports+=Import*
 	//	component+=Component*
@@ -973,7 +987,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		return getFqnWithWildCardAccess().getRule();
 	}
 	
-	////Concernce les assemblages
+	////Structure d'un assemblage
 	//Assembly:
 	//	{Assembly} 'Assembly' name=ID '{'
 	//	'components'
@@ -990,7 +1004,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		return getAssemblyAccess().getRule();
 	}
 	
-	////Les composants constituant un assemblage
+	////Structure d'un composant
 	//ComponentAttribute:
 	//	name=ID ':' type=[Component|QualifiedName];
 	public ComponentAttributeElements getComponentAttributeAccess() {
@@ -1001,6 +1015,8 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		return getComponentAttributeAccess().getRule();
 	}
 	
+	////Lien entre d'un service requis d'un composant X et d'un
+	////service fourni d'un composant Y
 	//Binding:
 	//	mG=BindingRequiered '-' mD=BindingProvided;
 	public BindingElements getBindingAccess() {
@@ -1031,7 +1047,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		return getBindingProvidedAccess().getRule();
 	}
 	
-	////Concerne les composants
+	////Structure d'un composant
 	//Component:
 	//	'Component' name=ID '{'
 	//	provided=Provided
@@ -1047,7 +1063,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		return getComponentAccess().getRule();
 	}
 	
-	////Liste des services pourvus par un composant X
+	////Liste des services fourni par un composant X
 	//Provided:
 	//	'provided' '=' '{' (providedServices+=ProvidedService (',' providedServices+=ProvidedService)*)
 	//	'}';
@@ -1102,6 +1118,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		return getMProvidedServiceAccess().getRule();
 	}
 	
+	////Signature d'un service fourni
 	//PSignature:
 	//	type=ID name=[ProvidedService] '(' attributes+=Attribute? (',' attributes+=Attribute)* ')';
 	public PSignatureElements getPSignatureAccess() {
@@ -1122,6 +1139,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		return getMRequieredServiceAccess().getRule();
 	}
 	
+	////Signature d'un service requis
 	//RSignature:
 	//	type=ID name=[RequieredService] '(' attributes+=Attribute? (',' attributes+=Attribute)* ')';
 	public RSignatureElements getRSignatureAccess() {
