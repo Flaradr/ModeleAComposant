@@ -16,6 +16,8 @@ import com.project.foo.foo.RequieredService
 import org.eclipse.emf.common.util.EList
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.validation.Check
+import com.project.foo.foo.BindingProvided
+import com.project.foo.foo.BindingRequiered
 
 /**
  * This class contains custom validation rules.
@@ -35,6 +37,9 @@ class FooValidator extends AbstractFooValidator {
 
 	//public static val CHECK_LINK_L_OPERAND_BINDING = "com.project.foo.foo.CheckLinkLeftOperandBinding"
 	public static val CHECK_BINDING_IS_VALID = "com.project.foo.foo.CheckBindingIsValid"
+	public static val CHECK_BINDING_REQUIERED_CAN_USE_METHOD = "com.project.foo.foo.CheckBindingRequieredCanUseMethod"
+	public static val CHECK_BINDING_PROVIDED_CAN_USE_METHOD = "com.project.foo.foo.CheckBindingProvidedCanUseMethod"
+	
 	public static val CHECK_P_SERVICE_HAS_METHOD = "com.projetc.foo.foo.CheckProvidedServiceHasMethod"
 	public static val CHECK_R_SERVICE_HAS_METHOD = "com.project.foo.foo.CheckRequieredServiceHasMethod"
 	public static val CHECK_ASSEMBLY_IS_VALID = "com.project.foo.foo.CheckAssemblyIsValid"
@@ -151,8 +156,61 @@ class FooValidator extends AbstractFooValidator {
 	 /*************************************************************
 	 * 				     Check validite binging  			  	  *
 	 **************************************************************/
-
-
+	
+	/**
+	 * Verifie que l'instance d'un composant X demande un service requis par 
+	 * le composant X et pas un autre 
+	 */ 
+	@Check
+	def void checkBindingRequieredCanUseMethod(BindingRequiered bindingRequiered){
+		val listOfComponent = (bindingRequiered.id.eContainer as Assembly).attributes
+		var res = false
+		var i = 0
+		var String typeOfInstance
+		while (i < listOfComponent.size() && !res){
+			if (listOfComponent.get(i).name == bindingRequiered.id.name){
+				res = true
+				typeOfInstance = listOfComponent.get(i).type.name
+			}
+			i++
+		}
+		
+		val componentTypeOfService = (bindingRequiered.type.eContainer.eContainer as Component).name
+		
+		if (!typeOfInstance.equals(componentTypeOfService)){
+			error("The type of the component and the component requiring this method are not the same",
+				  FooPackage.Literals.BINDING_REQUIERED__TYPE,
+				  CHECK_BINDING_REQUIERED_CAN_USE_METHOD)
+		}
+	}
+	
+	/**
+	 * Verifie que l'instance d'un composant X demande un service fourni par 
+	 * le composant X et pas un autre 
+	 */ 
+	@Check
+	def void checkComponentCanUseMethod(BindingProvided bindingProvided){
+		val listOfComponent = (bindingProvided.id.eContainer as Assembly).attributes
+		var res = false
+		var i = 0
+		var String typeOfInstance
+		while (i < listOfComponent.size() && !res){
+			if (listOfComponent.get(i).name == bindingProvided.id.name){
+				res = true
+				typeOfInstance = listOfComponent.get(i).type.name
+			}
+			i++
+		}
+		
+		val componentTypeOfService = (bindingProvided.type.eContainer.eContainer as Component).name
+		
+		if (!typeOfInstance.equals(componentTypeOfService)){
+			error("The type of the component and the component requiring this method are not the same",
+				  FooPackage.Literals.BINDING_REQUIERED__TYPE,
+				  CHECK_BINDING_PROVIDED_CAN_USE_METHOD)
+		}
+	}
+	
 	/**
 	 * Verifie qu'un binding est valide
 	 * i.e. Pas d'erreur si la signature et le type de retour
@@ -167,12 +225,7 @@ class FooValidator extends AbstractFooValidator {
 		val nomMethodD = binding.getMD().type
 		val listOfRequieredServices = (binding.getMG().type.eContainer().eContainer() as Component).MReqServices
 		val listOfProvidedServices = (binding.getMD().type.eContainer().eContainer() as Component).MProvServices	
-		
-		println("\n\nValue of nomMethodG : " + nomMethodG)
-		println("Value of nomMethodD : " + nomMethodD)
-		println("Value of bindingRequiered : " + listOfRequieredServices)
-		println("Value of bindingProvided : " + listOfProvidedServices)
-		
+
 		var String valRetMReq = ""
 		var String valRetMProv = ""
 		var EList<Attribute> signatureofRequieredMethod
@@ -196,8 +249,7 @@ class FooValidator extends AbstractFooValidator {
 				  FooPackage.Literals.BINDING__MD,
 				  CHECK_BINDING_IS_VALID)
 		}
-		println("Value of signatureRequiered = " + signatureofRequieredMethod)
-		println("Value of signatureProvided = " + signatureOfProvidedMethod)
+
 		signatureEquals(signatureofRequieredMethod,signatureOfProvidedMethod)
 	}
 
@@ -297,7 +349,8 @@ class FooValidator extends AbstractFooValidator {
 					var boolean isPresent = false
 					while (i < listeBindings.size() && !isPresent){
 						if(service.name.equals(listeBindings.get(i).MG.type.name) && //Comparaison de la méthode requise par l'instance du composant en cours et celle du binding
-						   component.name.equals(listeBindings.get(i).MG.name.name)	//Comparaison du nom de l'instance composant en cours et du nom du composant dans le binding
+						//   component.name.equals(listeBindings.get(i).MG.id.name)	//Comparaison du nom de l'instance composant en cours et du nom du composant dans le binding
+							component.name.equals(listeBindings.get(i).MG.id.name)
 						){
 							isPresent = true
 						}
@@ -312,6 +365,4 @@ class FooValidator extends AbstractFooValidator {
 			}
 		}
 	}
-
-
 }

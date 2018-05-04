@@ -593,7 +593,7 @@ ruleBindingRequiered returns [EObject current=null]
 				}
 				otherlv_0=RULE_ID
 				{
-					newLeafNode(otherlv_0, grammarAccess.getBindingRequieredAccess().getNameComponentAttributeCrossReference_0_0());
+					newLeafNode(otherlv_0, grammarAccess.getBindingRequieredAccess().getIdComponentAttributeCrossReference_0_0());
 				}
 			)
 		)
@@ -645,7 +645,7 @@ ruleBindingProvided returns [EObject current=null]
 				}
 				otherlv_0=RULE_ID
 				{
-					newLeafNode(otherlv_0, grammarAccess.getBindingProvidedAccess().getNameComponentAttributeCrossReference_0_0());
+					newLeafNode(otherlv_0, grammarAccess.getBindingProvidedAccess().getIdComponentAttributeCrossReference_0_0());
 				}
 			)
 		)

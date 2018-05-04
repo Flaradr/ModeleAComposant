@@ -7,6 +7,8 @@ import com.google.common.base.Objects;
 import com.project.foo.foo.Assembly;
 import com.project.foo.foo.Attribute;
 import com.project.foo.foo.Binding;
+import com.project.foo.foo.BindingProvided;
+import com.project.foo.foo.BindingRequiered;
 import com.project.foo.foo.Component;
 import com.project.foo.foo.ComponentAttribute;
 import com.project.foo.foo.FooPackage;
@@ -19,7 +21,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 
 /**
  * This class contains custom validation rules.
@@ -43,6 +44,10 @@ public class FooValidator extends AbstractFooValidator {
   public final static String CHECK_R_SERVICE_NAME_IS_UNIQUE = "com.project.foo.foo.CheckRequieredServiceNameIsUnique";
   
   public final static String CHECK_BINDING_IS_VALID = "com.project.foo.foo.CheckBindingIsValid";
+  
+  public final static String CHECK_BINDING_REQUIERED_CAN_USE_METHOD = "com.project.foo.foo.CheckBindingRequieredCanUseMethod";
+  
+  public final static String CHECK_BINDING_PROVIDED_CAN_USE_METHOD = "com.project.foo.foo.CheckBindingProvidedCanUseMethod";
   
   public final static String CHECK_P_SERVICE_HAS_METHOD = "com.projetc.foo.foo.CheckProvidedServiceHasMethod";
   
@@ -206,6 +211,74 @@ public class FooValidator extends AbstractFooValidator {
   }
   
   /**
+   * Verifie que l'instance d'un composant X demande un service requis par
+   * le composant X et pas un autre
+   */
+  @Check
+  public void checkBindingRequieredCanUseMethod(final BindingRequiered bindingRequiered) {
+    EObject _eContainer = bindingRequiered.getId().eContainer();
+    final EList<ComponentAttribute> listOfComponent = ((Assembly) _eContainer).getAttributes();
+    boolean res = false;
+    int i = 0;
+    String typeOfInstance = null;
+    while (((i < listOfComponent.size()) && (!res))) {
+      {
+        String _name = listOfComponent.get(i).getName();
+        String _name_1 = bindingRequiered.getId().getName();
+        boolean _equals = Objects.equal(_name, _name_1);
+        if (_equals) {
+          res = true;
+          typeOfInstance = listOfComponent.get(i).getType().getName();
+        }
+        i++;
+      }
+    }
+    EObject _eContainer_1 = bindingRequiered.getType().eContainer().eContainer();
+    final String componentTypeOfService = ((Component) _eContainer_1).getName();
+    boolean _equals = typeOfInstance.equals(componentTypeOfService);
+    boolean _not = (!_equals);
+    if (_not) {
+      this.error("The type of the component and the component requiring this method are not the same", 
+        FooPackage.Literals.BINDING_REQUIERED__TYPE, 
+        FooValidator.CHECK_BINDING_REQUIERED_CAN_USE_METHOD);
+    }
+  }
+  
+  /**
+   * Verifie que l'instance d'un composant X demande un service fourni par
+   * le composant X et pas un autre
+   */
+  @Check
+  public void checkComponentCanUseMethod(final BindingProvided bindingProvided) {
+    EObject _eContainer = bindingProvided.getId().eContainer();
+    final EList<ComponentAttribute> listOfComponent = ((Assembly) _eContainer).getAttributes();
+    boolean res = false;
+    int i = 0;
+    String typeOfInstance = null;
+    while (((i < listOfComponent.size()) && (!res))) {
+      {
+        String _name = listOfComponent.get(i).getName();
+        String _name_1 = bindingProvided.getId().getName();
+        boolean _equals = Objects.equal(_name, _name_1);
+        if (_equals) {
+          res = true;
+          typeOfInstance = listOfComponent.get(i).getType().getName();
+        }
+        i++;
+      }
+    }
+    EObject _eContainer_1 = bindingProvided.getType().eContainer().eContainer();
+    final String componentTypeOfService = ((Component) _eContainer_1).getName();
+    boolean _equals = typeOfInstance.equals(componentTypeOfService);
+    boolean _not = (!_equals);
+    if (_not) {
+      this.error("The type of the component and the component requiring this method are not the same", 
+        FooPackage.Literals.BINDING_REQUIERED__TYPE, 
+        FooValidator.CHECK_BINDING_PROVIDED_CAN_USE_METHOD);
+    }
+  }
+  
+  /**
    * Verifie qu'un binding est valide
    * i.e. Pas d'erreur si la signature et le type de retour
    *  d'un service fourni et d'un service requis sont identique
@@ -221,10 +294,6 @@ public class FooValidator extends AbstractFooValidator {
     final EList<MRequieredService> listOfRequieredServices = ((Component) _eContainer).getMReqServices();
     EObject _eContainer_1 = binding.getMD().getType().eContainer().eContainer();
     final EList<MProvidedService> listOfProvidedServices = ((Component) _eContainer_1).getMProvServices();
-    InputOutput.<String>println(("\n\nValue of nomMethodG : " + nomMethodG));
-    InputOutput.<String>println(("Value of nomMethodD : " + nomMethodD));
-    InputOutput.<String>println(("Value of bindingRequiered : " + listOfRequieredServices));
-    InputOutput.<String>println(("Value of bindingProvided : " + listOfProvidedServices));
     String valRetMReq = "";
     String valRetMProv = "";
     EList<Attribute> signatureofRequieredMethod = null;
@@ -250,8 +319,6 @@ public class FooValidator extends AbstractFooValidator {
         FooPackage.Literals.BINDING__MD, 
         FooValidator.CHECK_BINDING_IS_VALID);
     }
-    InputOutput.<String>println(("Value of signatureRequiered = " + signatureofRequieredMethod));
-    InputOutput.<String>println(("Value of signatureProvided = " + signatureOfProvidedMethod));
     this.signatureEquals(signatureofRequieredMethod, signatureOfProvidedMethod);
   }
   
@@ -375,7 +442,7 @@ public class FooValidator extends AbstractFooValidator {
                 while (((i < listeBindings.size()) && (!isPresent))) {
                   {
                     if ((service.getName().equals(listeBindings.get(i).getMG().getType().getName()) && 
-                      component.getName().equals(listeBindings.get(i).getMG().getName().getName()))) {
+                      component.getName().equals(listeBindings.get(i).getMG().getId().getName()))) {
                       isPresent = true;
                     }
                     i++;

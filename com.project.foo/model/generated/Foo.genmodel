@@ -32,11 +32,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Binding/mD"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//BindingRequiered">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//BindingRequiered/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//BindingRequiered/id"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//BindingRequiered/type"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//BindingProvided">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//BindingProvided/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//BindingProvided/id"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//BindingProvided/type"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//Component">

@@ -1465,7 +1465,7 @@ public class InternalFooParser extends AbstractInternalAntlrParser {
             				
             otherlv_0=(Token)match(input,RULE_ID,FOLLOW_18); 
 
-            					newLeafNode(otherlv_0, grammarAccess.getBindingRequieredAccess().getNameComponentAttributeCrossReference_0_0());
+            					newLeafNode(otherlv_0, grammarAccess.getBindingRequieredAccess().getIdComponentAttributeCrossReference_0_0());
             				
 
             }
@@ -1594,7 +1594,7 @@ public class InternalFooParser extends AbstractInternalAntlrParser {
             				
             otherlv_0=(Token)match(input,RULE_ID,FOLLOW_18); 
 
-            					newLeafNode(otherlv_0, grammarAccess.getBindingProvidedAccess().getNameComponentAttributeCrossReference_0_0());
+            					newLeafNode(otherlv_0, grammarAccess.getBindingProvidedAccess().getIdComponentAttributeCrossReference_0_0());
             				
 
             }

@@ -48,10 +48,10 @@ Binding:
 	mG=BindingRequiered '-' mD=BindingProvided ;
 
 BindingRequiered:
-	name=[ComponentAttribute]'.'type=[RequieredService|QualifiedName];
+	id=[ComponentAttribute]'.'type=[RequieredService|QualifiedName];
 
 BindingProvided:
-	name=[ComponentAttribute]'.'type=[ProvidedService|QualifiedName];
+	id=[ComponentAttribute]'.'type=[ProvidedService|QualifiedName];
 
 //Structure d'un composant
 Component:

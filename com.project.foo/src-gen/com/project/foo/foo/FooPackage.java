@@ -299,13 +299,13 @@ public interface FooPackage extends EPackage
   int BINDING_REQUIERED = 6;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' reference.
+   * The feature id for the '<em><b>Id</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING_REQUIERED__NAME = 0;
+  int BINDING_REQUIERED__ID = 0;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -336,13 +336,13 @@ public interface FooPackage extends EPackage
   int BINDING_PROVIDED = 7;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' reference.
+   * The feature id for the '<em><b>Id</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING_PROVIDED__NAME = 0;
+  int BINDING_PROVIDED__ID = 0;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -938,15 +938,15 @@ public interface FooPackage extends EPackage
   EClass getBindingRequiered();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingRequiered#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingRequiered#getId <em>Id</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Name</em>'.
-   * @see com.project.foo.foo.BindingRequiered#getName()
+   * @return the meta object for the reference '<em>Id</em>'.
+   * @see com.project.foo.foo.BindingRequiered#getId()
    * @see #getBindingRequiered()
    * @generated
    */
-  EReference getBindingRequiered_Name();
+  EReference getBindingRequiered_Id();
 
   /**
    * Returns the meta object for the reference '{@link com.project.foo.foo.BindingRequiered#getType <em>Type</em>}'.
@@ -970,15 +970,15 @@ public interface FooPackage extends EPackage
   EClass getBindingProvided();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingProvided#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingProvided#getId <em>Id</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Name</em>'.
-   * @see com.project.foo.foo.BindingProvided#getName()
+   * @return the meta object for the reference '<em>Id</em>'.
+   * @see com.project.foo.foo.BindingProvided#getId()
    * @see #getBindingProvided()
    * @generated
    */
-  EReference getBindingProvided_Name();
+  EReference getBindingProvided_Id();
 
   /**
    * Returns the meta object for the reference '{@link com.project.foo.foo.BindingProvided#getType <em>Type</em>}'.
@@ -1498,12 +1498,12 @@ public interface FooPackage extends EPackage
     EClass BINDING_REQUIERED = eINSTANCE.getBindingRequiered();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Id</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINDING_REQUIERED__NAME = eINSTANCE.getBindingRequiered_Name();
+    EReference BINDING_REQUIERED__ID = eINSTANCE.getBindingRequiered_Id();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' reference feature.
@@ -1524,12 +1524,12 @@ public interface FooPackage extends EPackage
     EClass BINDING_PROVIDED = eINSTANCE.getBindingProvided();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Id</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINDING_PROVIDED__NAME = eINSTANCE.getBindingProvided_Name();
+    EReference BINDING_PROVIDED__ID = eINSTANCE.getBindingProvided_Id();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' reference feature.
