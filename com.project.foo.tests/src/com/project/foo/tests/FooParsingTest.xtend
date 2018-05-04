@@ -667,4 +667,188 @@ class FooParsingTest {
 			"Foo".length,
 			"The assembly is not correct, there are missing bindings")
 	}
+
+	@Test
+	def void testCheckBindingRequieredCanUseMethod(){
+		val inputOk = '''
+			package my.company.firstPack {
+				import static extension my.company.secondPack.*
+			
+				Component A{
+					provided = {m1,m2,m8}
+					requiered = {m3}
+			
+					service provided type2 m1(p1 : type1) {}
+					service provided void m2() {}
+					service provided type3 m8(p8 : type3, p9 : type4) {}
+			
+					service requiered type3 m3(p2 : type4);
+				}
+			
+				Component B{
+					provided = {m3}
+					requiered = {m1,m4}
+			
+					service provided type3 m3 (p4 : type4) { }
+			
+					service requiered type2 m1 (p3 : type1);
+					service requiered type3 m4 (p4_1 : type3, p4_2 : type4);
+				}
+			
+				Assembly Foo{
+					components
+					a1 : A
+					a2 : A
+					b1 : B
+					bindings
+					a1.A.m3 - b1.B.m3
+					a2.A.m3 - b1.B.m3
+					b1.B.m1 - a1.A.m1
+					b1.B.m4 - a2.A.m8
+				}
+			}
+		'''
+		inputOk.parse.assertNoIssues()
+		
+		val input = '''
+		package my.company.firstPack {
+						import static extension my.company.secondPack.*
+					
+						Component A{
+							provided = {m1,m2,m8}
+							requiered = {m3}
+					
+							service provided type2 m1(p1 : type1) {}
+							service provided void m2() {}
+							service provided type3 m8(p8 : type3, p9 : type4) {}
+					
+							service requiered type3 m3(p2 : type4);
+						}
+					
+						Component B{
+							provided = {m3}
+							requiered = {m1,m4}
+					
+							service provided type3 m3 (p4 : type4) { }
+					
+							service requiered type2 m1 (p3 : type1);
+							service requiered type3 m4 (p4_1 : type3, p4_2 : type4);
+						}
+					
+						Assembly Foo{
+							components
+							a1 : A
+							a2 : A
+							b1 : B
+							bindings
+							a1.A.m3 - b1.B.m3
+							a2.A.m3 - b1.B.m3
+							b1.B.m1 - a1.A.m1
+							b1.B.m4 - a2.A.m8
+							b1.A.m3 - b1.B.m3
+						}
+					}
+		'''
+
+		input.parse.assertError(
+			FooPackage.Literals.BINDING_REQUIERED,
+			FooValidator.CHECK_BINDING_REQUIERED_CAN_USE_METHOD,
+			input.indexOf("b1.A.m3") + "b1.".length,
+			"A.m3".length,
+			"The type of the component and the component requiring this method are not the same")
+	}
+	
+	@Test
+	def void testCheckBindingProvidedCanUseMethod(){
+		val inputOk = '''
+			package my.company.firstPack {
+				import static extension my.company.secondPack.*
+			
+				Component A{
+					provided = {m1,m2,m8}
+					requiered = {m3}
+			
+					service provided type2 m1(p1 : type1) {}
+					service provided void m2() {}
+					service provided type3 m8(p8 : type3, p9 : type4) {}
+			
+					service requiered type3 m3(p2 : type4);
+				}
+			
+				Component B{
+					provided = {m3}
+					requiered = {m1,m4}
+			
+					service provided type3 m3 (p4 : type4) { }
+			
+					service requiered type2 m1 (p3 : type1);
+					service requiered type3 m4 (p4_1 : type3, p4_2 : type4);
+				}
+			
+				Assembly Foo{
+					components
+					a1 : A
+					a2 : A
+					b1 : B
+					bindings
+					a1.A.m3 - b1.B.m3
+					a2.A.m3 - b1.B.m3
+					b1.B.m1 - a1.A.m1
+					b1.B.m4 - a2.A.m8
+				}
+			}
+		'''
+		inputOk.parse.assertNoIssues()
+		
+		val input = '''
+		package my.company.firstPack {
+					import static extension my.company.secondPack.*
+				
+					Component A{
+						provided = {m1,m2,m8,mk8}
+						requiered = {m3,mk0}
+				
+						service provided type2 m1(p1 : type1) {}
+						service provided void m2() {}
+						service provided type3 m8(p8 : type3, p9 : type4) {}
+						service provided type00 mk8() {}
+					
+						service requiered type3 m3(p2 : type4);
+						service requiered type00 mk0();
+					}
+				
+					Component B{
+						provided = {m3,mk8}
+						requiered = {m1,m4}
+				
+						service provided type3 m3 (p4 : type4) { }
+						service provided type00 mk8() {}
+				
+						service requiered type2 m1 (p3 : type1);
+						service requiered type3 m4 (p4_1 : type3, p4_2 : type4);
+					}
+				
+					Assembly Foo{
+						components
+						a1 : A
+						a2 : A
+						b1 : B
+						bindings
+						a1.A.m3 - b1.B.m3
+						a2.A.m3 - b1.B.m3
+						b1.B.m1 - a1.A.m1
+						b1.B.m4 - a2.A.m8
+						a1.A.mk0 - b1.B.mk8
+						a2.A.mk0 - b1.A.mk8
+					}
+				}
+		'''
+
+		input.parse.assertError(
+			FooPackage.Literals.BINDING_PROVIDED,
+			FooValidator.CHECK_BINDING_PROVIDED_CAN_USE_METHOD,
+			input.indexOf("b1.A.mk8") + "b1.".length,
+			"A.mk8".length,
+			"The type of the component and the component requiring this method are not the same")
+	}
 }

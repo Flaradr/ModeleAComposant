@@ -189,7 +189,7 @@ class FooValidator extends AbstractFooValidator {
 	 * le composant X et pas un autre 
 	 */ 
 	@Check
-	def void checkComponentCanUseMethod(BindingProvided bindingProvided){
+	def void checkBindingProvidedCanUseMethod(BindingProvided bindingProvided){
 		val listOfComponent = (bindingProvided.id.eContainer as Assembly).attributes
 		var res = false
 		var i = 0
@@ -206,7 +206,7 @@ class FooValidator extends AbstractFooValidator {
 		
 		if (!typeOfInstance.equals(componentTypeOfService)){
 			error("The type of the component and the component requiring this method are not the same",
-				  FooPackage.Literals.BINDING_REQUIERED__TYPE,
+				  FooPackage.Literals.BINDING_PROVIDED__TYPE,
 				  CHECK_BINDING_PROVIDED_CAN_USE_METHOD)
 		}
 	}

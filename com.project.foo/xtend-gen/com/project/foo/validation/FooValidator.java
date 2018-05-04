@@ -249,7 +249,7 @@ public class FooValidator extends AbstractFooValidator {
    * le composant X et pas un autre
    */
   @Check
-  public void checkComponentCanUseMethod(final BindingProvided bindingProvided) {
+  public void checkBindingProvidedCanUseMethod(final BindingProvided bindingProvided) {
     EObject _eContainer = bindingProvided.getId().eContainer();
     final EList<ComponentAttribute> listOfComponent = ((Assembly) _eContainer).getAttributes();
     boolean res = false;
@@ -273,7 +273,7 @@ public class FooValidator extends AbstractFooValidator {
     boolean _not = (!_equals);
     if (_not) {
       this.error("The type of the component and the component requiring this method are not the same", 
-        FooPackage.Literals.BINDING_REQUIERED__TYPE, 
+        FooPackage.Literals.BINDING_PROVIDED__TYPE, 
         FooValidator.CHECK_BINDING_PROVIDED_CAN_USE_METHOD);
     }
   }
