@@ -8,15 +8,16 @@ package my.company.firstPack {
 		service provided type2 m1(p1 : type1) {}
 		service provided void m2() {}
 		service provided type3 m8(p8 : type3, p9 : type4) {}
-
+	
 		service requiered type3 m3(p2 : type4);
 	}
 
 	Component B{
-		provided = {m3}
+		provided = {m3,mk8}
 		requiered = {m1,m4}
 
 		service provided type3 m3 (p4 : type4) { }
+		service provided type00 mk8() {}
 
 		service requiered type2 m1 (p3 : type1);
 		service requiered type3 m4 (p4_1 : type3, p4_2 : type4);
