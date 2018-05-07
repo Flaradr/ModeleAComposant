@@ -201,7 +201,6 @@ class FooValidator extends AbstractFooValidator {
 			}
 			i++
 		}
-		
 		val componentTypeOfService = (bindingProvided.type.eContainer.eContainer as Component).name
 		
 		if (!typeOfInstance.equals(componentTypeOfService)){
