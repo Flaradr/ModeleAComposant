@@ -3,7 +3,6 @@
  */
 package com.project.foo.validation;
 
-import com.google.common.base.Objects;
 import com.project.foo.foo.Assembly;
 import com.project.foo.foo.Attribute;
 import com.project.foo.foo.Binding;
@@ -94,12 +93,10 @@ public class FooValidator extends AbstractFooValidator {
     EObject tmp = EcoreUtil2.getNextSibling(component);
     while ((tmp != null)) {
       {
-        String _name = component.getName();
-        String _name_1 = ((Component) tmp).getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = component.getName().equals(((Component) tmp).getName());
         if (_equals) {
-          String _name_2 = component.getName();
-          String _plus = ("The name of a component should be unique:\'" + _name_2);
+          String _name = component.getName();
+          String _plus = ("The name of a component should be unique:\'" + _name);
           String _plus_1 = (_plus + "\'");
           this.error(_plus_1, 
             FooPackage.Literals.COMPONENT__NAME, 
@@ -119,12 +116,10 @@ public class FooValidator extends AbstractFooValidator {
     EObject tmp = EcoreUtil2.getNextSibling(assembly);
     while ((tmp != null)) {
       {
-        String _name = assembly.getName();
-        String _name_1 = ((Assembly) tmp).getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = assembly.getName().equals(((Assembly) tmp).getName());
         if (_equals) {
-          String _name_2 = assembly.getName();
-          String _plus = ("The name of an assembly should be unique :\'" + _name_2);
+          String _name = assembly.getName();
+          String _plus = ("The name of an assembly should be unique :\'" + _name);
           String _plus_1 = (_plus + "\'");
           this.error(_plus_1, 
             FooPackage.Literals.ASSEMBLY__NAME, 
@@ -144,12 +139,10 @@ public class FooValidator extends AbstractFooValidator {
     EObject tmp = EcoreUtil2.getNextSibling(ca);
     while ((tmp != null)) {
       {
-        String _name = ca.getName();
-        String _name_1 = ((ComponentAttribute) tmp).getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = ca.getName().equals(((ComponentAttribute) tmp).getName());
         if (_equals) {
-          String _name_2 = ca.getName();
-          String _plus = ("The name of a component attribute should be unique :\'" + _name_2);
+          String _name = ca.getName();
+          String _plus = ("The name of a component attribute should be unique :\'" + _name);
           String _plus_1 = (_plus + "\'");
           this.error(_plus_1, 
             FooPackage.Literals.COMPONENT_ATTRIBUTE__NAME, 
@@ -169,12 +162,10 @@ public class FooValidator extends AbstractFooValidator {
     EObject tmp = EcoreUtil2.getNextSibling(ps);
     while ((tmp != null)) {
       {
-        String _name = ps.getName();
-        String _name_1 = ((ProvidedService) tmp).getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = ps.getName().equals(((ProvidedService) tmp).getName());
         if (_equals) {
-          String _name_2 = ps.getName();
-          String _plus = ("The name of a provided service should be unique in a component: \'" + _name_2);
+          String _name = ps.getName();
+          String _plus = ("The name of a provided service should be unique in a component: \'" + _name);
           String _plus_1 = (_plus + "\'");
           this.error(_plus_1, 
             FooPackage.Literals.PROVIDED_SERVICE__NAME, 
@@ -194,12 +185,10 @@ public class FooValidator extends AbstractFooValidator {
     EObject tmp = EcoreUtil2.getNextSibling(rs);
     while ((tmp != null)) {
       {
-        String _name = rs.getName();
-        String _name_1 = ((RequieredService) tmp).getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = rs.getName().equals(((RequieredService) tmp).getName());
         if (_equals) {
-          String _name_2 = rs.getName();
-          String _plus = ("The name of a requiered service should be unique in a component: \'" + _name_2);
+          String _name = rs.getName();
+          String _plus = ("The name of a requiered service should be unique in a component: \'" + _name);
           String _plus_1 = (_plus + "\'");
           this.error(_plus_1, 
             FooPackage.Literals.REQUIERED_SERVICE__NAME, 
@@ -223,9 +212,7 @@ public class FooValidator extends AbstractFooValidator {
     String typeOfInstance = null;
     while (((i < listOfComponent.size()) && (!res))) {
       {
-        String _name = listOfComponent.get(i).getName();
-        String _name_1 = bindingRequiered.getId().getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = listOfComponent.get(i).getName().equals(bindingRequiered.getId().getName());
         if (_equals) {
           res = true;
           typeOfInstance = listOfComponent.get(i).getType().getName();
@@ -257,9 +244,7 @@ public class FooValidator extends AbstractFooValidator {
     String typeOfInstance = null;
     while (((i < listOfComponent.size()) && (!res))) {
       {
-        String _name = listOfComponent.get(i).getName();
-        String _name_1 = bindingProvided.getId().getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = listOfComponent.get(i).getName().equals(bindingProvided.getId().getName());
         if (_equals) {
           res = true;
           typeOfInstance = listOfComponent.get(i).getType().getName();
@@ -343,9 +328,7 @@ public class FooValidator extends AbstractFooValidator {
     boolean res = true;
     while (((i < signature1.size()) && res)) {
       {
-        String _type = signature1.get(i).getType();
-        String _type_1 = signature2.get(i).getType();
-        boolean _equals_1 = Objects.equal(_type, _type_1);
+        boolean _equals_1 = signature1.get(i).getType().equals(signature2.get(i).getType());
         boolean _not_1 = (!_equals_1);
         if (_not_1) {
           this.error("The type of the parameters of the requiered service and the provided service do not match", 
@@ -369,9 +352,7 @@ public class FooValidator extends AbstractFooValidator {
     boolean hasMethod = false;
     while (((i < services.size()) && (!hasMethod))) {
       {
-        String _name = services.get(i).getSignature().getName().getName();
-        String _name_1 = provS.getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = services.get(i).getSignature().getName().getName().equals(provS.getName());
         if (_equals) {
           hasMethod = true;
         }
@@ -397,9 +378,7 @@ public class FooValidator extends AbstractFooValidator {
     boolean hasMethod = false;
     while (((i < services.size()) && (!hasMethod))) {
       {
-        String _name = services.get(i).getSignature().getName().getName();
-        String _name_1 = reqS.getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = services.get(i).getSignature().getName().getName().equals(reqS.getName());
         if (_equals) {
           hasMethod = true;
         }

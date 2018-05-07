@@ -75,7 +75,7 @@ class FooValidator extends AbstractFooValidator {
 	 def void checkComponentNameIsUnique(Component component){
 		var tmp = EcoreUtil2.getNextSibling(component)
 		while(tmp !== null){
-			if (component.name == (tmp as Component).name){
+			if (component.name.equals((tmp as Component).name)){
 				error("The name of a component should be unique:'"+component.name+"'",
 					  FooPackage.Literals.COMPONENT__NAME,
 					  CHECK_COMPONENT_NAME_IS_UNIQUE)
@@ -92,7 +92,7 @@ class FooValidator extends AbstractFooValidator {
 	 def void checkAssemblyNameIsUnique(Assembly assembly){
 	 	var tmp = EcoreUtil2.getNextSibling(assembly)
 	 	while(tmp !== null){
-			if(assembly.name == (tmp as Assembly).name){
+			if(assembly.name.equals((tmp as Assembly).name)){
 				error("The name of an assembly should be unique :'"+assembly.name+"'",
 				      FooPackage.Literals.ASSEMBLY__NAME,
 					  CHECK_ASSEMBLY_NAME_IS_UNIQUE)
@@ -109,7 +109,7 @@ class FooValidator extends AbstractFooValidator {
 	 def void checkComponentAttributeNameIsUnique(ComponentAttribute ca){
 	 	var tmp = EcoreUtil2.getNextSibling(ca)
 	 	while(tmp !== null){
-	 		if(ca.name == (tmp as ComponentAttribute).name){
+	 		if(ca.name.equals((tmp as ComponentAttribute).name)){
 	 			error("The name of a component attribute should be unique :'"+ca.name+"'",
 	 				  FooPackage.Literals.COMPONENT_ATTRIBUTE__NAME,
 	 				  CHECK_COMPONENT_ATTRIBUTE_NAME_IS_UNIQUE)
@@ -126,7 +126,7 @@ class FooValidator extends AbstractFooValidator {
 	 def void checkProvidedServiceNameIsUnique(ProvidedService ps){
 	 	var tmp = EcoreUtil2.getNextSibling(ps)
 	 	while(tmp !== null){
-	 		if(ps.name == (tmp as ProvidedService).name){
+	 		if(ps.name.equals((tmp as ProvidedService).name)){
 	 			error("The name of a provided service should be unique in a component: '"+ps.name +"'",
 	 				  FooPackage.Literals.PROVIDED_SERVICE__NAME,
 	 				  CHECK_P_SERVICE_NAME_IS_UNIQUE)
@@ -143,7 +143,7 @@ class FooValidator extends AbstractFooValidator {
 	 def void checkRequieredServiceNameIsUnique(RequieredService rs){
 	 	var tmp = EcoreUtil2.getNextSibling(rs)
 	 	while(tmp !== null){
-	 		if(rs.name == (tmp as RequieredService).name){
+	 		if(rs.name.equals((tmp as RequieredService).name)){
 	 			error("The name of a requiered service should be unique in a component: '"+rs.name+"'",
 	 				FooPackage.Literals.REQUIERED_SERVICE__NAME,
 	 				CHECK_R_SERVICE_NAME_IS_UNIQUE)
@@ -168,7 +168,7 @@ class FooValidator extends AbstractFooValidator {
 		var i = 0
 		var String typeOfInstance
 		while (i < listOfComponent.size() && !res){
-			if (listOfComponent.get(i).name == bindingRequiered.id.name){
+			if (listOfComponent.get(i).name.equals(bindingRequiered.id.name)){
 				res = true
 				typeOfInstance = listOfComponent.get(i).type.name
 			}
@@ -195,7 +195,7 @@ class FooValidator extends AbstractFooValidator {
 		var i = 0
 		var String typeOfInstance
 		while (i < listOfComponent.size() && !res){
-			if (listOfComponent.get(i).name == bindingProvided.id.name){
+			if (listOfComponent.get(i).name.equals(bindingProvided.id.name)){
 				res = true
 				typeOfInstance = listOfComponent.get(i).type.name
 			}
@@ -268,7 +268,7 @@ class FooValidator extends AbstractFooValidator {
 		var int i = 0
 		var boolean res = true
 		while (i < signature1.size() && res){
-			if(!(signature1.get(i).type == signature2.get(i).type)){
+			if(!(signature1.get(i).type.equals(signature2.get(i).type))){
 				error("The type of the parameters of the requiered service and the provided service do not match",
 					  FooPackage.Literals.BINDING__MD,
 					  CHECK_BINDING_IS_VALID)
@@ -287,7 +287,7 @@ class FooValidator extends AbstractFooValidator {
 		var int i = 0
 		var boolean hasMethod = false
 		while (i < services.size() && !hasMethod){
-			if(services.get(i).signature.name.name == provS.name){
+			if(services.get(i).signature.name.name.equals(provS.name)){
 				hasMethod = true
 			}
 			i++
@@ -309,7 +309,7 @@ class FooValidator extends AbstractFooValidator {
 		var int i = 0
 		var boolean hasMethod = false
 		while (i < services.size() && !hasMethod){
-			if(services.get(i).signature.name.name == reqS.name){
+			if(services.get(i).signature.name.name.equals(reqS.name)){
 				hasMethod = true
 			}
 			i++
