@@ -1,0 +1,31 @@
+
+package my.company.thirdPack{
+import static extension my.company.firstPack.*
+
+	Component D{
+		provided = {m1,m2}
+		requiered = {r0,r3}
+
+		service provided type2 m1 (p1 : type1) {}
+		service provided type3 m2 (p3 : type4) {}
+
+		service requiered type3 r0(p8 : type3, p9 : type4);
+		service requiered void r3();
+	}
+
+	Assembly FooBar{
+		components
+		a : A
+		b : B
+		d : D
+		bindings
+		//Service requis du composant A
+		a.A.m3 - d.D.m2
+		//Services requis du composant B
+		b.B.m1 - d.D.m1
+		b.B.m4 - a.A.m8
+		//Services requis du composant D
+		d.D.r3 - a.A.m2
+		d.D.r0 - a.A.m8
+	}
+}
