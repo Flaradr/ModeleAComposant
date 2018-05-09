@@ -40,7 +40,7 @@ Assembly:
 
 //Structure d'un composant
 ComponentAttribute:
-	name=ID ':' type=[Component|QualifiedName];
+	name=ID ':' composant=[Component|QualifiedName];
 
 //Lien entre d'un service requis d'un composant X et d'un
 //service fourni d'un composant Y
@@ -48,10 +48,10 @@ Binding:
 	mG=BindingRequiered '-' mD=BindingProvided ;
 
 BindingRequiered:
-	id=[ComponentAttribute]'.'type=[RequieredService|QualifiedName];
+	id=[ComponentAttribute|QualifiedName]'.'type=[RequieredService|QualifiedName];
 
 BindingProvided:
-	id=[ComponentAttribute]'.'type=[ProvidedService|QualifiedName];
+	id=[ComponentAttribute|QualifiedName]'.'type=[ProvidedService|QualifiedName];
 
 //Structure d'un composant
 Component:
@@ -82,9 +82,9 @@ Requiered:
 RequieredService:
 	name=ID;
 
+//Signature d'un service fourni
 MProvidedService:
-	'service' 'provided' signature=PSignature'{'
-	'}';
+	'service' 'provided' signature=PSignature'{''}';
 
 //Signature d'un service fourni
 PSignature:

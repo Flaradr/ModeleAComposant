@@ -261,16 +261,16 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cTypeComponentCrossReference_2_0 = (CrossReference)cTypeAssignment_2.eContents().get(0);
-		private final RuleCall cTypeComponentQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cTypeComponentCrossReference_2_0.eContents().get(1);
+		private final Assignment cComposantAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cComposantComponentCrossReference_2_0 = (CrossReference)cComposantAssignment_2.eContents().get(0);
+		private final RuleCall cComposantComponentQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cComposantComponentCrossReference_2_0.eContents().get(1);
 		
 		////Structure d'un composant
 		//ComponentAttribute:
-		//	name=ID ':' type=[Component|QualifiedName];
+		//	name=ID ':' composant=[Component|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ':' type=[Component|QualifiedName]
+		//name=ID ':' composant=[Component|QualifiedName]
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -282,14 +282,14 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 		
-		//type=[Component|QualifiedName]
-		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
+		//composant=[Component|QualifiedName]
+		public Assignment getComposantAssignment_2() { return cComposantAssignment_2; }
 		
 		//[Component|QualifiedName]
-		public CrossReference getTypeComponentCrossReference_2_0() { return cTypeComponentCrossReference_2_0; }
+		public CrossReference getComposantComponentCrossReference_2_0() { return cComposantComponentCrossReference_2_0; }
 		
 		//QualifiedName
-		public RuleCall getTypeComponentQualifiedNameParserRuleCall_2_0_1() { return cTypeComponentQualifiedNameParserRuleCall_2_0_1; }
+		public RuleCall getComposantComponentQualifiedNameParserRuleCall_2_0_1() { return cComposantComponentQualifiedNameParserRuleCall_2_0_1; }
 	}
 	public class BindingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.Binding");
@@ -329,27 +329,27 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cIdAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cIdComponentAttributeCrossReference_0_0 = (CrossReference)cIdAssignment_0.eContents().get(0);
-		private final RuleCall cIdComponentAttributeIDTerminalRuleCall_0_0_1 = (RuleCall)cIdComponentAttributeCrossReference_0_0.eContents().get(1);
+		private final RuleCall cIdComponentAttributeQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cIdComponentAttributeCrossReference_0_0.eContents().get(1);
 		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cTypeRequieredServiceCrossReference_2_0 = (CrossReference)cTypeAssignment_2.eContents().get(0);
 		private final RuleCall cTypeRequieredServiceQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cTypeRequieredServiceCrossReference_2_0.eContents().get(1);
 		
 		//BindingRequiered:
-		//	id=[ComponentAttribute] '.' type=[RequieredService|QualifiedName];
+		//	id=[ComponentAttribute|QualifiedName] '.' type=[RequieredService|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//id=[ComponentAttribute] '.' type=[RequieredService|QualifiedName]
+		//id=[ComponentAttribute|QualifiedName] '.' type=[RequieredService|QualifiedName]
 		public Group getGroup() { return cGroup; }
 		
-		//id=[ComponentAttribute]
+		//id=[ComponentAttribute|QualifiedName]
 		public Assignment getIdAssignment_0() { return cIdAssignment_0; }
 		
-		//[ComponentAttribute]
+		//[ComponentAttribute|QualifiedName]
 		public CrossReference getIdComponentAttributeCrossReference_0_0() { return cIdComponentAttributeCrossReference_0_0; }
 		
-		//ID
-		public RuleCall getIdComponentAttributeIDTerminalRuleCall_0_0_1() { return cIdComponentAttributeIDTerminalRuleCall_0_0_1; }
+		//QualifiedName
+		public RuleCall getIdComponentAttributeQualifiedNameParserRuleCall_0_0_1() { return cIdComponentAttributeQualifiedNameParserRuleCall_0_0_1; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
@@ -368,27 +368,27 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cIdAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cIdComponentAttributeCrossReference_0_0 = (CrossReference)cIdAssignment_0.eContents().get(0);
-		private final RuleCall cIdComponentAttributeIDTerminalRuleCall_0_0_1 = (RuleCall)cIdComponentAttributeCrossReference_0_0.eContents().get(1);
+		private final RuleCall cIdComponentAttributeQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cIdComponentAttributeCrossReference_0_0.eContents().get(1);
 		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cTypeProvidedServiceCrossReference_2_0 = (CrossReference)cTypeAssignment_2.eContents().get(0);
 		private final RuleCall cTypeProvidedServiceQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cTypeProvidedServiceCrossReference_2_0.eContents().get(1);
 		
 		//BindingProvided:
-		//	id=[ComponentAttribute] '.' type=[ProvidedService|QualifiedName];
+		//	id=[ComponentAttribute|QualifiedName] '.' type=[ProvidedService|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//id=[ComponentAttribute] '.' type=[ProvidedService|QualifiedName]
+		//id=[ComponentAttribute|QualifiedName] '.' type=[ProvidedService|QualifiedName]
 		public Group getGroup() { return cGroup; }
 		
-		//id=[ComponentAttribute]
+		//id=[ComponentAttribute|QualifiedName]
 		public Assignment getIdAssignment_0() { return cIdAssignment_0; }
 		
-		//[ComponentAttribute]
+		//[ComponentAttribute|QualifiedName]
 		public CrossReference getIdComponentAttributeCrossReference_0_0() { return cIdComponentAttributeCrossReference_0_0; }
 		
-		//ID
-		public RuleCall getIdComponentAttributeIDTerminalRuleCall_0_0_1() { return cIdComponentAttributeIDTerminalRuleCall_0_0_1; }
+		//QualifiedName
+		public RuleCall getIdComponentAttributeQualifiedNameParserRuleCall_0_0_1() { return cIdComponentAttributeQualifiedNameParserRuleCall_0_0_1; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
@@ -1006,7 +1006,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////Structure d'un composant
 	//ComponentAttribute:
-	//	name=ID ':' type=[Component|QualifiedName];
+	//	name=ID ':' composant=[Component|QualifiedName];
 	public ComponentAttributeElements getComponentAttributeAccess() {
 		return pComponentAttribute;
 	}
@@ -1028,7 +1028,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//BindingRequiered:
-	//	id=[ComponentAttribute] '.' type=[RequieredService|QualifiedName];
+	//	id=[ComponentAttribute|QualifiedName] '.' type=[RequieredService|QualifiedName];
 	public BindingRequieredElements getBindingRequieredAccess() {
 		return pBindingRequiered;
 	}
@@ -1038,7 +1038,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//BindingProvided:
-	//	id=[ComponentAttribute] '.' type=[ProvidedService|QualifiedName];
+	//	id=[ComponentAttribute|QualifiedName] '.' type=[ProvidedService|QualifiedName];
 	public BindingProvidedElements getBindingProvidedAccess() {
 		return pBindingProvided;
 	}

@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.project.foo.foo.impl.ComponentAttributeImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.project.foo.foo.impl.ComponentAttributeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.ComponentAttributeImpl#getComposant <em>Composant</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,14 +52,14 @@ public class ComponentAttributeImpl extends MinimalEObjectImpl.Container impleme
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * The cached value of the '{@link #getComposant() <em>Composant</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getComposant()
    * @generated
    * @ordered
    */
-  protected Component type;
+  protected Component composant;
 
   /**
    * <!-- begin-user-doc -->
@@ -110,19 +110,19 @@ public class ComponentAttributeImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public Component getType()
+  public Component getComposant()
   {
-    if (type != null && type.eIsProxy())
+    if (composant != null && composant.eIsProxy())
     {
-      InternalEObject oldType = (InternalEObject)type;
-      type = (Component)eResolveProxy(oldType);
-      if (type != oldType)
+      InternalEObject oldComposant = (InternalEObject)composant;
+      composant = (Component)eResolveProxy(oldComposant);
+      if (composant != oldComposant)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.COMPONENT_ATTRIBUTE__TYPE, oldType, type));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.COMPONENT_ATTRIBUTE__COMPOSANT, oldComposant, composant));
       }
     }
-    return type;
+    return composant;
   }
 
   /**
@@ -130,9 +130,9 @@ public class ComponentAttributeImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public Component basicGetType()
+  public Component basicGetComposant()
   {
-    return type;
+    return composant;
   }
 
   /**
@@ -140,12 +140,12 @@ public class ComponentAttributeImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(Component newType)
+  public void setComposant(Component newComposant)
   {
-    Component oldType = type;
-    type = newType;
+    Component oldComposant = composant;
+    composant = newComposant;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.COMPONENT_ATTRIBUTE__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.COMPONENT_ATTRIBUTE__COMPOSANT, oldComposant, composant));
   }
 
   /**
@@ -160,9 +160,9 @@ public class ComponentAttributeImpl extends MinimalEObjectImpl.Container impleme
     {
       case FooPackage.COMPONENT_ATTRIBUTE__NAME:
         return getName();
-      case FooPackage.COMPONENT_ATTRIBUTE__TYPE:
-        if (resolve) return getType();
-        return basicGetType();
+      case FooPackage.COMPONENT_ATTRIBUTE__COMPOSANT:
+        if (resolve) return getComposant();
+        return basicGetComposant();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -180,8 +180,8 @@ public class ComponentAttributeImpl extends MinimalEObjectImpl.Container impleme
       case FooPackage.COMPONENT_ATTRIBUTE__NAME:
         setName((String)newValue);
         return;
-      case FooPackage.COMPONENT_ATTRIBUTE__TYPE:
-        setType((Component)newValue);
+      case FooPackage.COMPONENT_ATTRIBUTE__COMPOSANT:
+        setComposant((Component)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -200,8 +200,8 @@ public class ComponentAttributeImpl extends MinimalEObjectImpl.Container impleme
       case FooPackage.COMPONENT_ATTRIBUTE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case FooPackage.COMPONENT_ATTRIBUTE__TYPE:
-        setType((Component)null);
+      case FooPackage.COMPONENT_ATTRIBUTE__COMPOSANT:
+        setComposant((Component)null);
         return;
     }
     super.eUnset(featureID);
@@ -219,8 +219,8 @@ public class ComponentAttributeImpl extends MinimalEObjectImpl.Container impleme
     {
       case FooPackage.COMPONENT_ATTRIBUTE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case FooPackage.COMPONENT_ATTRIBUTE__TYPE:
-        return type != null;
+      case FooPackage.COMPONENT_ATTRIBUTE__COMPOSANT:
+        return composant != null;
     }
     return super.eIsSet(featureID);
   }

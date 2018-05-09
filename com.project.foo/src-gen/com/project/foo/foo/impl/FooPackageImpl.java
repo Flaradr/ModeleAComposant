@@ -383,7 +383,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponentAttribute_Type()
+  public EReference getComponentAttribute_Composant()
   {
     return (EReference)componentAttributeEClass.getEStructuralFeatures().get(1);
   }
@@ -817,7 +817,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
 
     componentAttributeEClass = createEClass(COMPONENT_ATTRIBUTE);
     createEAttribute(componentAttributeEClass, COMPONENT_ATTRIBUTE__NAME);
-    createEReference(componentAttributeEClass, COMPONENT_ATTRIBUTE__TYPE);
+    createEReference(componentAttributeEClass, COMPONENT_ATTRIBUTE__COMPOSANT);
 
     bindingEClass = createEClass(BINDING);
     createEReference(bindingEClass, BINDING__MG);
@@ -921,7 +921,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
 
     initEClass(componentAttributeEClass, ComponentAttribute.class, "ComponentAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComponentAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, ComponentAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComponentAttribute_Type(), this.getComponent(), null, "type", null, 0, 1, ComponentAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComponentAttribute_Composant(), this.getComponent(), null, "composant", null, 0, 1, ComponentAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bindingEClass, Binding.class, "Binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBinding_MG(), this.getBindingRequiered(), null, "mG", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -48,7 +48,7 @@ public abstract class AbstractFooProposalProvider extends TerminalsProposalProvi
 	public void completeComponentAttribute_Name(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
-	public void completeComponentAttribute_Type(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	public void completeComponentAttribute_Composant(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		lookupCrossReference(((CrossReference)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeBinding_MG(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {

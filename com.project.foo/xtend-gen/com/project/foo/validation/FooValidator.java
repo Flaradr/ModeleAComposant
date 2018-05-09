@@ -215,7 +215,7 @@ public class FooValidator extends AbstractFooValidator {
         boolean _equals = listOfComponent.get(i).getName().equals(bindingRequiered.getId().getName());
         if (_equals) {
           res = true;
-          typeOfInstance = listOfComponent.get(i).getType().getName();
+          typeOfInstance = listOfComponent.get(i).getComposant().getName();
         }
         i++;
       }
@@ -247,7 +247,7 @@ public class FooValidator extends AbstractFooValidator {
         boolean _equals = listOfComponent.get(i).getName().equals(bindingProvided.getId().getName());
         if (_equals) {
           res = true;
-          typeOfInstance = listOfComponent.get(i).getType().getName();
+          typeOfInstance = listOfComponent.get(i).getComposant().getName();
         }
         i++;
       }
@@ -403,8 +403,8 @@ public class FooValidator extends AbstractFooValidator {
     EList<ComponentAttribute> listeComposants = assembly.getAttributes();
     for (final ComponentAttribute component : listeComposants) {
       {
-        Component _type = component.getType();
-        EList<RequieredService> listeServicesRequis = ((Component) _type).getRequiered().getRequieredServices();
+        Component _composant = component.getComposant();
+        EList<RequieredService> listeServicesRequis = ((Component) _composant).getRequiered().getRequieredServices();
         for (final RequieredService service : listeServicesRequis) {
           {
             EList<Binding> listeBindings = assembly.getBindings();

@@ -496,7 +496,7 @@ ruleComponentAttribute returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getComponentAttributeAccess().getTypeComponentCrossReference_2_0());
+					newCompositeNode(grammarAccess.getComponentAttributeAccess().getComposantComponentCrossReference_2_0());
 				}
 				ruleQualifiedName
 				{
@@ -591,9 +591,12 @@ ruleBindingRequiered returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getBindingRequieredRule());
 					}
 				}
-				otherlv_0=RULE_ID
 				{
-					newLeafNode(otherlv_0, grammarAccess.getBindingRequieredAccess().getIdComponentAttributeCrossReference_0_0());
+					newCompositeNode(grammarAccess.getBindingRequieredAccess().getIdComponentAttributeCrossReference_0_0());
+				}
+				ruleQualifiedName
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -643,9 +646,12 @@ ruleBindingProvided returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getBindingProvidedRule());
 					}
 				}
-				otherlv_0=RULE_ID
 				{
-					newLeafNode(otherlv_0, grammarAccess.getBindingProvidedAccess().getIdComponentAttributeCrossReference_0_0());
+					newCompositeNode(grammarAccess.getBindingProvidedAccess().getIdComponentAttributeCrossReference_0_0());
+				}
+				ruleQualifiedName
+				{
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)

@@ -170,7 +170,7 @@ class FooValidator extends AbstractFooValidator {
 		while (i < listOfComponent.size() && !res){
 			if (listOfComponent.get(i).name.equals(bindingRequiered.id.name)){
 				res = true
-				typeOfInstance = listOfComponent.get(i).type.name
+				typeOfInstance = listOfComponent.get(i).composant.name
 			}
 			i++
 		}
@@ -197,7 +197,7 @@ class FooValidator extends AbstractFooValidator {
 		while (i < listOfComponent.size() && !res){
 			if (listOfComponent.get(i).name.equals(bindingProvided.id.name)){
 				res = true
-				typeOfInstance = listOfComponent.get(i).type.name
+				typeOfInstance = listOfComponent.get(i).composant.name
 			}
 			i++
 		}
@@ -332,7 +332,7 @@ class FooValidator extends AbstractFooValidator {
 		var listeComposants = assembly.attributes
 		for (ComponentAttribute component : listeComposants){
 		//Recupere liste des composants dans l'assemblage
-			var listeServicesRequis = (component.type as Component).requiered.requieredServices
+			var listeServicesRequis = (component.composant as Component).requiered.requieredServices
 			for(RequieredService service : listeServicesRequis){
 			//Liste des services requis dans un composant
 				var listeBindings = assembly.bindings

@@ -1356,9 +1356,9 @@ rule__ComponentAttribute__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getComponentAttributeAccess().getTypeAssignment_2()); }
-	(rule__ComponentAttribute__TypeAssignment_2)
-	{ after(grammarAccess.getComponentAttributeAccess().getTypeAssignment_2()); }
+	{ before(grammarAccess.getComponentAttributeAccess().getComposantAssignment_2()); }
+	(rule__ComponentAttribute__ComposantAssignment_2)
+	{ after(grammarAccess.getComponentAttributeAccess().getComposantAssignment_2()); }
 )
 ;
 finally {
@@ -3266,19 +3266,19 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ComponentAttribute__TypeAssignment_2
+rule__ComponentAttribute__ComposantAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getComponentAttributeAccess().getTypeComponentCrossReference_2_0()); }
+		{ before(grammarAccess.getComponentAttributeAccess().getComposantComponentCrossReference_2_0()); }
 		(
-			{ before(grammarAccess.getComponentAttributeAccess().getTypeComponentQualifiedNameParserRuleCall_2_0_1()); }
+			{ before(grammarAccess.getComponentAttributeAccess().getComposantComponentQualifiedNameParserRuleCall_2_0_1()); }
 			ruleQualifiedName
-			{ after(grammarAccess.getComponentAttributeAccess().getTypeComponentQualifiedNameParserRuleCall_2_0_1()); }
+			{ after(grammarAccess.getComponentAttributeAccess().getComposantComponentQualifiedNameParserRuleCall_2_0_1()); }
 		)
-		{ after(grammarAccess.getComponentAttributeAccess().getTypeComponentCrossReference_2_0()); }
+		{ after(grammarAccess.getComponentAttributeAccess().getComposantComponentCrossReference_2_0()); }
 	)
 ;
 finally {
@@ -3323,9 +3323,9 @@ rule__BindingRequiered__IdAssignment_0
 	(
 		{ before(grammarAccess.getBindingRequieredAccess().getIdComponentAttributeCrossReference_0_0()); }
 		(
-			{ before(grammarAccess.getBindingRequieredAccess().getIdComponentAttributeIDTerminalRuleCall_0_0_1()); }
-			RULE_ID
-			{ after(grammarAccess.getBindingRequieredAccess().getIdComponentAttributeIDTerminalRuleCall_0_0_1()); }
+			{ before(grammarAccess.getBindingRequieredAccess().getIdComponentAttributeQualifiedNameParserRuleCall_0_0_1()); }
+			ruleQualifiedName
+			{ after(grammarAccess.getBindingRequieredAccess().getIdComponentAttributeQualifiedNameParserRuleCall_0_0_1()); }
 		)
 		{ after(grammarAccess.getBindingRequieredAccess().getIdComponentAttributeCrossReference_0_0()); }
 	)
@@ -3361,9 +3361,9 @@ rule__BindingProvided__IdAssignment_0
 	(
 		{ before(grammarAccess.getBindingProvidedAccess().getIdComponentAttributeCrossReference_0_0()); }
 		(
-			{ before(grammarAccess.getBindingProvidedAccess().getIdComponentAttributeIDTerminalRuleCall_0_0_1()); }
-			RULE_ID
-			{ after(grammarAccess.getBindingProvidedAccess().getIdComponentAttributeIDTerminalRuleCall_0_0_1()); }
+			{ before(grammarAccess.getBindingProvidedAccess().getIdComponentAttributeQualifiedNameParserRuleCall_0_0_1()); }
+			ruleQualifiedName
+			{ after(grammarAccess.getBindingProvidedAccess().getIdComponentAttributeQualifiedNameParserRuleCall_0_0_1()); }
 		)
 		{ after(grammarAccess.getBindingProvidedAccess().getIdComponentAttributeCrossReference_0_0()); }
 	)

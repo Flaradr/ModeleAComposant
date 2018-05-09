@@ -234,13 +234,13 @@ public interface FooPackage extends EPackage
   int COMPONENT_ATTRIBUTE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' reference.
+   * The feature id for the '<em><b>Composant</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT_ATTRIBUTE__TYPE = 1;
+  int COMPONENT_ATTRIBUTE__COMPOSANT = 1;
 
   /**
    * The number of structural features of the '<em>Component Attribute</em>' class.
@@ -885,15 +885,15 @@ public interface FooPackage extends EPackage
   EAttribute getComponentAttribute_Name();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.ComponentAttribute#getType <em>Type</em>}'.
+   * Returns the meta object for the reference '{@link com.project.foo.foo.ComponentAttribute#getComposant <em>Composant</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Type</em>'.
-   * @see com.project.foo.foo.ComponentAttribute#getType()
+   * @return the meta object for the reference '<em>Composant</em>'.
+   * @see com.project.foo.foo.ComponentAttribute#getComposant()
    * @see #getComponentAttribute()
    * @generated
    */
-  EReference getComponentAttribute_Type();
+  EReference getComponentAttribute_Composant();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.Binding <em>Binding</em>}'.
@@ -1454,12 +1454,12 @@ public interface FooPackage extends EPackage
     EAttribute COMPONENT_ATTRIBUTE__NAME = eINSTANCE.getComponentAttribute_Name();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Composant</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPONENT_ATTRIBUTE__TYPE = eINSTANCE.getComponentAttribute_Type();
+    EReference COMPONENT_ATTRIBUTE__COMPOSANT = eINSTANCE.getComponentAttribute_Composant();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.BindingImpl <em>Binding</em>}' class.

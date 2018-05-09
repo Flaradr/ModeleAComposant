@@ -26,7 +26,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComponentAttribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composant" eType="#//Component"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Binding">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mG" eType="#//BindingRequiered"

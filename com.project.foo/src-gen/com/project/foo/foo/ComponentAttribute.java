@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.project.foo.foo.ComponentAttribute#getName <em>Name</em>}</li>
- *   <li>{@link com.project.foo.foo.ComponentAttribute#getType <em>Type</em>}</li>
+ *   <li>{@link com.project.foo.foo.ComponentAttribute#getComposant <em>Composant</em>}</li>
  * </ul>
  *
  * @see com.project.foo.foo.FooPackage#getComponentAttribute()
@@ -51,29 +51,29 @@ public interface ComponentAttribute extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Type</b></em>' reference.
+   * Returns the value of the '<em><b>Composant</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type</em>' reference isn't clear,
+   * If the meaning of the '<em>Composant</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' reference.
-   * @see #setType(Component)
-   * @see com.project.foo.foo.FooPackage#getComponentAttribute_Type()
+   * @return the value of the '<em>Composant</em>' reference.
+   * @see #setComposant(Component)
+   * @see com.project.foo.foo.FooPackage#getComponentAttribute_Composant()
    * @model
    * @generated
    */
-  Component getType();
+  Component getComposant();
 
   /**
-   * Sets the value of the '{@link com.project.foo.foo.ComponentAttribute#getType <em>Type</em>}' reference.
+   * Sets the value of the '{@link com.project.foo.foo.ComponentAttribute#getComposant <em>Composant</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' reference.
-   * @see #getType()
+   * @param value the new value of the '<em>Composant</em>' reference.
+   * @see #getComposant()
    * @generated
    */
-  void setType(Component value);
+  void setComposant(Component value);
 
 } // ComponentAttribute

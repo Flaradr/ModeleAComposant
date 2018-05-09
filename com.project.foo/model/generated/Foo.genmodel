@@ -25,7 +25,7 @@
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//ComponentAttribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//ComponentAttribute/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//ComponentAttribute/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//ComponentAttribute/composant"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//Binding">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Binding/mG"/>

@@ -146,7 +146,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     BindingProvided returns BindingProvided
 	 *
 	 * Constraint:
-	 *     (id=[ComponentAttribute|ID] type=[ProvidedService|QualifiedName])
+	 *     (id=[ComponentAttribute|QualifiedName] type=[ProvidedService|QualifiedName])
 	 */
 	protected void sequence_BindingProvided(ISerializationContext context, BindingProvided semanticObject) {
 		if (errorAcceptor != null) {
@@ -156,7 +156,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.BINDING_PROVIDED__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBindingProvidedAccess().getIdComponentAttributeIDTerminalRuleCall_0_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_PROVIDED__ID, false));
+		feeder.accept(grammarAccess.getBindingProvidedAccess().getIdComponentAttributeQualifiedNameParserRuleCall_0_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_PROVIDED__ID, false));
 		feeder.accept(grammarAccess.getBindingProvidedAccess().getTypeProvidedServiceQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_PROVIDED__TYPE, false));
 		feeder.finish();
 	}
@@ -167,7 +167,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     BindingRequiered returns BindingRequiered
 	 *
 	 * Constraint:
-	 *     (id=[ComponentAttribute|ID] type=[RequieredService|QualifiedName])
+	 *     (id=[ComponentAttribute|QualifiedName] type=[RequieredService|QualifiedName])
 	 */
 	protected void sequence_BindingRequiered(ISerializationContext context, BindingRequiered semanticObject) {
 		if (errorAcceptor != null) {
@@ -177,7 +177,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.BINDING_REQUIERED__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBindingRequieredAccess().getIdComponentAttributeIDTerminalRuleCall_0_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_REQUIERED__ID, false));
+		feeder.accept(grammarAccess.getBindingRequieredAccess().getIdComponentAttributeQualifiedNameParserRuleCall_0_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_REQUIERED__ID, false));
 		feeder.accept(grammarAccess.getBindingRequieredAccess().getTypeRequieredServiceQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_REQUIERED__TYPE, false));
 		feeder.finish();
 	}
@@ -209,18 +209,18 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ComponentAttribute returns ComponentAttribute
 	 *
 	 * Constraint:
-	 *     (name=ID type=[Component|QualifiedName])
+	 *     (name=ID composant=[Component|QualifiedName])
 	 */
 	protected void sequence_ComponentAttribute(ISerializationContext context, ComponentAttribute semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.COMPONENT_ATTRIBUTE__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.COMPONENT_ATTRIBUTE__NAME));
-			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.COMPONENT_ATTRIBUTE__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.COMPONENT_ATTRIBUTE__TYPE));
+			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.COMPONENT_ATTRIBUTE__COMPOSANT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.COMPONENT_ATTRIBUTE__COMPOSANT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getComponentAttributeAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getComponentAttributeAccess().getTypeComponentQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(FooPackage.Literals.COMPONENT_ATTRIBUTE__TYPE, false));
+		feeder.accept(grammarAccess.getComponentAttributeAccess().getComposantComponentQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(FooPackage.Literals.COMPONENT_ATTRIBUTE__COMPOSANT, false));
 		feeder.finish();
 	}
 	
