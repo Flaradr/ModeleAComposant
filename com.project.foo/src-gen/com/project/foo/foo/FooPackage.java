@@ -308,13 +308,13 @@ public interface FooPackage extends EPackage
   int BINDING_REQUIERED__ID = 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' reference.
+   * The feature id for the '<em><b>Service</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING_REQUIERED__TYPE = 1;
+  int BINDING_REQUIERED__SERVICE = 1;
 
   /**
    * The number of structural features of the '<em>Binding Requiered</em>' class.
@@ -345,13 +345,13 @@ public interface FooPackage extends EPackage
   int BINDING_PROVIDED__ID = 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' reference.
+   * The feature id for the '<em><b>Service</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING_PROVIDED__TYPE = 1;
+  int BINDING_PROVIDED__SERVICE = 1;
 
   /**
    * The number of structural features of the '<em>Binding Provided</em>' class.
@@ -949,15 +949,15 @@ public interface FooPackage extends EPackage
   EReference getBindingRequiered_Id();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingRequiered#getType <em>Type</em>}'.
+   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingRequiered#getService <em>Service</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Type</em>'.
-   * @see com.project.foo.foo.BindingRequiered#getType()
+   * @return the meta object for the reference '<em>Service</em>'.
+   * @see com.project.foo.foo.BindingRequiered#getService()
    * @see #getBindingRequiered()
    * @generated
    */
-  EReference getBindingRequiered_Type();
+  EReference getBindingRequiered_Service();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.BindingProvided <em>Binding Provided</em>}'.
@@ -981,15 +981,15 @@ public interface FooPackage extends EPackage
   EReference getBindingProvided_Id();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingProvided#getType <em>Type</em>}'.
+   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingProvided#getService <em>Service</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Type</em>'.
-   * @see com.project.foo.foo.BindingProvided#getType()
+   * @return the meta object for the reference '<em>Service</em>'.
+   * @see com.project.foo.foo.BindingProvided#getService()
    * @see #getBindingProvided()
    * @generated
    */
-  EReference getBindingProvided_Type();
+  EReference getBindingProvided_Service();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.Component <em>Component</em>}'.
@@ -1506,12 +1506,12 @@ public interface FooPackage extends EPackage
     EReference BINDING_REQUIERED__ID = eINSTANCE.getBindingRequiered_Id();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Service</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINDING_REQUIERED__TYPE = eINSTANCE.getBindingRequiered_Type();
+    EReference BINDING_REQUIERED__SERVICE = eINSTANCE.getBindingRequiered_Service();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.BindingProvidedImpl <em>Binding Provided</em>}' class.
@@ -1532,12 +1532,12 @@ public interface FooPackage extends EPackage
     EReference BINDING_PROVIDED__ID = eINSTANCE.getBindingProvided_Id();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Service</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINDING_PROVIDED__TYPE = eINSTANCE.getBindingProvided_Type();
+    EReference BINDING_PROVIDED__SERVICE = eINSTANCE.getBindingProvided_Service();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.ComponentImpl <em>Component</em>}' class.

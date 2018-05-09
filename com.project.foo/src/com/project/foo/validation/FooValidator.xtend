@@ -175,11 +175,11 @@ class FooValidator extends AbstractFooValidator {
 			i++
 		}
 		
-		val componentTypeOfService = (bindingRequiered.type.eContainer.eContainer as Component).name
+		val componentTypeOfService = (bindingRequiered.service.eContainer.eContainer as Component).name
 		
 		if (!typeOfInstance.equals(componentTypeOfService)){
 			error("The type of the component and the component requiring this method are not the same",
-				  FooPackage.Literals.BINDING_REQUIERED__TYPE,
+				  FooPackage.Literals.BINDING_REQUIERED__SERVICE,
 				  CHECK_BINDING_REQUIERED_CAN_USE_METHOD)
 		}
 	}
@@ -201,11 +201,15 @@ class FooValidator extends AbstractFooValidator {
 			}
 			i++
 		}
-		val componentTypeOfService = (bindingProvided.type.eContainer.eContainer as Component).name
+		val componentTypeOfService = (bindingProvided.service.eContainer.eContainer as Component).name
+		
+		println("Value of bindingProvided : " + bindingProvided)
+		println("\nValue of typeOfInstance : " + typeOfInstance)
+		println("Value of componentTypeOfService : " + componentTypeOfService)
 		
 		if (!typeOfInstance.equals(componentTypeOfService)){
 			error("The type of the component and the component requiring this method are not the same",
-				  FooPackage.Literals.BINDING_PROVIDED__TYPE,
+				  FooPackage.Literals.BINDING_PROVIDED__SERVICE,
 				  CHECK_BINDING_PROVIDED_CAN_USE_METHOD)
 		}
 	}
@@ -220,11 +224,17 @@ class FooValidator extends AbstractFooValidator {
 	 */
 	@Check
 	def void checkBindingIsValid(Binding binding){
-		val nomMethodG = binding.getMG().type
-		val nomMethodD = binding.getMD().type
-		val listOfRequieredServices = (binding.getMG().type.eContainer().eContainer() as Component).MReqServices
-		val listOfProvidedServices = (binding.getMD().type.eContainer().eContainer() as Component).MProvServices	
+		val nomMethodG = binding.getMG().service
+		val nomMethodD = binding.getMD().service
+		val listOfRequieredServices = (binding.getMG().service.eContainer().eContainer() as Component).MReqServices
+		val listOfProvidedServices = (binding.getMD().service.eContainer().eContainer() as Component).MProvServices	
+		
+		/*println("\nValue of the binding : " + binding)
+		println("Value of the bindingRequiered : " + binding.MG.id.name + "." + binding.MG.service.name)
+		println("Value of the bindingProvided : " + binding.MD.id.name + "." + binding.MD.service.name)*/
 
+		
+		
 		var String valRetMReq = ""
 		var String valRetMProv = ""
 		var EList<Attribute> signatureofRequieredMethod
@@ -242,7 +252,9 @@ class FooValidator extends AbstractFooValidator {
 				signatureOfProvidedMethod = foo.signature.attributes
 			}
 		}
-
+		
+		/*println("Value of valRetMReq : " + valRetMReq)
+		println("Value of valRetMProv : " + valRetMProv)*/
 		if (!valRetMReq.equals(valRetMProv)){
 			error("Return type of the provided service do not match the return type of the requiered service",
 				  FooPackage.Literals.BINDING__MD,
@@ -347,7 +359,7 @@ class FooValidator extends AbstractFooValidator {
 					var int i = 0
 					var boolean isPresent = false
 					while (i < listeBindings.size() && !isPresent){
-						if(service.name.equals(listeBindings.get(i).MG.type.name) && //Comparaison de la méthode requise par l'instance du composant en cours et celle du binding
+						if(service.name.equals(listeBindings.get(i).MG.service.name) && //Comparaison de la méthode requise par l'instance du composant en cours et celle du binding
 						//   component.name.equals(listeBindings.get(i).MG.id.name)	//Comparaison du nom de l'instance composant en cours et du nom du composant dans le binding
 							component.name.equals(listeBindings.get(i).MG.id.name)
 						){

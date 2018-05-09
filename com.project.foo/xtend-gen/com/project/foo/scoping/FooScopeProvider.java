@@ -3,10 +3,20 @@
  */
 package com.project.foo.scoping;
 
+import com.google.common.base.Objects;
+import com.project.foo.foo.BindingProvided;
+import com.project.foo.foo.BindingRequiered;
+import com.project.foo.foo.ComponentAttribute;
+import com.project.foo.foo.FooPackage;
+import com.project.foo.foo.ProvidedService;
+import com.project.foo.foo.RequieredService;
 import com.project.foo.scoping.AbstractFooScopeProvider;
+import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
 
 /**
  * This class contains custom scoping description.
@@ -18,6 +28,26 @@ import org.eclipse.xtext.scoping.IScope;
 public class FooScopeProvider extends AbstractFooScopeProvider {
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
+    if (((context instanceof BindingRequiered) && Objects.equal(reference, FooPackage.Literals.BINDING_REQUIERED__ID))) {
+      final EObject rootElement = EcoreUtil2.getRootContainer(context);
+      final List<ComponentAttribute> candidates = EcoreUtil2.<ComponentAttribute>getAllContentsOfType(rootElement, ComponentAttribute.class);
+      return Scopes.scopeFor(candidates);
+    }
+    if (((context instanceof BindingRequiered) && Objects.equal(reference, FooPackage.Literals.BINDING_REQUIERED__SERVICE))) {
+      final EObject rootElement_1 = EcoreUtil2.getRootContainer(context);
+      final List<RequieredService> candidates_1 = EcoreUtil2.<RequieredService>getAllContentsOfType(rootElement_1, RequieredService.class);
+      return Scopes.scopeFor(candidates_1);
+    }
+    if (((context instanceof BindingProvided) && Objects.equal(reference, FooPackage.Literals.BINDING_PROVIDED__ID))) {
+      final EObject rootElement_2 = EcoreUtil2.getRootContainer(context);
+      final List<ComponentAttribute> candidates_2 = EcoreUtil2.<ComponentAttribute>getAllContentsOfType(rootElement_2, ComponentAttribute.class);
+      return Scopes.scopeFor(candidates_2);
+    }
+    if (((context instanceof BindingProvided) && Objects.equal(reference, FooPackage.Literals.BINDING_PROVIDED__SERVICE))) {
+      final EObject rootElement_3 = EcoreUtil2.getRootContainer(context);
+      final List<ProvidedService> candidates_3 = EcoreUtil2.<ProvidedService>getAllContentsOfType(rootElement_3, ProvidedService.class);
+      return Scopes.scopeFor(candidates_3);
+    }
     return super.getScope(context, reference);
   }
 }

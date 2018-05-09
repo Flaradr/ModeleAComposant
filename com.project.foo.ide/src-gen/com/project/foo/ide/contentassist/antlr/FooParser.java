@@ -70,9 +70,9 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBindingAccess().getMGAssignment_0(), "rule__Binding__MGAssignment_0");
 					put(grammarAccess.getBindingAccess().getMDAssignment_2(), "rule__Binding__MDAssignment_2");
 					put(grammarAccess.getBindingRequieredAccess().getIdAssignment_0(), "rule__BindingRequiered__IdAssignment_0");
-					put(grammarAccess.getBindingRequieredAccess().getTypeAssignment_2(), "rule__BindingRequiered__TypeAssignment_2");
+					put(grammarAccess.getBindingRequieredAccess().getServiceAssignment_2(), "rule__BindingRequiered__ServiceAssignment_2");
 					put(grammarAccess.getBindingProvidedAccess().getIdAssignment_0(), "rule__BindingProvided__IdAssignment_0");
-					put(grammarAccess.getBindingProvidedAccess().getTypeAssignment_2(), "rule__BindingProvided__TypeAssignment_2");
+					put(grammarAccess.getBindingProvidedAccess().getServiceAssignment_2(), "rule__BindingProvided__ServiceAssignment_2");
 					put(grammarAccess.getComponentAccess().getNameAssignment_1(), "rule__Component__NameAssignment_1");
 					put(grammarAccess.getComponentAccess().getProvidedAssignment_3(), "rule__Component__ProvidedAssignment_3");
 					put(grammarAccess.getComponentAccess().getRequieredAssignment_4(), "rule__Component__RequieredAssignment_4");

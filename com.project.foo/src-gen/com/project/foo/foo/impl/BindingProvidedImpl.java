@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.project.foo.foo.impl.BindingProvidedImpl#getId <em>Id</em>}</li>
- *   <li>{@link com.project.foo.foo.impl.BindingProvidedImpl#getType <em>Type</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.BindingProvidedImpl#getService <em>Service</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,14 +43,14 @@ public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements
   protected ComponentAttribute id;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * The cached value of the '{@link #getService() <em>Service</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getService()
    * @generated
    * @ordered
    */
-  protected ProvidedService type;
+  protected ProvidedService service;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,19 +121,19 @@ public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public ProvidedService getType()
+  public ProvidedService getService()
   {
-    if (type != null && type.eIsProxy())
+    if (service != null && service.eIsProxy())
     {
-      InternalEObject oldType = (InternalEObject)type;
-      type = (ProvidedService)eResolveProxy(oldType);
-      if (type != oldType)
+      InternalEObject oldService = (InternalEObject)service;
+      service = (ProvidedService)eResolveProxy(oldService);
+      if (service != oldService)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.BINDING_PROVIDED__TYPE, oldType, type));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.BINDING_PROVIDED__SERVICE, oldService, service));
       }
     }
-    return type;
+    return service;
   }
 
   /**
@@ -141,9 +141,9 @@ public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public ProvidedService basicGetType()
+  public ProvidedService basicGetService()
   {
-    return type;
+    return service;
   }
 
   /**
@@ -151,12 +151,12 @@ public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(ProvidedService newType)
+  public void setService(ProvidedService newService)
   {
-    ProvidedService oldType = type;
-    type = newType;
+    ProvidedService oldService = service;
+    service = newService;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING_PROVIDED__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING_PROVIDED__SERVICE, oldService, service));
   }
 
   /**
@@ -172,9 +172,9 @@ public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements
       case FooPackage.BINDING_PROVIDED__ID:
         if (resolve) return getId();
         return basicGetId();
-      case FooPackage.BINDING_PROVIDED__TYPE:
-        if (resolve) return getType();
-        return basicGetType();
+      case FooPackage.BINDING_PROVIDED__SERVICE:
+        if (resolve) return getService();
+        return basicGetService();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -192,8 +192,8 @@ public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements
       case FooPackage.BINDING_PROVIDED__ID:
         setId((ComponentAttribute)newValue);
         return;
-      case FooPackage.BINDING_PROVIDED__TYPE:
-        setType((ProvidedService)newValue);
+      case FooPackage.BINDING_PROVIDED__SERVICE:
+        setService((ProvidedService)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -212,8 +212,8 @@ public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements
       case FooPackage.BINDING_PROVIDED__ID:
         setId((ComponentAttribute)null);
         return;
-      case FooPackage.BINDING_PROVIDED__TYPE:
-        setType((ProvidedService)null);
+      case FooPackage.BINDING_PROVIDED__SERVICE:
+        setService((ProvidedService)null);
         return;
     }
     super.eUnset(featureID);
@@ -231,8 +231,8 @@ public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements
     {
       case FooPackage.BINDING_PROVIDED__ID:
         return id != null;
-      case FooPackage.BINDING_PROVIDED__TYPE:
-        return type != null;
+      case FooPackage.BINDING_PROVIDED__SERVICE:
+        return service != null;
     }
     return super.eIsSet(featureID);
   }

@@ -259,7 +259,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.ComponentAttribute");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final RuleCall cNameQualifiedNameParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cComposantAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cComposantComponentCrossReference_2_0 = (CrossReference)cComposantAssignment_2.eContents().get(0);
@@ -267,17 +267,17 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		
 		////Structure d'un composant
 		//ComponentAttribute:
-		//	name=ID ':' composant=[Component|QualifiedName];
+		//	name=QualifiedName ':' composant=[Component|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ':' composant=[Component|QualifiedName]
+		//name=QualifiedName ':' composant=[Component|QualifiedName]
 		public Group getGroup() { return cGroup; }
 		
-		//name=ID
+		//name=QualifiedName
 		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		//QualifiedName
+		public RuleCall getNameQualifiedNameParserRuleCall_0_0() { return cNameQualifiedNameParserRuleCall_0_0; }
 		
 		//':'
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
@@ -330,16 +330,17 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIdAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cIdComponentAttributeCrossReference_0_0 = (CrossReference)cIdAssignment_0.eContents().get(0);
 		private final RuleCall cIdComponentAttributeQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cIdComponentAttributeCrossReference_0_0.eContents().get(1);
-		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cTypeRequieredServiceCrossReference_2_0 = (CrossReference)cTypeAssignment_2.eContents().get(0);
-		private final RuleCall cTypeRequieredServiceQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cTypeRequieredServiceCrossReference_2_0.eContents().get(1);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cServiceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cServiceRequieredServiceCrossReference_2_0 = (CrossReference)cServiceAssignment_2.eContents().get(0);
+		private final RuleCall cServiceRequieredServiceQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cServiceRequieredServiceCrossReference_2_0.eContents().get(1);
 		
+		////Instance du composant ayant besoin d'un service
 		//BindingRequiered:
-		//	id=[ComponentAttribute|QualifiedName] '.' type=[RequieredService|QualifiedName];
+		//	id=[ComponentAttribute|QualifiedName] '->' service=[RequieredService|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//id=[ComponentAttribute|QualifiedName] '.' type=[RequieredService|QualifiedName]
+		//id=[ComponentAttribute|QualifiedName] '->' service=[RequieredService|QualifiedName]
 		public Group getGroup() { return cGroup; }
 		
 		//id=[ComponentAttribute|QualifiedName]
@@ -351,17 +352,17 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getIdComponentAttributeQualifiedNameParserRuleCall_0_0_1() { return cIdComponentAttributeQualifiedNameParserRuleCall_0_0_1; }
 		
-		//'.'
-		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_1() { return cHyphenMinusGreaterThanSignKeyword_1; }
 		
-		//type=[RequieredService|QualifiedName]
-		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
+		//service=[RequieredService|QualifiedName]
+		public Assignment getServiceAssignment_2() { return cServiceAssignment_2; }
 		
 		//[RequieredService|QualifiedName]
-		public CrossReference getTypeRequieredServiceCrossReference_2_0() { return cTypeRequieredServiceCrossReference_2_0; }
+		public CrossReference getServiceRequieredServiceCrossReference_2_0() { return cServiceRequieredServiceCrossReference_2_0; }
 		
 		//QualifiedName
-		public RuleCall getTypeRequieredServiceQualifiedNameParserRuleCall_2_0_1() { return cTypeRequieredServiceQualifiedNameParserRuleCall_2_0_1; }
+		public RuleCall getServiceRequieredServiceQualifiedNameParserRuleCall_2_0_1() { return cServiceRequieredServiceQualifiedNameParserRuleCall_2_0_1; }
 	}
 	public class BindingProvidedElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.BindingProvided");
@@ -369,16 +370,17 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIdAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cIdComponentAttributeCrossReference_0_0 = (CrossReference)cIdAssignment_0.eContents().get(0);
 		private final RuleCall cIdComponentAttributeQualifiedNameParserRuleCall_0_0_1 = (RuleCall)cIdComponentAttributeCrossReference_0_0.eContents().get(1);
-		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cTypeProvidedServiceCrossReference_2_0 = (CrossReference)cTypeAssignment_2.eContents().get(0);
-		private final RuleCall cTypeProvidedServiceQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cTypeProvidedServiceCrossReference_2_0.eContents().get(1);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cServiceAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cServiceProvidedServiceCrossReference_2_0 = (CrossReference)cServiceAssignment_2.eContents().get(0);
+		private final RuleCall cServiceProvidedServiceQualifiedNameParserRuleCall_2_0_1 = (RuleCall)cServiceProvidedServiceCrossReference_2_0.eContents().get(1);
 		
+		////Instance du composant fournissant un service
 		//BindingProvided:
-		//	id=[ComponentAttribute|QualifiedName] '.' type=[ProvidedService|QualifiedName];
+		//	id=[ComponentAttribute|QualifiedName] '->' service=[ProvidedService|QualifiedName];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//id=[ComponentAttribute|QualifiedName] '.' type=[ProvidedService|QualifiedName]
+		//id=[ComponentAttribute|QualifiedName] '->' service=[ProvidedService|QualifiedName]
 		public Group getGroup() { return cGroup; }
 		
 		//id=[ComponentAttribute|QualifiedName]
@@ -390,17 +392,17 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		//QualifiedName
 		public RuleCall getIdComponentAttributeQualifiedNameParserRuleCall_0_0_1() { return cIdComponentAttributeQualifiedNameParserRuleCall_0_0_1; }
 		
-		//'.'
-		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_1() { return cHyphenMinusGreaterThanSignKeyword_1; }
 		
-		//type=[ProvidedService|QualifiedName]
-		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
+		//service=[ProvidedService|QualifiedName]
+		public Assignment getServiceAssignment_2() { return cServiceAssignment_2; }
 		
 		//[ProvidedService|QualifiedName]
-		public CrossReference getTypeProvidedServiceCrossReference_2_0() { return cTypeProvidedServiceCrossReference_2_0; }
+		public CrossReference getServiceProvidedServiceCrossReference_2_0() { return cServiceProvidedServiceCrossReference_2_0; }
 		
 		//QualifiedName
-		public RuleCall getTypeProvidedServiceQualifiedNameParserRuleCall_2_0_1() { return cTypeProvidedServiceQualifiedNameParserRuleCall_2_0_1; }
+		public RuleCall getServiceProvidedServiceQualifiedNameParserRuleCall_2_0_1() { return cServiceProvidedServiceQualifiedNameParserRuleCall_2_0_1; }
 	}
 	public class ComponentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.Component");
@@ -630,9 +632,9 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
+		////Signature d'un service fourni
 		//MProvidedService:
-		//	'service' 'provided' signature=PSignature '{'
-		//	'}';
+		//	'service' 'provided' signature=PSignature '{' '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'service' 'provided' signature=PSignature '{' '}'
@@ -1006,7 +1008,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////Structure d'un composant
 	//ComponentAttribute:
-	//	name=ID ':' composant=[Component|QualifiedName];
+	//	name=QualifiedName ':' composant=[Component|QualifiedName];
 	public ComponentAttributeElements getComponentAttributeAccess() {
 		return pComponentAttribute;
 	}
@@ -1027,8 +1029,9 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		return getBindingAccess().getRule();
 	}
 	
+	////Instance du composant ayant besoin d'un service
 	//BindingRequiered:
-	//	id=[ComponentAttribute|QualifiedName] '.' type=[RequieredService|QualifiedName];
+	//	id=[ComponentAttribute|QualifiedName] '->' service=[RequieredService|QualifiedName];
 	public BindingRequieredElements getBindingRequieredAccess() {
 		return pBindingRequiered;
 	}
@@ -1037,8 +1040,9 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		return getBindingRequieredAccess().getRule();
 	}
 	
+	////Instance du composant fournissant un service
 	//BindingProvided:
-	//	id=[ComponentAttribute|QualifiedName] '.' type=[ProvidedService|QualifiedName];
+	//	id=[ComponentAttribute|QualifiedName] '->' service=[ProvidedService|QualifiedName];
 	public BindingProvidedElements getBindingProvidedAccess() {
 		return pBindingProvided;
 	}
@@ -1107,9 +1111,9 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		return getRequieredServiceAccess().getRule();
 	}
 	
+	////Signature d'un service fourni
 	//MProvidedService:
-	//	'service' 'provided' signature=PSignature '{'
-	//	'}';
+	//	'service' 'provided' signature=PSignature '{' '}';
 	public MProvidedServiceElements getMProvidedServiceAccess() {
 		return pMProvidedService;
 	}

@@ -5,8 +5,6 @@ package com.project.foo.scoping
 
 import com.project.foo.foo.BindingProvided
 import com.project.foo.foo.BindingRequiered
-import com.project.foo.foo.Component
-import com.project.foo.foo.ComponentAttribute
 import com.project.foo.foo.FooPackage
 import com.project.foo.foo.ProvidedService
 import com.project.foo.foo.RequieredService
@@ -15,6 +13,7 @@ import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
+import com.project.foo.foo.ComponentAttribute
 
 /**
  * This class contains custom scoping description.
@@ -26,25 +25,31 @@ class FooScopeProvider extends AbstractFooScopeProvider {
  	//Modification scope des bindings cote requis et fournis, lié à l'ensemble d'un modèle
  	//et pas défini au sein de l'assemblage
  	override IScope getScope(EObject context, EReference reference){
-		/*
-		 
-		if (context instanceof ComponentAttribute && reference == FooPackage.Literals.COMPONENT_ATTRIBUTE__TYPE){
-			val rootElement = EcoreUtil2.getRootContainer(context)
-			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,Component)
-			return Scopes.scopeFor(candidates)
-		}
-		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__TYPE){
+ 		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__ID){
+ 			val rootElement = EcoreUtil2.getRootContainer(context)
+ 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentAttribute)
+ 			return Scopes.scopeFor(candidates)
+ 		}
+		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__SERVICE){
 			val rootElement = EcoreUtil2.getRootContainer(context)
 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,RequieredService)
 			return Scopes.scopeFor(candidates)
  		}
- 		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__TYPE){
+ 		
+ 		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__ID){
+ 			val rootElement = EcoreUtil2.getRootContainer(context)
+ 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentAttribute)
+ 			return Scopes.scopeFor(candidates)
+ 		}
+ 		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__SERVICE){
 			val rootElement = EcoreUtil2.getRootContainer(context)
 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ProvidedService)
 			return Scopes.scopeFor(candidates)
  		}
-		*/	
+		
  		return super.getScope(context, reference);
+
+ 		
 	}
 }
 

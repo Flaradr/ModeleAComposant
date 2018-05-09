@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 
 /**
  * This class contains custom validation rules.
@@ -220,13 +221,13 @@ public class FooValidator extends AbstractFooValidator {
         i++;
       }
     }
-    EObject _eContainer_1 = bindingRequiered.getType().eContainer().eContainer();
+    EObject _eContainer_1 = bindingRequiered.getService().eContainer().eContainer();
     final String componentTypeOfService = ((Component) _eContainer_1).getName();
     boolean _equals = typeOfInstance.equals(componentTypeOfService);
     boolean _not = (!_equals);
     if (_not) {
       this.error("The type of the component and the component requiring this method are not the same", 
-        FooPackage.Literals.BINDING_REQUIERED__TYPE, 
+        FooPackage.Literals.BINDING_REQUIERED__SERVICE, 
         FooValidator.CHECK_BINDING_REQUIERED_CAN_USE_METHOD);
     }
   }
@@ -252,13 +253,16 @@ public class FooValidator extends AbstractFooValidator {
         i++;
       }
     }
-    EObject _eContainer_1 = bindingProvided.getType().eContainer().eContainer();
+    EObject _eContainer_1 = bindingProvided.getService().eContainer().eContainer();
     final String componentTypeOfService = ((Component) _eContainer_1).getName();
+    InputOutput.<String>println(("Value of bindingProvided : " + bindingProvided));
+    InputOutput.<String>println(("\nValue of typeOfInstance : " + typeOfInstance));
+    InputOutput.<String>println(("Value of componentTypeOfService : " + componentTypeOfService));
     boolean _equals = typeOfInstance.equals(componentTypeOfService);
     boolean _not = (!_equals);
     if (_not) {
       this.error("The type of the component and the component requiring this method are not the same", 
-        FooPackage.Literals.BINDING_PROVIDED__TYPE, 
+        FooPackage.Literals.BINDING_PROVIDED__SERVICE, 
         FooValidator.CHECK_BINDING_PROVIDED_CAN_USE_METHOD);
     }
   }
@@ -273,11 +277,11 @@ public class FooValidator extends AbstractFooValidator {
    */
   @Check
   public void checkBindingIsValid(final Binding binding) {
-    final RequieredService nomMethodG = binding.getMG().getType();
-    final ProvidedService nomMethodD = binding.getMD().getType();
-    EObject _eContainer = binding.getMG().getType().eContainer().eContainer();
+    final RequieredService nomMethodG = binding.getMG().getService();
+    final ProvidedService nomMethodD = binding.getMD().getService();
+    EObject _eContainer = binding.getMG().getService().eContainer().eContainer();
     final EList<MRequieredService> listOfRequieredServices = ((Component) _eContainer).getMReqServices();
-    EObject _eContainer_1 = binding.getMD().getType().eContainer().eContainer();
+    EObject _eContainer_1 = binding.getMD().getService().eContainer().eContainer();
     final EList<MProvidedService> listOfProvidedServices = ((Component) _eContainer_1).getMProvServices();
     String valRetMReq = "";
     String valRetMProv = "";
@@ -420,7 +424,7 @@ public class FooValidator extends AbstractFooValidator {
                 boolean isPresent = false;
                 while (((i < listeBindings.size()) && (!isPresent))) {
                   {
-                    if ((service.getName().equals(listeBindings.get(i).getMG().getType().getName()) && 
+                    if ((service.getName().equals(listeBindings.get(i).getMG().getService().getName()) && 
                       component.getName().equals(listeBindings.get(i).getMG().getId().getName()))) {
                       isPresent = true;
                     }

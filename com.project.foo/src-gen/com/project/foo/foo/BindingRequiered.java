@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.project.foo.foo.BindingRequiered#getId <em>Id</em>}</li>
- *   <li>{@link com.project.foo.foo.BindingRequiered#getType <em>Type</em>}</li>
+ *   <li>{@link com.project.foo.foo.BindingRequiered#getService <em>Service</em>}</li>
  * </ul>
  *
  * @see com.project.foo.foo.FooPackage#getBindingRequiered()
@@ -51,29 +51,29 @@ public interface BindingRequiered extends EObject
   void setId(ComponentAttribute value);
 
   /**
-   * Returns the value of the '<em><b>Type</b></em>' reference.
+   * Returns the value of the '<em><b>Service</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type</em>' reference isn't clear,
+   * If the meaning of the '<em>Service</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' reference.
-   * @see #setType(RequieredService)
-   * @see com.project.foo.foo.FooPackage#getBindingRequiered_Type()
+   * @return the value of the '<em>Service</em>' reference.
+   * @see #setService(RequieredService)
+   * @see com.project.foo.foo.FooPackage#getBindingRequiered_Service()
    * @model
    * @generated
    */
-  RequieredService getType();
+  RequieredService getService();
 
   /**
-   * Sets the value of the '{@link com.project.foo.foo.BindingRequiered#getType <em>Type</em>}' reference.
+   * Sets the value of the '{@link com.project.foo.foo.BindingRequiered#getService <em>Service</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' reference.
-   * @see #getType()
+   * @param value the new value of the '<em>Service</em>' reference.
+   * @see #getService()
    * @generated
    */
-  void setType(RequieredService value);
+  void setService(RequieredService value);
 
 } // BindingRequiered

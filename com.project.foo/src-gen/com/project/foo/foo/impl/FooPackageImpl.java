@@ -443,7 +443,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBindingRequiered_Type()
+  public EReference getBindingRequiered_Service()
   {
     return (EReference)bindingRequieredEClass.getEStructuralFeatures().get(1);
   }
@@ -473,7 +473,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBindingProvided_Type()
+  public EReference getBindingProvided_Service()
   {
     return (EReference)bindingProvidedEClass.getEStructuralFeatures().get(1);
   }
@@ -825,11 +825,11 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
 
     bindingRequieredEClass = createEClass(BINDING_REQUIERED);
     createEReference(bindingRequieredEClass, BINDING_REQUIERED__ID);
-    createEReference(bindingRequieredEClass, BINDING_REQUIERED__TYPE);
+    createEReference(bindingRequieredEClass, BINDING_REQUIERED__SERVICE);
 
     bindingProvidedEClass = createEClass(BINDING_PROVIDED);
     createEReference(bindingProvidedEClass, BINDING_PROVIDED__ID);
-    createEReference(bindingProvidedEClass, BINDING_PROVIDED__TYPE);
+    createEReference(bindingProvidedEClass, BINDING_PROVIDED__SERVICE);
 
     componentEClass = createEClass(COMPONENT);
     createEAttribute(componentEClass, COMPONENT__NAME);
@@ -929,11 +929,11 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
 
     initEClass(bindingRequieredEClass, BindingRequiered.class, "BindingRequiered", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBindingRequiered_Id(), this.getComponentAttribute(), null, "id", null, 0, 1, BindingRequiered.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBindingRequiered_Type(), this.getRequieredService(), null, "type", null, 0, 1, BindingRequiered.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBindingRequiered_Service(), this.getRequieredService(), null, "service", null, 0, 1, BindingRequiered.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bindingProvidedEClass, BindingProvided.class, "BindingProvided", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBindingProvided_Id(), this.getComponentAttribute(), null, "id", null, 0, 1, BindingProvided.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBindingProvided_Type(), this.getProvidedService(), null, "type", null, 0, 1, BindingProvided.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBindingProvided_Service(), this.getProvidedService(), null, "service", null, 0, 1, BindingProvided.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

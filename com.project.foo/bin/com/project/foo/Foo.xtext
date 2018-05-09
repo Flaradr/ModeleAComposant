@@ -40,18 +40,20 @@ Assembly:
 
 //Structure d'un composant
 ComponentAttribute:
-	name=ID ':' composant=[Component|QualifiedName];
+	name=QualifiedName ':' composant=[Component|QualifiedName];
 
 //Lien entre d'un service requis d'un composant X et d'un
 //service fourni d'un composant Y
 Binding:
 	mG=BindingRequiered '-' mD=BindingProvided ;
 
+//Instance du composant ayant besoin d'un service
 BindingRequiered:
-	id=[ComponentAttribute|QualifiedName]'.'type=[RequieredService|QualifiedName];
+	id=[ComponentAttribute|QualifiedName]'->'service=[RequieredService|QualifiedName];
 
+//Instance du composant fournissant un service
 BindingProvided:
-	id=[ComponentAttribute|QualifiedName]'.'type=[ProvidedService|QualifiedName];
+	id=[ComponentAttribute|QualifiedName]'->'service=[ProvidedService|QualifiedName];
 
 //Structure d'un composant
 Component:

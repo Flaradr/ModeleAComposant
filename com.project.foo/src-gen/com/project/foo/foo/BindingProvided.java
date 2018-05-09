@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.project.foo.foo.BindingProvided#getId <em>Id</em>}</li>
- *   <li>{@link com.project.foo.foo.BindingProvided#getType <em>Type</em>}</li>
+ *   <li>{@link com.project.foo.foo.BindingProvided#getService <em>Service</em>}</li>
  * </ul>
  *
  * @see com.project.foo.foo.FooPackage#getBindingProvided()
@@ -51,29 +51,29 @@ public interface BindingProvided extends EObject
   void setId(ComponentAttribute value);
 
   /**
-   * Returns the value of the '<em><b>Type</b></em>' reference.
+   * Returns the value of the '<em><b>Service</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type</em>' reference isn't clear,
+   * If the meaning of the '<em>Service</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' reference.
-   * @see #setType(ProvidedService)
-   * @see com.project.foo.foo.FooPackage#getBindingProvided_Type()
+   * @return the value of the '<em>Service</em>' reference.
+   * @see #setService(ProvidedService)
+   * @see com.project.foo.foo.FooPackage#getBindingProvided_Service()
    * @model
    * @generated
    */
-  ProvidedService getType();
+  ProvidedService getService();
 
   /**
-   * Sets the value of the '{@link com.project.foo.foo.BindingProvided#getType <em>Type</em>}' reference.
+   * Sets the value of the '{@link com.project.foo.foo.BindingProvided#getService <em>Service</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' reference.
-   * @see #getType()
+   * @param value the new value of the '<em>Service</em>' reference.
+   * @see #getService()
    * @generated
    */
-  void setType(ProvidedService value);
+  void setService(ProvidedService value);
 
 } // BindingProvided

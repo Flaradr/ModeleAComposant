@@ -1492,9 +1492,9 @@ rule__BindingRequiered__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getBindingRequieredAccess().getFullStopKeyword_1()); }
-	'.'
-	{ after(grammarAccess.getBindingRequieredAccess().getFullStopKeyword_1()); }
+	{ before(grammarAccess.getBindingRequieredAccess().getHyphenMinusGreaterThanSignKeyword_1()); }
+	'->'
+	{ after(grammarAccess.getBindingRequieredAccess().getHyphenMinusGreaterThanSignKeyword_1()); }
 )
 ;
 finally {
@@ -1518,9 +1518,9 @@ rule__BindingRequiered__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getBindingRequieredAccess().getTypeAssignment_2()); }
-	(rule__BindingRequiered__TypeAssignment_2)
-	{ after(grammarAccess.getBindingRequieredAccess().getTypeAssignment_2()); }
+	{ before(grammarAccess.getBindingRequieredAccess().getServiceAssignment_2()); }
+	(rule__BindingRequiered__ServiceAssignment_2)
+	{ after(grammarAccess.getBindingRequieredAccess().getServiceAssignment_2()); }
 )
 ;
 finally {
@@ -1573,9 +1573,9 @@ rule__BindingProvided__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getBindingProvidedAccess().getFullStopKeyword_1()); }
-	'.'
-	{ after(grammarAccess.getBindingProvidedAccess().getFullStopKeyword_1()); }
+	{ before(grammarAccess.getBindingProvidedAccess().getHyphenMinusGreaterThanSignKeyword_1()); }
+	'->'
+	{ after(grammarAccess.getBindingProvidedAccess().getHyphenMinusGreaterThanSignKeyword_1()); }
 )
 ;
 finally {
@@ -1599,9 +1599,9 @@ rule__BindingProvided__Group__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getBindingProvidedAccess().getTypeAssignment_2()); }
-	(rule__BindingProvided__TypeAssignment_2)
-	{ after(grammarAccess.getBindingProvidedAccess().getTypeAssignment_2()); }
+	{ before(grammarAccess.getBindingProvidedAccess().getServiceAssignment_2()); }
+	(rule__BindingProvided__ServiceAssignment_2)
+	{ after(grammarAccess.getBindingProvidedAccess().getServiceAssignment_2()); }
 )
 ;
 finally {
@@ -3257,9 +3257,9 @@ rule__ComponentAttribute__NameAssignment_0
 	}
 :
 	(
-		{ before(grammarAccess.getComponentAttributeAccess().getNameIDTerminalRuleCall_0_0()); }
-		RULE_ID
-		{ after(grammarAccess.getComponentAttributeAccess().getNameIDTerminalRuleCall_0_0()); }
+		{ before(grammarAccess.getComponentAttributeAccess().getNameQualifiedNameParserRuleCall_0_0()); }
+		ruleQualifiedName
+		{ after(grammarAccess.getComponentAttributeAccess().getNameQualifiedNameParserRuleCall_0_0()); }
 	)
 ;
 finally {
@@ -3334,19 +3334,19 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__BindingRequiered__TypeAssignment_2
+rule__BindingRequiered__ServiceAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getBindingRequieredAccess().getTypeRequieredServiceCrossReference_2_0()); }
+		{ before(grammarAccess.getBindingRequieredAccess().getServiceRequieredServiceCrossReference_2_0()); }
 		(
-			{ before(grammarAccess.getBindingRequieredAccess().getTypeRequieredServiceQualifiedNameParserRuleCall_2_0_1()); }
+			{ before(grammarAccess.getBindingRequieredAccess().getServiceRequieredServiceQualifiedNameParserRuleCall_2_0_1()); }
 			ruleQualifiedName
-			{ after(grammarAccess.getBindingRequieredAccess().getTypeRequieredServiceQualifiedNameParserRuleCall_2_0_1()); }
+			{ after(grammarAccess.getBindingRequieredAccess().getServiceRequieredServiceQualifiedNameParserRuleCall_2_0_1()); }
 		)
-		{ after(grammarAccess.getBindingRequieredAccess().getTypeRequieredServiceCrossReference_2_0()); }
+		{ after(grammarAccess.getBindingRequieredAccess().getServiceRequieredServiceCrossReference_2_0()); }
 	)
 ;
 finally {
@@ -3372,19 +3372,19 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__BindingProvided__TypeAssignment_2
+rule__BindingProvided__ServiceAssignment_2
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getBindingProvidedAccess().getTypeProvidedServiceCrossReference_2_0()); }
+		{ before(grammarAccess.getBindingProvidedAccess().getServiceProvidedServiceCrossReference_2_0()); }
 		(
-			{ before(grammarAccess.getBindingProvidedAccess().getTypeProvidedServiceQualifiedNameParserRuleCall_2_0_1()); }
+			{ before(grammarAccess.getBindingProvidedAccess().getServiceProvidedServiceQualifiedNameParserRuleCall_2_0_1()); }
 			ruleQualifiedName
-			{ after(grammarAccess.getBindingProvidedAccess().getTypeProvidedServiceQualifiedNameParserRuleCall_2_0_1()); }
+			{ after(grammarAccess.getBindingProvidedAccess().getServiceProvidedServiceQualifiedNameParserRuleCall_2_0_1()); }
 		)
-		{ after(grammarAccess.getBindingProvidedAccess().getTypeProvidedServiceCrossReference_2_0()); }
+		{ after(grammarAccess.getBindingProvidedAccess().getServiceProvidedServiceCrossReference_2_0()); }
 	)
 ;
 finally {

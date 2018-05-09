@@ -468,19 +468,20 @@ ruleComponentAttribute returns [EObject current=null]
 	(
 		(
 			(
-				lv_name_0_0=RULE_ID
 				{
-					newLeafNode(lv_name_0_0, grammarAccess.getComponentAttributeAccess().getNameIDTerminalRuleCall_0_0());
+					newCompositeNode(grammarAccess.getComponentAttributeAccess().getNameQualifiedNameParserRuleCall_0_0());
 				}
+				lv_name_0_0=ruleQualifiedName
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getComponentAttributeRule());
+						$current = createModelElementForParent(grammarAccess.getComponentAttributeRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"name",
 						lv_name_0_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"com.project.foo.Foo.QualifiedName");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -600,9 +601,9 @@ ruleBindingRequiered returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_1='.'
+		otherlv_1='->'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getBindingRequieredAccess().getFullStopKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getBindingRequieredAccess().getHyphenMinusGreaterThanSignKeyword_1());
 		}
 		(
 			(
@@ -612,7 +613,7 @@ ruleBindingRequiered returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getBindingRequieredAccess().getTypeRequieredServiceCrossReference_2_0());
+					newCompositeNode(grammarAccess.getBindingRequieredAccess().getServiceRequieredServiceCrossReference_2_0());
 				}
 				ruleQualifiedName
 				{
@@ -655,9 +656,9 @@ ruleBindingProvided returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_1='.'
+		otherlv_1='->'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getBindingProvidedAccess().getFullStopKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getBindingProvidedAccess().getHyphenMinusGreaterThanSignKeyword_1());
 		}
 		(
 			(
@@ -667,7 +668,7 @@ ruleBindingProvided returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getBindingProvidedAccess().getTypeProvidedServiceCrossReference_2_0());
+					newCompositeNode(grammarAccess.getBindingProvidedAccess().getServiceProvidedServiceCrossReference_2_0());
 				}
 				ruleQualifiedName
 				{

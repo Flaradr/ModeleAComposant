@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.project.foo.foo.impl.BindingRequieredImpl#getId <em>Id</em>}</li>
- *   <li>{@link com.project.foo.foo.impl.BindingRequieredImpl#getType <em>Type</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.BindingRequieredImpl#getService <em>Service</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,14 +43,14 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
   protected ComponentAttribute id;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * The cached value of the '{@link #getService() <em>Service</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getService()
    * @generated
    * @ordered
    */
-  protected RequieredService type;
+  protected RequieredService service;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,19 +121,19 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public RequieredService getType()
+  public RequieredService getService()
   {
-    if (type != null && type.eIsProxy())
+    if (service != null && service.eIsProxy())
     {
-      InternalEObject oldType = (InternalEObject)type;
-      type = (RequieredService)eResolveProxy(oldType);
-      if (type != oldType)
+      InternalEObject oldService = (InternalEObject)service;
+      service = (RequieredService)eResolveProxy(oldService);
+      if (service != oldService)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.BINDING_REQUIERED__TYPE, oldType, type));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.BINDING_REQUIERED__SERVICE, oldService, service));
       }
     }
-    return type;
+    return service;
   }
 
   /**
@@ -141,9 +141,9 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public RequieredService basicGetType()
+  public RequieredService basicGetService()
   {
-    return type;
+    return service;
   }
 
   /**
@@ -151,12 +151,12 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(RequieredService newType)
+  public void setService(RequieredService newService)
   {
-    RequieredService oldType = type;
-    type = newType;
+    RequieredService oldService = service;
+    service = newService;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING_REQUIERED__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING_REQUIERED__SERVICE, oldService, service));
   }
 
   /**
@@ -172,9 +172,9 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
       case FooPackage.BINDING_REQUIERED__ID:
         if (resolve) return getId();
         return basicGetId();
-      case FooPackage.BINDING_REQUIERED__TYPE:
-        if (resolve) return getType();
-        return basicGetType();
+      case FooPackage.BINDING_REQUIERED__SERVICE:
+        if (resolve) return getService();
+        return basicGetService();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -192,8 +192,8 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
       case FooPackage.BINDING_REQUIERED__ID:
         setId((ComponentAttribute)newValue);
         return;
-      case FooPackage.BINDING_REQUIERED__TYPE:
-        setType((RequieredService)newValue);
+      case FooPackage.BINDING_REQUIERED__SERVICE:
+        setService((RequieredService)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -212,8 +212,8 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
       case FooPackage.BINDING_REQUIERED__ID:
         setId((ComponentAttribute)null);
         return;
-      case FooPackage.BINDING_REQUIERED__TYPE:
-        setType((RequieredService)null);
+      case FooPackage.BINDING_REQUIERED__SERVICE:
+        setService((RequieredService)null);
         return;
     }
     super.eUnset(featureID);
@@ -231,8 +231,8 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
     {
       case FooPackage.BINDING_REQUIERED__ID:
         return id != null;
-      case FooPackage.BINDING_REQUIERED__TYPE:
-        return type != null;
+      case FooPackage.BINDING_REQUIERED__SERVICE:
+        return service != null;
     }
     return super.eIsSet(featureID);
   }
