@@ -223,10 +223,18 @@ public class FooValidator extends AbstractFooValidator {
     }
     EObject _eContainer_1 = bindingRequiered.getService().eContainer().eContainer();
     final String componentTypeOfService = ((Component) _eContainer_1).getName();
+    String _name = bindingRequiered.getId().getName();
+    String _plus = ("\nValue of bindingProvided : " + _name);
+    String _plus_1 = (_plus + ".");
+    String _name_1 = bindingRequiered.getService().getName();
+    String _plus_2 = (_plus_1 + _name_1);
+    InputOutput.<String>println(_plus_2);
+    InputOutput.<String>println(("Value of typeOfInstance : " + typeOfInstance));
+    InputOutput.<String>println(("Value of componentTypeOfService : " + componentTypeOfService));
     boolean _equals = typeOfInstance.equals(componentTypeOfService);
     boolean _not = (!_equals);
     if (_not) {
-      this.error("The type of the component and the component requiring this method are not the same", 
+      this.error("This service is not requiered by the component", 
         FooPackage.Literals.BINDING_REQUIERED__SERVICE, 
         FooValidator.CHECK_BINDING_REQUIERED_CAN_USE_METHOD);
     }
@@ -255,8 +263,13 @@ public class FooValidator extends AbstractFooValidator {
     }
     EObject _eContainer_1 = bindingProvided.getService().eContainer().eContainer();
     final String componentTypeOfService = ((Component) _eContainer_1).getName();
-    InputOutput.<String>println(("Value of bindingProvided : " + bindingProvided));
-    InputOutput.<String>println(("\nValue of typeOfInstance : " + typeOfInstance));
+    String _name = bindingProvided.getId().getName();
+    String _plus = ("\nValue of bindingProvided : " + _name);
+    String _plus_1 = (_plus + ".");
+    String _name_1 = bindingProvided.getService().getName();
+    String _plus_2 = (_plus_1 + _name_1);
+    InputOutput.<String>println(_plus_2);
+    InputOutput.<String>println(("Value of typeOfInstance : " + typeOfInstance));
     InputOutput.<String>println(("Value of componentTypeOfService : " + componentTypeOfService));
     boolean _equals = typeOfInstance.equals(componentTypeOfService);
     boolean _not = (!_equals);

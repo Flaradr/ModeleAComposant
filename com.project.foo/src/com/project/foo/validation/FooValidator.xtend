@@ -177,8 +177,12 @@ class FooValidator extends AbstractFooValidator {
 		
 		val componentTypeOfService = (bindingRequiered.service.eContainer.eContainer as Component).name
 		
+		println("\nValue of bindingProvided : " + bindingRequiered.id.name + "." + bindingRequiered.service.name)
+		println("Value of typeOfInstance : " + typeOfInstance)
+		println("Value of componentTypeOfService : " + componentTypeOfService)
+		
 		if (!typeOfInstance.equals(componentTypeOfService)){
-			error("The type of the component and the component requiring this method are not the same",
+			error("This service is not requiered by the component",
 				  FooPackage.Literals.BINDING_REQUIERED__SERVICE,
 				  CHECK_BINDING_REQUIERED_CAN_USE_METHOD)
 		}
@@ -203,8 +207,8 @@ class FooValidator extends AbstractFooValidator {
 		}
 		val componentTypeOfService = (bindingProvided.service.eContainer.eContainer as Component).name
 		
-		println("Value of bindingProvided : " + bindingProvided)
-		println("\nValue of typeOfInstance : " + typeOfInstance)
+		println("\nValue of bindingProvided : " + bindingProvided.id.name + "." + bindingProvided.service.name)
+		println("Value of typeOfInstance : " + typeOfInstance)
 		println("Value of componentTypeOfService : " + componentTypeOfService)
 		
 		if (!typeOfInstance.equals(componentTypeOfService)){
