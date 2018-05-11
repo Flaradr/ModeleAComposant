@@ -17,8 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.project.foo.foo.Component#getName <em>Name</em>}</li>
- *   <li>{@link com.project.foo.foo.Component#getProvided <em>Provided</em>}</li>
- *   <li>{@link com.project.foo.foo.Component#getRequiered <em>Requiered</em>}</li>
+ *   <li>{@link com.project.foo.foo.Component#getListOfPServices <em>List Of PServices</em>}</li>
+ *   <li>{@link com.project.foo.foo.Component#getListOfRServices <em>List Of RServices</em>}</li>
  *   <li>{@link com.project.foo.foo.Component#getMProvServices <em>MProv Services</em>}</li>
  *   <li>{@link com.project.foo.foo.Component#getMReqServices <em>MReq Services</em>}</li>
  * </ul>
@@ -56,56 +56,56 @@ public interface Component extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Provided</b></em>' containment reference.
+   * Returns the value of the '<em><b>List Of PServices</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Provided</em>' containment reference isn't clear,
+   * If the meaning of the '<em>List Of PServices</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Provided</em>' containment reference.
-   * @see #setProvided(Provided)
-   * @see com.project.foo.foo.FooPackage#getComponent_Provided()
+   * @return the value of the '<em>List Of PServices</em>' containment reference.
+   * @see #setListOfPServices(ListOfProvidedServices)
+   * @see com.project.foo.foo.FooPackage#getComponent_ListOfPServices()
    * @model containment="true"
    * @generated
    */
-  Provided getProvided();
+  ListOfProvidedServices getListOfPServices();
 
   /**
-   * Sets the value of the '{@link com.project.foo.foo.Component#getProvided <em>Provided</em>}' containment reference.
+   * Sets the value of the '{@link com.project.foo.foo.Component#getListOfPServices <em>List Of PServices</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Provided</em>' containment reference.
-   * @see #getProvided()
+   * @param value the new value of the '<em>List Of PServices</em>' containment reference.
+   * @see #getListOfPServices()
    * @generated
    */
-  void setProvided(Provided value);
+  void setListOfPServices(ListOfProvidedServices value);
 
   /**
-   * Returns the value of the '<em><b>Requiered</b></em>' containment reference.
+   * Returns the value of the '<em><b>List Of RServices</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Requiered</em>' containment reference isn't clear,
+   * If the meaning of the '<em>List Of RServices</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Requiered</em>' containment reference.
-   * @see #setRequiered(Requiered)
-   * @see com.project.foo.foo.FooPackage#getComponent_Requiered()
+   * @return the value of the '<em>List Of RServices</em>' containment reference.
+   * @see #setListOfRServices(ListOfRequieredServices)
+   * @see com.project.foo.foo.FooPackage#getComponent_ListOfRServices()
    * @model containment="true"
    * @generated
    */
-  Requiered getRequiered();
+  ListOfRequieredServices getListOfRServices();
 
   /**
-   * Sets the value of the '{@link com.project.foo.foo.Component#getRequiered <em>Requiered</em>}' containment reference.
+   * Sets the value of the '{@link com.project.foo.foo.Component#getListOfRServices <em>List Of RServices</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Requiered</em>' containment reference.
-   * @see #getRequiered()
+   * @param value the new value of the '<em>List Of RServices</em>' containment reference.
+   * @see #getListOfRServices()
    * @generated
    */
-  void setRequiered(Requiered value);
+  void setListOfRServices(ListOfRequieredServices value);
 
   /**
    * Returns the value of the '<em><b>MProv Services</b></em>' containment reference list.

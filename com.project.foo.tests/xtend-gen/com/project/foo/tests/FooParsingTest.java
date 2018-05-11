@@ -5,7 +5,7 @@ package com.project.foo.tests;
 
 import com.google.inject.Inject;
 import com.project.foo.foo.Component;
-import com.project.foo.foo.DomainModel;
+import com.project.foo.foo.File;
 import com.project.foo.foo.FooPackage;
 import com.project.foo.tests.FooInjectorProvider;
 import com.project.foo.validation.FooValidator;
@@ -30,7 +30,7 @@ import org.junit.runner.RunWith;
 public class FooParsingTest {
   @Inject
   @Extension
-  private ParseHelper<DomainModel> _parseHelper;
+  private ParseHelper<File> _parseHelper;
   
   @Inject
   @Extension
@@ -75,7 +75,7 @@ public class FooParsingTest {
   @Test
   public void testParsingComponent() {
     try {
-      final DomainModel input = this._parseHelper.parse(FooParsingTest.validComponent);
+      final File input = this._parseHelper.parse(FooParsingTest.validComponent);
       Assert.assertNotNull(input);
       final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
       final Component component = input.getModels().get(0).getComponent().get(0);
@@ -119,7 +119,7 @@ public class FooParsingTest {
       _builder.append("}");
       _builder.newLine();
       final String input = _builder.toString();
-      DomainModel _parse = this._parseHelper.parse(input);
+      File _parse = this._parseHelper.parse(input);
       int _indexOf = input.indexOf("Component a");
       int _length = "Component ".length();
       int _plus = (_indexOf + _length);
@@ -252,7 +252,7 @@ public class FooParsingTest {
       _builder_1.append("}");
       _builder_1.newLine();
       final String input = _builder_1.toString();
-      DomainModel _parse = this._parseHelper.parse(input);
+      File _parse = this._parseHelper.parse(input);
       int _indexOf = input.indexOf("Assembly d");
       int _length = "Assembly ".length();
       int _plus = (_indexOf + _length);
@@ -318,7 +318,7 @@ public class FooParsingTest {
       _builder.append("}");
       _builder.newLine();
       final String input = _builder.toString();
-      DomainModel _parse = this._parseHelper.parse(input);
+      File _parse = this._parseHelper.parse(input);
       int _indexOf = input.indexOf("Component A");
       int _length = "Component ".length();
       int _plus = (_indexOf + _length);
@@ -487,7 +487,7 @@ public class FooParsingTest {
       _builder_1.append("}");
       _builder_1.newLine();
       final String input = _builder_1.toString();
-      DomainModel _parse = this._parseHelper.parse(input);
+      File _parse = this._parseHelper.parse(input);
       int _indexOf = input.indexOf("Assembly D");
       int _length = "Assembly ".length();
       int _plus = (_indexOf + _length);
@@ -624,7 +624,7 @@ public class FooParsingTest {
       _builder_1.newLine();
       final String input = _builder_1.toString();
       this._validationTestHelper.assertError(this._parseHelper.parse(input), 
-        FooPackage.Literals.COMPONENT_ATTRIBUTE, 
+        FooPackage.Literals.COMPONENT_INSTANCE, 
         FooValidator.CHECK_COMPONENT_ATTRIBUTE_NAME_IS_UNIQUE, 
         input.indexOf("a1"), 
         2, 
@@ -1543,7 +1543,7 @@ public class FooParsingTest {
       _builder_1.append("}");
       _builder_1.newLine();
       final String input = _builder_1.toString();
-      DomainModel _parse = this._parseHelper.parse(input);
+      File _parse = this._parseHelper.parse(input);
       int _indexOf = input.indexOf("b1.A.m3");
       int _length = "b1.".length();
       int _plus = (_indexOf + _length);
@@ -1772,7 +1772,7 @@ public class FooParsingTest {
       _builder_1.append("}");
       _builder_1.newLine();
       final String input = _builder_1.toString();
-      DomainModel _parse = this._parseHelper.parse(input);
+      File _parse = this._parseHelper.parse(input);
       int _indexOf = input.indexOf("b1.A.mk8");
       int _length = "b1.".length();
       int _plus = (_indexOf + _length);

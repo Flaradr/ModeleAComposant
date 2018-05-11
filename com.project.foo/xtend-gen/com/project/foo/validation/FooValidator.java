@@ -9,7 +9,7 @@ import com.project.foo.foo.Binding;
 import com.project.foo.foo.BindingProvided;
 import com.project.foo.foo.BindingRequiered;
 import com.project.foo.foo.Component;
-import com.project.foo.foo.ComponentAttribute;
+import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.FooPackage;
 import com.project.foo.foo.MProvidedService;
 import com.project.foo.foo.MRequieredService;
@@ -136,17 +136,17 @@ public class FooValidator extends AbstractFooValidator {
    * au sein d'un modele
    */
   @Check
-  public void checkComponentAttributeNameIsUnique(final ComponentAttribute ca) {
+  public void checkComponentAttributeNameIsUnique(final ComponentInstance ca) {
     EObject tmp = EcoreUtil2.getNextSibling(ca);
     while ((tmp != null)) {
       {
-        boolean _equals = ca.getName().equals(((ComponentAttribute) tmp).getName());
+        boolean _equals = ca.getName().equals(((ComponentInstance) tmp).getName());
         if (_equals) {
           String _name = ca.getName();
           String _plus = ("The name of a component attribute should be unique :\'" + _name);
           String _plus_1 = (_plus + "\'");
           this.error(_plus_1, 
-            FooPackage.Literals.COMPONENT_ATTRIBUTE__NAME, 
+            FooPackage.Literals.COMPONENT_INSTANCE__NAME, 
             FooValidator.CHECK_COMPONENT_ATTRIBUTE_NAME_IS_UNIQUE);
         }
         tmp = EcoreUtil2.getNextSibling(tmp);
@@ -207,7 +207,7 @@ public class FooValidator extends AbstractFooValidator {
   @Check
   public void checkBindingRequieredCanUseMethod(final BindingRequiered bindingRequiered) {
     EObject _eContainer = bindingRequiered.getId().eContainer();
-    final EList<ComponentAttribute> listOfComponent = ((Assembly) _eContainer).getAttributes();
+    final EList<ComponentInstance> listOfComponent = ((Assembly) _eContainer).getAttributes();
     boolean res = false;
     int i = 0;
     String typeOfInstance = null;
@@ -247,7 +247,7 @@ public class FooValidator extends AbstractFooValidator {
   @Check
   public void checkBindingProvidedCanUseMethod(final BindingProvided bindingProvided) {
     EObject _eContainer = bindingProvided.getId().eContainer();
-    final EList<ComponentAttribute> listOfComponent = ((Assembly) _eContainer).getAttributes();
+    final EList<ComponentInstance> listOfComponent = ((Assembly) _eContainer).getAttributes();
     boolean res = false;
     int i = 0;
     String typeOfInstance = null;
@@ -417,11 +417,11 @@ public class FooValidator extends AbstractFooValidator {
    */
   @Check
   public void checkAssemblyIsCorrect(final Assembly assembly) {
-    EList<ComponentAttribute> listeComposants = assembly.getAttributes();
-    for (final ComponentAttribute component : listeComposants) {
+    EList<ComponentInstance> listeComposants = assembly.getAttributes();
+    for (final ComponentInstance component : listeComposants) {
       {
         Component _composant = component.getComposant();
-        EList<RequieredService> listeServicesRequis = ((Component) _composant).getRequiered().getRequieredServices();
+        EList<RequieredService> listeServicesRequis = ((Component) _composant).getListOfRServices().getRequieredServices();
         for (final RequieredService service : listeServicesRequis) {
           {
             EList<Binding> listeBindings = assembly.getBindings();

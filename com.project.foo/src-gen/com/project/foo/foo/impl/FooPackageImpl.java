@@ -9,19 +9,19 @@ import com.project.foo.foo.Binding;
 import com.project.foo.foo.BindingProvided;
 import com.project.foo.foo.BindingRequiered;
 import com.project.foo.foo.Component;
-import com.project.foo.foo.ComponentAttribute;
-import com.project.foo.foo.DomainModel;
+import com.project.foo.foo.ComponentInstance;
+import com.project.foo.foo.File;
 import com.project.foo.foo.FooFactory;
 import com.project.foo.foo.FooPackage;
 import com.project.foo.foo.Import;
+import com.project.foo.foo.ListOfProvidedServices;
+import com.project.foo.foo.ListOfRequieredServices;
 import com.project.foo.foo.MProvidedService;
 import com.project.foo.foo.MRequieredService;
 import com.project.foo.foo.Model;
 import com.project.foo.foo.PSignature;
-import com.project.foo.foo.Provided;
 import com.project.foo.foo.ProvidedService;
 import com.project.foo.foo.RSignature;
-import com.project.foo.foo.Requiered;
 import com.project.foo.foo.RequieredService;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -44,7 +44,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass domainModelEClass = null;
+  private EClass fileEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,7 +72,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass componentAttributeEClass = null;
+  private EClass componentInstanceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -107,7 +107,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass providedEClass = null;
+  private EClass listOfProvidedServicesEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,7 +121,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass requieredEClass = null;
+  private EClass listOfRequieredServicesEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -233,9 +233,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDomainModel()
+  public EClass getFile()
   {
-    return domainModelEClass;
+    return fileEClass;
   }
 
   /**
@@ -243,9 +243,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDomainModel_Models()
+  public EReference getFile_Models()
   {
-    return (EReference)domainModelEClass.getEStructuralFeatures().get(0);
+    return (EReference)fileEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -313,9 +313,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getImport_ImportedNamespace()
+  public EReference getImport_ImportedNamespace()
   {
-    return (EAttribute)importEClass.getEStructuralFeatures().get(0);
+    return (EReference)importEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -363,9 +363,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getComponentAttribute()
+  public EClass getComponentInstance()
   {
-    return componentAttributeEClass;
+    return componentInstanceEClass;
   }
 
   /**
@@ -373,9 +373,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getComponentAttribute_Name()
+  public EAttribute getComponentInstance_Name()
   {
-    return (EAttribute)componentAttributeEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)componentInstanceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -383,9 +383,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponentAttribute_Composant()
+  public EReference getComponentInstance_Composant()
   {
-    return (EReference)componentAttributeEClass.getEStructuralFeatures().get(1);
+    return (EReference)componentInstanceEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -503,7 +503,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponent_Provided()
+  public EReference getComponent_ListOfPServices()
   {
     return (EReference)componentEClass.getEStructuralFeatures().get(1);
   }
@@ -513,7 +513,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponent_Requiered()
+  public EReference getComponent_ListOfRServices()
   {
     return (EReference)componentEClass.getEStructuralFeatures().get(2);
   }
@@ -543,9 +543,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getProvided()
+  public EClass getListOfProvidedServices()
   {
-    return providedEClass;
+    return listOfProvidedServicesEClass;
   }
 
   /**
@@ -553,9 +553,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProvided_ProvidedServices()
+  public EReference getListOfProvidedServices_ProvidedServices()
   {
-    return (EReference)providedEClass.getEStructuralFeatures().get(0);
+    return (EReference)listOfProvidedServicesEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -583,9 +583,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getRequiered()
+  public EClass getListOfRequieredServices()
   {
-    return requieredEClass;
+    return listOfRequieredServicesEClass;
   }
 
   /**
@@ -593,9 +593,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRequiered_RequieredServices()
+  public EReference getListOfRequieredServices_RequieredServices()
   {
-    return (EReference)requieredEClass.getEStructuralFeatures().get(0);
+    return (EReference)listOfRequieredServicesEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -798,8 +798,8 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     isCreated = true;
 
     // Create classes and their features
-    domainModelEClass = createEClass(DOMAIN_MODEL);
-    createEReference(domainModelEClass, DOMAIN_MODEL__MODELS);
+    fileEClass = createEClass(FILE);
+    createEReference(fileEClass, FILE__MODELS);
 
     modelEClass = createEClass(MODEL);
     createEAttribute(modelEClass, MODEL__NAME);
@@ -808,16 +808,16 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     createEReference(modelEClass, MODEL__ASSEMBLY);
 
     importEClass = createEClass(IMPORT);
-    createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
+    createEReference(importEClass, IMPORT__IMPORTED_NAMESPACE);
 
     assemblyEClass = createEClass(ASSEMBLY);
     createEAttribute(assemblyEClass, ASSEMBLY__NAME);
     createEReference(assemblyEClass, ASSEMBLY__ATTRIBUTES);
     createEReference(assemblyEClass, ASSEMBLY__BINDINGS);
 
-    componentAttributeEClass = createEClass(COMPONENT_ATTRIBUTE);
-    createEAttribute(componentAttributeEClass, COMPONENT_ATTRIBUTE__NAME);
-    createEReference(componentAttributeEClass, COMPONENT_ATTRIBUTE__COMPOSANT);
+    componentInstanceEClass = createEClass(COMPONENT_INSTANCE);
+    createEAttribute(componentInstanceEClass, COMPONENT_INSTANCE__NAME);
+    createEReference(componentInstanceEClass, COMPONENT_INSTANCE__COMPOSANT);
 
     bindingEClass = createEClass(BINDING);
     createEReference(bindingEClass, BINDING__MG);
@@ -833,19 +833,19 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
 
     componentEClass = createEClass(COMPONENT);
     createEAttribute(componentEClass, COMPONENT__NAME);
-    createEReference(componentEClass, COMPONENT__PROVIDED);
-    createEReference(componentEClass, COMPONENT__REQUIERED);
+    createEReference(componentEClass, COMPONENT__LIST_OF_PSERVICES);
+    createEReference(componentEClass, COMPONENT__LIST_OF_RSERVICES);
     createEReference(componentEClass, COMPONENT__MPROV_SERVICES);
     createEReference(componentEClass, COMPONENT__MREQ_SERVICES);
 
-    providedEClass = createEClass(PROVIDED);
-    createEReference(providedEClass, PROVIDED__PROVIDED_SERVICES);
+    listOfProvidedServicesEClass = createEClass(LIST_OF_PROVIDED_SERVICES);
+    createEReference(listOfProvidedServicesEClass, LIST_OF_PROVIDED_SERVICES__PROVIDED_SERVICES);
 
     providedServiceEClass = createEClass(PROVIDED_SERVICE);
     createEAttribute(providedServiceEClass, PROVIDED_SERVICE__NAME);
 
-    requieredEClass = createEClass(REQUIERED);
-    createEReference(requieredEClass, REQUIERED__REQUIERED_SERVICES);
+    listOfRequieredServicesEClass = createEClass(LIST_OF_REQUIERED_SERVICES);
+    createEReference(listOfRequieredServicesEClass, LIST_OF_REQUIERED_SERVICES__REQUIERED_SERVICES);
 
     requieredServiceEClass = createEClass(REQUIERED_SERVICE);
     createEAttribute(requieredServiceEClass, REQUIERED_SERVICE__NAME);
@@ -902,8 +902,8 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     // Add supertypes to classes
 
     // Initialize classes and features; add operations and parameters
-    initEClass(domainModelEClass, DomainModel.class, "DomainModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDomainModel_Models(), this.getModel(), null, "models", null, 0, -1, DomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(fileEClass, File.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFile_Models(), this.getModel(), null, "models", null, 0, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -912,44 +912,44 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     initEReference(getModel_Assembly(), this.getAssembly(), null, "assembly", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImport_ImportedNamespace(), this.getModel(), null, "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assemblyEClass, Assembly.class, "Assembly", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAssembly_Name(), ecorePackage.getEString(), "name", null, 0, 1, Assembly.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAssembly_Attributes(), this.getComponentAttribute(), null, "attributes", null, 0, -1, Assembly.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAssembly_Attributes(), this.getComponentInstance(), null, "attributes", null, 0, -1, Assembly.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAssembly_Bindings(), this.getBinding(), null, "bindings", null, 0, -1, Assembly.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(componentAttributeEClass, ComponentAttribute.class, "ComponentAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getComponentAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, ComponentAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComponentAttribute_Composant(), this.getComponent(), null, "composant", null, 0, 1, ComponentAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(componentInstanceEClass, ComponentInstance.class, "ComponentInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getComponentInstance_Name(), ecorePackage.getEString(), "name", null, 0, 1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComponentInstance_Composant(), this.getComponent(), null, "composant", null, 0, 1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bindingEClass, Binding.class, "Binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBinding_MG(), this.getBindingRequiered(), null, "mG", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBinding_MD(), this.getBindingProvided(), null, "mD", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bindingRequieredEClass, BindingRequiered.class, "BindingRequiered", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBindingRequiered_Id(), this.getComponentAttribute(), null, "id", null, 0, 1, BindingRequiered.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBindingRequiered_Id(), this.getComponentInstance(), null, "id", null, 0, 1, BindingRequiered.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBindingRequiered_Service(), this.getRequieredService(), null, "service", null, 0, 1, BindingRequiered.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bindingProvidedEClass, BindingProvided.class, "BindingProvided", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBindingProvided_Id(), this.getComponentAttribute(), null, "id", null, 0, 1, BindingProvided.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBindingProvided_Id(), this.getComponentInstance(), null, "id", null, 0, 1, BindingProvided.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBindingProvided_Service(), this.getProvidedService(), null, "service", null, 0, 1, BindingProvided.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComponent_Provided(), this.getProvided(), null, "provided", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComponent_Requiered(), this.getRequiered(), null, "requiered", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComponent_ListOfPServices(), this.getListOfProvidedServices(), null, "listOfPServices", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComponent_ListOfRServices(), this.getListOfRequieredServices(), null, "listOfRServices", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponent_MProvServices(), this.getMProvidedService(), null, "mProvServices", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponent_MReqServices(), this.getMRequieredService(), null, "mReqServices", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(providedEClass, Provided.class, "Provided", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getProvided_ProvidedServices(), this.getProvidedService(), null, "providedServices", null, 0, -1, Provided.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(listOfProvidedServicesEClass, ListOfProvidedServices.class, "ListOfProvidedServices", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getListOfProvidedServices_ProvidedServices(), this.getProvidedService(), null, "providedServices", null, 0, -1, ListOfProvidedServices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(providedServiceEClass, ProvidedService.class, "ProvidedService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProvidedService_Name(), ecorePackage.getEString(), "name", null, 0, 1, ProvidedService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(requieredEClass, Requiered.class, "Requiered", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRequiered_RequieredServices(), this.getRequieredService(), null, "requieredServices", null, 0, -1, Requiered.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(listOfRequieredServicesEClass, ListOfRequieredServices.class, "ListOfRequieredServices", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getListOfRequieredServices_RequieredServices(), this.getRequieredService(), null, "requieredServices", null, 0, -1, ListOfRequieredServices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(requieredServiceEClass, RequieredService.class, "RequieredService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRequieredService_Name(), ecorePackage.getEString(), "name", null, 0, 1, RequieredService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

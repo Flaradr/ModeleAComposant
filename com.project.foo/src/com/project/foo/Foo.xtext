@@ -3,7 +3,7 @@ grammar com.project.foo.Foo with org.eclipse.xtext.common.Terminals
 generate foo "http://www.project.com/foo/Foo"
 
 //Concerne les modeles
-DomainModel:
+File:
 	(models+=Model)*;
 
 /*
@@ -23,7 +23,7 @@ QualifiedName:
     ID ('.' ID)*;
 
 Import:
-    'import' 'static' 'extension' importedNamespace=FqnWithWildCard;
+    'import' 'static' 'extension' importedNamespace=[Model|FqnWithWildCard];
 
 FqnWithWildCard:
     QualifiedName '.*'?;
@@ -32,14 +32,14 @@ FqnWithWildCard:
 Assembly:
 	{Assembly}'Assembly' name=ID '{'
 	'components'
-	attributes+=ComponentAttribute
-	(attributes+=ComponentAttribute)+
+	attributes+=ComponentInstance
+	(attributes+=ComponentInstance)+
 	'bindings'
 	(bindings+=Binding)*
 	'}';
 
 //Structure d'un composant
-ComponentAttribute:
+ComponentInstance:
 	name=QualifiedName ':' composant=[Component|QualifiedName];
 
 //Lien entre d'un service requis d'un composant X et d'un
@@ -49,23 +49,23 @@ Binding:
 
 //Instance du composant ayant besoin d'un service
 BindingRequiered:
-	id=[ComponentAttribute|QualifiedName]'->'service=[RequieredService|QualifiedName];
+	id=[ComponentInstance|QualifiedName]'->'service=[RequieredService|QualifiedName];
 
 //Instance du composant fournissant un service
 BindingProvided:
-	id=[ComponentAttribute|QualifiedName]'->'service=[ProvidedService|QualifiedName];
+	id=[ComponentInstance|QualifiedName]'->'service=[ProvidedService|QualifiedName];
 
 //Structure d'un composant
 Component:
 	'Component' name=ID '{'
-	provided = Provided
-	requiered = Requiered
+	listOfPServices = ListOfProvidedServices
+	listOfRServices = ListOfRequieredServices
 	(mProvServices += MProvidedService)+
 	(mReqServices += MRequieredService)*
 	'}';
 
 //Liste des services fourni par un composant X
-Provided:
+ListOfProvidedServices:
 	'provided' '=' '{'
 		(providedServices+=ProvidedService
 		(',' providedServices+=ProvidedService)*)
@@ -75,8 +75,8 @@ ProvidedService:
 	name=ID;
 
 //Liste des services requis par un composant X
-Requiered:
-	{Requiered}'requiered' '=' '{'
+ListOfRequieredServices:
+	{ListOfRequieredServices}'requiered' '=' '{'
 		(requieredServices+=RequieredService?
 		(',' requieredServices+=RequieredService)*)
 	'}';

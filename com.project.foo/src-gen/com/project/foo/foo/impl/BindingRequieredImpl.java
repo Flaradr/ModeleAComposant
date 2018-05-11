@@ -4,7 +4,7 @@
 package com.project.foo.foo.impl;
 
 import com.project.foo.foo.BindingRequiered;
-import com.project.foo.foo.ComponentAttribute;
+import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.FooPackage;
 import com.project.foo.foo.RequieredService;
 
@@ -40,7 +40,7 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * @generated
    * @ordered
    */
-  protected ComponentAttribute id;
+  protected ComponentInstance id;
 
   /**
    * The cached value of the '{@link #getService() <em>Service</em>}' reference.
@@ -78,12 +78,12 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public ComponentAttribute getId()
+  public ComponentInstance getId()
   {
     if (id != null && id.eIsProxy())
     {
       InternalEObject oldId = (InternalEObject)id;
-      id = (ComponentAttribute)eResolveProxy(oldId);
+      id = (ComponentInstance)eResolveProxy(oldId);
       if (id != oldId)
       {
         if (eNotificationRequired())
@@ -98,7 +98,7 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public ComponentAttribute basicGetId()
+  public ComponentInstance basicGetId()
   {
     return id;
   }
@@ -108,9 +108,9 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setId(ComponentAttribute newId)
+  public void setId(ComponentInstance newId)
   {
-    ComponentAttribute oldId = id;
+    ComponentInstance oldId = id;
     id = newId;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING_REQUIERED__ID, oldId, id));
@@ -190,7 +190,7 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
     switch (featureID)
     {
       case FooPackage.BINDING_REQUIERED__ID:
-        setId((ComponentAttribute)newValue);
+        setId((ComponentInstance)newValue);
         return;
       case FooPackage.BINDING_REQUIERED__SERVICE:
         setService((RequieredService)newValue);
@@ -210,7 +210,7 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
     switch (featureID)
     {
       case FooPackage.BINDING_REQUIERED__ID:
-        setId((ComponentAttribute)null);
+        setId((ComponentInstance)null);
         return;
       case FooPackage.BINDING_REQUIERED__SERVICE:
         setService((RequieredService)null);

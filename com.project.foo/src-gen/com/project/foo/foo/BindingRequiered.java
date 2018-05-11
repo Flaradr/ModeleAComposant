@@ -33,12 +33,12 @@ public interface BindingRequiered extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Id</em>' reference.
-   * @see #setId(ComponentAttribute)
+   * @see #setId(ComponentInstance)
    * @see com.project.foo.foo.FooPackage#getBindingRequiered_Id()
    * @model
    * @generated
    */
-  ComponentAttribute getId();
+  ComponentInstance getId();
 
   /**
    * Sets the value of the '{@link com.project.foo.foo.BindingRequiered#getId <em>Id</em>}' reference.
@@ -48,7 +48,7 @@ public interface BindingRequiered extends EObject
    * @see #getId()
    * @generated
    */
-  void setId(ComponentAttribute value);
+  void setId(ComponentInstance value);
 
   /**
    * Returns the value of the '<em><b>Service</b></em>' reference.

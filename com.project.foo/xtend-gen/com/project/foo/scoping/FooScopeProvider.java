@@ -6,7 +6,7 @@ package com.project.foo.scoping;
 import com.google.common.base.Objects;
 import com.project.foo.foo.BindingProvided;
 import com.project.foo.foo.BindingRequiered;
-import com.project.foo.foo.ComponentAttribute;
+import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.FooPackage;
 import com.project.foo.foo.ProvidedService;
 import com.project.foo.foo.RequieredService;
@@ -30,7 +30,7 @@ public class FooScopeProvider extends AbstractFooScopeProvider {
   public IScope getScope(final EObject context, final EReference reference) {
     if (((context instanceof BindingRequiered) && Objects.equal(reference, FooPackage.Literals.BINDING_REQUIERED__ID))) {
       final EObject rootElement = EcoreUtil2.getRootContainer(context);
-      final List<ComponentAttribute> candidates = EcoreUtil2.<ComponentAttribute>getAllContentsOfType(rootElement, ComponentAttribute.class);
+      final List<ComponentInstance> candidates = EcoreUtil2.<ComponentInstance>getAllContentsOfType(rootElement, ComponentInstance.class);
       return Scopes.scopeFor(candidates);
     }
     if (((context instanceof BindingRequiered) && Objects.equal(reference, FooPackage.Literals.BINDING_REQUIERED__SERVICE))) {
@@ -40,7 +40,7 @@ public class FooScopeProvider extends AbstractFooScopeProvider {
     }
     if (((context instanceof BindingProvided) && Objects.equal(reference, FooPackage.Literals.BINDING_PROVIDED__ID))) {
       final EObject rootElement_2 = EcoreUtil2.getRootContainer(context);
-      final List<ComponentAttribute> candidates_2 = EcoreUtil2.<ComponentAttribute>getAllContentsOfType(rootElement_2, ComponentAttribute.class);
+      final List<ComponentInstance> candidates_2 = EcoreUtil2.<ComponentInstance>getAllContentsOfType(rootElement_2, ComponentInstance.class);
       return Scopes.scopeFor(candidates_2);
     }
     if (((context instanceof BindingProvided) && Objects.equal(reference, FooPackage.Literals.BINDING_PROVIDED__SERVICE))) {

@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
-import com.project.foo.foo.ComponentAttribute
+import com.project.foo.foo.ComponentInstance
 
 /**
  * This class contains custom scoping description.
@@ -27,7 +27,7 @@ class FooScopeProvider extends AbstractFooScopeProvider {
  	override IScope getScope(EObject context, EReference reference){
  		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__ID){
  			val rootElement = EcoreUtil2.getRootContainer(context)
- 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentAttribute)
+ 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentInstance)
  			return Scopes.scopeFor(candidates)
  		}
 		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__SERVICE){
@@ -38,7 +38,7 @@ class FooScopeProvider extends AbstractFooScopeProvider {
  		
  		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__ID){
  			val rootElement = EcoreUtil2.getRootContainer(context)
- 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentAttribute)
+ 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentInstance)
  			return Scopes.scopeFor(candidates)
  		}
  		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__SERVICE){

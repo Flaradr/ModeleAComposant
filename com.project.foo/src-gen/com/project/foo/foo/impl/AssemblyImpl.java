@@ -5,7 +5,7 @@ package com.project.foo.foo.impl;
 
 import com.project.foo.foo.Assembly;
 import com.project.foo.foo.Binding;
-import com.project.foo.foo.ComponentAttribute;
+import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.FooPackage;
 
 import java.util.Collection;
@@ -69,7 +69,7 @@ public class AssemblyImpl extends MinimalEObjectImpl.Container implements Assemb
    * @generated
    * @ordered
    */
-  protected EList<ComponentAttribute> attributes;
+  protected EList<ComponentInstance> attributes;
 
   /**
    * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
@@ -130,11 +130,11 @@ public class AssemblyImpl extends MinimalEObjectImpl.Container implements Assemb
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ComponentAttribute> getAttributes()
+  public EList<ComponentInstance> getAttributes()
   {
     if (attributes == null)
     {
-      attributes = new EObjectContainmentEList<ComponentAttribute>(ComponentAttribute.class, this, FooPackage.ASSEMBLY__ATTRIBUTES);
+      attributes = new EObjectContainmentEList<ComponentInstance>(ComponentInstance.class, this, FooPackage.ASSEMBLY__ATTRIBUTES);
     }
     return attributes;
   }
@@ -207,7 +207,7 @@ public class AssemblyImpl extends MinimalEObjectImpl.Container implements Assemb
         return;
       case FooPackage.ASSEMBLY__ATTRIBUTES:
         getAttributes().clear();
-        getAttributes().addAll((Collection<? extends ComponentAttribute>)newValue);
+        getAttributes().addAll((Collection<? extends ComponentInstance>)newValue);
         return;
       case FooPackage.ASSEMBLY__BINDINGS:
         getBindings().clear();

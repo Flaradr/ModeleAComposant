@@ -55,7 +55,7 @@ public interface Assembly extends EObject
 
   /**
    * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
-   * The list contents are of type {@link com.project.foo.foo.ComponentAttribute}.
+   * The list contents are of type {@link com.project.foo.foo.ComponentInstance}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Attributes</em>' containment reference list isn't clear,
@@ -67,7 +67,7 @@ public interface Assembly extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<ComponentAttribute> getAttributes();
+  EList<ComponentInstance> getAttributes();
 
   /**
    * Returns the value of the '<em><b>Bindings</b></em>' containment reference list.

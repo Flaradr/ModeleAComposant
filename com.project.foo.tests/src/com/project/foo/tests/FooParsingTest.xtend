@@ -4,7 +4,7 @@
 package com.project.foo.tests
 
 import com.google.inject.Inject
-import com.project.foo.foo.DomainModel
+import com.project.foo.foo.File
 import com.project.foo.foo.FooPackage
 import com.project.foo.validation.FooValidator
 import org.eclipse.xtext.testing.InjectWith
@@ -19,7 +19,7 @@ import static org.junit.Assert.*
 @RunWith(XtextRunner)
 @InjectWith(FooInjectorProvider)
 class FooParsingTest {
-	@Inject extension ParseHelper<DomainModel>
+	@Inject extension ParseHelper<File>
 	@Inject extension ValidationTestHelper
 
 	val static validComponent = '''
@@ -303,7 +303,7 @@ class FooParsingTest {
 		}
 		'''
 		input.parse.assertError(
-			FooPackage.Literals.COMPONENT_ATTRIBUTE,
+			FooPackage.Literals.COMPONENT_INSTANCE,
 			FooValidator.CHECK_COMPONENT_ATTRIBUTE_NAME_IS_UNIQUE,
 			input.indexOf("a1"),
 			2,

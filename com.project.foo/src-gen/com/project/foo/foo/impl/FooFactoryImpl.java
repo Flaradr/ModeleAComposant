@@ -65,18 +65,18 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
   {
     switch (eClass.getClassifierID())
     {
-      case FooPackage.DOMAIN_MODEL: return createDomainModel();
+      case FooPackage.FILE: return createFile();
       case FooPackage.MODEL: return createModel();
       case FooPackage.IMPORT: return createImport();
       case FooPackage.ASSEMBLY: return createAssembly();
-      case FooPackage.COMPONENT_ATTRIBUTE: return createComponentAttribute();
+      case FooPackage.COMPONENT_INSTANCE: return createComponentInstance();
       case FooPackage.BINDING: return createBinding();
       case FooPackage.BINDING_REQUIERED: return createBindingRequiered();
       case FooPackage.BINDING_PROVIDED: return createBindingProvided();
       case FooPackage.COMPONENT: return createComponent();
-      case FooPackage.PROVIDED: return createProvided();
+      case FooPackage.LIST_OF_PROVIDED_SERVICES: return createListOfProvidedServices();
       case FooPackage.PROVIDED_SERVICE: return createProvidedService();
-      case FooPackage.REQUIERED: return createRequiered();
+      case FooPackage.LIST_OF_REQUIERED_SERVICES: return createListOfRequieredServices();
       case FooPackage.REQUIERED_SERVICE: return createRequieredService();
       case FooPackage.MPROVIDED_SERVICE: return createMProvidedService();
       case FooPackage.PSIGNATURE: return createPSignature();
@@ -93,10 +93,10 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public DomainModel createDomainModel()
+  public File createFile()
   {
-    DomainModelImpl domainModel = new DomainModelImpl();
-    return domainModel;
+    FileImpl file = new FileImpl();
+    return file;
   }
 
   /**
@@ -137,10 +137,10 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ComponentAttribute createComponentAttribute()
+  public ComponentInstance createComponentInstance()
   {
-    ComponentAttributeImpl componentAttribute = new ComponentAttributeImpl();
-    return componentAttribute;
+    ComponentInstanceImpl componentInstance = new ComponentInstanceImpl();
+    return componentInstance;
   }
 
   /**
@@ -192,10 +192,10 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Provided createProvided()
+  public ListOfProvidedServices createListOfProvidedServices()
   {
-    ProvidedImpl provided = new ProvidedImpl();
-    return provided;
+    ListOfProvidedServicesImpl listOfProvidedServices = new ListOfProvidedServicesImpl();
+    return listOfProvidedServices;
   }
 
   /**
@@ -214,10 +214,10 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Requiered createRequiered()
+  public ListOfRequieredServices createListOfRequieredServices()
   {
-    RequieredImpl requiered = new RequieredImpl();
-    return requiered;
+    ListOfRequieredServicesImpl listOfRequieredServices = new ListOfRequieredServicesImpl();
+    return listOfRequieredServices;
   }
 
   /**

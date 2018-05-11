@@ -27,7 +27,7 @@ public class FooParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "DomainModel";
+		return "File";
 	}
 
 	public FooGrammarAccess getGrammarAccess() {

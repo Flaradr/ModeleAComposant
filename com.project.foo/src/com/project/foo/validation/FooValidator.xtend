@@ -7,7 +7,7 @@ import com.project.foo.foo.Assembly
 import com.project.foo.foo.Attribute
 import com.project.foo.foo.Binding
 import com.project.foo.foo.Component
-import com.project.foo.foo.ComponentAttribute
+import com.project.foo.foo.ComponentInstance
 import com.project.foo.foo.FooPackage
 import com.project.foo.foo.MProvidedService
 import com.project.foo.foo.MRequieredService
@@ -106,12 +106,12 @@ class FooValidator extends AbstractFooValidator {
 	  * au sein d'un modele
 	  */
 	 @Check
-	 def void checkComponentAttributeNameIsUnique(ComponentAttribute ca){
+	 def void checkComponentAttributeNameIsUnique(ComponentInstance ca){
 	 	var tmp = EcoreUtil2.getNextSibling(ca)
 	 	while(tmp !== null){
-	 		if(ca.name.equals((tmp as ComponentAttribute).name)){
+	 		if(ca.name.equals((tmp as ComponentInstance).name)){
 	 			error("The name of a component attribute should be unique :'"+ca.name+"'",
-	 				  FooPackage.Literals.COMPONENT_ATTRIBUTE__NAME,
+	 				  FooPackage.Literals.COMPONENT_INSTANCE__NAME,
 	 				  CHECK_COMPONENT_ATTRIBUTE_NAME_IS_UNIQUE)
 	 		}
 			tmp = EcoreUtil2.getNextSibling(tmp)
@@ -346,9 +346,9 @@ class FooValidator extends AbstractFooValidator {
 	@Check
 	def void checkAssemblyIsCorrect(Assembly assembly){
 		var listeComposants = assembly.attributes
-		for (ComponentAttribute component : listeComposants){
+		for (ComponentInstance component : listeComposants){
 		//Recupere liste des composants dans l'assemblage
-			var listeServicesRequis = (component.composant as Component).requiered.requieredServices
+			var listeServicesRequis = (component.composant as Component).listOfRServices.requieredServices
 			for(RequieredService service : listeServicesRequis){
 			//Liste des services requis dans un composant
 				var listeBindings = assembly.bindings

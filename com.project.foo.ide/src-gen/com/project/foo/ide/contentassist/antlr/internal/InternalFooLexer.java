@@ -535,10 +535,10 @@ public class InternalFooLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalFoo.g:3747:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalFoo.g:3747:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalFoo.g:3751:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalFoo.g:3751:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalFoo.g:3747:11: ( '^' )?
+            // InternalFoo.g:3751:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -547,7 +547,7 @@ public class InternalFooLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalFoo.g:3747:11: '^'
+                    // InternalFoo.g:3751:11: '^'
                     {
                     match('^'); 
 
@@ -565,7 +565,7 @@ public class InternalFooLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalFoo.g:3747:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalFoo.g:3751:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -614,10 +614,10 @@ public class InternalFooLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalFoo.g:3749:10: ( ( '0' .. '9' )+ )
-            // InternalFoo.g:3749:12: ( '0' .. '9' )+
+            // InternalFoo.g:3753:10: ( ( '0' .. '9' )+ )
+            // InternalFoo.g:3753:12: ( '0' .. '9' )+
             {
-            // InternalFoo.g:3749:12: ( '0' .. '9' )+
+            // InternalFoo.g:3753:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -631,7 +631,7 @@ public class InternalFooLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalFoo.g:3749:13: '0' .. '9'
+            	    // InternalFoo.g:3753:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -663,10 +663,10 @@ public class InternalFooLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalFoo.g:3751:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalFoo.g:3751:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalFoo.g:3755:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalFoo.g:3755:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalFoo.g:3751:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalFoo.g:3755:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -684,10 +684,10 @@ public class InternalFooLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalFoo.g:3751:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalFoo.g:3755:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalFoo.g:3751:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalFoo.g:3755:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -703,7 +703,7 @@ public class InternalFooLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalFoo.g:3751:21: '\\\\' .
+                    	    // InternalFoo.g:3755:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -711,7 +711,7 @@ public class InternalFooLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalFoo.g:3751:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalFoo.g:3755:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -736,10 +736,10 @@ public class InternalFooLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalFoo.g:3751:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalFoo.g:3755:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalFoo.g:3751:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalFoo.g:3755:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -755,7 +755,7 @@ public class InternalFooLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalFoo.g:3751:54: '\\\\' .
+                    	    // InternalFoo.g:3755:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -763,7 +763,7 @@ public class InternalFooLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalFoo.g:3751:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalFoo.g:3755:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -806,12 +806,12 @@ public class InternalFooLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalFoo.g:3753:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalFoo.g:3753:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalFoo.g:3757:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalFoo.g:3757:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalFoo.g:3753:24: ( options {greedy=false; } : . )*
+            // InternalFoo.g:3757:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -836,7 +836,7 @@ public class InternalFooLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalFoo.g:3753:52: .
+            	    // InternalFoo.g:3757:52: .
             	    {
             	    matchAny(); 
 
@@ -866,12 +866,12 @@ public class InternalFooLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalFoo.g:3755:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalFoo.g:3755:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalFoo.g:3759:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalFoo.g:3759:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalFoo.g:3755:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalFoo.g:3759:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -884,7 +884,7 @@ public class InternalFooLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalFoo.g:3755:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalFoo.g:3759:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -904,7 +904,7 @@ public class InternalFooLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalFoo.g:3755:40: ( ( '\\r' )? '\\n' )?
+            // InternalFoo.g:3759:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -913,9 +913,9 @@ public class InternalFooLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalFoo.g:3755:41: ( '\\r' )? '\\n'
+                    // InternalFoo.g:3759:41: ( '\\r' )? '\\n'
                     {
-                    // InternalFoo.g:3755:41: ( '\\r' )?
+                    // InternalFoo.g:3759:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -924,7 +924,7 @@ public class InternalFooLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalFoo.g:3755:41: '\\r'
+                            // InternalFoo.g:3759:41: '\\r'
                             {
                             match('\r'); 
 
@@ -956,10 +956,10 @@ public class InternalFooLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalFoo.g:3757:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalFoo.g:3757:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalFoo.g:3761:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalFoo.g:3761:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalFoo.g:3757:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalFoo.g:3761:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1013,8 +1013,8 @@ public class InternalFooLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalFoo.g:3759:16: ( . )
-            // InternalFoo.g:3759:18: .
+            // InternalFoo.g:3763:16: ( . )
+            // InternalFoo.g:3763:18: .
             {
             matchAny(); 
 
