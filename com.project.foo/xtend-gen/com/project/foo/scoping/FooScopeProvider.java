@@ -8,8 +8,6 @@ import com.project.foo.foo.BindingProvided;
 import com.project.foo.foo.BindingRequiered;
 import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.FooPackage;
-import com.project.foo.foo.ProvidedService;
-import com.project.foo.foo.RequieredService;
 import com.project.foo.scoping.AbstractFooScopeProvider;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
@@ -33,20 +31,10 @@ public class FooScopeProvider extends AbstractFooScopeProvider {
       final List<ComponentInstance> candidates = EcoreUtil2.<ComponentInstance>getAllContentsOfType(rootElement, ComponentInstance.class);
       return Scopes.scopeFor(candidates);
     }
-    if (((context instanceof BindingRequiered) && Objects.equal(reference, FooPackage.Literals.BINDING_REQUIERED__SERVICE))) {
-      final EObject rootElement_1 = EcoreUtil2.getRootContainer(context);
-      final List<RequieredService> candidates_1 = EcoreUtil2.<RequieredService>getAllContentsOfType(rootElement_1, RequieredService.class);
-      return Scopes.scopeFor(candidates_1);
-    }
     if (((context instanceof BindingProvided) && Objects.equal(reference, FooPackage.Literals.BINDING_PROVIDED__ID))) {
-      final EObject rootElement_2 = EcoreUtil2.getRootContainer(context);
-      final List<ComponentInstance> candidates_2 = EcoreUtil2.<ComponentInstance>getAllContentsOfType(rootElement_2, ComponentInstance.class);
-      return Scopes.scopeFor(candidates_2);
-    }
-    if (((context instanceof BindingProvided) && Objects.equal(reference, FooPackage.Literals.BINDING_PROVIDED__SERVICE))) {
-      final EObject rootElement_3 = EcoreUtil2.getRootContainer(context);
-      final List<ProvidedService> candidates_3 = EcoreUtil2.<ProvidedService>getAllContentsOfType(rootElement_3, ProvidedService.class);
-      return Scopes.scopeFor(candidates_3);
+      final EObject rootElement_1 = EcoreUtil2.getRootContainer(context);
+      final List<ComponentInstance> candidates_1 = EcoreUtil2.<ComponentInstance>getAllContentsOfType(rootElement_1, ComponentInstance.class);
+      return Scopes.scopeFor(candidates_1);
     }
     return super.getScope(context, reference);
   }

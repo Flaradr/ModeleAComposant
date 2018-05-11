@@ -29,23 +29,26 @@ class FooScopeProvider extends AbstractFooScopeProvider {
  			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentInstance)
  			return Scopes.scopeFor(candidates)
  		}
+ 		
+		/*
 		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__SERVICE){
 			val rootElement = EcoreUtil2.getRootContainer(context)
 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,RequieredService)
 			return Scopes.scopeFor(candidates)
  		}
+ 		*/
  		
  		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__ID){
  			val rootElement = EcoreUtil2.getRootContainer(context)
  			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentInstance)
  			return Scopes.scopeFor(candidates)
  		}
- 		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__SERVICE){
+ 	/* 	if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__SERVICE){
 			val rootElement = EcoreUtil2.getRootContainer(context)
 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ProvidedService)
 			return Scopes.scopeFor(candidates)
  		}
-	
+	*/
  		return super.getScope(context, reference);
 
  		
