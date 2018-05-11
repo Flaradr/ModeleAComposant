@@ -96,13 +96,13 @@ public interface FooPackage extends EPackage
   int MODEL = 1;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__NAME = 0;
+  int MODEL__PACKAGE_NAME = 0;
 
   /**
    * The feature id for the '<em><b>Imports</b></em>' containment reference list.
@@ -151,7 +151,7 @@ public interface FooPackage extends EPackage
   int IMPORT = 2;
 
   /**
-   * The feature id for the '<em><b>Imported Namespace</b></em>' reference.
+   * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -697,13 +697,13 @@ public interface FooPackage extends EPackage
   int ATTRIBUTE = 17;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__NAME = 0;
+  int ATTRIBUTE__ID = 0;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -756,15 +756,15 @@ public interface FooPackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the attribute '{@link com.project.foo.foo.Model#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link com.project.foo.foo.Model#getPackageName <em>Package Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.project.foo.foo.Model#getName()
+   * @return the meta object for the attribute '<em>Package Name</em>'.
+   * @see com.project.foo.foo.Model#getPackageName()
    * @see #getModel()
    * @generated
    */
-  EAttribute getModel_Name();
+  EAttribute getModel_PackageName();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Model#getImports <em>Imports</em>}'.
@@ -810,15 +810,15 @@ public interface FooPackage extends EPackage
   EClass getImport();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.Import#getImportedNamespace <em>Imported Namespace</em>}'.
+   * Returns the meta object for the attribute '{@link com.project.foo.foo.Import#getImportedNamespace <em>Imported Namespace</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Imported Namespace</em>'.
+   * @return the meta object for the attribute '<em>Imported Namespace</em>'.
    * @see com.project.foo.foo.Import#getImportedNamespace()
    * @see #getImport()
    * @generated
    */
-  EReference getImport_ImportedNamespace();
+  EAttribute getImport_ImportedNamespace();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.Assembly <em>Assembly</em>}'.
@@ -1279,15 +1279,15 @@ public interface FooPackage extends EPackage
   EClass getAttribute();
 
   /**
-   * Returns the meta object for the attribute '{@link com.project.foo.foo.Attribute#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link com.project.foo.foo.Attribute#getId <em>Id</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.project.foo.foo.Attribute#getName()
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see com.project.foo.foo.Attribute#getId()
    * @see #getAttribute()
    * @generated
    */
-  EAttribute getAttribute_Name();
+  EAttribute getAttribute_Id();
 
   /**
    * Returns the meta object for the attribute '{@link com.project.foo.foo.Attribute#getType <em>Type</em>}'.
@@ -1352,12 +1352,12 @@ public interface FooPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Package Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MODEL__NAME = eINSTANCE.getModel_Name();
+    EAttribute MODEL__PACKAGE_NAME = eINSTANCE.getModel_PackageName();
 
     /**
      * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
@@ -1394,12 +1394,12 @@ public interface FooPackage extends EPackage
     EClass IMPORT = eINSTANCE.getImport();
 
     /**
-     * The meta object literal for the '<em><b>Imported Namespace</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference IMPORT__IMPORTED_NAMESPACE = eINSTANCE.getImport_ImportedNamespace();
+    EAttribute IMPORT__IMPORTED_NAMESPACE = eINSTANCE.getImport_ImportedNamespace();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.AssemblyImpl <em>Assembly</em>}' class.
@@ -1776,12 +1776,12 @@ public interface FooPackage extends EPackage
     EClass ATTRIBUTE = eINSTANCE.getAttribute();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
+    EAttribute ATTRIBUTE__ID = eINSTANCE.getAttribute_Id();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.

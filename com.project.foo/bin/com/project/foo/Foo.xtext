@@ -13,7 +13,7 @@ File:
  * composants et assemblages
  */
 Model:
-	'package' name=QualifiedName '{'
+	'package' packageName=QualifiedName '{'
 	(imports+=Import)*
 	(component+=Component)*
 	(assembly+=Assembly)*
@@ -23,7 +23,7 @@ QualifiedName:
     ID ('.' ID)*;
 
 Import:
-    'import' 'static' 'extension' importedNamespace=[Model|FqnWithWildCard];
+    'import' importedNamespace=FqnWithWildCard;
 
 FqnWithWildCard:
     QualifiedName '.*'?;
@@ -100,4 +100,4 @@ RSignature:
 	type=ID name=[RequieredService]'('attributes+=Attribute?(','attributes+=Attribute)*')';
 
 Attribute:
-	name=ID ':' type=ID;
+	id=ID ':' type=ID;

@@ -43,8 +43,8 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.Model");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPackageKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cPackageNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPackageNameQualifiedNameParserRuleCall_1_0 = (RuleCall)cPackageNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cImportsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cImportsImportParserRuleCall_3_0 = (RuleCall)cImportsAssignment_3.eContents().get(0);
@@ -60,24 +60,24 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		// * à un paquet pouvant contenir plusieurs
 		// * composants et assemblages
 		// */ Model:
-		//	'package' name=QualifiedName '{'
+		//	'package' packageName=QualifiedName '{'
 		//	imports+=Import*
 		//	component+=Component*
 		//	assembly+=Assembly*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'package' name=QualifiedName '{' imports+=Import* component+=Component* assembly+=Assembly* '}'
+		//'package' packageName=QualifiedName '{' imports+=Import* component+=Component* assembly+=Assembly* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'package'
 		public Keyword getPackageKeyword_0() { return cPackageKeyword_0; }
 		
-		//name=QualifiedName
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//packageName=QualifiedName
+		public Assignment getPackageNameAssignment_1() { return cPackageNameAssignment_1; }
 		
 		//QualifiedName
-		public RuleCall getNameQualifiedNameParserRuleCall_1_0() { return cNameQualifiedNameParserRuleCall_1_0; }
+		public RuleCall getPackageNameQualifiedNameParserRuleCall_1_0() { return cPackageNameQualifiedNameParserRuleCall_1_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -134,36 +134,24 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.Import");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cImportKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cStaticKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cExtensionKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cImportedNamespaceAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cImportedNamespaceModelCrossReference_3_0 = (CrossReference)cImportedNamespaceAssignment_3.eContents().get(0);
-		private final RuleCall cImportedNamespaceModelFqnWithWildCardParserRuleCall_3_0_1 = (RuleCall)cImportedNamespaceModelCrossReference_3_0.eContents().get(1);
+		private final Assignment cImportedNamespaceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cImportedNamespaceFqnWithWildCardParserRuleCall_1_0 = (RuleCall)cImportedNamespaceAssignment_1.eContents().get(0);
 		
 		//Import:
-		//	'import' 'static' 'extension' importedNamespace=[Model|FqnWithWildCard];
+		//	'import' importedNamespace=FqnWithWildCard;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'import' 'static' 'extension' importedNamespace=[Model|FqnWithWildCard]
+		//'import' importedNamespace=FqnWithWildCard
 		public Group getGroup() { return cGroup; }
 		
 		//'import'
 		public Keyword getImportKeyword_0() { return cImportKeyword_0; }
 		
-		//'static'
-		public Keyword getStaticKeyword_1() { return cStaticKeyword_1; }
-		
-		//'extension'
-		public Keyword getExtensionKeyword_2() { return cExtensionKeyword_2; }
-		
-		//importedNamespace=[Model|FqnWithWildCard]
-		public Assignment getImportedNamespaceAssignment_3() { return cImportedNamespaceAssignment_3; }
-		
-		//[Model|FqnWithWildCard]
-		public CrossReference getImportedNamespaceModelCrossReference_3_0() { return cImportedNamespaceModelCrossReference_3_0; }
+		//importedNamespace=FqnWithWildCard
+		public Assignment getImportedNamespaceAssignment_1() { return cImportedNamespaceAssignment_1; }
 		
 		//FqnWithWildCard
-		public RuleCall getImportedNamespaceModelFqnWithWildCardParserRuleCall_3_0_1() { return cImportedNamespaceModelFqnWithWildCardParserRuleCall_3_0_1; }
+		public RuleCall getImportedNamespaceFqnWithWildCardParserRuleCall_1_0() { return cImportedNamespaceFqnWithWildCardParserRuleCall_1_0; }
 	}
 	public class FqnWithWildCardElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.FqnWithWildCard");
@@ -826,24 +814,24 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	public class AttributeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.Attribute");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Assignment cIdAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cIdIDTerminalRuleCall_0_0 = (RuleCall)cIdAssignment_0.eContents().get(0);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cTypeIDTerminalRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
 		
 		//Attribute:
-		//	name=ID ':' type=ID;
+		//	id=ID ':' type=ID;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ':' type=ID
+		//id=ID ':' type=ID
 		public Group getGroup() { return cGroup; }
 		
-		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		//id=ID
+		public Assignment getIdAssignment_0() { return cIdAssignment_0; }
 		
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		public RuleCall getIdIDTerminalRuleCall_0_0() { return cIdIDTerminalRuleCall_0_0; }
 		
 		//':'
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
@@ -952,7 +940,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	// * à un paquet pouvant contenir plusieurs
 	// * composants et assemblages
 	// */ Model:
-	//	'package' name=QualifiedName '{'
+	//	'package' packageName=QualifiedName '{'
 	//	imports+=Import*
 	//	component+=Component*
 	//	assembly+=Assembly*
@@ -976,7 +964,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Import:
-	//	'import' 'static' 'extension' importedNamespace=[Model|FqnWithWildCard];
+	//	'import' importedNamespace=FqnWithWildCard;
 	public ImportElements getImportAccess() {
 		return pImport;
 	}
@@ -1162,7 +1150,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Attribute:
-	//	name=ID ':' type=ID;
+	//	id=ID ':' type=ID;
 	public AttributeElements getAttributeAccess() {
 		return pAttribute;
 	}

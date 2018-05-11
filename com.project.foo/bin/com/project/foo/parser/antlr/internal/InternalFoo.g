@@ -119,17 +119,17 @@ ruleModel returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getModelAccess().getNameQualifiedNameParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getModelAccess().getPackageNameQualifiedNameParserRuleCall_1_0());
 				}
-				lv_name_1_0=ruleQualifiedName
+				lv_packageName_1_0=ruleQualifiedName
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getModelRule());
 					}
 					set(
 						$current,
-						"name",
-						lv_name_1_0,
+						"packageName",
+						lv_packageName_1_0,
 						"com.project.foo.Foo.QualifiedName");
 					afterParserOrEnumRuleCall();
 				}
@@ -263,26 +263,21 @@ ruleImport returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getImportAccess().getImportKeyword_0());
 		}
-		otherlv_1='static'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getImportAccess().getStaticKeyword_1());
-		}
-		otherlv_2='extension'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getImportAccess().getExtensionKeyword_2());
-		}
 		(
 			(
 				{
+					newCompositeNode(grammarAccess.getImportAccess().getImportedNamespaceFqnWithWildCardParserRuleCall_1_0());
+				}
+				lv_importedNamespace_1_0=ruleFqnWithWildCard
+				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getImportRule());
+						$current = createModelElementForParent(grammarAccess.getImportRule());
 					}
-				}
-				{
-					newCompositeNode(grammarAccess.getImportAccess().getImportedNamespaceModelCrossReference_3_0());
-				}
-				ruleFqnWithWildCard
-				{
+					set(
+						$current,
+						"importedNamespace",
+						lv_importedNamespace_1_0,
+						"com.project.foo.Foo.FqnWithWildCard");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1366,9 +1361,9 @@ ruleAttribute returns [EObject current=null]
 	(
 		(
 			(
-				lv_name_0_0=RULE_ID
+				lv_id_0_0=RULE_ID
 				{
-					newLeafNode(lv_name_0_0, grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_0_0());
+					newLeafNode(lv_id_0_0, grammarAccess.getAttributeAccess().getIdIDTerminalRuleCall_0_0());
 				}
 				{
 					if ($current==null) {
@@ -1376,8 +1371,8 @@ ruleAttribute returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"name",
-						lv_name_0_0,
+						"id",
+						lv_id_0_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)

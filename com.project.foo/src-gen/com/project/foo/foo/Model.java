@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.project.foo.foo.Model#getName <em>Name</em>}</li>
+ *   <li>{@link com.project.foo.foo.Model#getPackageName <em>Package Name</em>}</li>
  *   <li>{@link com.project.foo.foo.Model#getImports <em>Imports</em>}</li>
  *   <li>{@link com.project.foo.foo.Model#getComponent <em>Component</em>}</li>
  *   <li>{@link com.project.foo.foo.Model#getAssembly <em>Assembly</em>}</li>
@@ -29,30 +29,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Package Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Package Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see com.project.foo.foo.FooPackage#getModel_Name()
+   * @return the value of the '<em>Package Name</em>' attribute.
+   * @see #setPackageName(String)
+   * @see com.project.foo.foo.FooPackage#getModel_PackageName()
    * @model
    * @generated
    */
-  String getName();
+  String getPackageName();
 
   /**
-   * Sets the value of the '{@link com.project.foo.foo.Model#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link com.project.foo.foo.Model#getPackageName <em>Package Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Package Name</em>' attribute.
+   * @see #getPackageName()
    * @generated
    */
-  void setName(String value);
+  void setPackageName(String value);
 
   /**
    * Returns the value of the '<em><b>Imports</b></em>' containment reference list.

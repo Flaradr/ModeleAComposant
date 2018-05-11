@@ -263,7 +263,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getModel_Name()
+  public EAttribute getModel_PackageName()
   {
     return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
   }
@@ -313,9 +313,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getImport_ImportedNamespace()
+  public EAttribute getImport_ImportedNamespace()
   {
-    return (EReference)importEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)importEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -753,7 +753,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAttribute_Name()
+  public EAttribute getAttribute_Id()
   {
     return (EAttribute)attributeEClass.getEStructuralFeatures().get(0);
   }
@@ -802,13 +802,13 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     createEReference(fileEClass, FILE__MODELS);
 
     modelEClass = createEClass(MODEL);
-    createEAttribute(modelEClass, MODEL__NAME);
+    createEAttribute(modelEClass, MODEL__PACKAGE_NAME);
     createEReference(modelEClass, MODEL__IMPORTS);
     createEReference(modelEClass, MODEL__COMPONENT);
     createEReference(modelEClass, MODEL__ASSEMBLY);
 
     importEClass = createEClass(IMPORT);
-    createEReference(importEClass, IMPORT__IMPORTED_NAMESPACE);
+    createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
 
     assemblyEClass = createEClass(ASSEMBLY);
     createEAttribute(assemblyEClass, ASSEMBLY__NAME);
@@ -867,7 +867,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     createEReference(rSignatureEClass, RSIGNATURE__ATTRIBUTES);
 
     attributeEClass = createEClass(ATTRIBUTE);
-    createEAttribute(attributeEClass, ATTRIBUTE__NAME);
+    createEAttribute(attributeEClass, ATTRIBUTE__ID);
     createEAttribute(attributeEClass, ATTRIBUTE__TYPE);
   }
 
@@ -906,13 +906,13 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     initEReference(getFile_Models(), this.getModel(), null, "models", null, 0, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getModel_PackageName(), ecorePackage.getEString(), "packageName", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Imports(), this.getImport(), null, "imports", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Component(), this.getComponent(), null, "component", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Assembly(), this.getAssembly(), null, "assembly", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getImport_ImportedNamespace(), this.getModel(), null, "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assemblyEClass, Assembly.class, "Assembly", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAssembly_Name(), ecorePackage.getEString(), "name", null, 0, 1, Assembly.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -971,7 +971,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     initEReference(getRSignature_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, RSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAttribute_Id(), ecorePackage.getEString(), "id", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAttribute_Type(), ecorePackage.getEString(), "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource

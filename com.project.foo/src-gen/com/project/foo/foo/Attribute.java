@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.project.foo.foo.Attribute#getName <em>Name</em>}</li>
+ *   <li>{@link com.project.foo.foo.Attribute#getId <em>Id</em>}</li>
  *   <li>{@link com.project.foo.foo.Attribute#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Attribute extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Id</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see com.project.foo.foo.FooPackage#getAttribute_Name()
+   * @return the value of the '<em>Id</em>' attribute.
+   * @see #setId(String)
+   * @see com.project.foo.foo.FooPackage#getAttribute_Id()
    * @model
    * @generated
    */
-  String getName();
+  String getId();
 
   /**
-   * Sets the value of the '{@link com.project.foo.foo.Attribute#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link com.project.foo.foo.Attribute#getId <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
+   * @param value the new value of the '<em>Id</em>' attribute.
+   * @see #getId()
    * @generated
    */
-  void setName(String value);
+  void setId(String value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.

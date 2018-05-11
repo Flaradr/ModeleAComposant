@@ -125,17 +125,17 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Attribute returns Attribute
 	 *
 	 * Constraint:
-	 *     (name=ID type=ID)
+	 *     (id=ID type=ID)
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.ATTRIBUTE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.ATTRIBUTE__NAME));
+			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.ATTRIBUTE__ID) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.ATTRIBUTE__ID));
 			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.ATTRIBUTE__TYPE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.ATTRIBUTE__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getAttributeAccess().getIdIDTerminalRuleCall_0_0(), semanticObject.getId());
 		feeder.accept(grammarAccess.getAttributeAccess().getTypeIDTerminalRuleCall_2_0(), semanticObject.getType());
 		feeder.finish();
 	}
@@ -260,7 +260,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Import returns Import
 	 *
 	 * Constraint:
-	 *     importedNamespace=[Model|FqnWithWildCard]
+	 *     importedNamespace=FqnWithWildCard
 	 */
 	protected void sequence_Import(ISerializationContext context, Import semanticObject) {
 		if (errorAcceptor != null) {
@@ -268,7 +268,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.IMPORT__IMPORTED_NAMESPACE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getImportAccess().getImportedNamespaceModelFqnWithWildCardParserRuleCall_3_0_1(), semanticObject.eGet(FooPackage.Literals.IMPORT__IMPORTED_NAMESPACE, false));
+		feeder.accept(grammarAccess.getImportAccess().getImportedNamespaceFqnWithWildCardParserRuleCall_1_0(), semanticObject.getImportedNamespace());
 		feeder.finish();
 	}
 	
@@ -338,7 +338,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (name=QualifiedName imports+=Import* component+=Component* assembly+=Assembly*)
+	 *     (packageName=QualifiedName imports+=Import* component+=Component* assembly+=Assembly*)
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

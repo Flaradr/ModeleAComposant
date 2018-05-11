@@ -5,12 +5,10 @@ package com.project.foo.foo.impl;
 
 import com.project.foo.foo.FooPackage;
 import com.project.foo.foo.Import;
-import com.project.foo.foo.Model;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -31,14 +29,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ImportImpl extends MinimalEObjectImpl.Container implements Import
 {
   /**
-   * The cached value of the '{@link #getImportedNamespace() <em>Imported Namespace</em>}' reference.
+   * The default value of the '{@link #getImportedNamespace() <em>Imported Namespace</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getImportedNamespace()
    * @generated
    * @ordered
    */
-  protected Model importedNamespace;
+  protected static final String IMPORTED_NAMESPACE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getImportedNamespace() <em>Imported Namespace</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImportedNamespace()
+   * @generated
+   * @ordered
+   */
+  protected String importedNamespace = IMPORTED_NAMESPACE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,27 +74,7 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
    * <!-- end-user-doc -->
    * @generated
    */
-  public Model getImportedNamespace()
-  {
-    if (importedNamespace != null && importedNamespace.eIsProxy())
-    {
-      InternalEObject oldImportedNamespace = (InternalEObject)importedNamespace;
-      importedNamespace = (Model)eResolveProxy(oldImportedNamespace);
-      if (importedNamespace != oldImportedNamespace)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.IMPORT__IMPORTED_NAMESPACE, oldImportedNamespace, importedNamespace));
-      }
-    }
-    return importedNamespace;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Model basicGetImportedNamespace()
+  public String getImportedNamespace()
   {
     return importedNamespace;
   }
@@ -96,9 +84,9 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setImportedNamespace(Model newImportedNamespace)
+  public void setImportedNamespace(String newImportedNamespace)
   {
-    Model oldImportedNamespace = importedNamespace;
+    String oldImportedNamespace = importedNamespace;
     importedNamespace = newImportedNamespace;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.IMPORT__IMPORTED_NAMESPACE, oldImportedNamespace, importedNamespace));
@@ -115,8 +103,7 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
     switch (featureID)
     {
       case FooPackage.IMPORT__IMPORTED_NAMESPACE:
-        if (resolve) return getImportedNamespace();
-        return basicGetImportedNamespace();
+        return getImportedNamespace();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -132,7 +119,7 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
     switch (featureID)
     {
       case FooPackage.IMPORT__IMPORTED_NAMESPACE:
-        setImportedNamespace((Model)newValue);
+        setImportedNamespace((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -149,7 +136,7 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
     switch (featureID)
     {
       case FooPackage.IMPORT__IMPORTED_NAMESPACE:
-        setImportedNamespace((Model)null);
+        setImportedNamespace(IMPORTED_NAMESPACE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -166,9 +153,26 @@ public class ImportImpl extends MinimalEObjectImpl.Container implements Import
     switch (featureID)
     {
       case FooPackage.IMPORT__IMPORTED_NAMESPACE:
-        return importedNamespace != null;
+        return IMPORTED_NAMESPACE_EDEFAULT == null ? importedNamespace != null : !IMPORTED_NAMESPACE_EDEFAULT.equals(importedNamespace);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (importedNamespace: ");
+    result.append(importedNamespace);
+    result.append(')');
+    return result.toString();
   }
 
 } //ImportImpl

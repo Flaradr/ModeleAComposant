@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.project.foo.foo.impl.AttributeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.AttributeImpl#getId <em>Id</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.AttributeImpl#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -30,24 +30,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class AttributeImpl extends MinimalEObjectImpl.Container implements Attribute
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getId()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String ID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getId()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String id = ID_EDEFAULT;
 
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -95,9 +95,9 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public String getId()
   {
-    return name;
+    return id;
   }
 
   /**
@@ -105,12 +105,12 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setId(String newId)
   {
-    String oldName = name;
-    name = newName;
+    String oldId = id;
+    id = newId;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.ATTRIBUTE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.ATTRIBUTE__ID, oldId, id));
   }
 
   /**
@@ -146,8 +146,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case FooPackage.ATTRIBUTE__NAME:
-        return getName();
+      case FooPackage.ATTRIBUTE__ID:
+        return getId();
       case FooPackage.ATTRIBUTE__TYPE:
         return getType();
     }
@@ -164,8 +164,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case FooPackage.ATTRIBUTE__NAME:
-        setName((String)newValue);
+      case FooPackage.ATTRIBUTE__ID:
+        setId((String)newValue);
         return;
       case FooPackage.ATTRIBUTE__TYPE:
         setType((String)newValue);
@@ -184,8 +184,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case FooPackage.ATTRIBUTE__NAME:
-        setName(NAME_EDEFAULT);
+      case FooPackage.ATTRIBUTE__ID:
+        setId(ID_EDEFAULT);
         return;
       case FooPackage.ATTRIBUTE__TYPE:
         setType(TYPE_EDEFAULT);
@@ -204,8 +204,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   {
     switch (featureID)
     {
-      case FooPackage.ATTRIBUTE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case FooPackage.ATTRIBUTE__ID:
+        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
       case FooPackage.ATTRIBUTE__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
     }
@@ -223,8 +223,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (id: ");
+    result.append(id);
     result.append(", type: ");
     result.append(type);
     result.append(')');

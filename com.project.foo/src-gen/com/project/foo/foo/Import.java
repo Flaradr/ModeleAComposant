@@ -24,29 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Import extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Imported Namespace</b></em>' reference.
+   * Returns the value of the '<em><b>Imported Namespace</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Imported Namespace</em>' reference isn't clear,
+   * If the meaning of the '<em>Imported Namespace</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Imported Namespace</em>' reference.
-   * @see #setImportedNamespace(Model)
+   * @return the value of the '<em>Imported Namespace</em>' attribute.
+   * @see #setImportedNamespace(String)
    * @see com.project.foo.foo.FooPackage#getImport_ImportedNamespace()
    * @model
    * @generated
    */
-  Model getImportedNamespace();
+  String getImportedNamespace();
 
   /**
-   * Sets the value of the '{@link com.project.foo.foo.Import#getImportedNamespace <em>Imported Namespace</em>}' reference.
+   * Sets the value of the '{@link com.project.foo.foo.Import#getImportedNamespace <em>Imported Namespace</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Imported Namespace</em>' reference.
+   * @param value the new value of the '<em>Imported Namespace</em>' attribute.
    * @see #getImportedNamespace()
    * @generated
    */
-  void setImportedNamespace(Model value);
+  void setImportedNamespace(String value);
 
 } // Import

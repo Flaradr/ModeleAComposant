@@ -22,8 +22,7 @@ import com.project.foo.foo.ComponentInstance
  * on how and when to use it.
  */
 class FooScopeProvider extends AbstractFooScopeProvider {
- 	//Modification scope des bindings cote requis et fournis, lié à l'ensemble d'un modèle
- 	//et pas défini au sein de l'assemblage
+
  	override IScope getScope(EObject context, EReference reference){
  		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__ID){
  			val rootElement = EcoreUtil2.getRootContainer(context)
@@ -46,10 +45,11 @@ class FooScopeProvider extends AbstractFooScopeProvider {
 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ProvidedService)
 			return Scopes.scopeFor(candidates)
  		}
-		
+	
  		return super.getScope(context, reference);
 
  		
 	}
+	
 }
 

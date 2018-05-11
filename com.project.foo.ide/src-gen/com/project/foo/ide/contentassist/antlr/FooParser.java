@@ -56,11 +56,11 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRSignatureAccess().getGroup_4(), "rule__RSignature__Group_4__0");
 					put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
 					put(grammarAccess.getFileAccess().getModelsAssignment(), "rule__File__ModelsAssignment");
-					put(grammarAccess.getModelAccess().getNameAssignment_1(), "rule__Model__NameAssignment_1");
+					put(grammarAccess.getModelAccess().getPackageNameAssignment_1(), "rule__Model__PackageNameAssignment_1");
 					put(grammarAccess.getModelAccess().getImportsAssignment_3(), "rule__Model__ImportsAssignment_3");
 					put(grammarAccess.getModelAccess().getComponentAssignment_4(), "rule__Model__ComponentAssignment_4");
 					put(grammarAccess.getModelAccess().getAssemblyAssignment_5(), "rule__Model__AssemblyAssignment_5");
-					put(grammarAccess.getImportAccess().getImportedNamespaceAssignment_3(), "rule__Import__ImportedNamespaceAssignment_3");
+					put(grammarAccess.getImportAccess().getImportedNamespaceAssignment_1(), "rule__Import__ImportedNamespaceAssignment_1");
 					put(grammarAccess.getAssemblyAccess().getNameAssignment_2(), "rule__Assembly__NameAssignment_2");
 					put(grammarAccess.getAssemblyAccess().getAttributesAssignment_5(), "rule__Assembly__AttributesAssignment_5");
 					put(grammarAccess.getAssemblyAccess().getAttributesAssignment_6(), "rule__Assembly__AttributesAssignment_6");
@@ -94,7 +94,7 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRSignatureAccess().getNameAssignment_1(), "rule__RSignature__NameAssignment_1");
 					put(grammarAccess.getRSignatureAccess().getAttributesAssignment_3(), "rule__RSignature__AttributesAssignment_3");
 					put(grammarAccess.getRSignatureAccess().getAttributesAssignment_4_1(), "rule__RSignature__AttributesAssignment_4_1");
-					put(grammarAccess.getAttributeAccess().getNameAssignment_0(), "rule__Attribute__NameAssignment_0");
+					put(grammarAccess.getAttributeAccess().getIdAssignment_0(), "rule__Attribute__IdAssignment_0");
 					put(grammarAccess.getAttributeAccess().getTypeAssignment_2(), "rule__Attribute__TypeAssignment_2");
 				}
 			};
