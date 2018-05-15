@@ -3,30 +3,31 @@ grammar com.project.foo.Foo with org.eclipse.xtext.common.Terminals
 generate foo "http://www.project.com/foo/Foo"
 
 //Concerne les modeles
-File:
-	(models+=Model)*;
+DomainModel:
+	(model+=Model)*;
 
 /*
- * 
  * Structure d'un modele, correspond
  * à un paquet pouvant contenir plusieurs
  * composants et assemblages
  */
 Model:
-	'package' packageName=QualifiedName '{'
+	'package' name=QualifiedName '{'
 	(imports+=Import)*
 	(component+=Component)*
 	(assembly+=Assembly)*
 	'}';
 
+	
 QualifiedName:
     ID ('.' ID)*;
 
 Import:
-    'import' importedNamespace=FqnWithWildCard;
-
-FqnWithWildCard:
+    'import' importedNamespace=QualifiedNameWithWildcard;
+    
+QualifiedNameWithWildcard:
     QualifiedName '.*'?;
+
 
 //Structure d'un assemblage
 Assembly:
@@ -40,7 +41,8 @@ Assembly:
 
 //Structure d'un composant
 ComponentInstance:
-	name=QualifiedName ':' composant=[Component|QualifiedName];
+//	name=QualifiedName ':' component=[Component|QualifiedName];
+	name=ID ':' component=[Component|QualifiedName];
 
 //Lien entre d'un service requis d'un composant X et d'un
 //service fourni d'un composant Y
@@ -49,11 +51,13 @@ Binding:
 
 //Instance du composant ayant besoin d'un service
 BindingRequiered:
-	id=[ComponentInstance|QualifiedName]'->'service=[RequieredService|QualifiedName];
+//	name=[ComponentInstance|QualifiedName]'->'service=[RequieredService|QualifiedName];
+	name=[ComponentInstance]"."service=[RequieredService];
 
 //Instance du composant fournissant un service
 BindingProvided:
-	id=[ComponentInstance|QualifiedName]'->'service=[ProvidedService|QualifiedName];
+//	name=[ComponentInstance|QualifiedName]'->'service=[ProvidedService|QualifiedName];
+	name=[ComponentInstance]"."service=[ProvidedService];
 
 //Structure d'un composant
 Component:
@@ -72,8 +76,9 @@ ListOfProvidedServices:
 	'}';
 
 ProvidedService:
-	name=ID;
-
+//	name=ID;
+	name=[PSignature];
+	
 //Liste des services requis par un composant X
 ListOfRequieredServices:
 	{ListOfRequieredServices}'requiered' '=' '{'
@@ -82,22 +87,26 @@ ListOfRequieredServices:
 	'}';
 
 RequieredService:
-	name=ID;
-
+//	name=ID;
+	name=[RSignature];
+	
 //Signature d'un service fourni
 MProvidedService:
 	'service' 'provided' signature=PSignature'{''}';
 
 //Signature d'un service fourni
 PSignature:
-	type=ID name=[ProvidedService]'('attributes+=Attribute?(','attributes+=Attribute)*')';
+//	type=ID name=[ProvidedService]'('parameters+=Parameter?(','parameters+=Parameter)*')';
+	type=ID name=ID'('parameters+=Parameter?(','parameters+=Parameter)*')';
 
 MRequieredService:
 	'service' 'requiered' signature=RSignature  ';';
 
 //Signature d'un service requis
 RSignature:
-	type=ID name=[RequieredService]'('attributes+=Attribute?(','attributes+=Attribute)*')';
+//	type=ID name=[RequieredService]'('parameters+=Parameter?(','parameters+=Parameter)*')';
+	type=ID name=ID'('parameters+=Parameter?(','parameters+=Parameter)*')';
 
-Attribute:
-	id=ID ':' type=ID;
+//Parametre dans une signature 
+Parameter:
+	name=ID ':' type=ID;

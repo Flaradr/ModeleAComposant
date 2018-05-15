@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.project.foo.foo.BindingProvided#getId <em>Id</em>}</li>
+ *   <li>{@link com.project.foo.foo.BindingProvided#getName <em>Name</em>}</li>
  *   <li>{@link com.project.foo.foo.BindingProvided#getService <em>Service</em>}</li>
  * </ul>
  *
@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface BindingProvided extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Id</b></em>' reference.
+   * Returns the value of the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Id</em>' reference isn't clear,
+   * If the meaning of the '<em>Name</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Id</em>' reference.
-   * @see #setId(ComponentInstance)
-   * @see com.project.foo.foo.FooPackage#getBindingProvided_Id()
+   * @return the value of the '<em>Name</em>' reference.
+   * @see #setName(ComponentInstance)
+   * @see com.project.foo.foo.FooPackage#getBindingProvided_Name()
    * @model
    * @generated
    */
-  ComponentInstance getId();
+  ComponentInstance getName();
 
   /**
-   * Sets the value of the '{@link com.project.foo.foo.BindingProvided#getId <em>Id</em>}' reference.
+   * Sets the value of the '{@link com.project.foo.foo.BindingProvided#getName <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Id</em>' reference.
-   * @see #getId()
+   * @param value the new value of the '<em>Name</em>' reference.
+   * @see #getName()
    * @generated
    */
-  void setId(ComponentInstance value);
+  void setName(ComponentInstance value);
 
   /**
    * Returns the value of the '<em><b>Service</b></em>' reference.

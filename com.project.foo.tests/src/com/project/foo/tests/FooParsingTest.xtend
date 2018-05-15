@@ -4,7 +4,7 @@
 package com.project.foo.tests
 
 import com.google.inject.Inject
-import com.project.foo.foo.File
+import com.project.foo.foo.DomainModel
 import com.project.foo.foo.FooPackage
 import com.project.foo.validation.FooValidator
 import org.eclipse.xtext.testing.InjectWith
@@ -19,7 +19,7 @@ import static org.junit.Assert.*
 @RunWith(XtextRunner)
 @InjectWith(FooInjectorProvider)
 class FooParsingTest {
-	@Inject extension ParseHelper<File>
+	@Inject extension ParseHelper<DomainModel>
 	@Inject extension ValidationTestHelper
 
 	val static validComponent = '''
@@ -43,7 +43,7 @@ class FooParsingTest {
 		val input = parse(validComponent)
 		assertNotNull(input)
 		val errors = input.eResource.errors
-		val component = input.models.get(0).component.get(0)
+		val component = input.model.get(0).component.get(0)
 		assertEquals("A",component.name)
 
 		/*Comment tester égalités entre tableau alors qu'il faudrait mapper

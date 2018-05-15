@@ -24,13 +24,13 @@ public interface FooFactory extends EFactory
   FooFactory eINSTANCE = com.project.foo.foo.impl.FooFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>File</em>'.
+   * Returns a new object of class '<em>Domain Model</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>File</em>'.
+   * @return a new object of class '<em>Domain Model</em>'.
    * @generated
    */
-  File createFile();
+  DomainModel createDomainModel();
 
   /**
    * Returns a new object of class '<em>Model</em>'.
@@ -177,13 +177,13 @@ public interface FooFactory extends EFactory
   RSignature createRSignature();
 
   /**
-   * Returns a new object of class '<em>Attribute</em>'.
+   * Returns a new object of class '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Attribute</em>'.
+   * @return a new object of class '<em>Parameter</em>'.
    * @generated
    */
-  Attribute createAttribute();
+  Parameter createParameter();
 
   /**
    * Returns the package supported by this factory.

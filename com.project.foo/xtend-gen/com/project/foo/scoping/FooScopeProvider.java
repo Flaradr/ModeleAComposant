@@ -6,34 +6,101 @@ package com.project.foo.scoping;
 import com.google.common.base.Objects;
 import com.project.foo.foo.BindingProvided;
 import com.project.foo.foo.BindingRequiered;
-import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.FooPackage;
-import com.project.foo.scoping.AbstractFooScopeProvider;
+import com.project.foo.foo.PSignature;
+import com.project.foo.foo.ProvidedService;
+import com.project.foo.foo.RequieredService;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
+import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 
 /**
- * This class contains custom scoping description.
+ * class FooScopeProvider extends AbstractFooScopeProvider {
+ * @Inject
+ * private IQualifiedNameProvider qualifiedNameProvider;
  * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
- * on how and when to use it.
+ * override IScope getScope(EObject context, EReference reference){
+ * 
+ * if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__NAME){
+ * val rootElement = EcoreUtil2.getRootContainer(context)
+ * val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentInstance)
+ * return Scopes.scopeFor(candidates)
+ * }
+ * if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__SERVICE){
+ * val rootElement = EcoreUtil2.getRootContainer(context)
+ * val candidates = EcoreUtil2.getAllContentsOfType(rootElement,RequieredService)
+ * return Scopes.scopeFor(candidates)
+ * }
+ * 
+ * if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__NAME){
+ * val rootElement = EcoreUtil2.getRootContainer(context)
+ * val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentInstance)
+ * return Scopes.scopeFor(candidates)
+ * }
+ * if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__SERVICE){
+ * val rootElement = EcoreUtil2.getRootContainer(context)
+ * val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ProvidedService)
+ * return Scopes.scopeFor(candidates)
+ * }
+ * 
+ * return super.getScope(context, reference);
+ * }
+ * 
+ * }
  */
 @SuppressWarnings("all")
-public class FooScopeProvider extends AbstractFooScopeProvider {
+public class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
   @Override
   public IScope getScope(final EObject context, final EReference reference) {
-    if (((context instanceof BindingRequiered) && Objects.equal(reference, FooPackage.Literals.BINDING_REQUIERED__ID))) {
+    if (((context instanceof BindingRequiered) && Objects.equal(reference, FooPackage.Literals.BINDING_REQUIERED__SERVICE))) {
       final EObject rootElement = EcoreUtil2.getRootContainer(context);
-      final List<ComponentInstance> candidates = EcoreUtil2.<ComponentInstance>getAllContentsOfType(rootElement, ComponentInstance.class);
+      final List<RequieredService> candidates = EcoreUtil2.<RequieredService>getAllContentsOfType(rootElement, RequieredService.class);
+      EStructuralFeature _eContainingFeature = context.eContainingFeature();
+      String _plus = ("\n\n(Working on a requiered service)\nValue of context : " + _eContainingFeature);
+      InputOutput.<String>println(_plus);
+      InputOutput.<String>println(("Value of rootElement : " + rootElement));
+      InputOutput.<String>println(("Value of candidates : " + candidates));
+      IScope _scopeFor = Scopes.scopeFor(candidates);
+      String _plus_1 = ("Value of Scopes.scopeFor(candidates)" + _scopeFor);
+      InputOutput.<String>println(_plus_1);
+      int i = 0;
+      while ((i < candidates.size())) {
+        {
+          InputOutput.<String>println(("Value of i : " + Integer.valueOf(i)));
+          RequieredService _get = candidates.get(i);
+          String _plus_2 = ("candidates.get(i) : " + _get);
+          InputOutput.<String>println(_plus_2);
+          i++;
+        }
+      }
       return Scopes.scopeFor(candidates);
     }
-    if (((context instanceof BindingProvided) && Objects.equal(reference, FooPackage.Literals.BINDING_PROVIDED__ID))) {
+    if (((context instanceof BindingProvided) && Objects.equal(reference, FooPackage.Literals.BINDING_PROVIDED__SERVICE))) {
       final EObject rootElement_1 = EcoreUtil2.getRootContainer(context);
-      final List<ComponentInstance> candidates_1 = EcoreUtil2.<ComponentInstance>getAllContentsOfType(rootElement_1, ComponentInstance.class);
+      final List<ProvidedService> candidates_1 = EcoreUtil2.<ProvidedService>getAllContentsOfType(rootElement_1, ProvidedService.class);
+      InputOutput.<String>println(("\n\n(Working on a provided service)\nValue of context : " + context));
+      InputOutput.<String>println(("Value of rootElement : " + rootElement_1));
+      InputOutput.<String>println(("Value of candidates : " + candidates_1));
+      IScope _scopeFor_1 = Scopes.scopeFor(candidates_1);
+      String _plus_2 = ("Value of Scopes.scopeFor(candidates)" + _scopeFor_1);
+      InputOutput.<String>println(_plus_2);
+      int i_1 = 0;
+      while ((i_1 < candidates_1.size())) {
+        {
+          InputOutput.<String>println(("Value of i : " + Integer.valueOf(i_1)));
+          ProvidedService _get = candidates_1.get(i_1);
+          PSignature _name = ((ProvidedService) _get).getName();
+          String _plus_3 = ("candidates.get(i) : " + _name);
+          InputOutput.<String>println(_plus_3);
+          i_1++;
+        }
+      }
       return Scopes.scopeFor(candidates_1);
     }
     return super.getScope(context, reference);

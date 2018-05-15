@@ -24,29 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface ProvidedService extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
+   * @return the value of the '<em>Name</em>' reference.
+   * @see #setName(PSignature)
    * @see com.project.foo.foo.FooPackage#getProvidedService_Name()
    * @model
    * @generated
    */
-  String getName();
+  PSignature getName();
 
   /**
-   * Sets the value of the '{@link com.project.foo.foo.ProvidedService#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link com.project.foo.foo.ProvidedService#getName <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
+   * @param value the new value of the '<em>Name</em>' reference.
    * @see #getName()
    * @generated
    */
-  void setName(String value);
+  void setName(PSignature value);
 
 } // ProvidedService

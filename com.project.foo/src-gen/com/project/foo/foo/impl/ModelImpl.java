@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.project.foo.foo.impl.ModelImpl#getPackageName <em>Package Name</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.ModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ModelImpl#getComponent <em>Component</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ModelImpl#getAssembly <em>Assembly</em>}</li>
@@ -44,24 +44,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The default value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPackageName()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String PACKAGE_NAME_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getPackageName() <em>Package Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPackageName()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String packageName = PACKAGE_NAME_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
@@ -119,9 +119,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPackageName()
+  public String getName()
   {
-    return packageName;
+    return name;
   }
 
   /**
@@ -129,12 +129,12 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPackageName(String newPackageName)
+  public void setName(String newName)
   {
-    String oldPackageName = packageName;
-    packageName = newPackageName;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.MODEL__PACKAGE_NAME, oldPackageName, packageName));
+      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.MODEL__NAME, oldName, name));
   }
 
   /**
@@ -209,8 +209,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case FooPackage.MODEL__PACKAGE_NAME:
-        return getPackageName();
+      case FooPackage.MODEL__NAME:
+        return getName();
       case FooPackage.MODEL__IMPORTS:
         return getImports();
       case FooPackage.MODEL__COMPONENT:
@@ -232,8 +232,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case FooPackage.MODEL__PACKAGE_NAME:
-        setPackageName((String)newValue);
+      case FooPackage.MODEL__NAME:
+        setName((String)newValue);
         return;
       case FooPackage.MODEL__IMPORTS:
         getImports().clear();
@@ -261,8 +261,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case FooPackage.MODEL__PACKAGE_NAME:
-        setPackageName(PACKAGE_NAME_EDEFAULT);
+      case FooPackage.MODEL__NAME:
+        setName(NAME_EDEFAULT);
         return;
       case FooPackage.MODEL__IMPORTS:
         getImports().clear();
@@ -287,8 +287,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case FooPackage.MODEL__PACKAGE_NAME:
-        return PACKAGE_NAME_EDEFAULT == null ? packageName != null : !PACKAGE_NAME_EDEFAULT.equals(packageName);
+      case FooPackage.MODEL__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case FooPackage.MODEL__IMPORTS:
         return imports != null && !imports.isEmpty();
       case FooPackage.MODEL__COMPONENT:
@@ -310,8 +310,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (packageName: ");
-    result.append(packageName);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

@@ -3,10 +3,9 @@
  */
 package com.project.foo.foo.impl;
 
-import com.project.foo.foo.Attribute;
 import com.project.foo.foo.FooPackage;
+import com.project.foo.foo.Parameter;
 import com.project.foo.foo.RSignature;
-import com.project.foo.foo.RequieredService;
 
 import java.util.Collection;
 
@@ -34,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.project.foo.foo.impl.RSignatureImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.RSignatureImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.project.foo.foo.impl.RSignatureImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.RSignatureImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,24 +61,34 @@ public class RSignatureImpl extends MinimalEObjectImpl.Container implements RSig
   protected String type = TYPE_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected RequieredService name;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAttributes()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected EList<Attribute> attributes;
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParameters()
+   * @generated
+   * @ordered
+   */
+  protected EList<Parameter> parameters;
 
   /**
    * <!-- begin-user-doc -->
@@ -130,27 +139,7 @@ public class RSignatureImpl extends MinimalEObjectImpl.Container implements RSig
    * <!-- end-user-doc -->
    * @generated
    */
-  public RequieredService getName()
-  {
-    if (name != null && name.eIsProxy())
-    {
-      InternalEObject oldName = (InternalEObject)name;
-      name = (RequieredService)eResolveProxy(oldName);
-      if (name != oldName)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.RSIGNATURE__NAME, oldName, name));
-      }
-    }
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RequieredService basicGetName()
+  public String getName()
   {
     return name;
   }
@@ -160,9 +149,9 @@ public class RSignatureImpl extends MinimalEObjectImpl.Container implements RSig
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(RequieredService newName)
+  public void setName(String newName)
   {
-    RequieredService oldName = name;
+    String oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.RSIGNATURE__NAME, oldName, name));
@@ -173,13 +162,13 @@ public class RSignatureImpl extends MinimalEObjectImpl.Container implements RSig
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Attribute> getAttributes()
+  public EList<Parameter> getParameters()
   {
-    if (attributes == null)
+    if (parameters == null)
     {
-      attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, FooPackage.RSIGNATURE__ATTRIBUTES);
+      parameters = new EObjectContainmentEList<Parameter>(Parameter.class, this, FooPackage.RSIGNATURE__PARAMETERS);
     }
-    return attributes;
+    return parameters;
   }
 
   /**
@@ -192,8 +181,8 @@ public class RSignatureImpl extends MinimalEObjectImpl.Container implements RSig
   {
     switch (featureID)
     {
-      case FooPackage.RSIGNATURE__ATTRIBUTES:
-        return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+      case FooPackage.RSIGNATURE__PARAMETERS:
+        return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -211,10 +200,9 @@ public class RSignatureImpl extends MinimalEObjectImpl.Container implements RSig
       case FooPackage.RSIGNATURE__TYPE:
         return getType();
       case FooPackage.RSIGNATURE__NAME:
-        if (resolve) return getName();
-        return basicGetName();
-      case FooPackage.RSIGNATURE__ATTRIBUTES:
-        return getAttributes();
+        return getName();
+      case FooPackage.RSIGNATURE__PARAMETERS:
+        return getParameters();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -234,11 +222,11 @@ public class RSignatureImpl extends MinimalEObjectImpl.Container implements RSig
         setType((String)newValue);
         return;
       case FooPackage.RSIGNATURE__NAME:
-        setName((RequieredService)newValue);
+        setName((String)newValue);
         return;
-      case FooPackage.RSIGNATURE__ATTRIBUTES:
-        getAttributes().clear();
-        getAttributes().addAll((Collection<? extends Attribute>)newValue);
+      case FooPackage.RSIGNATURE__PARAMETERS:
+        getParameters().clear();
+        getParameters().addAll((Collection<? extends Parameter>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -258,10 +246,10 @@ public class RSignatureImpl extends MinimalEObjectImpl.Container implements RSig
         setType(TYPE_EDEFAULT);
         return;
       case FooPackage.RSIGNATURE__NAME:
-        setName((RequieredService)null);
+        setName(NAME_EDEFAULT);
         return;
-      case FooPackage.RSIGNATURE__ATTRIBUTES:
-        getAttributes().clear();
+      case FooPackage.RSIGNATURE__PARAMETERS:
+        getParameters().clear();
         return;
     }
     super.eUnset(featureID);
@@ -280,9 +268,9 @@ public class RSignatureImpl extends MinimalEObjectImpl.Container implements RSig
       case FooPackage.RSIGNATURE__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case FooPackage.RSIGNATURE__NAME:
-        return name != null;
-      case FooPackage.RSIGNATURE__ATTRIBUTES:
-        return attributes != null && !attributes.isEmpty();
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case FooPackage.RSIGNATURE__PARAMETERS:
+        return parameters != null && !parameters.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -300,6 +288,8 @@ public class RSignatureImpl extends MinimalEObjectImpl.Container implements RSig
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (type: ");
     result.append(type);
+    result.append(", name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

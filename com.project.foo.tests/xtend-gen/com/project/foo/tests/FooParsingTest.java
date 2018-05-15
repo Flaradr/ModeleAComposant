@@ -5,7 +5,7 @@ package com.project.foo.tests;
 
 import com.google.inject.Inject;
 import com.project.foo.foo.Component;
-import com.project.foo.foo.File;
+import com.project.foo.foo.DomainModel;
 import com.project.foo.foo.FooPackage;
 import com.project.foo.tests.FooInjectorProvider;
 import com.project.foo.validation.FooValidator;
@@ -30,7 +30,7 @@ import org.junit.runner.RunWith;
 public class FooParsingTest {
   @Inject
   @Extension
-  private ParseHelper<File> _parseHelper;
+  private ParseHelper<DomainModel> _parseHelper;
   
   @Inject
   @Extension
@@ -75,10 +75,10 @@ public class FooParsingTest {
   @Test
   public void testParsingComponent() {
     try {
-      final File input = this._parseHelper.parse(FooParsingTest.validComponent);
+      final DomainModel input = this._parseHelper.parse(FooParsingTest.validComponent);
       Assert.assertNotNull(input);
       final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
-      final Component component = input.getModels().get(0).getComponent().get(0);
+      final Component component = input.getModel().get(0).getComponent().get(0);
       Assert.assertEquals("A", component.getName());
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Unexpected errors: ");
@@ -119,7 +119,7 @@ public class FooParsingTest {
       _builder.append("}");
       _builder.newLine();
       final String input = _builder.toString();
-      File _parse = this._parseHelper.parse(input);
+      DomainModel _parse = this._parseHelper.parse(input);
       int _indexOf = input.indexOf("Component a");
       int _length = "Component ".length();
       int _plus = (_indexOf + _length);
@@ -252,7 +252,7 @@ public class FooParsingTest {
       _builder_1.append("}");
       _builder_1.newLine();
       final String input = _builder_1.toString();
-      File _parse = this._parseHelper.parse(input);
+      DomainModel _parse = this._parseHelper.parse(input);
       int _indexOf = input.indexOf("Assembly d");
       int _length = "Assembly ".length();
       int _plus = (_indexOf + _length);
@@ -318,7 +318,7 @@ public class FooParsingTest {
       _builder.append("}");
       _builder.newLine();
       final String input = _builder.toString();
-      File _parse = this._parseHelper.parse(input);
+      DomainModel _parse = this._parseHelper.parse(input);
       int _indexOf = input.indexOf("Component A");
       int _length = "Component ".length();
       int _plus = (_indexOf + _length);
@@ -487,7 +487,7 @@ public class FooParsingTest {
       _builder_1.append("}");
       _builder_1.newLine();
       final String input = _builder_1.toString();
-      File _parse = this._parseHelper.parse(input);
+      DomainModel _parse = this._parseHelper.parse(input);
       int _indexOf = input.indexOf("Assembly D");
       int _length = "Assembly ".length();
       int _plus = (_indexOf + _length);
@@ -1543,7 +1543,7 @@ public class FooParsingTest {
       _builder_1.append("}");
       _builder_1.newLine();
       final String input = _builder_1.toString();
-      File _parse = this._parseHelper.parse(input);
+      DomainModel _parse = this._parseHelper.parse(input);
       int _indexOf = input.indexOf("b1.A.m3");
       int _length = "b1.".length();
       int _plus = (_indexOf + _length);
@@ -1772,7 +1772,7 @@ public class FooParsingTest {
       _builder_1.append("}");
       _builder_1.newLine();
       final String input = _builder_1.toString();
-      File _parse = this._parseHelper.parse(input);
+      DomainModel _parse = this._parseHelper.parse(input);
       int _indexOf = input.indexOf("b1.A.mk8");
       int _length = "b1.".length();
       int _plus = (_indexOf + _length);

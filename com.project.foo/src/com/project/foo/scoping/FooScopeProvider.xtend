@@ -3,17 +3,22 @@
  */
 package com.project.foo.scoping
 
-import com.project.foo.foo.BindingProvided
+import com.project.foo.foo.Import
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
+import org.eclipse.xtext.naming.IQualifiedNameProvider
+import com.google.inject.Inject
+import org.eclipse.xtext.scoping.IScope
+import org.eclipse.emf.ecore.EReference
 import com.project.foo.foo.BindingRequiered
 import com.project.foo.foo.FooPackage
-import com.project.foo.foo.ProvidedService
-import com.project.foo.foo.RequieredService
-import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.EcoreUtil2
-import org.eclipse.xtext.scoping.IScope
-import org.eclipse.xtext.scoping.Scopes
 import com.project.foo.foo.ComponentInstance
+import org.eclipse.xtext.scoping.Scopes
+import com.project.foo.foo.RequieredService
+import com.project.foo.foo.BindingProvided
+import com.project.foo.foo.ProvidedService
+import org.eclipse.xtext.resource.IEObjectDescription
 
 /**
  * This class contains custom scoping description.
@@ -21,38 +26,107 @@ import com.project.foo.foo.ComponentInstance
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
-class FooScopeProvider extends AbstractFooScopeProvider {
 
+
+/*
+class FooScopeProvider extends AbstractFooScopeProvider {
+	@Inject
+	private IQualifiedNameProvider qualifiedNameProvider;
+ 
  	override IScope getScope(EObject context, EReference reference){
- 		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__ID){
+ 	
+ 		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__NAME){
  			val rootElement = EcoreUtil2.getRootContainer(context)
  			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentInstance)
  			return Scopes.scopeFor(candidates)
  		}
- 		
-		/*
 		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__SERVICE){
 			val rootElement = EcoreUtil2.getRootContainer(context)
 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,RequieredService)
 			return Scopes.scopeFor(candidates)
  		}
- 		*/
  		
- 		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__ID){
+ 		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__NAME){
  			val rootElement = EcoreUtil2.getRootContainer(context)
  			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentInstance)
  			return Scopes.scopeFor(candidates)
  		}
- 	/* 	if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__SERVICE){
+ 		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__SERVICE){
 			val rootElement = EcoreUtil2.getRootContainer(context)
 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ProvidedService)
 			return Scopes.scopeFor(candidates)
  		}
-	*/
+	
  		return super.getScope(context, reference);
-
- 		
 	}
 	
 }
+*/
+class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider{
+	
+ 
+	override IScope getScope(EObject context, EReference reference){
+ 		/*
+  		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__NAME){
+ 			 			
+ 			val rootElement = EcoreUtil2.getRootContainer(context)
+ 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentInstance)
+ 			return Scopes.scopeFor(candidates)
+ 		}
+ 		*/
 
+		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__SERVICE){
+ 			
+			val rootElement = EcoreUtil2.getRootContainer(context)
+			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,RequieredService)
+			println("\n\n(Working on a requiered service)\nValue of context : " + context.eContainingFeature)
+
+ 			println("Value of rootElement : " + rootElement)
+ 			println("Value of candidates : " + candidates)
+ 			println("Value of Scopes.scopeFor(candidates)" + Scopes.scopeFor(candidates))
+ 			//var DelegatingScopeProvider toto = delegateGetScope(context, reference)
+ 			var i = 0
+ 			while (i < candidates.size){
+ 				println("Value of i : " + i)
+ 				println("candidates.get(i) : " + candidates.get(i))
+ 				i++
+ 			}
+			return Scopes.scopeFor(candidates)
+ 		}
+ 		/* 
+ 		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__NAME){
+ 			 			 			
+ 			val rootElement = EcoreUtil2.getRootContainer(context)
+ 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentInstance)
+ 			return Scopes.scopeFor(candidates)
+ 		}
+ 		*/
+ 		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__SERVICE){
+			val rootElement = EcoreUtil2.getRootContainer(context)
+			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ProvidedService)
+			println("\n\n(Working on a provided service)\nValue of context : " + context)
+
+ 			println("Value of rootElement : " + rootElement)
+ 			println("Value of candidates : " + candidates)
+ 			println("Value of Scopes.scopeFor(candidates)" + Scopes.scopeFor(candidates))
+			var i = 0
+ 			while (i < candidates.size){
+ 				println("Value of i : " + i)
+ 				println("candidates.get(i) : " + (candidates.get(i) as ProvidedService).name)
+ 				i++
+ 			}
+			return Scopes.scopeFor(candidates)
+ 		}
+	
+ 		return super.getScope(context, reference);
+	}
+	/*
+	override protected getImportedNamespace (EObject object){
+		if (object instanceof Import){
+			return (object as Import).importedNamespace
+		} else {
+			return super.getImportedNamespace(object)
+		}
+	}*/
+	
+}

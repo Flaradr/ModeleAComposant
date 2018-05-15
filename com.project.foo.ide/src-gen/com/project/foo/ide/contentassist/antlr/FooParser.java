@@ -35,7 +35,7 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
-					put(grammarAccess.getFqnWithWildCardAccess().getGroup(), "rule__FqnWithWildCard__Group__0");
+					put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup(), "rule__QualifiedNameWithWildcard__Group__0");
 					put(grammarAccess.getAssemblyAccess().getGroup(), "rule__Assembly__Group__0");
 					put(grammarAccess.getComponentInstanceAccess().getGroup(), "rule__ComponentInstance__Group__0");
 					put(grammarAccess.getBindingAccess().getGroup(), "rule__Binding__Group__0");
@@ -54,9 +54,9 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMRequieredServiceAccess().getGroup(), "rule__MRequieredService__Group__0");
 					put(grammarAccess.getRSignatureAccess().getGroup(), "rule__RSignature__Group__0");
 					put(grammarAccess.getRSignatureAccess().getGroup_4(), "rule__RSignature__Group_4__0");
-					put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
-					put(grammarAccess.getFileAccess().getModelsAssignment(), "rule__File__ModelsAssignment");
-					put(grammarAccess.getModelAccess().getPackageNameAssignment_1(), "rule__Model__PackageNameAssignment_1");
+					put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
+					put(grammarAccess.getDomainModelAccess().getModelAssignment(), "rule__DomainModel__ModelAssignment");
+					put(grammarAccess.getModelAccess().getNameAssignment_1(), "rule__Model__NameAssignment_1");
 					put(grammarAccess.getModelAccess().getImportsAssignment_3(), "rule__Model__ImportsAssignment_3");
 					put(grammarAccess.getModelAccess().getComponentAssignment_4(), "rule__Model__ComponentAssignment_4");
 					put(grammarAccess.getModelAccess().getAssemblyAssignment_5(), "rule__Model__AssemblyAssignment_5");
@@ -66,12 +66,12 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAssemblyAccess().getAttributesAssignment_6(), "rule__Assembly__AttributesAssignment_6");
 					put(grammarAccess.getAssemblyAccess().getBindingsAssignment_8(), "rule__Assembly__BindingsAssignment_8");
 					put(grammarAccess.getComponentInstanceAccess().getNameAssignment_0(), "rule__ComponentInstance__NameAssignment_0");
-					put(grammarAccess.getComponentInstanceAccess().getComposantAssignment_2(), "rule__ComponentInstance__ComposantAssignment_2");
+					put(grammarAccess.getComponentInstanceAccess().getComponentAssignment_2(), "rule__ComponentInstance__ComponentAssignment_2");
 					put(grammarAccess.getBindingAccess().getMGAssignment_0(), "rule__Binding__MGAssignment_0");
 					put(grammarAccess.getBindingAccess().getMDAssignment_2(), "rule__Binding__MDAssignment_2");
-					put(grammarAccess.getBindingRequieredAccess().getIdAssignment_0(), "rule__BindingRequiered__IdAssignment_0");
+					put(grammarAccess.getBindingRequieredAccess().getNameAssignment_0(), "rule__BindingRequiered__NameAssignment_0");
 					put(grammarAccess.getBindingRequieredAccess().getServiceAssignment_2(), "rule__BindingRequiered__ServiceAssignment_2");
-					put(grammarAccess.getBindingProvidedAccess().getIdAssignment_0(), "rule__BindingProvided__IdAssignment_0");
+					put(grammarAccess.getBindingProvidedAccess().getNameAssignment_0(), "rule__BindingProvided__NameAssignment_0");
 					put(grammarAccess.getBindingProvidedAccess().getServiceAssignment_2(), "rule__BindingProvided__ServiceAssignment_2");
 					put(grammarAccess.getComponentAccess().getNameAssignment_1(), "rule__Component__NameAssignment_1");
 					put(grammarAccess.getComponentAccess().getListOfPServicesAssignment_3(), "rule__Component__ListOfPServicesAssignment_3");
@@ -87,15 +87,15 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMProvidedServiceAccess().getSignatureAssignment_2(), "rule__MProvidedService__SignatureAssignment_2");
 					put(grammarAccess.getPSignatureAccess().getTypeAssignment_0(), "rule__PSignature__TypeAssignment_0");
 					put(grammarAccess.getPSignatureAccess().getNameAssignment_1(), "rule__PSignature__NameAssignment_1");
-					put(grammarAccess.getPSignatureAccess().getAttributesAssignment_3(), "rule__PSignature__AttributesAssignment_3");
-					put(grammarAccess.getPSignatureAccess().getAttributesAssignment_4_1(), "rule__PSignature__AttributesAssignment_4_1");
+					put(grammarAccess.getPSignatureAccess().getParametersAssignment_3(), "rule__PSignature__ParametersAssignment_3");
+					put(grammarAccess.getPSignatureAccess().getParametersAssignment_4_1(), "rule__PSignature__ParametersAssignment_4_1");
 					put(grammarAccess.getMRequieredServiceAccess().getSignatureAssignment_2(), "rule__MRequieredService__SignatureAssignment_2");
 					put(grammarAccess.getRSignatureAccess().getTypeAssignment_0(), "rule__RSignature__TypeAssignment_0");
 					put(grammarAccess.getRSignatureAccess().getNameAssignment_1(), "rule__RSignature__NameAssignment_1");
-					put(grammarAccess.getRSignatureAccess().getAttributesAssignment_3(), "rule__RSignature__AttributesAssignment_3");
-					put(grammarAccess.getRSignatureAccess().getAttributesAssignment_4_1(), "rule__RSignature__AttributesAssignment_4_1");
-					put(grammarAccess.getAttributeAccess().getIdAssignment_0(), "rule__Attribute__IdAssignment_0");
-					put(grammarAccess.getAttributeAccess().getTypeAssignment_2(), "rule__Attribute__TypeAssignment_2");
+					put(grammarAccess.getRSignatureAccess().getParametersAssignment_3(), "rule__RSignature__ParametersAssignment_3");
+					put(grammarAccess.getRSignatureAccess().getParametersAssignment_4_1(), "rule__RSignature__ParametersAssignment_4_1");
+					put(grammarAccess.getParameterAccess().getNameAssignment_0(), "rule__Parameter__NameAssignment_0");
+					put(grammarAccess.getParameterAccess().getTypeAssignment_2(), "rule__Parameter__TypeAssignment_2");
 				}
 			};
 		}

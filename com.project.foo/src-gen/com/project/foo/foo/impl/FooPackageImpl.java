@@ -4,13 +4,12 @@
 package com.project.foo.foo.impl;
 
 import com.project.foo.foo.Assembly;
-import com.project.foo.foo.Attribute;
 import com.project.foo.foo.Binding;
 import com.project.foo.foo.BindingProvided;
 import com.project.foo.foo.BindingRequiered;
 import com.project.foo.foo.Component;
 import com.project.foo.foo.ComponentInstance;
-import com.project.foo.foo.File;
+import com.project.foo.foo.DomainModel;
 import com.project.foo.foo.FooFactory;
 import com.project.foo.foo.FooPackage;
 import com.project.foo.foo.Import;
@@ -20,6 +19,7 @@ import com.project.foo.foo.MProvidedService;
 import com.project.foo.foo.MRequieredService;
 import com.project.foo.foo.Model;
 import com.project.foo.foo.PSignature;
+import com.project.foo.foo.Parameter;
 import com.project.foo.foo.ProvidedService;
 import com.project.foo.foo.RSignature;
 import com.project.foo.foo.RequieredService;
@@ -44,7 +44,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass fileEClass = null;
+  private EClass domainModelEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -163,7 +163,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass attributeEClass = null;
+  private EClass parameterEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -233,9 +233,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getFile()
+  public EClass getDomainModel()
   {
-    return fileEClass;
+    return domainModelEClass;
   }
 
   /**
@@ -243,9 +243,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFile_Models()
+  public EReference getDomainModel_Model()
   {
-    return (EReference)fileEClass.getEStructuralFeatures().get(0);
+    return (EReference)domainModelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -263,7 +263,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getModel_PackageName()
+  public EAttribute getModel_Name()
   {
     return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
   }
@@ -383,7 +383,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponentInstance_Composant()
+  public EReference getComponentInstance_Component()
   {
     return (EReference)componentInstanceEClass.getEStructuralFeatures().get(1);
   }
@@ -433,7 +433,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBindingRequiered_Id()
+  public EReference getBindingRequiered_Name()
   {
     return (EReference)bindingRequieredEClass.getEStructuralFeatures().get(0);
   }
@@ -463,7 +463,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBindingProvided_Id()
+  public EReference getBindingProvided_Name()
   {
     return (EReference)bindingProvidedEClass.getEStructuralFeatures().get(0);
   }
@@ -573,9 +573,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getProvidedService_Name()
+  public EReference getProvidedService_Name()
   {
-    return (EAttribute)providedServiceEClass.getEStructuralFeatures().get(0);
+    return (EReference)providedServiceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -613,9 +613,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRequieredService_Name()
+  public EReference getRequieredService_Name()
   {
-    return (EAttribute)requieredServiceEClass.getEStructuralFeatures().get(0);
+    return (EReference)requieredServiceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -663,9 +663,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPSignature_Name()
+  public EAttribute getPSignature_Name()
   {
-    return (EReference)pSignatureEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)pSignatureEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -673,7 +673,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPSignature_Attributes()
+  public EReference getPSignature_Parameters()
   {
     return (EReference)pSignatureEClass.getEStructuralFeatures().get(2);
   }
@@ -723,9 +723,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRSignature_Name()
+  public EAttribute getRSignature_Name()
   {
-    return (EReference)rSignatureEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)rSignatureEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -733,7 +733,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRSignature_Attributes()
+  public EReference getRSignature_Parameters()
   {
     return (EReference)rSignatureEClass.getEStructuralFeatures().get(2);
   }
@@ -743,9 +743,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAttribute()
+  public EClass getParameter()
   {
-    return attributeEClass;
+    return parameterEClass;
   }
 
   /**
@@ -753,9 +753,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAttribute_Id()
+  public EAttribute getParameter_Name()
   {
-    return (EAttribute)attributeEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -763,9 +763,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAttribute_Type()
+  public EAttribute getParameter_Type()
   {
-    return (EAttribute)attributeEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -798,11 +798,11 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     isCreated = true;
 
     // Create classes and their features
-    fileEClass = createEClass(FILE);
-    createEReference(fileEClass, FILE__MODELS);
+    domainModelEClass = createEClass(DOMAIN_MODEL);
+    createEReference(domainModelEClass, DOMAIN_MODEL__MODEL);
 
     modelEClass = createEClass(MODEL);
-    createEAttribute(modelEClass, MODEL__PACKAGE_NAME);
+    createEAttribute(modelEClass, MODEL__NAME);
     createEReference(modelEClass, MODEL__IMPORTS);
     createEReference(modelEClass, MODEL__COMPONENT);
     createEReference(modelEClass, MODEL__ASSEMBLY);
@@ -817,18 +817,18 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
 
     componentInstanceEClass = createEClass(COMPONENT_INSTANCE);
     createEAttribute(componentInstanceEClass, COMPONENT_INSTANCE__NAME);
-    createEReference(componentInstanceEClass, COMPONENT_INSTANCE__COMPOSANT);
+    createEReference(componentInstanceEClass, COMPONENT_INSTANCE__COMPONENT);
 
     bindingEClass = createEClass(BINDING);
     createEReference(bindingEClass, BINDING__MG);
     createEReference(bindingEClass, BINDING__MD);
 
     bindingRequieredEClass = createEClass(BINDING_REQUIERED);
-    createEReference(bindingRequieredEClass, BINDING_REQUIERED__ID);
+    createEReference(bindingRequieredEClass, BINDING_REQUIERED__NAME);
     createEReference(bindingRequieredEClass, BINDING_REQUIERED__SERVICE);
 
     bindingProvidedEClass = createEClass(BINDING_PROVIDED);
-    createEReference(bindingProvidedEClass, BINDING_PROVIDED__ID);
+    createEReference(bindingProvidedEClass, BINDING_PROVIDED__NAME);
     createEReference(bindingProvidedEClass, BINDING_PROVIDED__SERVICE);
 
     componentEClass = createEClass(COMPONENT);
@@ -842,33 +842,33 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     createEReference(listOfProvidedServicesEClass, LIST_OF_PROVIDED_SERVICES__PROVIDED_SERVICES);
 
     providedServiceEClass = createEClass(PROVIDED_SERVICE);
-    createEAttribute(providedServiceEClass, PROVIDED_SERVICE__NAME);
+    createEReference(providedServiceEClass, PROVIDED_SERVICE__NAME);
 
     listOfRequieredServicesEClass = createEClass(LIST_OF_REQUIERED_SERVICES);
     createEReference(listOfRequieredServicesEClass, LIST_OF_REQUIERED_SERVICES__REQUIERED_SERVICES);
 
     requieredServiceEClass = createEClass(REQUIERED_SERVICE);
-    createEAttribute(requieredServiceEClass, REQUIERED_SERVICE__NAME);
+    createEReference(requieredServiceEClass, REQUIERED_SERVICE__NAME);
 
     mProvidedServiceEClass = createEClass(MPROVIDED_SERVICE);
     createEReference(mProvidedServiceEClass, MPROVIDED_SERVICE__SIGNATURE);
 
     pSignatureEClass = createEClass(PSIGNATURE);
     createEAttribute(pSignatureEClass, PSIGNATURE__TYPE);
-    createEReference(pSignatureEClass, PSIGNATURE__NAME);
-    createEReference(pSignatureEClass, PSIGNATURE__ATTRIBUTES);
+    createEAttribute(pSignatureEClass, PSIGNATURE__NAME);
+    createEReference(pSignatureEClass, PSIGNATURE__PARAMETERS);
 
     mRequieredServiceEClass = createEClass(MREQUIERED_SERVICE);
     createEReference(mRequieredServiceEClass, MREQUIERED_SERVICE__SIGNATURE);
 
     rSignatureEClass = createEClass(RSIGNATURE);
     createEAttribute(rSignatureEClass, RSIGNATURE__TYPE);
-    createEReference(rSignatureEClass, RSIGNATURE__NAME);
-    createEReference(rSignatureEClass, RSIGNATURE__ATTRIBUTES);
+    createEAttribute(rSignatureEClass, RSIGNATURE__NAME);
+    createEReference(rSignatureEClass, RSIGNATURE__PARAMETERS);
 
-    attributeEClass = createEClass(ATTRIBUTE);
-    createEAttribute(attributeEClass, ATTRIBUTE__ID);
-    createEAttribute(attributeEClass, ATTRIBUTE__TYPE);
+    parameterEClass = createEClass(PARAMETER);
+    createEAttribute(parameterEClass, PARAMETER__NAME);
+    createEAttribute(parameterEClass, PARAMETER__TYPE);
   }
 
   /**
@@ -902,11 +902,11 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     // Add supertypes to classes
 
     // Initialize classes and features; add operations and parameters
-    initEClass(fileEClass, File.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFile_Models(), this.getModel(), null, "models", null, 0, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(domainModelEClass, DomainModel.class, "DomainModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDomainModel_Model(), this.getModel(), null, "model", null, 0, -1, DomainModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getModel_PackageName(), ecorePackage.getEString(), "packageName", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Imports(), this.getImport(), null, "imports", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Component(), this.getComponent(), null, "component", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Assembly(), this.getAssembly(), null, "assembly", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -921,18 +921,18 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
 
     initEClass(componentInstanceEClass, ComponentInstance.class, "ComponentInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComponentInstance_Name(), ecorePackage.getEString(), "name", null, 0, 1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComponentInstance_Composant(), this.getComponent(), null, "composant", null, 0, 1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComponentInstance_Component(), this.getComponent(), null, "component", null, 0, 1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bindingEClass, Binding.class, "Binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBinding_MG(), this.getBindingRequiered(), null, "mG", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBinding_MD(), this.getBindingProvided(), null, "mD", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bindingRequieredEClass, BindingRequiered.class, "BindingRequiered", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBindingRequiered_Id(), this.getComponentInstance(), null, "id", null, 0, 1, BindingRequiered.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBindingRequiered_Name(), this.getComponentInstance(), null, "name", null, 0, 1, BindingRequiered.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBindingRequiered_Service(), this.getRequieredService(), null, "service", null, 0, 1, BindingRequiered.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bindingProvidedEClass, BindingProvided.class, "BindingProvided", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBindingProvided_Id(), this.getComponentInstance(), null, "id", null, 0, 1, BindingProvided.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBindingProvided_Name(), this.getComponentInstance(), null, "name", null, 0, 1, BindingProvided.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBindingProvided_Service(), this.getProvidedService(), null, "service", null, 0, 1, BindingProvided.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -946,33 +946,33 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     initEReference(getListOfProvidedServices_ProvidedServices(), this.getProvidedService(), null, "providedServices", null, 0, -1, ListOfProvidedServices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(providedServiceEClass, ProvidedService.class, "ProvidedService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getProvidedService_Name(), ecorePackage.getEString(), "name", null, 0, 1, ProvidedService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProvidedService_Name(), this.getPSignature(), null, "name", null, 0, 1, ProvidedService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(listOfRequieredServicesEClass, ListOfRequieredServices.class, "ListOfRequieredServices", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getListOfRequieredServices_RequieredServices(), this.getRequieredService(), null, "requieredServices", null, 0, -1, ListOfRequieredServices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(requieredServiceEClass, RequieredService.class, "RequieredService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRequieredService_Name(), ecorePackage.getEString(), "name", null, 0, 1, RequieredService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRequieredService_Name(), this.getRSignature(), null, "name", null, 0, 1, RequieredService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mProvidedServiceEClass, MProvidedService.class, "MProvidedService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMProvidedService_Signature(), this.getPSignature(), null, "signature", null, 0, 1, MProvidedService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pSignatureEClass, PSignature.class, "PSignature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPSignature_Type(), ecorePackage.getEString(), "type", null, 0, 1, PSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPSignature_Name(), this.getProvidedService(), null, "name", null, 0, 1, PSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPSignature_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, PSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPSignature_Name(), ecorePackage.getEString(), "name", null, 0, 1, PSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPSignature_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, PSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mRequieredServiceEClass, MRequieredService.class, "MRequieredService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMRequieredService_Signature(), this.getRSignature(), null, "signature", null, 0, 1, MRequieredService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rSignatureEClass, RSignature.class, "RSignature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRSignature_Type(), ecorePackage.getEString(), "type", null, 0, 1, RSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRSignature_Name(), this.getRequieredService(), null, "name", null, 0, 1, RSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRSignature_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, RSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRSignature_Name(), ecorePackage.getEString(), "name", null, 0, 1, RSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRSignature_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, RSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAttribute_Id(), ecorePackage.getEString(), "id", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAttribute_Type(), ecorePackage.getEString(), "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getParameter_Type(), ecorePackage.getEString(), "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

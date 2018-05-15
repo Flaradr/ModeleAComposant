@@ -4,7 +4,7 @@
 package com.project.foo.validation
 
 import com.project.foo.foo.Assembly
-import com.project.foo.foo.Attribute
+import com.project.foo.foo.Parameter
 import com.project.foo.foo.Binding
 import com.project.foo.foo.Component
 import com.project.foo.foo.ComponentInstance
@@ -18,6 +18,7 @@ import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.validation.Check
 import com.project.foo.foo.BindingProvided
 import com.project.foo.foo.BindingRequiered
+import com.project.foo.foo.PSignature
 
 /**
  * This class contains custom validation rules.
@@ -127,7 +128,7 @@ class FooValidator extends AbstractFooValidator {
 	 	var tmp = EcoreUtil2.getNextSibling(ps)
 	 	while(tmp !== null){
 	 		if(ps.name.equals((tmp as ProvidedService).name)){
-	 			error("The name of a provided service should be unique in a component: '"+ps.name +"'",
+	 			error("The name of a provided service should be unique in a component: '"+ ps.name +"'",
 	 				  FooPackage.Literals.PROVIDED_SERVICE__NAME,
 	 				  CHECK_P_SERVICE_NAME_IS_UNIQUE)
 	 		}
@@ -163,24 +164,20 @@ class FooValidator extends AbstractFooValidator {
 	 */ 
 	@Check
 	def void checkBindingRequieredCanUseMethod(BindingRequiered bindingRequiered){
-		val listOfComponent = (bindingRequiered.id.eContainer as Assembly).attributes
+		val listOfComponent = (bindingRequiered.name.eContainer as Assembly).attributes
 		var res = false
 		var i = 0
 		var String typeOfInstance
 		while (i < listOfComponent.size() && !res){
-			if (listOfComponent.get(i).name.equals(bindingRequiered.id.name)){
+			if (listOfComponent.get(i).name.equals(bindingRequiered.name.name)){
 				res = true
-				typeOfInstance = listOfComponent.get(i).composant.name
+				typeOfInstance = listOfComponent.get(i).component.name
 			}
 			i++
 		}
 		
 		val componentTypeOfService = (bindingRequiered.service.eContainer.eContainer as Component).name
-		
-		println("\nValue of bindingProvided : " + bindingRequiered.id.name + "." + bindingRequiered.service.name)
-		println("Value of typeOfInstance : " + typeOfInstance)
-		println("Value of componentTypeOfService : " + componentTypeOfService)
-		
+
 		if (!typeOfInstance.equals(componentTypeOfService)){
 			error("This service is not requiered by the component",
 				  FooPackage.Literals.BINDING_REQUIERED__SERVICE,
@@ -194,22 +191,19 @@ class FooValidator extends AbstractFooValidator {
 	 */ 
 	@Check
 	def void checkBindingProvidedCanUseMethod(BindingProvided bindingProvided){
-		val listOfComponent = (bindingProvided.id.eContainer as Assembly).attributes
+		//println("\nValue of bindingProvided.Service Name : " + bindingProvided.service.name)
+		val listOfComponent = (bindingProvided.name.eContainer as Assembly).attributes
 		var res = false
 		var i = 0
 		var String typeOfInstance
 		while (i < listOfComponent.size() && !res){
-			if (listOfComponent.get(i).name.equals(bindingProvided.id.name)){
+			if (listOfComponent.get(i).name.equals(bindingProvided.name.name)){
 				res = true
-				typeOfInstance = listOfComponent.get(i).composant.name
+				typeOfInstance = listOfComponent.get(i).component.name
 			}
 			i++
 		}
 		val componentTypeOfService = (bindingProvided.service.eContainer.eContainer as Component).name
-		
-		println("\nValue of bindingProvided : " + bindingProvided.id.name + "." + bindingProvided.service.name)
-		println("Value of typeOfInstance : " + typeOfInstance)
-		println("Value of componentTypeOfService : " + componentTypeOfService)
 		
 		if (!typeOfInstance.equals(componentTypeOfService)){
 			error("The type of the component and the component requiring this method are not the same",
@@ -233,32 +227,25 @@ class FooValidator extends AbstractFooValidator {
 		val listOfRequieredServices = (binding.getMG().service.eContainer().eContainer() as Component).MReqServices
 		val listOfProvidedServices = (binding.getMD().service.eContainer().eContainer() as Component).MProvServices	
 		
-		/*println("\nValue of the binding : " + binding)
-		println("Value of the bindingRequiered : " + binding.MG.id.name + "." + binding.MG.service.name)
-		println("Value of the bindingProvided : " + binding.MD.id.name + "." + binding.MD.service.name)*/
-
-		
-		
+	
 		var String valRetMReq = ""
 		var String valRetMProv = ""
-		var EList<Attribute> signatureofRequieredMethod
-		var EList<Attribute> signatureOfProvidedMethod
+		var EList<Parameter> signatureofRequieredMethod
+		var EList<Parameter> signatureOfProvidedMethod
 
 		for(MRequieredService foo : listOfRequieredServices){
-			if (foo.signature.name.name.equals(nomMethodG.name)){
+			if (foo.signature.name.equals(nomMethodG.name)){//Remettre foo.signature.name.name si changement de grammaire ne fonctionne pas
 				valRetMReq = foo.signature.type
-				signatureofRequieredMethod = foo.signature.attributes
+				signatureofRequieredMethod = foo.signature.parameters
 			}
 		}
 		for(MProvidedService foo : listOfProvidedServices){
-			if(foo.signature.name.name.equals(nomMethodD.name)){
+			if(foo.signature.name.equals(nomMethodD.name)){	//Remettre foo.signature.name.name si changement de grammaire ne fonctionne pas
 				valRetMProv = foo.signature.type
-				signatureOfProvidedMethod = foo.signature.attributes
+				signatureOfProvidedMethod = foo.signature.parameters
 			}
 		}
-		
-		/*println("Value of valRetMReq : " + valRetMReq)
-		println("Value of valRetMProv : " + valRetMProv)*/
+
 		if (!valRetMReq.equals(valRetMProv)){
 			error("Return type of the provided service do not match the return type of the requiered service",
 				  FooPackage.Literals.BINDING__MD,
@@ -274,7 +261,7 @@ class FooValidator extends AbstractFooValidator {
 	 * @param signature1 : signature de la methode d'un service requis
 	 * @param signature2 : signature de la methode d'un service pourvu
 	 */
-	def signatureEquals(EList<Attribute> signature1, EList<Attribute> signature2){
+	def signatureEquals(EList<Parameter> signature1, EList<Parameter> signature2){
 		if(!(signature1.size() == signature2.size())){
 			error("Number of parameters between the requiered service and the provided service do not match",
 				  FooPackage.Literals.BINDING__MD,
@@ -292,18 +279,19 @@ class FooValidator extends AbstractFooValidator {
 			i++
 		}
 	}
-
+ 
 	/**
 	 * Verifie qu'un service pourvu possede une methode qui lui est lie
 	 * @param provS : service pourvu en cours d'analyse
 	 */
+/*
 	@Check
 	def void checkProvidedServiceHasMethod(ProvidedService provS){
 		val services = (provS.eContainer.eContainer as Component).MProvServices
 		var int i = 0
 		var boolean hasMethod = false
 		while (i < services.size() && !hasMethod){
-			if(services.get(i).signature.name.name.equals(provS.name)){
+			if(services.get(i).signature.name.equals(provS.name)){//Remettre services.get(i).signature.name.name.equals(provS.name) si changement de grammaire ne fonctionne pas
 				hasMethod = true
 			}
 			i++
@@ -314,18 +302,19 @@ class FooValidator extends AbstractFooValidator {
 				  CHECK_P_SERVICE_HAS_METHOD)
 		}
 	}
-
+*/
 	/**
 	 * Verifie qu'un service requis possede une methode qui lui est lie
 	 * @param reqS : service requis en cours d'analyse
 	 */
+/*
 	@Check
 	def void checkRequieredServiceHasMethod(RequieredService reqS){
 		val services = (reqS.eContainer.eContainer as Component).MReqServices
 		var int i = 0
 		var boolean hasMethod = false
 		while (i < services.size() && !hasMethod){
-			if(services.get(i).signature.name.name.equals(reqS.name)){
+			if(services.get(i).signature.name.equals(reqS.name)){//Remettre services.get(i).signature.name.name.equals(reqS.name) si changement de grammaire ne fonctionne pas
 				hasMethod = true
 			}
 			i++
@@ -336,7 +325,7 @@ class FooValidator extends AbstractFooValidator {
 				  CHECK_R_SERVICE_HAS_METHOD)
 		}
 	}
-
+*/
 	/**
 	 * Verifie qu'un assemblage est correct
 	 * i.e. Verifie que les services requis par l'ensemble des composants
@@ -348,7 +337,7 @@ class FooValidator extends AbstractFooValidator {
 		var listeComposants = assembly.attributes
 		for (ComponentInstance component : listeComposants){
 		//Recupere liste des composants dans l'assemblage
-			var listeServicesRequis = (component.composant as Component).listOfRServices.requieredServices
+			var listeServicesRequis = (component.component as Component).listOfRServices.requieredServices
 			for(RequieredService service : listeServicesRequis){
 			//Liste des services requis dans un composant
 				var listeBindings = assembly.bindings
@@ -365,7 +354,7 @@ class FooValidator extends AbstractFooValidator {
 					while (i < listeBindings.size() && !isPresent){
 						if(service.name.equals(listeBindings.get(i).MG.service.name) && //Comparaison de la méthode requise par l'instance du composant en cours et celle du binding
 						//   component.name.equals(listeBindings.get(i).MG.id.name)	//Comparaison du nom de l'instance composant en cours et du nom du composant dans le binding
-							component.name.equals(listeBindings.get(i).MG.id.name)
+							component.name.equals(listeBindings.get(i).MG.name.name)
 						){
 							isPresent = true
 						}

@@ -65,7 +65,7 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
   {
     switch (eClass.getClassifierID())
     {
-      case FooPackage.FILE: return createFile();
+      case FooPackage.DOMAIN_MODEL: return createDomainModel();
       case FooPackage.MODEL: return createModel();
       case FooPackage.IMPORT: return createImport();
       case FooPackage.ASSEMBLY: return createAssembly();
@@ -82,7 +82,7 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
       case FooPackage.PSIGNATURE: return createPSignature();
       case FooPackage.MREQUIERED_SERVICE: return createMRequieredService();
       case FooPackage.RSIGNATURE: return createRSignature();
-      case FooPackage.ATTRIBUTE: return createAttribute();
+      case FooPackage.PARAMETER: return createParameter();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -93,10 +93,10 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public File createFile()
+  public DomainModel createDomainModel()
   {
-    FileImpl file = new FileImpl();
-    return file;
+    DomainModelImpl domainModel = new DomainModelImpl();
+    return domainModel;
   }
 
   /**
@@ -280,10 +280,10 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Attribute createAttribute()
+  public Parameter createParameter()
   {
-    AttributeImpl attribute = new AttributeImpl();
-    return attribute;
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
   }
 
   /**

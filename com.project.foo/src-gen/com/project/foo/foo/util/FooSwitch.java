@@ -73,10 +73,10 @@ public class FooSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case FooPackage.FILE:
+      case FooPackage.DOMAIN_MODEL:
       {
-        File file = (File)theEObject;
-        T result = caseFile(file);
+        DomainModel domainModel = (DomainModel)theEObject;
+        T result = caseDomainModel(domainModel);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -192,10 +192,10 @@ public class FooSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FooPackage.ATTRIBUTE:
+      case FooPackage.PARAMETER:
       {
-        Attribute attribute = (Attribute)theEObject;
-        T result = caseAttribute(attribute);
+        Parameter parameter = (Parameter)theEObject;
+        T result = caseParameter(parameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -204,17 +204,17 @@ public class FooSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>File</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Domain Model</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>File</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Domain Model</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFile(File object)
+  public T caseDomainModel(DomainModel object)
   {
     return null;
   }
@@ -476,17 +476,17 @@ public class FooSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAttribute(Attribute object)
+  public T caseParameter(Parameter object)
   {
     return null;
   }

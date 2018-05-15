@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.project.foo.foo.PSignature#getType <em>Type</em>}</li>
  *   <li>{@link com.project.foo.foo.PSignature#getName <em>Name</em>}</li>
- *   <li>{@link com.project.foo.foo.PSignature#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link com.project.foo.foo.PSignature#getParameters <em>Parameters</em>}</li>
  * </ul>
  *
  * @see com.project.foo.foo.FooPackage#getPSignature()
@@ -54,45 +54,45 @@ public interface PSignature extends EObject
   void setType(String value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' reference.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' reference isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' reference.
-   * @see #setName(ProvidedService)
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
    * @see com.project.foo.foo.FooPackage#getPSignature_Name()
    * @model
    * @generated
    */
-  ProvidedService getName();
+  String getName();
 
   /**
-   * Sets the value of the '{@link com.project.foo.foo.PSignature#getName <em>Name</em>}' reference.
+   * Sets the value of the '{@link com.project.foo.foo.PSignature#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' reference.
+   * @param value the new value of the '<em>Name</em>' attribute.
    * @see #getName()
    * @generated
    */
-  void setName(ProvidedService value);
+  void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
-   * The list contents are of type {@link com.project.foo.foo.Attribute}.
+   * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+   * The list contents are of type {@link com.project.foo.foo.Parameter}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Attributes</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Attributes</em>' containment reference list.
-   * @see com.project.foo.foo.FooPackage#getPSignature_Attributes()
+   * @return the value of the '<em>Parameters</em>' containment reference list.
+   * @see com.project.foo.foo.FooPackage#getPSignature_Parameters()
    * @model containment="true"
    * @generated
    */
-  EList<Attribute> getAttributes();
+  EList<Parameter> getParameters();
 
 } // PSignature

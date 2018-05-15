@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.project.foo.foo.impl.BindingProvidedImpl#getId <em>Id</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.BindingProvidedImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.BindingProvidedImpl#getService <em>Service</em>}</li>
  * </ul>
  *
@@ -33,14 +33,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements BindingProvided
 {
   /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' reference.
+   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected ComponentInstance id;
+  protected ComponentInstance name;
 
   /**
    * The cached value of the '{@link #getService() <em>Service</em>}' reference.
@@ -78,19 +78,19 @@ public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public ComponentInstance getId()
+  public ComponentInstance getName()
   {
-    if (id != null && id.eIsProxy())
+    if (name != null && name.eIsProxy())
     {
-      InternalEObject oldId = (InternalEObject)id;
-      id = (ComponentInstance)eResolveProxy(oldId);
-      if (id != oldId)
+      InternalEObject oldName = (InternalEObject)name;
+      name = (ComponentInstance)eResolveProxy(oldName);
+      if (name != oldName)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.BINDING_PROVIDED__ID, oldId, id));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.BINDING_PROVIDED__NAME, oldName, name));
       }
     }
-    return id;
+    return name;
   }
 
   /**
@@ -98,9 +98,9 @@ public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public ComponentInstance basicGetId()
+  public ComponentInstance basicGetName()
   {
-    return id;
+    return name;
   }
 
   /**
@@ -108,12 +108,12 @@ public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setId(ComponentInstance newId)
+  public void setName(ComponentInstance newName)
   {
-    ComponentInstance oldId = id;
-    id = newId;
+    ComponentInstance oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING_PROVIDED__ID, oldId, id));
+      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING_PROVIDED__NAME, oldName, name));
   }
 
   /**
@@ -169,9 +169,9 @@ public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case FooPackage.BINDING_PROVIDED__ID:
-        if (resolve) return getId();
-        return basicGetId();
+      case FooPackage.BINDING_PROVIDED__NAME:
+        if (resolve) return getName();
+        return basicGetName();
       case FooPackage.BINDING_PROVIDED__SERVICE:
         if (resolve) return getService();
         return basicGetService();
@@ -189,8 +189,8 @@ public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case FooPackage.BINDING_PROVIDED__ID:
-        setId((ComponentInstance)newValue);
+      case FooPackage.BINDING_PROVIDED__NAME:
+        setName((ComponentInstance)newValue);
         return;
       case FooPackage.BINDING_PROVIDED__SERVICE:
         setService((ProvidedService)newValue);
@@ -209,8 +209,8 @@ public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case FooPackage.BINDING_PROVIDED__ID:
-        setId((ComponentInstance)null);
+      case FooPackage.BINDING_PROVIDED__NAME:
+        setName((ComponentInstance)null);
         return;
       case FooPackage.BINDING_PROVIDED__SERVICE:
         setService((ProvidedService)null);
@@ -229,8 +229,8 @@ public class BindingProvidedImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case FooPackage.BINDING_PROVIDED__ID:
-        return id != null;
+      case FooPackage.BINDING_PROVIDED__NAME:
+        return name != null;
       case FooPackage.BINDING_PROVIDED__SERVICE:
         return service != null;
     }

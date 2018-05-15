@@ -76,9 +76,9 @@ public class FooAdapterFactory extends AdapterFactoryImpl
     new FooSwitch<Adapter>()
     {
       @Override
-      public Adapter caseFile(File object)
+      public Adapter caseDomainModel(DomainModel object)
       {
-        return createFileAdapter();
+        return createDomainModelAdapter();
       }
       @Override
       public Adapter caseModel(Model object)
@@ -161,9 +161,9 @@ public class FooAdapterFactory extends AdapterFactoryImpl
         return createRSignatureAdapter();
       }
       @Override
-      public Adapter caseAttribute(Attribute object)
+      public Adapter caseParameter(Parameter object)
       {
-        return createAttributeAdapter();
+        return createParameterAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -188,16 +188,16 @@ public class FooAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link com.project.foo.foo.File <em>File</em>}'.
+   * Creates a new adapter for an object of class '{@link com.project.foo.foo.DomainModel <em>Domain Model</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.project.foo.foo.File
+   * @see com.project.foo.foo.DomainModel
    * @generated
    */
-  public Adapter createFileAdapter()
+  public Adapter createDomainModelAdapter()
   {
     return null;
   }
@@ -443,16 +443,16 @@ public class FooAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.project.foo.foo.Attribute <em>Attribute</em>}'.
+   * Creates a new adapter for an object of class '{@link com.project.foo.foo.Parameter <em>Parameter</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.project.foo.foo.Attribute
+   * @see com.project.foo.foo.Parameter
    * @generated
    */
-  public Adapter createAttributeAdapter()
+  public Adapter createParameterAdapter()
   {
     return null;
   }
