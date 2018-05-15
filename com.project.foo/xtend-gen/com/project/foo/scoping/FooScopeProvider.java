@@ -8,8 +8,7 @@ import com.project.foo.foo.BindingProvided;
 import com.project.foo.foo.BindingRequiered;
 import com.project.foo.foo.FooPackage;
 import com.project.foo.foo.PSignature;
-import com.project.foo.foo.ProvidedService;
-import com.project.foo.foo.RequieredService;
+import com.project.foo.foo.RSignature;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -60,7 +59,7 @@ public class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
   public IScope getScope(final EObject context, final EReference reference) {
     if (((context instanceof BindingRequiered) && Objects.equal(reference, FooPackage.Literals.BINDING_REQUIERED__SERVICE))) {
       final EObject rootElement = EcoreUtil2.getRootContainer(context);
-      final List<RequieredService> candidates = EcoreUtil2.<RequieredService>getAllContentsOfType(rootElement, RequieredService.class);
+      final List<RSignature> candidates = EcoreUtil2.<RSignature>getAllContentsOfType(rootElement, RSignature.class);
       EStructuralFeature _eContainingFeature = context.eContainingFeature();
       String _plus = ("\n\n(Working on a requiered service)\nValue of context : " + _eContainingFeature);
       InputOutput.<String>println(_plus);
@@ -73,7 +72,7 @@ public class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
       while ((i < candidates.size())) {
         {
           InputOutput.<String>println(("Value of i : " + Integer.valueOf(i)));
-          RequieredService _get = candidates.get(i);
+          RSignature _get = candidates.get(i);
           String _plus_2 = ("candidates.get(i) : " + _get);
           InputOutput.<String>println(_plus_2);
           i++;
@@ -83,7 +82,7 @@ public class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
     }
     if (((context instanceof BindingProvided) && Objects.equal(reference, FooPackage.Literals.BINDING_PROVIDED__SERVICE))) {
       final EObject rootElement_1 = EcoreUtil2.getRootContainer(context);
-      final List<ProvidedService> candidates_1 = EcoreUtil2.<ProvidedService>getAllContentsOfType(rootElement_1, ProvidedService.class);
+      final List<PSignature> candidates_1 = EcoreUtil2.<PSignature>getAllContentsOfType(rootElement_1, PSignature.class);
       InputOutput.<String>println(("\n\n(Working on a provided service)\nValue of context : " + context));
       InputOutput.<String>println(("Value of rootElement : " + rootElement_1));
       InputOutput.<String>println(("Value of candidates : " + candidates_1));
@@ -94,9 +93,8 @@ public class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
       while ((i_1 < candidates_1.size())) {
         {
           InputOutput.<String>println(("Value of i : " + Integer.valueOf(i_1)));
-          ProvidedService _get = candidates_1.get(i_1);
-          PSignature _name = ((ProvidedService) _get).getName();
-          String _plus_3 = ("candidates.get(i) : " + _name);
+          PSignature _get = candidates_1.get(i_1);
+          String _plus_3 = ("candidates.get(i) : " + _get);
           InputOutput.<String>println(_plus_3);
           i_1++;
         }

@@ -59,12 +59,12 @@ public interface BindingRequiered extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Service</em>' reference.
-   * @see #setService(RequieredService)
+   * @see #setService(RSignature)
    * @see com.project.foo.foo.FooPackage#getBindingRequiered_Service()
    * @model
    * @generated
    */
-  RequieredService getService();
+  RSignature getService();
 
   /**
    * Sets the value of the '{@link com.project.foo.foo.BindingRequiered#getService <em>Service</em>}' reference.
@@ -74,6 +74,6 @@ public interface BindingRequiered extends EObject
    * @see #getService()
    * @generated
    */
-  void setService(RequieredService value);
+  void setService(RSignature value);
 
 } // BindingRequiered

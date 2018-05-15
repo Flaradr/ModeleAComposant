@@ -59,12 +59,12 @@ public interface BindingProvided extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Service</em>' reference.
-   * @see #setService(ProvidedService)
+   * @see #setService(PSignature)
    * @see com.project.foo.foo.FooPackage#getBindingProvided_Service()
    * @model
    * @generated
    */
-  ProvidedService getService();
+  PSignature getService();
 
   /**
    * Sets the value of the '{@link com.project.foo.foo.BindingProvided#getService <em>Service</em>}' reference.
@@ -74,6 +74,6 @@ public interface BindingProvided extends EObject
    * @see #getService()
    * @generated
    */
-  void setService(ProvidedService value);
+  void setService(PSignature value);
 
 } // BindingProvided

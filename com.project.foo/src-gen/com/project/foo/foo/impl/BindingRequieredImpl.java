@@ -6,7 +6,7 @@ package com.project.foo.foo.impl;
 import com.project.foo.foo.BindingRequiered;
 import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.FooPackage;
-import com.project.foo.foo.RequieredService;
+import com.project.foo.foo.RSignature;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -50,7 +50,7 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * @generated
    * @ordered
    */
-  protected RequieredService service;
+  protected RSignature service;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,12 +121,12 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public RequieredService getService()
+  public RSignature getService()
   {
     if (service != null && service.eIsProxy())
     {
       InternalEObject oldService = (InternalEObject)service;
-      service = (RequieredService)eResolveProxy(oldService);
+      service = (RSignature)eResolveProxy(oldService);
       if (service != oldService)
       {
         if (eNotificationRequired())
@@ -141,7 +141,7 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public RequieredService basicGetService()
+  public RSignature basicGetService()
   {
     return service;
   }
@@ -151,9 +151,9 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setService(RequieredService newService)
+  public void setService(RSignature newService)
   {
-    RequieredService oldService = service;
+    RSignature oldService = service;
     service = newService;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING_REQUIERED__SERVICE, oldService, service));
@@ -193,7 +193,7 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
         setName((ComponentInstance)newValue);
         return;
       case FooPackage.BINDING_REQUIERED__SERVICE:
-        setService((RequieredService)newValue);
+        setService((RSignature)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -213,7 +213,7 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
         setName((ComponentInstance)null);
         return;
       case FooPackage.BINDING_REQUIERED__SERVICE:
-        setService((RequieredService)null);
+        setService((RSignature)null);
         return;
     }
     super.eUnset(featureID);

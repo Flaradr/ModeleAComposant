@@ -36,11 +36,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BindingRequiered">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//ComponentInstance"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="service" eType="#//RequieredService"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" eType="#//RSignature"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BindingProvided">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//ComponentInstance"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="service" eType="#//ProvidedService"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" eType="#//PSignature"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

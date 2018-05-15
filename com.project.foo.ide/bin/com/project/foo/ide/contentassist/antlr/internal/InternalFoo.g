@@ -3286,13 +3286,13 @@ rule__BindingRequiered__ServiceAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getBindingRequieredAccess().getServiceRequieredServiceCrossReference_2_0()); }
+		{ before(grammarAccess.getBindingRequieredAccess().getServiceRSignatureCrossReference_2_0()); }
 		(
-			{ before(grammarAccess.getBindingRequieredAccess().getServiceRequieredServiceIDTerminalRuleCall_2_0_1()); }
+			{ before(grammarAccess.getBindingRequieredAccess().getServiceRSignatureIDTerminalRuleCall_2_0_1()); }
 			RULE_ID
-			{ after(grammarAccess.getBindingRequieredAccess().getServiceRequieredServiceIDTerminalRuleCall_2_0_1()); }
+			{ after(grammarAccess.getBindingRequieredAccess().getServiceRSignatureIDTerminalRuleCall_2_0_1()); }
 		)
-		{ after(grammarAccess.getBindingRequieredAccess().getServiceRequieredServiceCrossReference_2_0()); }
+		{ after(grammarAccess.getBindingRequieredAccess().getServiceRSignatureCrossReference_2_0()); }
 	)
 ;
 finally {
@@ -3324,13 +3324,13 @@ rule__BindingProvided__ServiceAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getBindingProvidedAccess().getServiceProvidedServiceCrossReference_2_0()); }
+		{ before(grammarAccess.getBindingProvidedAccess().getServicePSignatureCrossReference_2_0()); }
 		(
-			{ before(grammarAccess.getBindingProvidedAccess().getServiceProvidedServiceIDTerminalRuleCall_2_0_1()); }
+			{ before(grammarAccess.getBindingProvidedAccess().getServicePSignatureIDTerminalRuleCall_2_0_1()); }
 			RULE_ID
-			{ after(grammarAccess.getBindingProvidedAccess().getServiceProvidedServiceIDTerminalRuleCall_2_0_1()); }
+			{ after(grammarAccess.getBindingProvidedAccess().getServicePSignatureIDTerminalRuleCall_2_0_1()); }
 		)
-		{ after(grammarAccess.getBindingProvidedAccess().getServiceProvidedServiceCrossReference_2_0()); }
+		{ after(grammarAccess.getBindingProvidedAccess().getServicePSignatureCrossReference_2_0()); }
 	)
 ;
 finally {

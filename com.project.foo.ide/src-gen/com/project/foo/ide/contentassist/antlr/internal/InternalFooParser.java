@@ -9834,17 +9834,17 @@ public class InternalFooParser extends AbstractInternalContentAssistParser {
             // InternalFoo.g:3288:2: ( ( RULE_ID ) )
             // InternalFoo.g:3289:3: ( RULE_ID )
             {
-             before(grammarAccess.getBindingRequieredAccess().getServiceRequieredServiceCrossReference_2_0()); 
+             before(grammarAccess.getBindingRequieredAccess().getServiceRSignatureCrossReference_2_0()); 
             // InternalFoo.g:3290:3: ( RULE_ID )
             // InternalFoo.g:3291:4: RULE_ID
             {
-             before(grammarAccess.getBindingRequieredAccess().getServiceRequieredServiceIDTerminalRuleCall_2_0_1()); 
+             before(grammarAccess.getBindingRequieredAccess().getServiceRSignatureIDTerminalRuleCall_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getBindingRequieredAccess().getServiceRequieredServiceIDTerminalRuleCall_2_0_1()); 
+             after(grammarAccess.getBindingRequieredAccess().getServiceRSignatureIDTerminalRuleCall_2_0_1()); 
 
             }
 
-             after(grammarAccess.getBindingRequieredAccess().getServiceRequieredServiceCrossReference_2_0()); 
+             after(grammarAccess.getBindingRequieredAccess().getServiceRSignatureCrossReference_2_0()); 
 
             }
 
@@ -9924,17 +9924,17 @@ public class InternalFooParser extends AbstractInternalContentAssistParser {
             // InternalFoo.g:3326:2: ( ( RULE_ID ) )
             // InternalFoo.g:3327:3: ( RULE_ID )
             {
-             before(grammarAccess.getBindingProvidedAccess().getServiceProvidedServiceCrossReference_2_0()); 
+             before(grammarAccess.getBindingProvidedAccess().getServicePSignatureCrossReference_2_0()); 
             // InternalFoo.g:3328:3: ( RULE_ID )
             // InternalFoo.g:3329:4: RULE_ID
             {
-             before(grammarAccess.getBindingProvidedAccess().getServiceProvidedServiceIDTerminalRuleCall_2_0_1()); 
+             before(grammarAccess.getBindingProvidedAccess().getServicePSignatureIDTerminalRuleCall_2_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getBindingProvidedAccess().getServiceProvidedServiceIDTerminalRuleCall_2_0_1()); 
+             after(grammarAccess.getBindingProvidedAccess().getServicePSignatureIDTerminalRuleCall_2_0_1()); 
 
             }
 
-             after(grammarAccess.getBindingProvidedAccess().getServiceProvidedServiceCrossReference_2_0()); 
+             after(grammarAccess.getBindingProvidedAccess().getServicePSignatureCrossReference_2_0()); 
 
             }
 

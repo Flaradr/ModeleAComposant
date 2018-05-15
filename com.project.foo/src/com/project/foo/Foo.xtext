@@ -52,12 +52,12 @@ Binding:
 //Instance du composant ayant besoin d'un service
 BindingRequiered:
 //	name=[ComponentInstance|QualifiedName]'->'service=[RequieredService|QualifiedName];
-	name=[ComponentInstance]"."service=[RequieredService];
+	name=[ComponentInstance]"."service=[RSignature];
 
 //Instance du composant fournissant un service
 BindingProvided:
 //	name=[ComponentInstance|QualifiedName]'->'service=[ProvidedService|QualifiedName];
-	name=[ComponentInstance]"."service=[ProvidedService];
+	name=[ComponentInstance]"."service=[PSignature];
 
 //Structure d'un composant
 Component:

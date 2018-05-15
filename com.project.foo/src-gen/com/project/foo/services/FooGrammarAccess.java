@@ -325,16 +325,16 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameComponentInstanceIDTerminalRuleCall_0_0_1 = (RuleCall)cNameComponentInstanceCrossReference_0_0.eContents().get(1);
 		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cServiceAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cServiceRequieredServiceCrossReference_2_0 = (CrossReference)cServiceAssignment_2.eContents().get(0);
-		private final RuleCall cServiceRequieredServiceIDTerminalRuleCall_2_0_1 = (RuleCall)cServiceRequieredServiceCrossReference_2_0.eContents().get(1);
+		private final CrossReference cServiceRSignatureCrossReference_2_0 = (CrossReference)cServiceAssignment_2.eContents().get(0);
+		private final RuleCall cServiceRSignatureIDTerminalRuleCall_2_0_1 = (RuleCall)cServiceRSignatureCrossReference_2_0.eContents().get(1);
 		
 		////Instance du composant ayant besoin d'un service
 		//BindingRequiered:
-		//	name=[ComponentInstance] "." service=[RequieredService];
+		//	name=[ComponentInstance] "." service=[RSignature];
 		@Override public ParserRule getRule() { return rule; }
 		
 		////	name=[ComponentInstance|QualifiedName]'->'service=[RequieredService|QualifiedName];
-		//name=[ComponentInstance] "." service=[RequieredService]
+		//name=[ComponentInstance] "." service=[RSignature]
 		public Group getGroup() { return cGroup; }
 		
 		////	name=[ComponentInstance|QualifiedName]'->'service=[RequieredService|QualifiedName];
@@ -350,14 +350,14 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		//"."
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
 		
-		//service=[RequieredService]
+		//service=[RSignature]
 		public Assignment getServiceAssignment_2() { return cServiceAssignment_2; }
 		
-		//[RequieredService]
-		public CrossReference getServiceRequieredServiceCrossReference_2_0() { return cServiceRequieredServiceCrossReference_2_0; }
+		//[RSignature]
+		public CrossReference getServiceRSignatureCrossReference_2_0() { return cServiceRSignatureCrossReference_2_0; }
 		
 		//ID
-		public RuleCall getServiceRequieredServiceIDTerminalRuleCall_2_0_1() { return cServiceRequieredServiceIDTerminalRuleCall_2_0_1; }
+		public RuleCall getServiceRSignatureIDTerminalRuleCall_2_0_1() { return cServiceRSignatureIDTerminalRuleCall_2_0_1; }
 	}
 	public class BindingProvidedElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.BindingProvided");
@@ -367,16 +367,16 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameComponentInstanceIDTerminalRuleCall_0_0_1 = (RuleCall)cNameComponentInstanceCrossReference_0_0.eContents().get(1);
 		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cServiceAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cServiceProvidedServiceCrossReference_2_0 = (CrossReference)cServiceAssignment_2.eContents().get(0);
-		private final RuleCall cServiceProvidedServiceIDTerminalRuleCall_2_0_1 = (RuleCall)cServiceProvidedServiceCrossReference_2_0.eContents().get(1);
+		private final CrossReference cServicePSignatureCrossReference_2_0 = (CrossReference)cServiceAssignment_2.eContents().get(0);
+		private final RuleCall cServicePSignatureIDTerminalRuleCall_2_0_1 = (RuleCall)cServicePSignatureCrossReference_2_0.eContents().get(1);
 		
 		////Instance du composant fournissant un service
 		//BindingProvided:
-		//	name=[ComponentInstance] "." service=[ProvidedService];
+		//	name=[ComponentInstance] "." service=[PSignature];
 		@Override public ParserRule getRule() { return rule; }
 		
 		////	name=[ComponentInstance|QualifiedName]'->'service=[ProvidedService|QualifiedName];
-		//name=[ComponentInstance] "." service=[ProvidedService]
+		//name=[ComponentInstance] "." service=[PSignature]
 		public Group getGroup() { return cGroup; }
 		
 		////	name=[ComponentInstance|QualifiedName]'->'service=[ProvidedService|QualifiedName];
@@ -392,14 +392,14 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		//"."
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
 		
-		//service=[ProvidedService]
+		//service=[PSignature]
 		public Assignment getServiceAssignment_2() { return cServiceAssignment_2; }
 		
-		//[ProvidedService]
-		public CrossReference getServiceProvidedServiceCrossReference_2_0() { return cServiceProvidedServiceCrossReference_2_0; }
+		//[PSignature]
+		public CrossReference getServicePSignatureCrossReference_2_0() { return cServicePSignatureCrossReference_2_0; }
 		
 		//ID
-		public RuleCall getServiceProvidedServiceIDTerminalRuleCall_2_0_1() { return cServiceProvidedServiceIDTerminalRuleCall_2_0_1; }
+		public RuleCall getServicePSignatureIDTerminalRuleCall_2_0_1() { return cServicePSignatureIDTerminalRuleCall_2_0_1; }
 	}
 	public class ComponentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.Component");
@@ -1036,7 +1036,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////Instance du composant ayant besoin d'un service
 	//BindingRequiered:
-	//	name=[ComponentInstance] "." service=[RequieredService];
+	//	name=[ComponentInstance] "." service=[RSignature];
 	public BindingRequieredElements getBindingRequieredAccess() {
 		return pBindingRequiered;
 	}
@@ -1047,7 +1047,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////Instance du composant fournissant un service
 	//BindingProvided:
-	//	name=[ComponentInstance] "." service=[ProvidedService];
+	//	name=[ComponentInstance] "." service=[PSignature];
 	public BindingProvidedElements getBindingProvidedAccess() {
 		return pBindingProvided;
 	}

@@ -1479,7 +1479,7 @@ public class InternalFooParser extends AbstractInternalAntlrParser {
             				
             otherlv_2=(Token)match(input,RULE_ID,FOLLOW_2); 
 
-            					newLeafNode(otherlv_2, grammarAccess.getBindingRequieredAccess().getServiceRequieredServiceCrossReference_2_0());
+            					newLeafNode(otherlv_2, grammarAccess.getBindingRequieredAccess().getServiceRSignatureCrossReference_2_0());
             				
 
             }
@@ -1602,7 +1602,7 @@ public class InternalFooParser extends AbstractInternalAntlrParser {
             				
             otherlv_2=(Token)match(input,RULE_ID,FOLLOW_2); 
 
-            					newLeafNode(otherlv_2, grammarAccess.getBindingProvidedAccess().getServiceProvidedServiceCrossReference_2_0());
+            					newLeafNode(otherlv_2, grammarAccess.getBindingProvidedAccess().getServicePSignatureCrossReference_2_0());
             				
 
             }

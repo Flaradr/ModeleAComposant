@@ -602,7 +602,7 @@ ruleBindingRequiered returns [EObject current=null]
 				}
 				otherlv_2=RULE_ID
 				{
-					newLeafNode(otherlv_2, grammarAccess.getBindingRequieredAccess().getServiceRequieredServiceCrossReference_2_0());
+					newLeafNode(otherlv_2, grammarAccess.getBindingRequieredAccess().getServiceRSignatureCrossReference_2_0());
 				}
 			)
 		)
@@ -651,7 +651,7 @@ ruleBindingProvided returns [EObject current=null]
 				}
 				otherlv_2=RULE_ID
 				{
-					newLeafNode(otherlv_2, grammarAccess.getBindingProvidedAccess().getServiceProvidedServiceCrossReference_2_0());
+					newLeafNode(otherlv_2, grammarAccess.getBindingProvidedAccess().getServicePSignatureCrossReference_2_0());
 				}
 			)
 		)

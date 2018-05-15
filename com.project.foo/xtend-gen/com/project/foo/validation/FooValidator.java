@@ -275,8 +275,8 @@ public class FooValidator extends AbstractFooValidator {
    */
   @Check
   public void checkBindingIsValid(final Binding binding) {
-    final RequieredService nomMethodG = binding.getMG().getService();
-    final ProvidedService nomMethodD = binding.getMD().getService();
+    final RSignature nomMethodG = binding.getMG().getService();
+    final PSignature nomMethodD = binding.getMD().getService();
     EObject _eContainer = binding.getMG().getService().eContainer().eContainer();
     final EList<MRequieredService> listOfRequieredServices = ((Component) _eContainer).getMReqServices();
     EObject _eContainer_1 = binding.getMD().getService().eContainer().eContainer();

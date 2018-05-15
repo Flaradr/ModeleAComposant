@@ -19,6 +19,8 @@ import com.project.foo.foo.RequieredService
 import com.project.foo.foo.BindingProvided
 import com.project.foo.foo.ProvidedService
 import org.eclipse.xtext.resource.IEObjectDescription
+import com.project.foo.foo.RSignature
+import com.project.foo.foo.PSignature
 
 /**
  * This class contains custom scoping description.
@@ -78,7 +80,7 @@ class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider{
 		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__SERVICE){
  			
 			val rootElement = EcoreUtil2.getRootContainer(context)
-			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,RequieredService)
+			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,RSignature)
 			println("\n\n(Working on a requiered service)\nValue of context : " + context.eContainingFeature)
 
  			println("Value of rootElement : " + rootElement)
@@ -103,7 +105,7 @@ class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider{
  		*/
  		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__SERVICE){
 			val rootElement = EcoreUtil2.getRootContainer(context)
-			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ProvidedService)
+			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,PSignature)
 			println("\n\n(Working on a provided service)\nValue of context : " + context)
 
  			println("Value of rootElement : " + rootElement)
@@ -112,7 +114,7 @@ class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider{
 			var i = 0
  			while (i < candidates.size){
  				println("Value of i : " + i)
- 				println("candidates.get(i) : " + (candidates.get(i) as ProvidedService).name)
+ 				println("candidates.get(i) : " + candidates.get(i) )
  				i++
  			}
 			return Scopes.scopeFor(candidates)

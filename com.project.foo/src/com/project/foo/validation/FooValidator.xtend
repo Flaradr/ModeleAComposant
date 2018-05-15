@@ -19,6 +19,7 @@ import org.eclipse.xtext.validation.Check
 import com.project.foo.foo.BindingProvided
 import com.project.foo.foo.BindingRequiered
 import com.project.foo.foo.PSignature
+import com.project.foo.foo.RSignature
 
 /**
  * This class contains custom validation rules.
