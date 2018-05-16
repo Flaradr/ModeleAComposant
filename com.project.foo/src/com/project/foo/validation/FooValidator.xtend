@@ -282,52 +282,6 @@ class FooValidator extends AbstractFooValidator {
 	}
  
 	/**
-	 * Verifie qu'un service pourvu possede une methode qui lui est lie
-	 * @param provS : service pourvu en cours d'analyse
-	 */
-/*
-	@Check
-	def void checkProvidedServiceHasMethod(ProvidedService provS){
-		val services = (provS.eContainer.eContainer as Component).MProvServices
-		var int i = 0
-		var boolean hasMethod = false
-		while (i < services.size() && !hasMethod){
-			if(services.get(i).signature.name.equals(provS.name)){//Remettre services.get(i).signature.name.name.equals(provS.name) si changement de grammaire ne fonctionne pas
-				hasMethod = true
-			}
-			i++
-		}
-		if(!hasMethod){
-			error("The service needs a method declaration",
-				  FooPackage.Literals.PROVIDED_SERVICE__NAME,
-				  CHECK_P_SERVICE_HAS_METHOD)
-		}
-	}
-*/
-	/**
-	 * Verifie qu'un service requis possede une methode qui lui est lie
-	 * @param reqS : service requis en cours d'analyse
-	 */
-/*
-	@Check
-	def void checkRequieredServiceHasMethod(RequieredService reqS){
-		val services = (reqS.eContainer.eContainer as Component).MReqServices
-		var int i = 0
-		var boolean hasMethod = false
-		while (i < services.size() && !hasMethod){
-			if(services.get(i).signature.name.equals(reqS.name)){//Remettre services.get(i).signature.name.name.equals(reqS.name) si changement de grammaire ne fonctionne pas
-				hasMethod = true
-			}
-			i++
-		}
-		if(!hasMethod){
-			error("The service needs a method declaration",
-				  FooPackage.Literals.REQUIERED_SERVICE__NAME,
-				  CHECK_R_SERVICE_HAS_METHOD)
-		}
-	}
-*/
-	/**
 	 * Verifie qu'un assemblage est correct
 	 * i.e. Verifie que les services requis par l'ensemble des composants
 	 * constituant l'assemblage sont lié à des services fournis dans la section

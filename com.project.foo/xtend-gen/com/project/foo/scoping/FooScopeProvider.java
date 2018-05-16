@@ -7,6 +7,7 @@ import com.google.common.base.Objects;
 import com.project.foo.foo.BindingProvided;
 import com.project.foo.foo.BindingRequiered;
 import com.project.foo.foo.FooPackage;
+import com.project.foo.foo.Import;
 import com.project.foo.foo.PSignature;
 import com.project.foo.foo.RSignature;
 import java.util.List;
@@ -102,5 +103,14 @@ public class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
       return Scopes.scopeFor(candidates_1);
     }
     return super.getScope(context, reference);
+  }
+  
+  @Override
+  protected String getImportedNamespace(final EObject object) {
+    if ((object instanceof Import)) {
+      return ((Import) object).getImportedNamespace();
+    } else {
+      return super.getImportedNamespace(object);
+    }
   }
 }

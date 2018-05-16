@@ -68,14 +68,6 @@ class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider{
 	
  
 	override IScope getScope(EObject context, EReference reference){
- 		/*
-  		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__NAME){
- 			 			
- 			val rootElement = EcoreUtil2.getRootContainer(context)
- 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentInstance)
- 			return Scopes.scopeFor(candidates)
- 		}
- 		*/
 
 		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__SERVICE){
  			
@@ -95,14 +87,7 @@ class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider{
  			}
 			return Scopes.scopeFor(candidates)
  		}
- 		/* 
- 		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__NAME){
- 			 			 			
- 			val rootElement = EcoreUtil2.getRootContainer(context)
- 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentInstance)
- 			return Scopes.scopeFor(candidates)
- 		}
- 		*/
+
  		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__SERVICE){
 			val rootElement = EcoreUtil2.getRootContainer(context)
 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,PSignature)
@@ -122,13 +107,13 @@ class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider{
 	
  		return super.getScope(context, reference);
 	}
-	/*
+	
 	override protected getImportedNamespace (EObject object){
 		if (object instanceof Import){
 			return (object as Import).importedNamespace
 		} else {
 			return super.getImportedNamespace(object)
 		}
-	}*/
-	
+	}
+
 }
