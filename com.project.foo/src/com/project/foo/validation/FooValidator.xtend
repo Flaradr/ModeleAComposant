@@ -307,8 +307,11 @@ class FooValidator extends AbstractFooValidator {
 					var int i = 0
 					var boolean isPresent = false
 					while (i < listeBindings.size() && !isPresent){
-						if(service.name.equals(listeBindings.get(i).MG.service.name) && //Comparaison de la méthode requise par l'instance du composant en cours et celle du binding
-						//   component.name.equals(listeBindings.get(i).MG.id.name)	//Comparaison du nom de l'instance composant en cours et du nom du composant dans le binding
+						println("\n---------\nValue of service.name : " + service.name.name)
+						println("Value of listeBindings.get(i).MG.service.name : " + listeBindings.get(i).MG.service.name)
+						println("Value of component.name : " + component.name)
+						println("Value of listeBindings.get(i).MG.name.name : " + listeBindings.get(i).MG.name.name)
+						if(service.name.name.equals(listeBindings.get(i).MG.service.name) && //Comparaison de la méthode requise par l'instance du composant en cours et celle du binding
 							component.name.equals(listeBindings.get(i).MG.name.name)
 						){
 							isPresent = true

@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 
 /**
  * This class contains custom validation rules.
@@ -370,7 +371,19 @@ public class FooValidator extends AbstractFooValidator {
                 boolean isPresent = false;
                 while (((i < listeBindings.size()) && (!isPresent))) {
                   {
-                    if ((service.getName().equals(listeBindings.get(i).getMG().getService().getName()) && 
+                    String _name = service.getName().getName();
+                    String _plus = ("\n---------\nValue of service.name : " + _name);
+                    InputOutput.<String>println(_plus);
+                    String _name_1 = listeBindings.get(i).getMG().getService().getName();
+                    String _plus_1 = ("Value of listeBindings.get(i).MG.service.name : " + _name_1);
+                    InputOutput.<String>println(_plus_1);
+                    String _name_2 = component.getName();
+                    String _plus_2 = ("Value of component.name : " + _name_2);
+                    InputOutput.<String>println(_plus_2);
+                    String _name_3 = listeBindings.get(i).getMG().getName().getName();
+                    String _plus_3 = ("Value of listeBindings.get(i).MG.name.name : " + _name_3);
+                    InputOutput.<String>println(_plus_3);
+                    if ((service.getName().getName().equals(listeBindings.get(i).getMG().getService().getName()) && 
                       component.getName().equals(listeBindings.get(i).getMG().getName().getName()))) {
                       isPresent = true;
                     }

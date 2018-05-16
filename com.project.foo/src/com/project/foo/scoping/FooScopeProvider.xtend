@@ -73,35 +73,12 @@ class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider{
  			
 			val rootElement = EcoreUtil2.getRootContainer(context)
 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,RSignature)
-			println("\n\n(Working on a requiered service)\nValue of context : " + context.eContainingFeature)
-
- 			println("Value of rootElement : " + rootElement)
- 			println("Value of candidates : " + candidates)
- 			println("Value of Scopes.scopeFor(candidates)" + Scopes.scopeFor(candidates))
- 			//var DelegatingScopeProvider toto = delegateGetScope(context, reference)
- 			var i = 0
- 			while (i < candidates.size){
- 				println("Value of i : " + i)
- 				println("candidates.get(i) : " + candidates.get(i))
- 				i++
- 			}
 			return Scopes.scopeFor(candidates)
  		}
 
  		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__SERVICE){
 			val rootElement = EcoreUtil2.getRootContainer(context)
 			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,PSignature)
-			println("\n\n(Working on a provided service)\nValue of context : " + context)
-
- 			println("Value of rootElement : " + rootElement)
- 			println("Value of candidates : " + candidates)
- 			println("Value of Scopes.scopeFor(candidates)" + Scopes.scopeFor(candidates))
-			var i = 0
- 			while (i < candidates.size){
- 				println("Value of i : " + i)
- 				println("candidates.get(i) : " + candidates.get(i) )
- 				i++
- 			}
 			return Scopes.scopeFor(candidates)
  		}
 	
