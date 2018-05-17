@@ -60,13 +60,13 @@ public interface FooFactory extends EFactory
   Assembly createAssembly();
 
   /**
-   * Returns a new object of class '<em>Component Attribute</em>'.
+   * Returns a new object of class '<em>Component Instance</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Component Attribute</em>'.
+   * @return a new object of class '<em>Component Instance</em>'.
    * @generated
    */
-  ComponentAttribute createComponentAttribute();
+  ComponentInstance createComponentInstance();
 
   /**
    * Returns a new object of class '<em>Binding</em>'.
@@ -105,13 +105,13 @@ public interface FooFactory extends EFactory
   Component createComponent();
 
   /**
-   * Returns a new object of class '<em>Provided</em>'.
+   * Returns a new object of class '<em>List Of Provided Services</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Provided</em>'.
+   * @return a new object of class '<em>List Of Provided Services</em>'.
    * @generated
    */
-  Provided createProvided();
+  ListOfProvidedServices createListOfProvidedServices();
 
   /**
    * Returns a new object of class '<em>Provided Service</em>'.
@@ -123,13 +123,13 @@ public interface FooFactory extends EFactory
   ProvidedService createProvidedService();
 
   /**
-   * Returns a new object of class '<em>Requiered</em>'.
+   * Returns a new object of class '<em>List Of Requiered Services</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Requiered</em>'.
+   * @return a new object of class '<em>List Of Requiered Services</em>'.
    * @generated
    */
-  Requiered createRequiered();
+  ListOfRequieredServices createListOfRequieredServices();
 
   /**
    * Returns a new object of class '<em>Requiered Service</em>'.
@@ -177,13 +177,13 @@ public interface FooFactory extends EFactory
   RSignature createRSignature();
 
   /**
-   * Returns a new object of class '<em>Attribute</em>'.
+   * Returns a new object of class '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Attribute</em>'.
+   * @return a new object of class '<em>Parameter</em>'.
    * @generated
    */
-  Attribute createAttribute();
+  Parameter createParameter();
 
   /**
    * Returns the package supported by this factory.

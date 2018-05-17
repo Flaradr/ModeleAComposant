@@ -4,11 +4,13 @@
 package com.project.foo.foo.impl;
 
 import com.project.foo.foo.FooPackage;
+import com.project.foo.foo.PSignature;
 import com.project.foo.foo.ProvidedService;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -29,24 +31,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ProvidedServiceImpl extends MinimalEObjectImpl.Container implements ProvidedService
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected PSignature name;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,7 +66,27 @@ public class ProvidedServiceImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public PSignature getName()
+  {
+    if (name != null && name.eIsProxy())
+    {
+      InternalEObject oldName = (InternalEObject)name;
+      name = (PSignature)eResolveProxy(oldName);
+      if (name != oldName)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.PROVIDED_SERVICE__NAME, oldName, name));
+      }
+    }
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PSignature basicGetName()
   {
     return name;
   }
@@ -84,9 +96,9 @@ public class ProvidedServiceImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setName(PSignature newName)
   {
-    String oldName = name;
+    PSignature oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.PROVIDED_SERVICE__NAME, oldName, name));
@@ -103,7 +115,8 @@ public class ProvidedServiceImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case FooPackage.PROVIDED_SERVICE__NAME:
-        return getName();
+        if (resolve) return getName();
+        return basicGetName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,7 +132,7 @@ public class ProvidedServiceImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case FooPackage.PROVIDED_SERVICE__NAME:
-        setName((String)newValue);
+        setName((PSignature)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,7 +149,7 @@ public class ProvidedServiceImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case FooPackage.PROVIDED_SERVICE__NAME:
-        setName(NAME_EDEFAULT);
+        setName((PSignature)null);
         return;
     }
     super.eUnset(featureID);
@@ -153,26 +166,9 @@ public class ProvidedServiceImpl extends MinimalEObjectImpl.Container implements
     switch (featureID)
     {
       case FooPackage.PROVIDED_SERVICE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+        return name != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //ProvidedServiceImpl

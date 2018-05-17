@@ -4,10 +4,9 @@ generate foo "http://www.project.com/foo/Foo"
 
 //Concerne les modeles
 DomainModel:
-	(models+=Model)*;
+	model=Model;
 
 /*
- * 
  * Structure d'un modele, correspond
  * à un paquet pouvant contenir plusieurs
  * composants et assemblages
@@ -15,87 +14,93 @@ DomainModel:
 Model:
 	'package' name=QualifiedName '{'
 	(imports+=Import)*
-	(component+=Component)*
+	(components+=Component)*
 	(assembly+=Assembly)*
 	'}';
 
+	
 QualifiedName:
     ID ('.' ID)*;
 
 Import:
-    'import' 'static' 'extension' importedNamespace=FqnWithWildCard;
-
-FqnWithWildCard:
+    'import' importedNamespace=QualifiedNameWithWildcard;
+    
+QualifiedNameWithWildcard:
     QualifiedName '.*'?;
+
 
 //Structure d'un assemblage
 Assembly:
 	{Assembly}'Assembly' name=ID '{'
 	'components'
-	attributes+=ComponentAttribute
-	(attributes+=ComponentAttribute)+
+	attributes+=ComponentInstance
+	(attributes+=ComponentInstance)+
 	'bindings'
-	(bindings+=Binding)*
+//	(bindings+=Binding)*
+	(bindingsRequiered += BindingRequiered '-' bindingsProvided += BindingProvided)*
 	'}';
 
 //Structure d'un composant
-ComponentAttribute:
-	name=ID ':' type=[Component|QualifiedName];
+ComponentInstance:
+	name=ID ':' component=[Component|QualifiedName];
 
 //Lien entre d'un service requis d'un composant X et d'un
 //service fourni d'un composant Y
 Binding:
 	mG=BindingRequiered '-' mD=BindingProvided ;
 
+//Instance du composant ayant besoin d'un service
 BindingRequiered:
-	id=[ComponentAttribute]'.'type=[RequieredService|QualifiedName];
+	name=[ComponentInstance]"."service=[RSignature|QualifiedName];
 
+//Instance du composant fournissant un service
 BindingProvided:
-	id=[ComponentAttribute]'.'type=[ProvidedService|QualifiedName];
+	name=[ComponentInstance]"."service=[PSignature|QualifiedName];
 
 //Structure d'un composant
 Component:
 	'Component' name=ID '{'
-	provided = Provided
-	requiered = Requiered
+	listOfPServices = ListOfProvidedServices
+	listOfRServices = ListOfRequieredServices
 	(mProvServices += MProvidedService)+
 	(mReqServices += MRequieredService)*
 	'}';
 
 //Liste des services fourni par un composant X
-Provided:
+ListOfProvidedServices:
 	'provided' '=' '{'
 		(providedServices+=ProvidedService
 		(',' providedServices+=ProvidedService)*)
 	'}';
 
 ProvidedService:
-	name=ID;
-
+	name=[PSignature];
+	
 //Liste des services requis par un composant X
-Requiered:
-	{Requiered}'requiered' '=' '{'
+ListOfRequieredServices:
+	{ListOfRequieredServices}'requiered' '=' '{'
 		(requieredServices+=RequieredService?
 		(',' requieredServices+=RequieredService)*)
 	'}';
 
 RequieredService:
-	name=ID;
-
+	name=[RSignature];
+	
+//Signature d'un service fourni
 MProvidedService:
-	'service' 'provided' signature=PSignature'{'
-	'}';
+	'service' 'provided' signature=PSignature'{''}';
 
 //Signature d'un service fourni
 PSignature:
-	type=ID name=[ProvidedService]'('attributes+=Attribute?(','attributes+=Attribute)*')';
+	type=ID name=ID'('parameters+=Parameter?(','parameters+=Parameter)*')';
 
 MRequieredService:
 	'service' 'requiered' signature=RSignature  ';';
 
 //Signature d'un service requis
 RSignature:
-	type=ID name=[RequieredService]'('attributes+=Attribute?(','attributes+=Attribute)*')';
+	type=ID name=ID'('parameters+=Parameter?(','parameters+=Parameter)*')';
 
-Attribute:
+//Parametre dans une signature 
+Parameter:
 	name=ID ':' type=ID;

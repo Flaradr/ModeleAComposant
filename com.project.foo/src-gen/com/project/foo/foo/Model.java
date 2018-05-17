@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.project.foo.foo.Model#getName <em>Name</em>}</li>
  *   <li>{@link com.project.foo.foo.Model#getImports <em>Imports</em>}</li>
- *   <li>{@link com.project.foo.foo.Model#getComponent <em>Component</em>}</li>
+ *   <li>{@link com.project.foo.foo.Model#getComponents <em>Components</em>}</li>
  *   <li>{@link com.project.foo.foo.Model#getAssembly <em>Assembly</em>}</li>
  * </ul>
  *
@@ -71,20 +71,20 @@ public interface Model extends EObject
   EList<Import> getImports();
 
   /**
-   * Returns the value of the '<em><b>Component</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Components</b></em>' containment reference list.
    * The list contents are of type {@link com.project.foo.foo.Component}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Component</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Components</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Component</em>' containment reference list.
-   * @see com.project.foo.foo.FooPackage#getModel_Component()
+   * @return the value of the '<em>Components</em>' containment reference list.
+   * @see com.project.foo.foo.FooPackage#getModel_Components()
    * @model containment="true"
    * @generated
    */
-  EList<Component> getComponent();
+  EList<Component> getComponents();
 
   /**
    * Returns the value of the '<em><b>Assembly</b></em>' containment reference list.

@@ -2,14 +2,14 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="foo" nsURI="http://www.project.com/foo/Foo" nsPrefix="foo">
   <eClassifiers xsi:type="ecore:EClass" name="DomainModel">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
-        eType="#//Model" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" eType="#//Model"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Model">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
         eType="#//Import" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assembly" upperBound="-1"
         eType="#//Assembly" containment="true"/>
@@ -20,13 +20,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="Assembly">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
-        eType="#//ComponentAttribute" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
-        eType="#//Binding" containment="true"/>
+        eType="#//ComponentInstance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindingsRequiered" upperBound="-1"
+        eType="#//BindingRequiered" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindingsProvided" upperBound="-1"
+        eType="#//BindingProvided" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ComponentAttribute">
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentInstance">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//Component"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Binding">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mG" eType="#//BindingRequiered"
@@ -35,37 +37,37 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BindingRequiered">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="#//ComponentAttribute"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//RequieredService"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//ComponentInstance"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" eType="#//RSignature"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BindingProvided">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="#//ComponentAttribute"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ProvidedService"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//ComponentInstance"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" eType="#//PSignature"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="provided" eType="#//Provided"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="listOfPServices" eType="#//ListOfProvidedServices"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requiered" eType="#//Requiered"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="listOfRServices" eType="#//ListOfRequieredServices"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mProvServices" upperBound="-1"
         eType="#//MProvidedService" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mReqServices" upperBound="-1"
         eType="#//MRequieredService" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Provided">
+  <eClassifiers xsi:type="ecore:EClass" name="ListOfProvidedServices">
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedServices" upperBound="-1"
         eType="#//ProvidedService" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProvidedService">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//PSignature"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Requiered">
+  <eClassifiers xsi:type="ecore:EClass" name="ListOfRequieredServices">
     <eStructuralFeatures xsi:type="ecore:EReference" name="requieredServices" upperBound="-1"
         eType="#//RequieredService" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequieredService">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//RSignature"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MProvidedService">
     <eStructuralFeatures xsi:type="ecore:EReference" name="signature" eType="#//PSignature"
@@ -73,9 +75,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PSignature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//ProvidedService"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
-        eType="#//Attribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MRequieredService">
     <eStructuralFeatures xsi:type="ecore:EReference" name="signature" eType="#//RSignature"
@@ -83,11 +85,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RSignature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//RequieredService"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
-        eType="#//Attribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Attribute">
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

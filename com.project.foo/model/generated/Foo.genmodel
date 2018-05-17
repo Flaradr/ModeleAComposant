@@ -7,12 +7,12 @@
   <genPackages prefix="Foo" basePackage="com.project.foo" disposableProviderFactory="true"
       fileExtensions="bar" ecorePackage="Foo.ecore#/">
     <genClasses ecoreClass="Foo.ecore#//DomainModel">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//DomainModel/models"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//DomainModel/model"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//Model">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//Model/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Model/imports"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Model/component"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Model/components"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Model/assembly"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//Import">
@@ -21,62 +21,63 @@
     <genClasses ecoreClass="Foo.ecore#//Assembly">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//Assembly/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Assembly/attributes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Assembly/bindings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Assembly/bindingsRequiered"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Assembly/bindingsProvided"/>
     </genClasses>
-    <genClasses ecoreClass="Foo.ecore#//ComponentAttribute">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//ComponentAttribute/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//ComponentAttribute/type"/>
+    <genClasses ecoreClass="Foo.ecore#//ComponentInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//ComponentInstance/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//ComponentInstance/component"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//Binding">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Binding/mG"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Binding/mD"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//BindingRequiered">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//BindingRequiered/id"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//BindingRequiered/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//BindingRequiered/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//BindingRequiered/service"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//BindingProvided">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//BindingProvided/id"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//BindingProvided/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//BindingProvided/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//BindingProvided/service"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//Component">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//Component/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Component/provided"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Component/requiered"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Component/listOfPServices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Component/listOfRServices"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Component/mProvServices"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Component/mReqServices"/>
     </genClasses>
-    <genClasses ecoreClass="Foo.ecore#//Provided">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Provided/providedServices"/>
+    <genClasses ecoreClass="Foo.ecore#//ListOfProvidedServices">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//ListOfProvidedServices/providedServices"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//ProvidedService">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//ProvidedService/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//ProvidedService/name"/>
     </genClasses>
-    <genClasses ecoreClass="Foo.ecore#//Requiered">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Requiered/requieredServices"/>
+    <genClasses ecoreClass="Foo.ecore#//ListOfRequieredServices">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//ListOfRequieredServices/requieredServices"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//RequieredService">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//RequieredService/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//RequieredService/name"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//MProvidedService">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//MProvidedService/signature"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//PSignature">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//PSignature/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//PSignature/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//PSignature/attributes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//PSignature/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//PSignature/parameters"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//MRequieredService">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//MRequieredService/signature"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//RSignature">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//RSignature/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//RSignature/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//RSignature/attributes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//RSignature/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//RSignature/parameters"/>
     </genClasses>
-    <genClasses ecoreClass="Foo.ecore#//Attribute">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//Attribute/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//Attribute/type"/>
+    <genClasses ecoreClass="Foo.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//Parameter/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//Parameter/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -68,13 +68,13 @@ public interface FooPackage extends EPackage
   int DOMAIN_MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Models</b></em>' containment reference list.
+   * The feature id for the '<em><b>Model</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN_MODEL__MODELS = 0;
+  int DOMAIN_MODEL__MODEL = 0;
 
   /**
    * The number of structural features of the '<em>Domain Model</em>' class.
@@ -114,13 +114,13 @@ public interface FooPackage extends EPackage
   int MODEL__IMPORTS = 1;
 
   /**
-   * The feature id for the '<em><b>Component</b></em>' containment reference list.
+   * The feature id for the '<em><b>Components</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__COMPONENT = 2;
+  int MODEL__COMPONENTS = 2;
 
   /**
    * The feature id for the '<em><b>Assembly</b></em>' containment reference list.
@@ -197,13 +197,22 @@ public interface FooPackage extends EPackage
   int ASSEMBLY__ATTRIBUTES = 1;
 
   /**
-   * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+   * The feature id for the '<em><b>Bindings Requiered</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSEMBLY__BINDINGS = 2;
+  int ASSEMBLY__BINDINGS_REQUIERED = 2;
+
+  /**
+   * The feature id for the '<em><b>Bindings Provided</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSEMBLY__BINDINGS_PROVIDED = 3;
 
   /**
    * The number of structural features of the '<em>Assembly</em>' class.
@@ -212,17 +221,17 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSEMBLY_FEATURE_COUNT = 3;
+  int ASSEMBLY_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link com.project.foo.foo.impl.ComponentAttributeImpl <em>Component Attribute</em>}' class.
+   * The meta object id for the '{@link com.project.foo.foo.impl.ComponentInstanceImpl <em>Component Instance</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.project.foo.foo.impl.ComponentAttributeImpl
-   * @see com.project.foo.foo.impl.FooPackageImpl#getComponentAttribute()
+   * @see com.project.foo.foo.impl.ComponentInstanceImpl
+   * @see com.project.foo.foo.impl.FooPackageImpl#getComponentInstance()
    * @generated
    */
-  int COMPONENT_ATTRIBUTE = 4;
+  int COMPONENT_INSTANCE = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -231,25 +240,25 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT_ATTRIBUTE__NAME = 0;
+  int COMPONENT_INSTANCE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' reference.
+   * The feature id for the '<em><b>Component</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT_ATTRIBUTE__TYPE = 1;
+  int COMPONENT_INSTANCE__COMPONENT = 1;
 
   /**
-   * The number of structural features of the '<em>Component Attribute</em>' class.
+   * The number of structural features of the '<em>Component Instance</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT_ATTRIBUTE_FEATURE_COUNT = 2;
+  int COMPONENT_INSTANCE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.project.foo.foo.impl.BindingImpl <em>Binding</em>}' class.
@@ -299,22 +308,22 @@ public interface FooPackage extends EPackage
   int BINDING_REQUIERED = 6;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' reference.
+   * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING_REQUIERED__ID = 0;
+  int BINDING_REQUIERED__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' reference.
+   * The feature id for the '<em><b>Service</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING_REQUIERED__TYPE = 1;
+  int BINDING_REQUIERED__SERVICE = 1;
 
   /**
    * The number of structural features of the '<em>Binding Requiered</em>' class.
@@ -336,22 +345,22 @@ public interface FooPackage extends EPackage
   int BINDING_PROVIDED = 7;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' reference.
+   * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING_PROVIDED__ID = 0;
+  int BINDING_PROVIDED__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' reference.
+   * The feature id for the '<em><b>Service</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING_PROVIDED__TYPE = 1;
+  int BINDING_PROVIDED__SERVICE = 1;
 
   /**
    * The number of structural features of the '<em>Binding Provided</em>' class.
@@ -382,22 +391,22 @@ public interface FooPackage extends EPackage
   int COMPONENT__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Provided</b></em>' containment reference.
+   * The feature id for the '<em><b>List Of PServices</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT__PROVIDED = 1;
+  int COMPONENT__LIST_OF_PSERVICES = 1;
 
   /**
-   * The feature id for the '<em><b>Requiered</b></em>' containment reference.
+   * The feature id for the '<em><b>List Of RServices</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT__REQUIERED = 2;
+  int COMPONENT__LIST_OF_RSERVICES = 2;
 
   /**
    * The feature id for the '<em><b>MProv Services</b></em>' containment reference list.
@@ -427,14 +436,14 @@ public interface FooPackage extends EPackage
   int COMPONENT_FEATURE_COUNT = 5;
 
   /**
-   * The meta object id for the '{@link com.project.foo.foo.impl.ProvidedImpl <em>Provided</em>}' class.
+   * The meta object id for the '{@link com.project.foo.foo.impl.ListOfProvidedServicesImpl <em>List Of Provided Services</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.project.foo.foo.impl.ProvidedImpl
-   * @see com.project.foo.foo.impl.FooPackageImpl#getProvided()
+   * @see com.project.foo.foo.impl.ListOfProvidedServicesImpl
+   * @see com.project.foo.foo.impl.FooPackageImpl#getListOfProvidedServices()
    * @generated
    */
-  int PROVIDED = 9;
+  int LIST_OF_PROVIDED_SERVICES = 9;
 
   /**
    * The feature id for the '<em><b>Provided Services</b></em>' containment reference list.
@@ -443,16 +452,16 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROVIDED__PROVIDED_SERVICES = 0;
+  int LIST_OF_PROVIDED_SERVICES__PROVIDED_SERVICES = 0;
 
   /**
-   * The number of structural features of the '<em>Provided</em>' class.
+   * The number of structural features of the '<em>List Of Provided Services</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROVIDED_FEATURE_COUNT = 1;
+  int LIST_OF_PROVIDED_SERVICES_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.project.foo.foo.impl.ProvidedServiceImpl <em>Provided Service</em>}' class.
@@ -465,7 +474,7 @@ public interface FooPackage extends EPackage
   int PROVIDED_SERVICE = 10;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -483,14 +492,14 @@ public interface FooPackage extends EPackage
   int PROVIDED_SERVICE_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link com.project.foo.foo.impl.RequieredImpl <em>Requiered</em>}' class.
+   * The meta object id for the '{@link com.project.foo.foo.impl.ListOfRequieredServicesImpl <em>List Of Requiered Services</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.project.foo.foo.impl.RequieredImpl
-   * @see com.project.foo.foo.impl.FooPackageImpl#getRequiered()
+   * @see com.project.foo.foo.impl.ListOfRequieredServicesImpl
+   * @see com.project.foo.foo.impl.FooPackageImpl#getListOfRequieredServices()
    * @generated
    */
-  int REQUIERED = 11;
+  int LIST_OF_REQUIERED_SERVICES = 11;
 
   /**
    * The feature id for the '<em><b>Requiered Services</b></em>' containment reference list.
@@ -499,16 +508,16 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REQUIERED__REQUIERED_SERVICES = 0;
+  int LIST_OF_REQUIERED_SERVICES__REQUIERED_SERVICES = 0;
 
   /**
-   * The number of structural features of the '<em>Requiered</em>' class.
+   * The number of structural features of the '<em>List Of Requiered Services</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REQUIERED_FEATURE_COUNT = 1;
+  int LIST_OF_REQUIERED_SERVICES_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.project.foo.foo.impl.RequieredServiceImpl <em>Requiered Service</em>}' class.
@@ -521,7 +530,7 @@ public interface FooPackage extends EPackage
   int REQUIERED_SERVICE = 12;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -586,7 +595,7 @@ public interface FooPackage extends EPackage
   int PSIGNATURE__TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' reference.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -595,13 +604,13 @@ public interface FooPackage extends EPackage
   int PSIGNATURE__NAME = 1;
 
   /**
-   * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PSIGNATURE__ATTRIBUTES = 2;
+  int PSIGNATURE__PARAMETERS = 2;
 
   /**
    * The number of structural features of the '<em>PSignature</em>' class.
@@ -660,7 +669,7 @@ public interface FooPackage extends EPackage
   int RSIGNATURE__TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' reference.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -669,13 +678,13 @@ public interface FooPackage extends EPackage
   int RSIGNATURE__NAME = 1;
 
   /**
-   * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RSIGNATURE__ATTRIBUTES = 2;
+  int RSIGNATURE__PARAMETERS = 2;
 
   /**
    * The number of structural features of the '<em>RSignature</em>' class.
@@ -687,14 +696,14 @@ public interface FooPackage extends EPackage
   int RSIGNATURE_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link com.project.foo.foo.impl.AttributeImpl <em>Attribute</em>}' class.
+   * The meta object id for the '{@link com.project.foo.foo.impl.ParameterImpl <em>Parameter</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.project.foo.foo.impl.AttributeImpl
-   * @see com.project.foo.foo.impl.FooPackageImpl#getAttribute()
+   * @see com.project.foo.foo.impl.ParameterImpl
+   * @see com.project.foo.foo.impl.FooPackageImpl#getParameter()
    * @generated
    */
-  int ATTRIBUTE = 17;
+  int PARAMETER = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -703,7 +712,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__NAME = 0;
+  int PARAMETER__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -712,16 +721,16 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__TYPE = 1;
+  int PARAMETER__TYPE = 1;
 
   /**
-   * The number of structural features of the '<em>Attribute</em>' class.
+   * The number of structural features of the '<em>Parameter</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_FEATURE_COUNT = 2;
+  int PARAMETER_FEATURE_COUNT = 2;
 
 
   /**
@@ -735,15 +744,15 @@ public interface FooPackage extends EPackage
   EClass getDomainModel();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.DomainModel#getModels <em>Models</em>}'.
+   * Returns the meta object for the containment reference '{@link com.project.foo.foo.DomainModel#getModel <em>Model</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Models</em>'.
-   * @see com.project.foo.foo.DomainModel#getModels()
+   * @return the meta object for the containment reference '<em>Model</em>'.
+   * @see com.project.foo.foo.DomainModel#getModel()
    * @see #getDomainModel()
    * @generated
    */
-  EReference getDomainModel_Models();
+  EReference getDomainModel_Model();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.Model <em>Model</em>}'.
@@ -778,15 +787,15 @@ public interface FooPackage extends EPackage
   EReference getModel_Imports();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Model#getComponent <em>Component</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Model#getComponents <em>Components</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Component</em>'.
-   * @see com.project.foo.foo.Model#getComponent()
+   * @return the meta object for the containment reference list '<em>Components</em>'.
+   * @see com.project.foo.foo.Model#getComponents()
    * @see #getModel()
    * @generated
    */
-  EReference getModel_Component();
+  EReference getModel_Components();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Model#getAssembly <em>Assembly</em>}'.
@@ -853,47 +862,58 @@ public interface FooPackage extends EPackage
   EReference getAssembly_Attributes();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Assembly#getBindings <em>Bindings</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Assembly#getBindingsRequiered <em>Bindings Requiered</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Bindings</em>'.
-   * @see com.project.foo.foo.Assembly#getBindings()
+   * @return the meta object for the containment reference list '<em>Bindings Requiered</em>'.
+   * @see com.project.foo.foo.Assembly#getBindingsRequiered()
    * @see #getAssembly()
    * @generated
    */
-  EReference getAssembly_Bindings();
+  EReference getAssembly_BindingsRequiered();
 
   /**
-   * Returns the meta object for class '{@link com.project.foo.foo.ComponentAttribute <em>Component Attribute</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Assembly#getBindingsProvided <em>Bindings Provided</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Component Attribute</em>'.
-   * @see com.project.foo.foo.ComponentAttribute
+   * @return the meta object for the containment reference list '<em>Bindings Provided</em>'.
+   * @see com.project.foo.foo.Assembly#getBindingsProvided()
+   * @see #getAssembly()
    * @generated
    */
-  EClass getComponentAttribute();
+  EReference getAssembly_BindingsProvided();
 
   /**
-   * Returns the meta object for the attribute '{@link com.project.foo.foo.ComponentAttribute#getName <em>Name</em>}'.
+   * Returns the meta object for class '{@link com.project.foo.foo.ComponentInstance <em>Component Instance</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Component Instance</em>'.
+   * @see com.project.foo.foo.ComponentInstance
+   * @generated
+   */
+  EClass getComponentInstance();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.project.foo.foo.ComponentInstance#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.project.foo.foo.ComponentAttribute#getName()
-   * @see #getComponentAttribute()
+   * @see com.project.foo.foo.ComponentInstance#getName()
+   * @see #getComponentInstance()
    * @generated
    */
-  EAttribute getComponentAttribute_Name();
+  EAttribute getComponentInstance_Name();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.ComponentAttribute#getType <em>Type</em>}'.
+   * Returns the meta object for the reference '{@link com.project.foo.foo.ComponentInstance#getComponent <em>Component</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Type</em>'.
-   * @see com.project.foo.foo.ComponentAttribute#getType()
-   * @see #getComponentAttribute()
+   * @return the meta object for the reference '<em>Component</em>'.
+   * @see com.project.foo.foo.ComponentInstance#getComponent()
+   * @see #getComponentInstance()
    * @generated
    */
-  EReference getComponentAttribute_Type();
+  EReference getComponentInstance_Component();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.Binding <em>Binding</em>}'.
@@ -938,26 +958,26 @@ public interface FooPackage extends EPackage
   EClass getBindingRequiered();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingRequiered#getId <em>Id</em>}'.
+   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingRequiered#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Id</em>'.
-   * @see com.project.foo.foo.BindingRequiered#getId()
+   * @return the meta object for the reference '<em>Name</em>'.
+   * @see com.project.foo.foo.BindingRequiered#getName()
    * @see #getBindingRequiered()
    * @generated
    */
-  EReference getBindingRequiered_Id();
+  EReference getBindingRequiered_Name();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingRequiered#getType <em>Type</em>}'.
+   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingRequiered#getService <em>Service</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Type</em>'.
-   * @see com.project.foo.foo.BindingRequiered#getType()
+   * @return the meta object for the reference '<em>Service</em>'.
+   * @see com.project.foo.foo.BindingRequiered#getService()
    * @see #getBindingRequiered()
    * @generated
    */
-  EReference getBindingRequiered_Type();
+  EReference getBindingRequiered_Service();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.BindingProvided <em>Binding Provided</em>}'.
@@ -970,26 +990,26 @@ public interface FooPackage extends EPackage
   EClass getBindingProvided();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingProvided#getId <em>Id</em>}'.
+   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingProvided#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Id</em>'.
-   * @see com.project.foo.foo.BindingProvided#getId()
+   * @return the meta object for the reference '<em>Name</em>'.
+   * @see com.project.foo.foo.BindingProvided#getName()
    * @see #getBindingProvided()
    * @generated
    */
-  EReference getBindingProvided_Id();
+  EReference getBindingProvided_Name();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingProvided#getType <em>Type</em>}'.
+   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingProvided#getService <em>Service</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Type</em>'.
-   * @see com.project.foo.foo.BindingProvided#getType()
+   * @return the meta object for the reference '<em>Service</em>'.
+   * @see com.project.foo.foo.BindingProvided#getService()
    * @see #getBindingProvided()
    * @generated
    */
-  EReference getBindingProvided_Type();
+  EReference getBindingProvided_Service();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.Component <em>Component</em>}'.
@@ -1013,26 +1033,26 @@ public interface FooPackage extends EPackage
   EAttribute getComponent_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.project.foo.foo.Component#getProvided <em>Provided</em>}'.
+   * Returns the meta object for the containment reference '{@link com.project.foo.foo.Component#getListOfPServices <em>List Of PServices</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Provided</em>'.
-   * @see com.project.foo.foo.Component#getProvided()
+   * @return the meta object for the containment reference '<em>List Of PServices</em>'.
+   * @see com.project.foo.foo.Component#getListOfPServices()
    * @see #getComponent()
    * @generated
    */
-  EReference getComponent_Provided();
+  EReference getComponent_ListOfPServices();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.project.foo.foo.Component#getRequiered <em>Requiered</em>}'.
+   * Returns the meta object for the containment reference '{@link com.project.foo.foo.Component#getListOfRServices <em>List Of RServices</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Requiered</em>'.
-   * @see com.project.foo.foo.Component#getRequiered()
+   * @return the meta object for the containment reference '<em>List Of RServices</em>'.
+   * @see com.project.foo.foo.Component#getListOfRServices()
    * @see #getComponent()
    * @generated
    */
-  EReference getComponent_Requiered();
+  EReference getComponent_ListOfRServices();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Component#getMProvServices <em>MProv Services</em>}'.
@@ -1057,25 +1077,25 @@ public interface FooPackage extends EPackage
   EReference getComponent_MReqServices();
 
   /**
-   * Returns the meta object for class '{@link com.project.foo.foo.Provided <em>Provided</em>}'.
+   * Returns the meta object for class '{@link com.project.foo.foo.ListOfProvidedServices <em>List Of Provided Services</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Provided</em>'.
-   * @see com.project.foo.foo.Provided
+   * @return the meta object for class '<em>List Of Provided Services</em>'.
+   * @see com.project.foo.foo.ListOfProvidedServices
    * @generated
    */
-  EClass getProvided();
+  EClass getListOfProvidedServices();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Provided#getProvidedServices <em>Provided Services</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.ListOfProvidedServices#getProvidedServices <em>Provided Services</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Provided Services</em>'.
-   * @see com.project.foo.foo.Provided#getProvidedServices()
-   * @see #getProvided()
+   * @see com.project.foo.foo.ListOfProvidedServices#getProvidedServices()
+   * @see #getListOfProvidedServices()
    * @generated
    */
-  EReference getProvided_ProvidedServices();
+  EReference getListOfProvidedServices_ProvidedServices();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.ProvidedService <em>Provided Service</em>}'.
@@ -1088,36 +1108,36 @@ public interface FooPackage extends EPackage
   EClass getProvidedService();
 
   /**
-   * Returns the meta object for the attribute '{@link com.project.foo.foo.ProvidedService#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link com.project.foo.foo.ProvidedService#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
+   * @return the meta object for the reference '<em>Name</em>'.
    * @see com.project.foo.foo.ProvidedService#getName()
    * @see #getProvidedService()
    * @generated
    */
-  EAttribute getProvidedService_Name();
+  EReference getProvidedService_Name();
 
   /**
-   * Returns the meta object for class '{@link com.project.foo.foo.Requiered <em>Requiered</em>}'.
+   * Returns the meta object for class '{@link com.project.foo.foo.ListOfRequieredServices <em>List Of Requiered Services</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Requiered</em>'.
-   * @see com.project.foo.foo.Requiered
+   * @return the meta object for class '<em>List Of Requiered Services</em>'.
+   * @see com.project.foo.foo.ListOfRequieredServices
    * @generated
    */
-  EClass getRequiered();
+  EClass getListOfRequieredServices();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Requiered#getRequieredServices <em>Requiered Services</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.ListOfRequieredServices#getRequieredServices <em>Requiered Services</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Requiered Services</em>'.
-   * @see com.project.foo.foo.Requiered#getRequieredServices()
-   * @see #getRequiered()
+   * @see com.project.foo.foo.ListOfRequieredServices#getRequieredServices()
+   * @see #getListOfRequieredServices()
    * @generated
    */
-  EReference getRequiered_RequieredServices();
+  EReference getListOfRequieredServices_RequieredServices();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.RequieredService <em>Requiered Service</em>}'.
@@ -1130,15 +1150,15 @@ public interface FooPackage extends EPackage
   EClass getRequieredService();
 
   /**
-   * Returns the meta object for the attribute '{@link com.project.foo.foo.RequieredService#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link com.project.foo.foo.RequieredService#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
+   * @return the meta object for the reference '<em>Name</em>'.
    * @see com.project.foo.foo.RequieredService#getName()
    * @see #getRequieredService()
    * @generated
    */
-  EAttribute getRequieredService_Name();
+  EReference getRequieredService_Name();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.MProvidedService <em>MProvided Service</em>}'.
@@ -1183,26 +1203,26 @@ public interface FooPackage extends EPackage
   EAttribute getPSignature_Type();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.PSignature#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link com.project.foo.foo.PSignature#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Name</em>'.
+   * @return the meta object for the attribute '<em>Name</em>'.
    * @see com.project.foo.foo.PSignature#getName()
    * @see #getPSignature()
    * @generated
    */
-  EReference getPSignature_Name();
+  EAttribute getPSignature_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.PSignature#getAttributes <em>Attributes</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.PSignature#getParameters <em>Parameters</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Attributes</em>'.
-   * @see com.project.foo.foo.PSignature#getAttributes()
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see com.project.foo.foo.PSignature#getParameters()
    * @see #getPSignature()
    * @generated
    */
-  EReference getPSignature_Attributes();
+  EReference getPSignature_Parameters();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.MRequieredService <em>MRequiered Service</em>}'.
@@ -1247,58 +1267,58 @@ public interface FooPackage extends EPackage
   EAttribute getRSignature_Type();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.RSignature#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link com.project.foo.foo.RSignature#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Name</em>'.
+   * @return the meta object for the attribute '<em>Name</em>'.
    * @see com.project.foo.foo.RSignature#getName()
    * @see #getRSignature()
    * @generated
    */
-  EReference getRSignature_Name();
+  EAttribute getRSignature_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.RSignature#getAttributes <em>Attributes</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.RSignature#getParameters <em>Parameters</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Attributes</em>'.
-   * @see com.project.foo.foo.RSignature#getAttributes()
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see com.project.foo.foo.RSignature#getParameters()
    * @see #getRSignature()
    * @generated
    */
-  EReference getRSignature_Attributes();
+  EReference getRSignature_Parameters();
 
   /**
-   * Returns the meta object for class '{@link com.project.foo.foo.Attribute <em>Attribute</em>}'.
+   * Returns the meta object for class '{@link com.project.foo.foo.Parameter <em>Parameter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Attribute</em>'.
-   * @see com.project.foo.foo.Attribute
+   * @return the meta object for class '<em>Parameter</em>'.
+   * @see com.project.foo.foo.Parameter
    * @generated
    */
-  EClass getAttribute();
+  EClass getParameter();
 
   /**
-   * Returns the meta object for the attribute '{@link com.project.foo.foo.Attribute#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link com.project.foo.foo.Parameter#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see com.project.foo.foo.Attribute#getName()
-   * @see #getAttribute()
+   * @see com.project.foo.foo.Parameter#getName()
+   * @see #getParameter()
    * @generated
    */
-  EAttribute getAttribute_Name();
+  EAttribute getParameter_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link com.project.foo.foo.Attribute#getType <em>Type</em>}'.
+   * Returns the meta object for the attribute '{@link com.project.foo.foo.Parameter#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Type</em>'.
-   * @see com.project.foo.foo.Attribute#getType()
-   * @see #getAttribute()
+   * @see com.project.foo.foo.Parameter#getType()
+   * @see #getParameter()
    * @generated
    */
-  EAttribute getAttribute_Type();
+  EAttribute getParameter_Type();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1334,12 +1354,12 @@ public interface FooPackage extends EPackage
     EClass DOMAIN_MODEL = eINSTANCE.getDomainModel();
 
     /**
-     * The meta object literal for the '<em><b>Models</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Model</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DOMAIN_MODEL__MODELS = eINSTANCE.getDomainModel_Models();
+    EReference DOMAIN_MODEL__MODEL = eINSTANCE.getDomainModel_Model();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.ModelImpl <em>Model</em>}' class.
@@ -1368,12 +1388,12 @@ public interface FooPackage extends EPackage
     EReference MODEL__IMPORTS = eINSTANCE.getModel_Imports();
 
     /**
-     * The meta object literal for the '<em><b>Component</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__COMPONENT = eINSTANCE.getModel_Component();
+    EReference MODEL__COMPONENTS = eINSTANCE.getModel_Components();
 
     /**
      * The meta object literal for the '<em><b>Assembly</b></em>' containment reference list feature.
@@ -1428,22 +1448,30 @@ public interface FooPackage extends EPackage
     EReference ASSEMBLY__ATTRIBUTES = eINSTANCE.getAssembly_Attributes();
 
     /**
-     * The meta object literal for the '<em><b>Bindings</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Bindings Requiered</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ASSEMBLY__BINDINGS = eINSTANCE.getAssembly_Bindings();
+    EReference ASSEMBLY__BINDINGS_REQUIERED = eINSTANCE.getAssembly_BindingsRequiered();
 
     /**
-     * The meta object literal for the '{@link com.project.foo.foo.impl.ComponentAttributeImpl <em>Component Attribute</em>}' class.
+     * The meta object literal for the '<em><b>Bindings Provided</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.project.foo.foo.impl.ComponentAttributeImpl
-     * @see com.project.foo.foo.impl.FooPackageImpl#getComponentAttribute()
      * @generated
      */
-    EClass COMPONENT_ATTRIBUTE = eINSTANCE.getComponentAttribute();
+    EReference ASSEMBLY__BINDINGS_PROVIDED = eINSTANCE.getAssembly_BindingsProvided();
+
+    /**
+     * The meta object literal for the '{@link com.project.foo.foo.impl.ComponentInstanceImpl <em>Component Instance</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.project.foo.foo.impl.ComponentInstanceImpl
+     * @see com.project.foo.foo.impl.FooPackageImpl#getComponentInstance()
+     * @generated
+     */
+    EClass COMPONENT_INSTANCE = eINSTANCE.getComponentInstance();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1451,15 +1479,15 @@ public interface FooPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute COMPONENT_ATTRIBUTE__NAME = eINSTANCE.getComponentAttribute_Name();
+    EAttribute COMPONENT_INSTANCE__NAME = eINSTANCE.getComponentInstance_Name();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Component</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPONENT_ATTRIBUTE__TYPE = eINSTANCE.getComponentAttribute_Type();
+    EReference COMPONENT_INSTANCE__COMPONENT = eINSTANCE.getComponentInstance_Component();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.BindingImpl <em>Binding</em>}' class.
@@ -1498,20 +1526,20 @@ public interface FooPackage extends EPackage
     EClass BINDING_REQUIERED = eINSTANCE.getBindingRequiered();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINDING_REQUIERED__ID = eINSTANCE.getBindingRequiered_Id();
+    EReference BINDING_REQUIERED__NAME = eINSTANCE.getBindingRequiered_Name();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Service</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINDING_REQUIERED__TYPE = eINSTANCE.getBindingRequiered_Type();
+    EReference BINDING_REQUIERED__SERVICE = eINSTANCE.getBindingRequiered_Service();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.BindingProvidedImpl <em>Binding Provided</em>}' class.
@@ -1524,20 +1552,20 @@ public interface FooPackage extends EPackage
     EClass BINDING_PROVIDED = eINSTANCE.getBindingProvided();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINDING_PROVIDED__ID = eINSTANCE.getBindingProvided_Id();
+    EReference BINDING_PROVIDED__NAME = eINSTANCE.getBindingProvided_Name();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Service</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINDING_PROVIDED__TYPE = eINSTANCE.getBindingProvided_Type();
+    EReference BINDING_PROVIDED__SERVICE = eINSTANCE.getBindingProvided_Service();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.ComponentImpl <em>Component</em>}' class.
@@ -1558,20 +1586,20 @@ public interface FooPackage extends EPackage
     EAttribute COMPONENT__NAME = eINSTANCE.getComponent_Name();
 
     /**
-     * The meta object literal for the '<em><b>Provided</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>List Of PServices</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPONENT__PROVIDED = eINSTANCE.getComponent_Provided();
+    EReference COMPONENT__LIST_OF_PSERVICES = eINSTANCE.getComponent_ListOfPServices();
 
     /**
-     * The meta object literal for the '<em><b>Requiered</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>List Of RServices</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPONENT__REQUIERED = eINSTANCE.getComponent_Requiered();
+    EReference COMPONENT__LIST_OF_RSERVICES = eINSTANCE.getComponent_ListOfRServices();
 
     /**
      * The meta object literal for the '<em><b>MProv Services</b></em>' containment reference list feature.
@@ -1590,14 +1618,14 @@ public interface FooPackage extends EPackage
     EReference COMPONENT__MREQ_SERVICES = eINSTANCE.getComponent_MReqServices();
 
     /**
-     * The meta object literal for the '{@link com.project.foo.foo.impl.ProvidedImpl <em>Provided</em>}' class.
+     * The meta object literal for the '{@link com.project.foo.foo.impl.ListOfProvidedServicesImpl <em>List Of Provided Services</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.project.foo.foo.impl.ProvidedImpl
-     * @see com.project.foo.foo.impl.FooPackageImpl#getProvided()
+     * @see com.project.foo.foo.impl.ListOfProvidedServicesImpl
+     * @see com.project.foo.foo.impl.FooPackageImpl#getListOfProvidedServices()
      * @generated
      */
-    EClass PROVIDED = eINSTANCE.getProvided();
+    EClass LIST_OF_PROVIDED_SERVICES = eINSTANCE.getListOfProvidedServices();
 
     /**
      * The meta object literal for the '<em><b>Provided Services</b></em>' containment reference list feature.
@@ -1605,7 +1633,7 @@ public interface FooPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PROVIDED__PROVIDED_SERVICES = eINSTANCE.getProvided_ProvidedServices();
+    EReference LIST_OF_PROVIDED_SERVICES__PROVIDED_SERVICES = eINSTANCE.getListOfProvidedServices_ProvidedServices();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.ProvidedServiceImpl <em>Provided Service</em>}' class.
@@ -1618,22 +1646,22 @@ public interface FooPackage extends EPackage
     EClass PROVIDED_SERVICE = eINSTANCE.getProvidedService();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PROVIDED_SERVICE__NAME = eINSTANCE.getProvidedService_Name();
+    EReference PROVIDED_SERVICE__NAME = eINSTANCE.getProvidedService_Name();
 
     /**
-     * The meta object literal for the '{@link com.project.foo.foo.impl.RequieredImpl <em>Requiered</em>}' class.
+     * The meta object literal for the '{@link com.project.foo.foo.impl.ListOfRequieredServicesImpl <em>List Of Requiered Services</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.project.foo.foo.impl.RequieredImpl
-     * @see com.project.foo.foo.impl.FooPackageImpl#getRequiered()
+     * @see com.project.foo.foo.impl.ListOfRequieredServicesImpl
+     * @see com.project.foo.foo.impl.FooPackageImpl#getListOfRequieredServices()
      * @generated
      */
-    EClass REQUIERED = eINSTANCE.getRequiered();
+    EClass LIST_OF_REQUIERED_SERVICES = eINSTANCE.getListOfRequieredServices();
 
     /**
      * The meta object literal for the '<em><b>Requiered Services</b></em>' containment reference list feature.
@@ -1641,7 +1669,7 @@ public interface FooPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REQUIERED__REQUIERED_SERVICES = eINSTANCE.getRequiered_RequieredServices();
+    EReference LIST_OF_REQUIERED_SERVICES__REQUIERED_SERVICES = eINSTANCE.getListOfRequieredServices_RequieredServices();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.RequieredServiceImpl <em>Requiered Service</em>}' class.
@@ -1654,12 +1682,12 @@ public interface FooPackage extends EPackage
     EClass REQUIERED_SERVICE = eINSTANCE.getRequieredService();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REQUIERED_SERVICE__NAME = eINSTANCE.getRequieredService_Name();
+    EReference REQUIERED_SERVICE__NAME = eINSTANCE.getRequieredService_Name();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.MProvidedServiceImpl <em>MProvided Service</em>}' class.
@@ -1698,20 +1726,20 @@ public interface FooPackage extends EPackage
     EAttribute PSIGNATURE__TYPE = eINSTANCE.getPSignature_Type();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PSIGNATURE__NAME = eINSTANCE.getPSignature_Name();
+    EAttribute PSIGNATURE__NAME = eINSTANCE.getPSignature_Name();
 
     /**
-     * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PSIGNATURE__ATTRIBUTES = eINSTANCE.getPSignature_Attributes();
+    EReference PSIGNATURE__PARAMETERS = eINSTANCE.getPSignature_Parameters();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.MRequieredServiceImpl <em>MRequiered Service</em>}' class.
@@ -1750,30 +1778,30 @@ public interface FooPackage extends EPackage
     EAttribute RSIGNATURE__TYPE = eINSTANCE.getRSignature_Type();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RSIGNATURE__NAME = eINSTANCE.getRSignature_Name();
+    EAttribute RSIGNATURE__NAME = eINSTANCE.getRSignature_Name();
 
     /**
-     * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RSIGNATURE__ATTRIBUTES = eINSTANCE.getRSignature_Attributes();
+    EReference RSIGNATURE__PARAMETERS = eINSTANCE.getRSignature_Parameters();
 
     /**
-     * The meta object literal for the '{@link com.project.foo.foo.impl.AttributeImpl <em>Attribute</em>}' class.
+     * The meta object literal for the '{@link com.project.foo.foo.impl.ParameterImpl <em>Parameter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.project.foo.foo.impl.AttributeImpl
-     * @see com.project.foo.foo.impl.FooPackageImpl#getAttribute()
+     * @see com.project.foo.foo.impl.ParameterImpl
+     * @see com.project.foo.foo.impl.FooPackageImpl#getParameter()
      * @generated
      */
-    EClass ATTRIBUTE = eINSTANCE.getAttribute();
+    EClass PARAMETER = eINSTANCE.getParameter();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1781,7 +1809,7 @@ public interface FooPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
+    EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -1789,7 +1817,7 @@ public interface FooPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
+    EAttribute PARAMETER__TYPE = eINSTANCE.getParameter_Type();
 
   }
 

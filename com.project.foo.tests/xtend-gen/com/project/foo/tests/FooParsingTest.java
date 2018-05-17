@@ -78,7 +78,7 @@ public class FooParsingTest {
       final DomainModel input = this._parseHelper.parse(FooParsingTest.validComponent);
       Assert.assertNotNull(input);
       final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
-      final Component component = input.getModels().get(0).getComponent().get(0);
+      final Component component = input.getModel().getComponents().get(0);
       Assert.assertEquals("A", component.getName());
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Unexpected errors: ");
@@ -624,7 +624,7 @@ public class FooParsingTest {
       _builder_1.newLine();
       final String input = _builder_1.toString();
       this._validationTestHelper.assertError(this._parseHelper.parse(input), 
-        FooPackage.Literals.COMPONENT_ATTRIBUTE, 
+        FooPackage.Literals.COMPONENT_INSTANCE, 
         FooValidator.CHECK_COMPONENT_ATTRIBUTE_NAME_IS_UNIQUE, 
         input.indexOf("a1"), 
         2, 

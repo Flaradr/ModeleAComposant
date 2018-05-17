@@ -5,10 +5,10 @@ package com.project.foo.foo.impl;
 
 import com.project.foo.foo.Component;
 import com.project.foo.foo.FooPackage;
+import com.project.foo.foo.ListOfProvidedServices;
+import com.project.foo.foo.ListOfRequieredServices;
 import com.project.foo.foo.MProvidedService;
 import com.project.foo.foo.MRequieredService;
-import com.project.foo.foo.Provided;
-import com.project.foo.foo.Requiered;
 
 import java.util.Collection;
 
@@ -35,8 +35,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getProvided <em>Provided</em>}</li>
- *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getRequiered <em>Requiered</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getListOfPServices <em>List Of PServices</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getListOfRServices <em>List Of RServices</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getMProvServices <em>MProv Services</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getMReqServices <em>MReq Services</em>}</li>
  * </ul>
@@ -66,24 +66,24 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getProvided() <em>Provided</em>}' containment reference.
+   * The cached value of the '{@link #getListOfPServices() <em>List Of PServices</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProvided()
+   * @see #getListOfPServices()
    * @generated
    * @ordered
    */
-  protected Provided provided;
+  protected ListOfProvidedServices listOfPServices;
 
   /**
-   * The cached value of the '{@link #getRequiered() <em>Requiered</em>}' containment reference.
+   * The cached value of the '{@link #getListOfRServices() <em>List Of RServices</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRequiered()
+   * @see #getListOfRServices()
    * @generated
    * @ordered
    */
-  protected Requiered requiered;
+  protected ListOfRequieredServices listOfRServices;
 
   /**
    * The cached value of the '{@link #getMProvServices() <em>MProv Services</em>}' containment reference list.
@@ -154,9 +154,9 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
    * <!-- end-user-doc -->
    * @generated
    */
-  public Provided getProvided()
+  public ListOfProvidedServices getListOfPServices()
   {
-    return provided;
+    return listOfPServices;
   }
 
   /**
@@ -164,13 +164,13 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetProvided(Provided newProvided, NotificationChain msgs)
+  public NotificationChain basicSetListOfPServices(ListOfProvidedServices newListOfPServices, NotificationChain msgs)
   {
-    Provided oldProvided = provided;
-    provided = newProvided;
+    ListOfProvidedServices oldListOfPServices = listOfPServices;
+    listOfPServices = newListOfPServices;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FooPackage.COMPONENT__PROVIDED, oldProvided, newProvided);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FooPackage.COMPONENT__LIST_OF_PSERVICES, oldListOfPServices, newListOfPServices);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -181,20 +181,20 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setProvided(Provided newProvided)
+  public void setListOfPServices(ListOfProvidedServices newListOfPServices)
   {
-    if (newProvided != provided)
+    if (newListOfPServices != listOfPServices)
     {
       NotificationChain msgs = null;
-      if (provided != null)
-        msgs = ((InternalEObject)provided).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FooPackage.COMPONENT__PROVIDED, null, msgs);
-      if (newProvided != null)
-        msgs = ((InternalEObject)newProvided).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FooPackage.COMPONENT__PROVIDED, null, msgs);
-      msgs = basicSetProvided(newProvided, msgs);
+      if (listOfPServices != null)
+        msgs = ((InternalEObject)listOfPServices).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FooPackage.COMPONENT__LIST_OF_PSERVICES, null, msgs);
+      if (newListOfPServices != null)
+        msgs = ((InternalEObject)newListOfPServices).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FooPackage.COMPONENT__LIST_OF_PSERVICES, null, msgs);
+      msgs = basicSetListOfPServices(newListOfPServices, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.COMPONENT__PROVIDED, newProvided, newProvided));
+      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.COMPONENT__LIST_OF_PSERVICES, newListOfPServices, newListOfPServices));
   }
 
   /**
@@ -202,9 +202,9 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
    * <!-- end-user-doc -->
    * @generated
    */
-  public Requiered getRequiered()
+  public ListOfRequieredServices getListOfRServices()
   {
-    return requiered;
+    return listOfRServices;
   }
 
   /**
@@ -212,13 +212,13 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRequiered(Requiered newRequiered, NotificationChain msgs)
+  public NotificationChain basicSetListOfRServices(ListOfRequieredServices newListOfRServices, NotificationChain msgs)
   {
-    Requiered oldRequiered = requiered;
-    requiered = newRequiered;
+    ListOfRequieredServices oldListOfRServices = listOfRServices;
+    listOfRServices = newListOfRServices;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FooPackage.COMPONENT__REQUIERED, oldRequiered, newRequiered);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FooPackage.COMPONENT__LIST_OF_RSERVICES, oldListOfRServices, newListOfRServices);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -229,20 +229,20 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRequiered(Requiered newRequiered)
+  public void setListOfRServices(ListOfRequieredServices newListOfRServices)
   {
-    if (newRequiered != requiered)
+    if (newListOfRServices != listOfRServices)
     {
       NotificationChain msgs = null;
-      if (requiered != null)
-        msgs = ((InternalEObject)requiered).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FooPackage.COMPONENT__REQUIERED, null, msgs);
-      if (newRequiered != null)
-        msgs = ((InternalEObject)newRequiered).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FooPackage.COMPONENT__REQUIERED, null, msgs);
-      msgs = basicSetRequiered(newRequiered, msgs);
+      if (listOfRServices != null)
+        msgs = ((InternalEObject)listOfRServices).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FooPackage.COMPONENT__LIST_OF_RSERVICES, null, msgs);
+      if (newListOfRServices != null)
+        msgs = ((InternalEObject)newListOfRServices).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FooPackage.COMPONENT__LIST_OF_RSERVICES, null, msgs);
+      msgs = basicSetListOfRServices(newListOfRServices, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.COMPONENT__REQUIERED, newRequiered, newRequiered));
+      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.COMPONENT__LIST_OF_RSERVICES, newListOfRServices, newListOfRServices));
   }
 
   /**
@@ -283,10 +283,10 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
   {
     switch (featureID)
     {
-      case FooPackage.COMPONENT__PROVIDED:
-        return basicSetProvided(null, msgs);
-      case FooPackage.COMPONENT__REQUIERED:
-        return basicSetRequiered(null, msgs);
+      case FooPackage.COMPONENT__LIST_OF_PSERVICES:
+        return basicSetListOfPServices(null, msgs);
+      case FooPackage.COMPONENT__LIST_OF_RSERVICES:
+        return basicSetListOfRServices(null, msgs);
       case FooPackage.COMPONENT__MPROV_SERVICES:
         return ((InternalEList<?>)getMProvServices()).basicRemove(otherEnd, msgs);
       case FooPackage.COMPONENT__MREQ_SERVICES:
@@ -307,10 +307,10 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
     {
       case FooPackage.COMPONENT__NAME:
         return getName();
-      case FooPackage.COMPONENT__PROVIDED:
-        return getProvided();
-      case FooPackage.COMPONENT__REQUIERED:
-        return getRequiered();
+      case FooPackage.COMPONENT__LIST_OF_PSERVICES:
+        return getListOfPServices();
+      case FooPackage.COMPONENT__LIST_OF_RSERVICES:
+        return getListOfRServices();
       case FooPackage.COMPONENT__MPROV_SERVICES:
         return getMProvServices();
       case FooPackage.COMPONENT__MREQ_SERVICES:
@@ -333,11 +333,11 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
       case FooPackage.COMPONENT__NAME:
         setName((String)newValue);
         return;
-      case FooPackage.COMPONENT__PROVIDED:
-        setProvided((Provided)newValue);
+      case FooPackage.COMPONENT__LIST_OF_PSERVICES:
+        setListOfPServices((ListOfProvidedServices)newValue);
         return;
-      case FooPackage.COMPONENT__REQUIERED:
-        setRequiered((Requiered)newValue);
+      case FooPackage.COMPONENT__LIST_OF_RSERVICES:
+        setListOfRServices((ListOfRequieredServices)newValue);
         return;
       case FooPackage.COMPONENT__MPROV_SERVICES:
         getMProvServices().clear();
@@ -364,11 +364,11 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
       case FooPackage.COMPONENT__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case FooPackage.COMPONENT__PROVIDED:
-        setProvided((Provided)null);
+      case FooPackage.COMPONENT__LIST_OF_PSERVICES:
+        setListOfPServices((ListOfProvidedServices)null);
         return;
-      case FooPackage.COMPONENT__REQUIERED:
-        setRequiered((Requiered)null);
+      case FooPackage.COMPONENT__LIST_OF_RSERVICES:
+        setListOfRServices((ListOfRequieredServices)null);
         return;
       case FooPackage.COMPONENT__MPROV_SERVICES:
         getMProvServices().clear();
@@ -392,10 +392,10 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
     {
       case FooPackage.COMPONENT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case FooPackage.COMPONENT__PROVIDED:
-        return provided != null;
-      case FooPackage.COMPONENT__REQUIERED:
-        return requiered != null;
+      case FooPackage.COMPONENT__LIST_OF_PSERVICES:
+        return listOfPServices != null;
+      case FooPackage.COMPONENT__LIST_OF_RSERVICES:
+        return listOfRServices != null;
       case FooPackage.COMPONENT__MPROV_SERVICES:
         return mProvServices != null && !mProvServices.isEmpty();
       case FooPackage.COMPONENT__MREQ_SERVICES:

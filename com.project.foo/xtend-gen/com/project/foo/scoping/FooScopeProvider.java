@@ -3,10 +3,13 @@
  */
 package com.project.foo.scoping;
 
-import com.project.foo.scoping.AbstractFooScopeProvider;
+import com.project.foo.foo.Model;
+import java.util.List;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.naming.IQualifiedNameConverter;
+import org.eclipse.xtext.scoping.impl.ImportNormalizer;
+import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 
 /**
  * This class contains custom scoping description.
@@ -15,9 +18,35 @@ import org.eclipse.xtext.scoping.IScope;
  * on how and when to use it.
  */
 @SuppressWarnings("all")
-public class FooScopeProvider extends AbstractFooScopeProvider {
+public class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
+  /**
+   * Permet d'auto importer le paquet auquel le modele en cours d'analyse appartient
+   * ainsi que les services des composants importés
+   */
   @Override
-  public IScope getScope(final EObject context, final EReference reference) {
-    return super.getScope(context, reference);
+  protected List<ImportNormalizer> getImportedNamespaceResolvers(final EObject context, final boolean ignorecase) {
+    List<ImportNormalizer> importedNamespaceResolvers = super.getImportedNamespaceResolvers(context, ignorecase);
+    if ((context instanceof Model)) {
+      Model model = ((Model) context);
+      String _name = model.getName();
+      String _plus = ("\nANALYSE MODELE : " + _name);
+      InputOutput.<String>println(_plus);
+      importedNamespaceResolvers.add(this.doCreateImportNormalizer(this.getQualifiedNameConverter().toQualifiedName(model.getName()), true, ignorecase));
+      for (int i = 0; (i < model.getComponents().size()); i++) {
+        IQualifiedNameConverter _qualifiedNameConverter = this.getQualifiedNameConverter();
+        String _name_1 = model.getName();
+        String _plus_1 = (_name_1 + ".");
+        String _name_2 = model.getComponents().get(i).getName();
+        String _plus_2 = (_plus_1 + _name_2);
+        importedNamespaceResolvers.add(this.doCreateImportNormalizer(_qualifiedNameConverter.toQualifiedName(_plus_2), true, ignorecase));
+      }
+      for (int j = 0; (j < model.getImports().size()); j++) {
+        {
+          InputOutput.<ImportNormalizer>println(this.doCreateImportNormalizer(this.getQualifiedNameConverter().toQualifiedName(model.getImports().get(j).getImportedNamespace()), true, ignorecase));
+          importedNamespaceResolvers.add(this.doCreateImportNormalizer(this.getQualifiedNameConverter().toQualifiedName(model.getImports().get(j).getImportedNamespace()), true, ignorecase));
+        }
+      }
+    }
+    return importedNamespaceResolvers;
   }
 }

@@ -4,9 +4,9 @@
 package com.project.foo.foo.impl;
 
 import com.project.foo.foo.BindingRequiered;
-import com.project.foo.foo.ComponentAttribute;
+import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.FooPackage;
-import com.project.foo.foo.RequieredService;
+import com.project.foo.foo.RSignature;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -24,8 +24,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.project.foo.foo.impl.BindingRequieredImpl#getId <em>Id</em>}</li>
- *   <li>{@link com.project.foo.foo.impl.BindingRequieredImpl#getType <em>Type</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.BindingRequieredImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.BindingRequieredImpl#getService <em>Service</em>}</li>
  * </ul>
  *
  * @generated
@@ -33,24 +33,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class BindingRequieredImpl extends MinimalEObjectImpl.Container implements BindingRequiered
 {
   /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' reference.
+   * The cached value of the '{@link #getName() <em>Name</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected ComponentAttribute id;
+  protected ComponentInstance name;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+   * The cached value of the '{@link #getService() <em>Service</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getService()
    * @generated
    * @ordered
    */
-  protected RequieredService type;
+  protected RSignature service;
 
   /**
    * <!-- begin-user-doc -->
@@ -78,19 +78,19 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public ComponentAttribute getId()
+  public ComponentInstance getName()
   {
-    if (id != null && id.eIsProxy())
+    if (name != null && name.eIsProxy())
     {
-      InternalEObject oldId = (InternalEObject)id;
-      id = (ComponentAttribute)eResolveProxy(oldId);
-      if (id != oldId)
+      InternalEObject oldName = (InternalEObject)name;
+      name = (ComponentInstance)eResolveProxy(oldName);
+      if (name != oldName)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.BINDING_REQUIERED__ID, oldId, id));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.BINDING_REQUIERED__NAME, oldName, name));
       }
     }
-    return id;
+    return name;
   }
 
   /**
@@ -98,9 +98,9 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public ComponentAttribute basicGetId()
+  public ComponentInstance basicGetName()
   {
-    return id;
+    return name;
   }
 
   /**
@@ -108,12 +108,12 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setId(ComponentAttribute newId)
+  public void setName(ComponentInstance newName)
   {
-    ComponentAttribute oldId = id;
-    id = newId;
+    ComponentInstance oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING_REQUIERED__ID, oldId, id));
+      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING_REQUIERED__NAME, oldName, name));
   }
 
   /**
@@ -121,19 +121,19 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public RequieredService getType()
+  public RSignature getService()
   {
-    if (type != null && type.eIsProxy())
+    if (service != null && service.eIsProxy())
     {
-      InternalEObject oldType = (InternalEObject)type;
-      type = (RequieredService)eResolveProxy(oldType);
-      if (type != oldType)
+      InternalEObject oldService = (InternalEObject)service;
+      service = (RSignature)eResolveProxy(oldService);
+      if (service != oldService)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.BINDING_REQUIERED__TYPE, oldType, type));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.BINDING_REQUIERED__SERVICE, oldService, service));
       }
     }
-    return type;
+    return service;
   }
 
   /**
@@ -141,9 +141,9 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public RequieredService basicGetType()
+  public RSignature basicGetService()
   {
-    return type;
+    return service;
   }
 
   /**
@@ -151,12 +151,12 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(RequieredService newType)
+  public void setService(RSignature newService)
   {
-    RequieredService oldType = type;
-    type = newType;
+    RSignature oldService = service;
+    service = newService;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING_REQUIERED__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING_REQUIERED__SERVICE, oldService, service));
   }
 
   /**
@@ -169,12 +169,12 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case FooPackage.BINDING_REQUIERED__ID:
-        if (resolve) return getId();
-        return basicGetId();
-      case FooPackage.BINDING_REQUIERED__TYPE:
-        if (resolve) return getType();
-        return basicGetType();
+      case FooPackage.BINDING_REQUIERED__NAME:
+        if (resolve) return getName();
+        return basicGetName();
+      case FooPackage.BINDING_REQUIERED__SERVICE:
+        if (resolve) return getService();
+        return basicGetService();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -189,11 +189,11 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case FooPackage.BINDING_REQUIERED__ID:
-        setId((ComponentAttribute)newValue);
+      case FooPackage.BINDING_REQUIERED__NAME:
+        setName((ComponentInstance)newValue);
         return;
-      case FooPackage.BINDING_REQUIERED__TYPE:
-        setType((RequieredService)newValue);
+      case FooPackage.BINDING_REQUIERED__SERVICE:
+        setService((RSignature)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -209,11 +209,11 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case FooPackage.BINDING_REQUIERED__ID:
-        setId((ComponentAttribute)null);
+      case FooPackage.BINDING_REQUIERED__NAME:
+        setName((ComponentInstance)null);
         return;
-      case FooPackage.BINDING_REQUIERED__TYPE:
-        setType((RequieredService)null);
+      case FooPackage.BINDING_REQUIERED__SERVICE:
+        setService((RSignature)null);
         return;
     }
     super.eUnset(featureID);
@@ -229,10 +229,10 @@ public class BindingRequieredImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case FooPackage.BINDING_REQUIERED__ID:
-        return id != null;
-      case FooPackage.BINDING_REQUIERED__TYPE:
-        return type != null;
+      case FooPackage.BINDING_REQUIERED__NAME:
+        return name != null;
+      case FooPackage.BINDING_REQUIERED__SERVICE:
+        return service != null;
     }
     return super.eIsSet(featureID);
   }

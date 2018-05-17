@@ -3,18 +3,11 @@
  */
 package com.project.foo.scoping
 
-import com.project.foo.foo.BindingProvided
-import com.project.foo.foo.BindingRequiered
-import com.project.foo.foo.Component
-import com.project.foo.foo.ComponentAttribute
-import com.project.foo.foo.FooPackage
-import com.project.foo.foo.ProvidedService
-import com.project.foo.foo.RequieredService
+import com.project.foo.foo.Model
+import java.util.List
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.emf.ecore.EReference
-import org.eclipse.xtext.EcoreUtil2
-import org.eclipse.xtext.scoping.IScope
-import org.eclipse.xtext.scoping.Scopes
+import org.eclipse.xtext.scoping.impl.ImportNormalizer
+import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
 
 /**
  * This class contains custom scoping description.
@@ -22,29 +15,31 @@ import org.eclipse.xtext.scoping.Scopes
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
-class FooScopeProvider extends AbstractFooScopeProvider {
- 	//Modification scope des bindings cote requis et fournis, lié à l'ensemble d'un modèle
- 	//et pas défini au sein de l'assemblage
- 	override IScope getScope(EObject context, EReference reference){
-		/*
-		 
-		if (context instanceof ComponentAttribute && reference == FooPackage.Literals.COMPONENT_ATTRIBUTE__TYPE){
-			val rootElement = EcoreUtil2.getRootContainer(context)
-			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,Component)
-			return Scopes.scopeFor(candidates)
-		}
-		if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__TYPE){
-			val rootElement = EcoreUtil2.getRootContainer(context)
-			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,RequieredService)
-			return Scopes.scopeFor(candidates)
- 		}
- 		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__TYPE){
-			val rootElement = EcoreUtil2.getRootContainer(context)
-			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ProvidedService)
-			return Scopes.scopeFor(candidates)
- 		}
-		*/	
- 		return super.getScope(context, reference);
-	}
-}
 
+class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider{
+	
+	/*
+	 *Permet d'auto importer le paquet auquel le modele en cours d'analyse appartient 
+	 *ainsi que les services des composants importés
+	 */
+	override protected List<ImportNormalizer> getImportedNamespaceResolvers(EObject context, boolean ignorecase){
+		var List<ImportNormalizer> importedNamespaceResolvers = super.getImportedNamespaceResolvers(context, ignorecase);
+		if (context instanceof Model){
+			var model = (context as Model)
+			println("\nANALYSE MODELE : " + model.name)
+			importedNamespaceResolvers.add(doCreateImportNormalizer(getQualifiedNameConverter().toQualifiedName(model.getName()), true, ignorecase))
+		
+			for (var i = 0; i < model.components.size(); i++){
+				importedNamespaceResolvers.add(doCreateImportNormalizer(getQualifiedNameConverter().toQualifiedName(model.name+"."+model.components.get(i).name), true, ignorecase))
+			}
+			
+			for (var j = 0; j < model.imports.size(); j++){
+				println(doCreateImportNormalizer(getQualifiedNameConverter().toQualifiedName(model.imports.get(j).importedNamespace), true, ignorecase))
+				importedNamespaceResolvers.add(doCreateImportNormalizer(getQualifiedNameConverter().toQualifiedName(model.imports.get(j).importedNamespace), true, ignorecase))
+				
+			}
+		}
+		return importedNamespaceResolvers;
+	}	
+	
+}

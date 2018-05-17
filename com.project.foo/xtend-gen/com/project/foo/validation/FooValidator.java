@@ -3,18 +3,19 @@
  */
 package com.project.foo.validation;
 
-import com.google.common.base.Objects;
 import com.project.foo.foo.Assembly;
-import com.project.foo.foo.Attribute;
 import com.project.foo.foo.Binding;
 import com.project.foo.foo.BindingProvided;
 import com.project.foo.foo.BindingRequiered;
 import com.project.foo.foo.Component;
-import com.project.foo.foo.ComponentAttribute;
+import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.FooPackage;
 import com.project.foo.foo.MProvidedService;
 import com.project.foo.foo.MRequieredService;
+import com.project.foo.foo.PSignature;
+import com.project.foo.foo.Parameter;
 import com.project.foo.foo.ProvidedService;
+import com.project.foo.foo.RSignature;
 import com.project.foo.foo.RequieredService;
 import com.project.foo.validation.AbstractFooValidator;
 import org.eclipse.emf.common.util.EList;
@@ -94,12 +95,10 @@ public class FooValidator extends AbstractFooValidator {
     EObject tmp = EcoreUtil2.getNextSibling(component);
     while ((tmp != null)) {
       {
-        String _name = component.getName();
-        String _name_1 = ((Component) tmp).getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = component.getName().equals(((Component) tmp).getName());
         if (_equals) {
-          String _name_2 = component.getName();
-          String _plus = ("The name of a component should be unique:\'" + _name_2);
+          String _name = component.getName();
+          String _plus = ("The name of a component should be unique:\'" + _name);
           String _plus_1 = (_plus + "\'");
           this.error(_plus_1, 
             FooPackage.Literals.COMPONENT__NAME, 
@@ -119,12 +118,10 @@ public class FooValidator extends AbstractFooValidator {
     EObject tmp = EcoreUtil2.getNextSibling(assembly);
     while ((tmp != null)) {
       {
-        String _name = assembly.getName();
-        String _name_1 = ((Assembly) tmp).getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = assembly.getName().equals(((Assembly) tmp).getName());
         if (_equals) {
-          String _name_2 = assembly.getName();
-          String _plus = ("The name of an assembly should be unique :\'" + _name_2);
+          String _name = assembly.getName();
+          String _plus = ("The name of an assembly should be unique :\'" + _name);
           String _plus_1 = (_plus + "\'");
           this.error(_plus_1, 
             FooPackage.Literals.ASSEMBLY__NAME, 
@@ -140,19 +137,17 @@ public class FooValidator extends AbstractFooValidator {
    * au sein d'un modele
    */
   @Check
-  public void checkComponentAttributeNameIsUnique(final ComponentAttribute ca) {
+  public void checkComponentAttributeNameIsUnique(final ComponentInstance ca) {
     EObject tmp = EcoreUtil2.getNextSibling(ca);
     while ((tmp != null)) {
       {
-        String _name = ca.getName();
-        String _name_1 = ((ComponentAttribute) tmp).getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = ca.getName().equals(((ComponentInstance) tmp).getName());
         if (_equals) {
-          String _name_2 = ca.getName();
-          String _plus = ("The name of a component attribute should be unique :\'" + _name_2);
+          String _name = ca.getName();
+          String _plus = ("The name of a component attribute should be unique :\'" + _name);
           String _plus_1 = (_plus + "\'");
           this.error(_plus_1, 
-            FooPackage.Literals.COMPONENT_ATTRIBUTE__NAME, 
+            FooPackage.Literals.COMPONENT_INSTANCE__NAME, 
             FooValidator.CHECK_COMPONENT_ATTRIBUTE_NAME_IS_UNIQUE);
         }
         tmp = EcoreUtil2.getNextSibling(tmp);
@@ -169,12 +164,10 @@ public class FooValidator extends AbstractFooValidator {
     EObject tmp = EcoreUtil2.getNextSibling(ps);
     while ((tmp != null)) {
       {
-        String _name = ps.getName();
-        String _name_1 = ((ProvidedService) tmp).getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = ps.getName().equals(((ProvidedService) tmp).getName());
         if (_equals) {
-          String _name_2 = ps.getName();
-          String _plus = ("The name of a provided service should be unique in a component: \'" + _name_2);
+          PSignature _name = ps.getName();
+          String _plus = ("The name of a provided service should be unique in a component: \'" + _name);
           String _plus_1 = (_plus + "\'");
           this.error(_plus_1, 
             FooPackage.Literals.PROVIDED_SERVICE__NAME, 
@@ -194,12 +187,10 @@ public class FooValidator extends AbstractFooValidator {
     EObject tmp = EcoreUtil2.getNextSibling(rs);
     while ((tmp != null)) {
       {
-        String _name = rs.getName();
-        String _name_1 = ((RequieredService) tmp).getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = rs.getName().equals(((RequieredService) tmp).getName());
         if (_equals) {
-          String _name_2 = rs.getName();
-          String _plus = ("The name of a requiered service should be unique in a component: \'" + _name_2);
+          RSignature _name = rs.getName();
+          String _plus = ("The name of a requiered service should be unique in a component: \'" + _name);
           String _plus_1 = (_plus + "\'");
           this.error(_plus_1, 
             FooPackage.Literals.REQUIERED_SERVICE__NAME, 
@@ -216,30 +207,28 @@ public class FooValidator extends AbstractFooValidator {
    */
   @Check
   public void checkBindingRequieredCanUseMethod(final BindingRequiered bindingRequiered) {
-    EObject _eContainer = bindingRequiered.getId().eContainer();
-    final EList<ComponentAttribute> listOfComponent = ((Assembly) _eContainer).getAttributes();
+    EObject _eContainer = bindingRequiered.getName().eContainer();
+    final EList<ComponentInstance> listOfComponent = ((Assembly) _eContainer).getAttributes();
     boolean res = false;
     int i = 0;
     String typeOfInstance = null;
     while (((i < listOfComponent.size()) && (!res))) {
       {
-        String _name = listOfComponent.get(i).getName();
-        String _name_1 = bindingRequiered.getId().getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = listOfComponent.get(i).getName().equals(bindingRequiered.getName().getName());
         if (_equals) {
           res = true;
-          typeOfInstance = listOfComponent.get(i).getType().getName();
+          typeOfInstance = listOfComponent.get(i).getComponent().getName();
         }
         i++;
       }
     }
-    EObject _eContainer_1 = bindingRequiered.getType().eContainer().eContainer();
+    EObject _eContainer_1 = bindingRequiered.getService().eContainer().eContainer();
     final String componentTypeOfService = ((Component) _eContainer_1).getName();
     boolean _equals = typeOfInstance.equals(componentTypeOfService);
     boolean _not = (!_equals);
     if (_not) {
-      this.error("The type of the component and the component requiring this method are not the same", 
-        FooPackage.Literals.BINDING_REQUIERED__TYPE, 
+      this.error("This service is not requiered by the component", 
+        FooPackage.Literals.BINDING_REQUIERED__SERVICE, 
         FooValidator.CHECK_BINDING_REQUIERED_CAN_USE_METHOD);
     }
   }
@@ -250,30 +239,28 @@ public class FooValidator extends AbstractFooValidator {
    */
   @Check
   public void checkBindingProvidedCanUseMethod(final BindingProvided bindingProvided) {
-    EObject _eContainer = bindingProvided.getId().eContainer();
-    final EList<ComponentAttribute> listOfComponent = ((Assembly) _eContainer).getAttributes();
+    EObject _eContainer = bindingProvided.getName().eContainer();
+    final EList<ComponentInstance> listOfComponent = ((Assembly) _eContainer).getAttributes();
     boolean res = false;
     int i = 0;
     String typeOfInstance = null;
     while (((i < listOfComponent.size()) && (!res))) {
       {
-        String _name = listOfComponent.get(i).getName();
-        String _name_1 = bindingProvided.getId().getName();
-        boolean _equals = Objects.equal(_name, _name_1);
+        boolean _equals = listOfComponent.get(i).getName().equals(bindingProvided.getName().getName());
         if (_equals) {
           res = true;
-          typeOfInstance = listOfComponent.get(i).getType().getName();
+          typeOfInstance = listOfComponent.get(i).getComponent().getName();
         }
         i++;
       }
     }
-    EObject _eContainer_1 = bindingProvided.getType().eContainer().eContainer();
+    EObject _eContainer_1 = bindingProvided.getService().eContainer().eContainer();
     final String componentTypeOfService = ((Component) _eContainer_1).getName();
     boolean _equals = typeOfInstance.equals(componentTypeOfService);
     boolean _not = (!_equals);
     if (_not) {
       this.error("The type of the component and the component requiring this method are not the same", 
-        FooPackage.Literals.BINDING_PROVIDED__TYPE, 
+        FooPackage.Literals.BINDING_PROVIDED__SERVICE, 
         FooValidator.CHECK_BINDING_PROVIDED_CAN_USE_METHOD);
     }
   }
@@ -288,28 +275,28 @@ public class FooValidator extends AbstractFooValidator {
    */
   @Check
   public void checkBindingIsValid(final Binding binding) {
-    final RequieredService nomMethodG = binding.getMG().getType();
-    final ProvidedService nomMethodD = binding.getMD().getType();
-    EObject _eContainer = binding.getMG().getType().eContainer().eContainer();
+    final RSignature nomMethodG = binding.getMG().getService();
+    final PSignature nomMethodD = binding.getMD().getService();
+    EObject _eContainer = binding.getMG().getService().eContainer().eContainer();
     final EList<MRequieredService> listOfRequieredServices = ((Component) _eContainer).getMReqServices();
-    EObject _eContainer_1 = binding.getMD().getType().eContainer().eContainer();
+    EObject _eContainer_1 = binding.getMD().getService().eContainer().eContainer();
     final EList<MProvidedService> listOfProvidedServices = ((Component) _eContainer_1).getMProvServices();
     String valRetMReq = "";
     String valRetMProv = "";
-    EList<Attribute> signatureofRequieredMethod = null;
-    EList<Attribute> signatureOfProvidedMethod = null;
+    EList<Parameter> signatureofRequieredMethod = null;
+    EList<Parameter> signatureOfProvidedMethod = null;
     for (final MRequieredService foo : listOfRequieredServices) {
-      boolean _equals = foo.getSignature().getName().getName().equals(nomMethodG.getName());
+      boolean _equals = foo.getSignature().getName().equals(nomMethodG.getName());
       if (_equals) {
         valRetMReq = foo.getSignature().getType();
-        signatureofRequieredMethod = foo.getSignature().getAttributes();
+        signatureofRequieredMethod = foo.getSignature().getParameters();
       }
     }
     for (final MProvidedService foo_1 : listOfProvidedServices) {
-      boolean _equals_1 = foo_1.getSignature().getName().getName().equals(nomMethodD.getName());
+      boolean _equals_1 = foo_1.getSignature().getName().equals(nomMethodD.getName());
       if (_equals_1) {
         valRetMProv = foo_1.getSignature().getType();
-        signatureOfProvidedMethod = foo_1.getSignature().getAttributes();
+        signatureOfProvidedMethod = foo_1.getSignature().getParameters();
       }
     }
     boolean _equals_2 = valRetMReq.equals(valRetMProv);
@@ -328,7 +315,7 @@ public class FooValidator extends AbstractFooValidator {
    * @param signature1 : signature de la methode d'un service requis
    * @param signature2 : signature de la methode d'un service pourvu
    */
-  public void signatureEquals(final EList<Attribute> signature1, final EList<Attribute> signature2) {
+  public void signatureEquals(final EList<Parameter> signature1, final EList<Parameter> signature2) {
     int _size = signature1.size();
     int _size_1 = signature2.size();
     boolean _equals = (_size == _size_1);
@@ -343,9 +330,7 @@ public class FooValidator extends AbstractFooValidator {
     boolean res = true;
     while (((i < signature1.size()) && res)) {
       {
-        String _type = signature1.get(i).getType();
-        String _type_1 = signature2.get(i).getType();
-        boolean _equals_1 = Objects.equal(_type, _type_1);
+        boolean _equals_1 = signature1.get(i).getType().equals(signature2.get(i).getType());
         boolean _not_1 = (!_equals_1);
         if (_not_1) {
           this.error("The type of the parameters of the requiered service and the provided service do not match", 
@@ -358,62 +343,6 @@ public class FooValidator extends AbstractFooValidator {
   }
   
   /**
-   * Verifie qu'un service pourvu possede une methode qui lui est lie
-   * @param provS : service pourvu en cours d'analyse
-   */
-  @Check
-  public void checkProvidedServiceHasMethod(final ProvidedService provS) {
-    EObject _eContainer = provS.eContainer().eContainer();
-    final EList<MProvidedService> services = ((Component) _eContainer).getMProvServices();
-    int i = 0;
-    boolean hasMethod = false;
-    while (((i < services.size()) && (!hasMethod))) {
-      {
-        String _name = services.get(i).getSignature().getName().getName();
-        String _name_1 = provS.getName();
-        boolean _equals = Objects.equal(_name, _name_1);
-        if (_equals) {
-          hasMethod = true;
-        }
-        i++;
-      }
-    }
-    if ((!hasMethod)) {
-      this.error("The service needs a method declaration", 
-        FooPackage.Literals.PROVIDED_SERVICE__NAME, 
-        FooValidator.CHECK_P_SERVICE_HAS_METHOD);
-    }
-  }
-  
-  /**
-   * Verifie qu'un service requis possede une methode qui lui est lie
-   * @param reqS : service requis en cours d'analyse
-   */
-  @Check
-  public void checkRequieredServiceHasMethod(final RequieredService reqS) {
-    EObject _eContainer = reqS.eContainer().eContainer();
-    final EList<MRequieredService> services = ((Component) _eContainer).getMReqServices();
-    int i = 0;
-    boolean hasMethod = false;
-    while (((i < services.size()) && (!hasMethod))) {
-      {
-        String _name = services.get(i).getSignature().getName().getName();
-        String _name_1 = reqS.getName();
-        boolean _equals = Objects.equal(_name, _name_1);
-        if (_equals) {
-          hasMethod = true;
-        }
-        i++;
-      }
-    }
-    if ((!hasMethod)) {
-      this.error("The service needs a method declaration", 
-        FooPackage.Literals.REQUIERED_SERVICE__NAME, 
-        FooValidator.CHECK_R_SERVICE_HAS_METHOD);
-    }
-  }
-  
-  /**
    * Verifie qu'un assemblage est correct
    * i.e. Verifie que les services requis par l'ensemble des composants
    * constituant l'assemblage sont lié à des services fournis dans la section
@@ -421,28 +350,28 @@ public class FooValidator extends AbstractFooValidator {
    */
   @Check
   public void checkAssemblyIsCorrect(final Assembly assembly) {
-    EList<ComponentAttribute> listeComposants = assembly.getAttributes();
-    for (final ComponentAttribute component : listeComposants) {
+    EList<ComponentInstance> listeComposants = assembly.getAttributes();
+    for (final ComponentInstance component : listeComposants) {
       {
-        Component _type = component.getType();
-        EList<RequieredService> listeServicesRequis = ((Component) _type).getRequiered().getRequieredServices();
+        Component _component = component.getComponent();
+        EList<RequieredService> listeServicesRequis = ((Component) _component).getListOfRServices().getRequieredServices();
         for (final RequieredService service : listeServicesRequis) {
           {
-            EList<Binding> listeBindings = assembly.getBindings();
+            EList<BindingRequiered> listeBindings = assembly.getBindingsRequiered();
             if ((listeBindings.isEmpty() && (!listeServicesRequis.isEmpty()))) {
               this.error("The assembly is not correct, there are missing bindings", 
                 FooPackage.Literals.ASSEMBLY__NAME, 
                 FooValidator.CHECK_ASSEMBLY_IS_VALID);
               return;
             }
-            for (final Binding binding : listeBindings) {
+            for (final BindingRequiered bindingRequiered : listeBindings) {
               {
                 int i = 0;
                 boolean isPresent = false;
                 while (((i < listeBindings.size()) && (!isPresent))) {
                   {
-                    if ((service.getName().equals(listeBindings.get(i).getMG().getType().getName()) && 
-                      component.getName().equals(listeBindings.get(i).getMG().getId().getName()))) {
+                    if ((service.getName().getName().equals(listeBindings.get(i).getService().getName()) && 
+                      component.getName().equals(listeBindings.get(i).getName().getName()))) {
                       isPresent = true;
                     }
                     i++;

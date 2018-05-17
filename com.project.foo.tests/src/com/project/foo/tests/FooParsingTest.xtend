@@ -43,7 +43,7 @@ class FooParsingTest {
 		val input = parse(validComponent)
 		assertNotNull(input)
 		val errors = input.eResource.errors
-		val component = input.models.get(0).component.get(0)
+		val component = input.model.components.get(0)
 		assertEquals("A",component.name)
 
 		/*Comment tester égalités entre tableau alors qu'il faudrait mapper
@@ -303,7 +303,7 @@ class FooParsingTest {
 		}
 		'''
 		input.parse.assertError(
-			FooPackage.Literals.COMPONENT_ATTRIBUTE,
+			FooPackage.Literals.COMPONENT_INSTANCE,
 			FooValidator.CHECK_COMPONENT_ATTRIBUTE_NAME_IS_UNIQUE,
 			input.indexOf("a1"),
 			2,

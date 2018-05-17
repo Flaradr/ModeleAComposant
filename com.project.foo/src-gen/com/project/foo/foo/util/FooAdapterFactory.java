@@ -96,9 +96,9 @@ public class FooAdapterFactory extends AdapterFactoryImpl
         return createAssemblyAdapter();
       }
       @Override
-      public Adapter caseComponentAttribute(ComponentAttribute object)
+      public Adapter caseComponentInstance(ComponentInstance object)
       {
-        return createComponentAttributeAdapter();
+        return createComponentInstanceAdapter();
       }
       @Override
       public Adapter caseBinding(Binding object)
@@ -121,9 +121,9 @@ public class FooAdapterFactory extends AdapterFactoryImpl
         return createComponentAdapter();
       }
       @Override
-      public Adapter caseProvided(Provided object)
+      public Adapter caseListOfProvidedServices(ListOfProvidedServices object)
       {
-        return createProvidedAdapter();
+        return createListOfProvidedServicesAdapter();
       }
       @Override
       public Adapter caseProvidedService(ProvidedService object)
@@ -131,9 +131,9 @@ public class FooAdapterFactory extends AdapterFactoryImpl
         return createProvidedServiceAdapter();
       }
       @Override
-      public Adapter caseRequiered(Requiered object)
+      public Adapter caseListOfRequieredServices(ListOfRequieredServices object)
       {
-        return createRequieredAdapter();
+        return createListOfRequieredServicesAdapter();
       }
       @Override
       public Adapter caseRequieredService(RequieredService object)
@@ -161,9 +161,9 @@ public class FooAdapterFactory extends AdapterFactoryImpl
         return createRSignatureAdapter();
       }
       @Override
-      public Adapter caseAttribute(Attribute object)
+      public Adapter caseParameter(Parameter object)
       {
-        return createAttributeAdapter();
+        return createParameterAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -248,16 +248,16 @@ public class FooAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.project.foo.foo.ComponentAttribute <em>Component Attribute</em>}'.
+   * Creates a new adapter for an object of class '{@link com.project.foo.foo.ComponentInstance <em>Component Instance</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.project.foo.foo.ComponentAttribute
+   * @see com.project.foo.foo.ComponentInstance
    * @generated
    */
-  public Adapter createComponentAttributeAdapter()
+  public Adapter createComponentInstanceAdapter()
   {
     return null;
   }
@@ -323,16 +323,16 @@ public class FooAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.project.foo.foo.Provided <em>Provided</em>}'.
+   * Creates a new adapter for an object of class '{@link com.project.foo.foo.ListOfProvidedServices <em>List Of Provided Services</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.project.foo.foo.Provided
+   * @see com.project.foo.foo.ListOfProvidedServices
    * @generated
    */
-  public Adapter createProvidedAdapter()
+  public Adapter createListOfProvidedServicesAdapter()
   {
     return null;
   }
@@ -353,16 +353,16 @@ public class FooAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.project.foo.foo.Requiered <em>Requiered</em>}'.
+   * Creates a new adapter for an object of class '{@link com.project.foo.foo.ListOfRequieredServices <em>List Of Requiered Services</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.project.foo.foo.Requiered
+   * @see com.project.foo.foo.ListOfRequieredServices
    * @generated
    */
-  public Adapter createRequieredAdapter()
+  public Adapter createListOfRequieredServicesAdapter()
   {
     return null;
   }
@@ -443,16 +443,16 @@ public class FooAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.project.foo.foo.Attribute <em>Attribute</em>}'.
+   * Creates a new adapter for an object of class '{@link com.project.foo.foo.Parameter <em>Parameter</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.project.foo.foo.Attribute
+   * @see com.project.foo.foo.Parameter
    * @generated
    */
-  public Adapter createAttributeAdapter()
+  public Adapter createParameterAdapter()
   {
     return null;
   }
