@@ -21,6 +21,7 @@ import org.eclipse.xtext.xbase.lib.InputOutput;
 public class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
   /**
    * Permet d'auto importer le paquet auquel le modele en cours d'analyse appartient
+   * ainsi que les services des composants importés
    */
   @Override
   protected List<ImportNormalizer> getImportedNamespaceResolvers(final EObject context, final boolean ignorecase) {
