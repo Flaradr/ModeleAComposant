@@ -28,17 +28,14 @@ public class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
     List<ImportNormalizer> importedNamespaceResolvers = super.getImportedNamespaceResolvers(context, ignorecase);
     if ((context instanceof Model)) {
       Model model = ((Model) context);
-      String _name = model.getName();
-      String _plus = ("\nANALYSE MODELE : " + _name);
-      InputOutput.<String>println(_plus);
       importedNamespaceResolvers.add(this.doCreateImportNormalizer(this.getQualifiedNameConverter().toQualifiedName(model.getName()), true, ignorecase));
       for (int i = 0; (i < model.getComponents().size()); i++) {
         IQualifiedNameConverter _qualifiedNameConverter = this.getQualifiedNameConverter();
-        String _name_1 = model.getName();
-        String _plus_1 = (_name_1 + ".");
-        String _name_2 = model.getComponents().get(i).getName();
-        String _plus_2 = (_plus_1 + _name_2);
-        importedNamespaceResolvers.add(this.doCreateImportNormalizer(_qualifiedNameConverter.toQualifiedName(_plus_2), true, ignorecase));
+        String _name = model.getName();
+        String _plus = (_name + ".");
+        String _name_1 = model.getComponents().get(i).getName();
+        String _plus_1 = (_plus + _name_1);
+        importedNamespaceResolvers.add(this.doCreateImportNormalizer(_qualifiedNameConverter.toQualifiedName(_plus_1), true, ignorecase));
       }
       for (int j = 0; (j < model.getImports().size()); j++) {
         {

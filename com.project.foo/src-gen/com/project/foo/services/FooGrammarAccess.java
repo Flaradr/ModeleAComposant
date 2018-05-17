@@ -185,12 +185,8 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAttributesAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cAttributesComponentInstanceParserRuleCall_6_0 = (RuleCall)cAttributesAssignment_6.eContents().get(0);
 		private final Keyword cBindingsKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Assignment cBindingsRequieredAssignment_8_0 = (Assignment)cGroup_8.eContents().get(0);
-		private final RuleCall cBindingsRequieredBindingRequieredParserRuleCall_8_0_0 = (RuleCall)cBindingsRequieredAssignment_8_0.eContents().get(0);
-		private final Keyword cHyphenMinusKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
-		private final Assignment cBindingsProvidedAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
-		private final RuleCall cBindingsProvidedBindingProvidedParserRuleCall_8_2_0 = (RuleCall)cBindingsProvidedAssignment_8_2.eContents().get(0);
+		private final Assignment cBindingsAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cBindingsBindingParserRuleCall_8_0 = (RuleCall)cBindingsAssignment_8.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		////Structure d'un assemblage
@@ -199,12 +195,15 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		//	'components'
 		//	attributes+=ComponentInstance
 		//	attributes+=ComponentInstance+
-		//	'bindings' (bindingsRequiered+=BindingRequiered '-' bindingsProvided+=BindingProvided)*
+		//	'bindings'
+		//	bindings+=Binding*
+		//	//	(bindingsRequiered += BindingRequiered '-' bindingsProvided += BindingProvided)*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Assembly} 'Assembly' name=ID '{' 'components' attributes+=ComponentInstance attributes+=ComponentInstance+ 'bindings'
-		//(bindingsRequiered+=BindingRequiered '-' bindingsProvided+=BindingProvided)* '}'
+		//bindings+=Binding* //	(bindingsRequiered += BindingRequiered '-' bindingsProvided += BindingProvided)*
+		//'}'
 		public Group getGroup() { return cGroup; }
 		
 		//{Assembly}
@@ -240,24 +239,13 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		//'bindings'
 		public Keyword getBindingsKeyword_7() { return cBindingsKeyword_7; }
 		
-		//(bindingsRequiered+=BindingRequiered '-' bindingsProvided+=BindingProvided)*
-		public Group getGroup_8() { return cGroup_8; }
+		//bindings+=Binding*
+		public Assignment getBindingsAssignment_8() { return cBindingsAssignment_8; }
 		
-		//bindingsRequiered+=BindingRequiered
-		public Assignment getBindingsRequieredAssignment_8_0() { return cBindingsRequieredAssignment_8_0; }
+		//Binding
+		public RuleCall getBindingsBindingParserRuleCall_8_0() { return cBindingsBindingParserRuleCall_8_0; }
 		
-		//BindingRequiered
-		public RuleCall getBindingsRequieredBindingRequieredParserRuleCall_8_0_0() { return cBindingsRequieredBindingRequieredParserRuleCall_8_0_0; }
-		
-		//'-'
-		public Keyword getHyphenMinusKeyword_8_1() { return cHyphenMinusKeyword_8_1; }
-		
-		//bindingsProvided+=BindingProvided
-		public Assignment getBindingsProvidedAssignment_8_2() { return cBindingsProvidedAssignment_8_2; }
-		
-		//BindingProvided
-		public RuleCall getBindingsProvidedBindingProvidedParserRuleCall_8_2_0() { return cBindingsProvidedBindingProvidedParserRuleCall_8_2_0; }
-		
+		////	(bindingsRequiered += BindingRequiered '-' bindingsProvided += BindingProvided)*
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
@@ -300,35 +288,35 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	public class BindingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.Binding");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cMGAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cMGBindingRequieredParserRuleCall_0_0 = (RuleCall)cMGAssignment_0.eContents().get(0);
+		private final Assignment cBindingRequieredAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cBindingRequieredBindingRequieredParserRuleCall_0_0 = (RuleCall)cBindingRequieredAssignment_0.eContents().get(0);
 		private final Keyword cHyphenMinusKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cMDAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMDBindingProvidedParserRuleCall_2_0 = (RuleCall)cMDAssignment_2.eContents().get(0);
+		private final Assignment cBindingProvidedAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cBindingProvidedBindingProvidedParserRuleCall_2_0 = (RuleCall)cBindingProvidedAssignment_2.eContents().get(0);
 		
 		////Lien entre d'un service requis d'un composant X et d'un
 		////service fourni d'un composant Y
 		//Binding:
-		//	mG=BindingRequiered '-' mD=BindingProvided;
+		//	bindingRequiered=BindingRequiered '-' bindingProvided=BindingProvided;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//mG=BindingRequiered '-' mD=BindingProvided
+		//bindingRequiered=BindingRequiered '-' bindingProvided=BindingProvided
 		public Group getGroup() { return cGroup; }
 		
-		//mG=BindingRequiered
-		public Assignment getMGAssignment_0() { return cMGAssignment_0; }
+		//bindingRequiered=BindingRequiered
+		public Assignment getBindingRequieredAssignment_0() { return cBindingRequieredAssignment_0; }
 		
 		//BindingRequiered
-		public RuleCall getMGBindingRequieredParserRuleCall_0_0() { return cMGBindingRequieredParserRuleCall_0_0; }
+		public RuleCall getBindingRequieredBindingRequieredParserRuleCall_0_0() { return cBindingRequieredBindingRequieredParserRuleCall_0_0; }
 		
 		//'-'
 		public Keyword getHyphenMinusKeyword_1() { return cHyphenMinusKeyword_1; }
 		
-		//mD=BindingProvided
-		public Assignment getMDAssignment_2() { return cMDAssignment_2; }
+		//bindingProvided=BindingProvided
+		public Assignment getBindingProvidedAssignment_2() { return cBindingProvidedAssignment_2; }
 		
 		//BindingProvided
-		public RuleCall getMDBindingProvidedParserRuleCall_2_0() { return cMDBindingProvidedParserRuleCall_2_0; }
+		public RuleCall getBindingProvidedBindingProvidedParserRuleCall_2_0() { return cBindingProvidedBindingProvidedParserRuleCall_2_0; }
 	}
 	public class BindingRequieredElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.BindingRequiered");
@@ -1003,7 +991,9 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	//	'components'
 	//	attributes+=ComponentInstance
 	//	attributes+=ComponentInstance+
-	//	'bindings' (bindingsRequiered+=BindingRequiered '-' bindingsProvided+=BindingProvided)*
+	//	'bindings'
+	//	bindings+=Binding*
+	//	//	(bindingsRequiered += BindingRequiered '-' bindingsProvided += BindingProvided)*
 	//	'}';
 	public AssemblyElements getAssemblyAccess() {
 		return pAssembly;
@@ -1027,7 +1017,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	////Lien entre d'un service requis d'un composant X et d'un
 	////service fourni d'un composant Y
 	//Binding:
-	//	mG=BindingRequiered '-' mD=BindingProvided;
+	//	bindingRequiered=BindingRequiered '-' bindingProvided=BindingProvided;
 	public BindingElements getBindingAccess() {
 		return pBinding;
 	}

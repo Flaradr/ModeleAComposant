@@ -21,16 +21,15 @@
     <genClasses ecoreClass="Foo.ecore#//Assembly">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//Assembly/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Assembly/attributes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Assembly/bindingsRequiered"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Assembly/bindingsProvided"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Assembly/bindings"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//ComponentInstance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//ComponentInstance/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//ComponentInstance/component"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//Binding">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Binding/mG"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Binding/mD"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Binding/bindingRequiered"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Binding/bindingProvided"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//BindingRequiered">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//BindingRequiered/name"/>

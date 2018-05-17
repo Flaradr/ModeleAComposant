@@ -18,8 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.project.foo.foo.Assembly#getName <em>Name</em>}</li>
  *   <li>{@link com.project.foo.foo.Assembly#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link com.project.foo.foo.Assembly#getBindingsRequiered <em>Bindings Requiered</em>}</li>
- *   <li>{@link com.project.foo.foo.Assembly#getBindingsProvided <em>Bindings Provided</em>}</li>
+ *   <li>{@link com.project.foo.foo.Assembly#getBindings <em>Bindings</em>}</li>
  * </ul>
  *
  * @see com.project.foo.foo.FooPackage#getAssembly()
@@ -71,35 +70,19 @@ public interface Assembly extends EObject
   EList<ComponentInstance> getAttributes();
 
   /**
-   * Returns the value of the '<em><b>Bindings Requiered</b></em>' containment reference list.
-   * The list contents are of type {@link com.project.foo.foo.BindingRequiered}.
+   * Returns the value of the '<em><b>Bindings</b></em>' containment reference list.
+   * The list contents are of type {@link com.project.foo.foo.Binding}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Bindings Requiered</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Bindings</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Bindings Requiered</em>' containment reference list.
-   * @see com.project.foo.foo.FooPackage#getAssembly_BindingsRequiered()
+   * @return the value of the '<em>Bindings</em>' containment reference list.
+   * @see com.project.foo.foo.FooPackage#getAssembly_Bindings()
    * @model containment="true"
    * @generated
    */
-  EList<BindingRequiered> getBindingsRequiered();
-
-  /**
-   * Returns the value of the '<em><b>Bindings Provided</b></em>' containment reference list.
-   * The list contents are of type {@link com.project.foo.foo.BindingProvided}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Bindings Provided</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Bindings Provided</em>' containment reference list.
-   * @see com.project.foo.foo.FooPackage#getAssembly_BindingsProvided()
-   * @model containment="true"
-   * @generated
-   */
-  EList<BindingProvided> getBindingsProvided();
+  EList<Binding> getBindings();
 
 } // Assembly

@@ -54,8 +54,6 @@ class FooParsingTest {
 		//assertEquals("[m3]",component.requiered.requieredServices)
 
 		assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
-
-
 	}
 
 	/**
@@ -163,6 +161,7 @@ class FooParsingTest {
 
 					service requiered type3 m3();
 				}
+				
 				Component A{
 					provided = {m7}
 					requiered = {}
@@ -192,18 +191,21 @@ class FooParsingTest {
 
 				service provided type2 m1(p1 : type2) {}
 			}
+			
 			Component B{
 				provided = {m2}
 				requiered = {}
 
 				service provided type2 m2(p1 : type2) {}
 			}
+			
 			Assembly D{
 				components
 				a1 : A
 				b1 : B
 				bindings
 			}
+			
 			Assembly F{
 				components
 				a1 : A
@@ -222,18 +224,21 @@ class FooParsingTest {
 
 				service provided type2 m1(p1 : type2) {}
 			}
+			
 			Component B{
 				provided = {m2}
 				requiered = {}
 
 				service provided type2 m2(p1 : type2) {}
 			}
+			
 			Assembly D{
 				components
 				a1 : A
 				b1 : B
 				bindings
 			}
+			
 			Assembly D{
 				components
 				a1 : A
@@ -263,12 +268,14 @@ class FooParsingTest {
 
 				service provided type2 m1(p1 : type2) {}
 			}
+			
 			Component B{
 				provided = {m2}
 				requiered = {}
 
 				service provided type2 m2(p1 : type2) {}
 			}
+			
 			Assembly D{
 				components
 				a1 : A
@@ -393,7 +400,7 @@ class FooParsingTest {
 			  		a1 : A
 			  		b1 : B
 			  		bindings
-			  		a1.A.m1 - b1.B.m2
+			  		a1.m1 - b1.m2
 			  	}
 			}
 	  	'''
@@ -421,15 +428,15 @@ class FooParsingTest {
 			  		a1 : A
 			  		b1 : B
 			  		bindings
-			  		a1.A.m1 - b1.B.m2
+			  		a1.m1 - b1.m2
 			  	}
 			 }
 	  	'''
 	  	input1.parse.assertError(
 	  		FooPackage.Literals.BINDING,
 	  		FooValidator.CHECK_BINDING_IS_VALID,
-	  		input1.indexOf("b1.B.m2"),
-	  		"b1.B.m2".length,
+	  		input1.indexOf("b1.m2"),
+	  		"b1.m2".length,
 	  		"Return type of the provided service do not match the return type of the requiered service")
 
 	  	val input2 = '''
@@ -454,15 +461,15 @@ class FooParsingTest {
 			  		a1 : A
 			  		b1 : B
 			  		bindings
-			  		a1.A.m1 - b1.B.m2
+			  		a1.m1 - b1.m2
 			  	}
 			 }
 	  	'''
 	  	input2.parse.assertError(
 	  		FooPackage.Literals.BINDING,
 	  		FooValidator.CHECK_BINDING_IS_VALID,
-	  		input2.indexOf("b1.B.m2"),
-	  		"b1.B.m2".length,
+	  		input2.indexOf("b1.m2"),
+	  		"b1.m2".length,
 	  		"The type of the parameters of the requiered service and the provided service do not match")
 
 	  	val input3 = '''
@@ -487,68 +494,19 @@ class FooParsingTest {
 			  		a1 : A
 			  		b1 : B
 			  		bindings
-			  		a1.A.m1 - b1.B.m2
+			  		a1.m1 - b1.m2
 			  	}
 			}
 	  	'''
 	  	input3.parse.assertError(
 	  		FooPackage.Literals.BINDING,
 	  		FooValidator.CHECK_BINDING_IS_VALID,
-	  		input3.indexOf("b1.B.m2"),
-	  		"b1.B.m2".length,
+	  		input3.indexOf("a1.m1"),
+	  		"a1.m1".length,
 	  		"Number of parameters between the requiered service and the provided service do not match")
 
 	}
 
-	/**
-	 * Teste la methode checkProvidedServiceHasMethod
-	 */
-	@Test
-	def void testCheckProvidedServiceHasMethod(){
-		validComponent.parse.assertNoIssues()
-
-		val input = '''
-		package toto {
-			Component A{
-				provided = {m1}
-				requiered = {m2}
-
-				service requiered type3 m2();
-			}
-		}
-		'''
-		input.parse.assertError(
-			FooPackage.Literals.PROVIDED_SERVICE,
-			FooValidator.CHECK_P_SERVICE_HAS_METHOD,
-			input.indexOf("m1"),
-			"m1".length,
-			"The service needs a method declaration")
-	}
-
-	/**
-	 * Teste la methode checkRequieredServiceHasMethod
-	 */
-	@Test
-	def void testCheckRequieredServiceHasMethod(){
-		validComponent.parse.assertNoIssues()
-
-		val input = '''
-		package toto {
-			Component A{
-				provided = {m1}
-				requiered = {m2}
-
-				service provided type1 m1() {}
-			}
-		}
-		'''
-		input.parse.assertError(
-			FooPackage.Literals.REQUIERED_SERVICE,
-			FooValidator.CHECK_R_SERVICE_HAS_METHOD,
-			input.indexOf("m2"),
-			"m2".length,
-			"The service needs a method declaration")
-	}
 
 	/**
 	 * Teste la mmethode checkAssemblyIsCorrect
@@ -582,9 +540,9 @@ class FooParsingTest {
 					a2 : A
 					b1 : B
 					bindings
-					a1.A.m3 - b1.B.m4
-					a2.A.m3 - b1.B.m4
-					b1.B.m1 - a1.A.m1
+					a1.m3 - b1.m4
+					a2.m3 - b1.m4
+					b1.m1 - a1.m1
 				}
 			}
 		'''
@@ -617,8 +575,8 @@ class FooParsingTest {
 					a2 : A
 					b1 : B
 					bindings
-					a1.A.m3 - b1.B.m4
-					b1.B.m1 - a1.A.m1
+					a1.m3 - b1.m4
+					b1.m1 - a1.m1
 				}
 			}
 		'''
@@ -672,7 +630,7 @@ class FooParsingTest {
 	def void testCheckBindingRequieredCanUseMethod(){
 		val inputOk = '''
 			package my.company.firstPack {
-				import static extension my.company.secondPack.*
+				import my.company.secondPack.*
 			
 				Component A{
 					provided = {m1,m2,m8}
@@ -701,10 +659,10 @@ class FooParsingTest {
 					a2 : A
 					b1 : B
 					bindings
-					a1.A.m3 - b1.B.m3
-					a2.A.m3 - b1.B.m3
-					b1.B.m1 - a1.A.m1
-					b1.B.m4 - a2.A.m8
+					a1.m3 - b1.m3
+					a2.m3 - b1.m3
+					b1.m1 - a1.m1
+					b1.m4 - a2.m8
 				}
 			}
 		'''
@@ -712,57 +670,57 @@ class FooParsingTest {
 		
 		val input = '''
 		package my.company.firstPack {
-						import static extension my.company.secondPack.*
-					
-						Component A{
-							provided = {m1,m2,m8}
-							requiered = {m3}
-					
-							service provided type2 m1(p1 : type1) {}
-							service provided void m2() {}
-							service provided type3 m8(p8 : type3, p9 : type4) {}
-					
-							service requiered type3 m3(p2 : type4);
-						}
-					
-						Component B{
-							provided = {m3}
-							requiered = {m1,m4}
-					
-							service provided type3 m3 (p4 : type4) { }
-					
-							service requiered type2 m1 (p3 : type1);
-							service requiered type3 m4 (p4_1 : type3, p4_2 : type4);
-						}
-					
-						Assembly Foo{
-							components
-							a1 : A
-							a2 : A
-							b1 : B
-							bindings
-							a1.A.m3 - b1.B.m3
-							a2.A.m3 - b1.B.m3
-							b1.B.m1 - a1.A.m1
-							b1.B.m4 - a2.A.m8
-							b1.A.m3 - b1.B.m3
-						}
-					}
+			import my.company.secondPack.*
+		
+			Component A{
+				provided = {m1,m2,m8}
+				requiered = {m3}
+		
+				service provided type2 m1(p1 : type1) {}
+				service provided void m2() {}
+				service provided type3 m8(p8 : type3, p9 : type4) {}
+		
+				service requiered type3 m3(p2 : type4);
+			}
+		
+			Component B{
+				provided = {m3}
+				requiered = {m1,m4}
+		
+				service provided type3 m3 (p4 : type4) { }
+		
+				service requiered type2 m1 (p3 : type1);
+				service requiered type3 m4 (p4_1 : type3, p4_2 : type4);
+			}
+		
+			Assembly Foo{
+				components
+				a1 : A
+				a2 : A
+				b1 : B
+				bindings
+				b1.m3 - b1.m3
+				a1.m3 - b1.m3
+				a2.m3 - b1.m3
+				b1.m1 - a1.m1
+				b1.m4 - a2.m8
+			}
+		}
 		'''
 
 		input.parse.assertError(
 			FooPackage.Literals.BINDING_REQUIERED,
 			FooValidator.CHECK_BINDING_REQUIERED_CAN_USE_METHOD,
-			input.indexOf("b1.A.m3") + "b1.".length,
-			"A.m3".length,
-			"The type of the component and the component requiring this method are not the same")
+			input.indexOf("b1.m3") + "b1.".length,
+			"m3".length,
+			"This service is not requiered by the component")
 	}
 	
 	@Test
 	def void testCheckBindingProvidedCanUseMethod(){
 		val inputOk = '''
 			package my.company.firstPack {
-				import static extension my.company.secondPack.*
+				import my.company.secondPack.*
 			
 				Component A{
 					provided = {m1,m2,m8}
@@ -791,10 +749,10 @@ class FooParsingTest {
 					a2 : A
 					b1 : B
 					bindings
-					a1.A.m3 - b1.B.m3
-					a2.A.m3 - b1.B.m3
-					b1.B.m1 - a1.A.m1
-					b1.B.m4 - a2.A.m8
+					a1.m3 - b1.m3
+					a2.m3 - b1.m3
+					b1.m1 - a1.m1
+					b1.m4 - a2.m8
 				}
 			}
 		'''
@@ -802,53 +760,51 @@ class FooParsingTest {
 		
 		val input = '''
 		package my.company.firstPack {
-					import static extension my.company.secondPack.*
-				
-					Component A{
-						provided = {m1,m2,m8,mk8}
-						requiered = {m3,mk0}
-				
-						service provided type2 m1(p1 : type1) {}
-						service provided void m2() {}
-						service provided type3 m8(p8 : type3, p9 : type4) {}
-						service provided type00 mk8() {}
-					
-						service requiered type3 m3(p2 : type4);
-						service requiered type00 mk0();
-					}
-				
-					Component B{
-						provided = {m3,mk8}
-						requiered = {m1,m4}
-				
-						service provided type3 m3 (p4 : type4) { }
-						service provided type00 mk8() {}
-				
-						service requiered type2 m1 (p3 : type1);
-						service requiered type3 m4 (p4_1 : type3, p4_2 : type4);
-					}
-				
-					Assembly Foo{
-						components
-						a1 : A
-						a2 : A
-						b1 : B
-						bindings
-						a1.A.m3 - b1.B.m3
-						a2.A.m3 - b1.B.m3
-						b1.B.m1 - a1.A.m1
-						b1.B.m4 - a2.A.m8
-						a1.A.mk0 - b1.B.mk8
-						a2.A.mk0 - b1.A.mk8
-					}
-				}
+			Component A{
+				provided = {m1,m2,m8,mk8}
+				requiered = {m3,mk0}
+		
+				service provided type2 m1(p1 : type1) {}
+				service provided void m2() {}
+				service provided type3 m8(p8 : type3, p9 : type4) {}
+				service provided type00 mk8() {}
+			
+				service requiered type3 m3(p2 : type4);
+				service requiered type00 mk0();
+			}
+		
+			Component B{
+				provided = {m3,mk8}
+				requiered = {m1,m4}
+		
+				service provided type3 m3 (p4 : type4) { }
+				service provided type00 mB8() {}
+		
+				service requiered type2 m1 (p3 : type1);
+				service requiered type3 m4 (p4_1 : type3, p4_2 : type4);
+			}
+		
+			Assembly Foo{
+				components
+				a1 : A
+				a2 : A
+				b1 : B
+				bindings
+				a1.m3 - b1.m3
+				a2.m3 - b1.m3
+				b1.m1 - a1.m1
+				b1.m4 - a2.m8
+				a1.mk0 - a1.mB8
+				a2.mk0 - b1.mB8
+			}
+		}
 		'''
 
 		input.parse.assertError(
 			FooPackage.Literals.BINDING_PROVIDED,
 			FooValidator.CHECK_BINDING_PROVIDED_CAN_USE_METHOD,
-			input.indexOf("b1.A.mk8") + "b1.".length,
-			"A.mk8".length,
+			input.indexOf("a1.mB8") + "a1.".length,
+			"mB8".length,
 			"The type of the component and the component requiring this method are not the same")
 	}
 }

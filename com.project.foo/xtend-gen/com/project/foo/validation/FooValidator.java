@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 
 /**
  * This class contains custom validation rules.
@@ -49,10 +50,6 @@ public class FooValidator extends AbstractFooValidator {
   public final static String CHECK_BINDING_REQUIERED_CAN_USE_METHOD = "com.project.foo.foo.CheckBindingRequieredCanUseMethod";
   
   public final static String CHECK_BINDING_PROVIDED_CAN_USE_METHOD = "com.project.foo.foo.CheckBindingProvidedCanUseMethod";
-  
-  public final static String CHECK_P_SERVICE_HAS_METHOD = "com.projetc.foo.foo.CheckProvidedServiceHasMethod";
-  
-  public final static String CHECK_R_SERVICE_HAS_METHOD = "com.project.foo.foo.CheckRequieredServiceHasMethod";
   
   public final static String CHECK_ASSEMBLY_IS_VALID = "com.project.foo.foo.CheckAssemblyIsValid";
   
@@ -275,11 +272,11 @@ public class FooValidator extends AbstractFooValidator {
    */
   @Check
   public void checkBindingIsValid(final Binding binding) {
-    final RSignature nomMethodG = binding.getMG().getService();
-    final PSignature nomMethodD = binding.getMD().getService();
-    EObject _eContainer = binding.getMG().getService().eContainer().eContainer();
+    final RSignature nomMethodG = binding.getBindingRequiered().getService();
+    final PSignature nomMethodD = binding.getBindingProvided().getService();
+    EObject _eContainer = binding.getBindingRequiered().getService().eContainer().eContainer();
     final EList<MRequieredService> listOfRequieredServices = ((Component) _eContainer).getMReqServices();
-    EObject _eContainer_1 = binding.getMD().getService().eContainer().eContainer();
+    EObject _eContainer_1 = binding.getBindingProvided().getService().eContainer().eContainer();
     final EList<MProvidedService> listOfProvidedServices = ((Component) _eContainer_1).getMProvServices();
     String valRetMReq = "";
     String valRetMProv = "";
@@ -303,7 +300,7 @@ public class FooValidator extends AbstractFooValidator {
     boolean _not = (!_equals_2);
     if (_not) {
       this.error("Return type of the provided service do not match the return type of the requiered service", 
-        FooPackage.Literals.BINDING__MD, 
+        FooPackage.Literals.BINDING__BINDING_PROVIDED, 
         FooValidator.CHECK_BINDING_IS_VALID);
     }
     this.signatureEquals(signatureofRequieredMethod, signatureOfProvidedMethod);
@@ -322,7 +319,7 @@ public class FooValidator extends AbstractFooValidator {
     boolean _not = (!_equals);
     if (_not) {
       this.error("Number of parameters between the requiered service and the provided service do not match", 
-        FooPackage.Literals.BINDING__MD, 
+        FooPackage.Literals.BINDING__BINDING_REQUIERED, 
         FooValidator.CHECK_BINDING_IS_VALID);
       return;
     }
@@ -334,7 +331,7 @@ public class FooValidator extends AbstractFooValidator {
         boolean _not_1 = (!_equals_1);
         if (_not_1) {
           this.error("The type of the parameters of the requiered service and the provided service do not match", 
-            FooPackage.Literals.BINDING__MD, 
+            FooPackage.Literals.BINDING__BINDING_PROVIDED, 
             FooValidator.CHECK_BINDING_IS_VALID);
         }
         i++;
@@ -351,27 +348,59 @@ public class FooValidator extends AbstractFooValidator {
   @Check
   public void checkAssemblyIsCorrect(final Assembly assembly) {
     EList<ComponentInstance> listeComposants = assembly.getAttributes();
+    InputOutput.<String>println(("\nValue of listeComposants : " + listeComposants));
     for (final ComponentInstance component : listeComposants) {
       {
         Component _component = component.getComponent();
         EList<RequieredService> listeServicesRequis = ((Component) _component).getListOfRServices().getRequieredServices();
+        String _name = component.getName();
+        String _plus = ("\t(Composant : " + _name);
+        String _plus_1 = (_plus + ") Value of listeServicesRequis : ");
+        String _plus_2 = (_plus_1 + listeServicesRequis);
+        InputOutput.<String>println(_plus_2);
         for (final RequieredService service : listeServicesRequis) {
           {
-            EList<BindingRequiered> listeBindings = assembly.getBindingsRequiered();
+            EList<Binding> listeBindings = assembly.getBindings();
+            InputOutput.<String>println(("\t\tValue of listeBindings : " + listeBindings));
             if ((listeBindings.isEmpty() && (!listeServicesRequis.isEmpty()))) {
               this.error("The assembly is not correct, there are missing bindings", 
                 FooPackage.Literals.ASSEMBLY__NAME, 
                 FooValidator.CHECK_ASSEMBLY_IS_VALID);
               return;
             }
-            for (final BindingRequiered bindingRequiered : listeBindings) {
+            for (final Binding binding : listeBindings) {
               {
+                String _name_1 = binding.getBindingRequiered().getName().getName();
+                String _plus_3 = ("\t\t\tValue of binding : " + _name_1);
+                String _plus_4 = (_plus_3 + ".");
+                String _name_2 = binding.getBindingRequiered().getService().getName();
+                String _plus_5 = (_plus_4 + _name_2);
+                String _plus_6 = (_plus_5 + "-");
+                String _name_3 = binding.getBindingProvided().getName().getName();
+                String _plus_7 = (_plus_6 + _name_3);
+                String _plus_8 = (_plus_7 + ".");
+                String _name_4 = binding.getBindingProvided().getService().getName();
+                String _plus_9 = (_plus_8 + _name_4);
+                InputOutput.<String>println(_plus_9);
                 int i = 0;
                 boolean isPresent = false;
                 while (((i < listeBindings.size()) && (!isPresent))) {
                   {
-                    if ((service.getName().getName().equals(listeBindings.get(i).getService().getName()) && 
-                      component.getName().equals(listeBindings.get(i).getName().getName()))) {
+                    InputOutput.<String>println("\t\t\t\tTEST isPRESENT");
+                    String _name_5 = service.getName().getName();
+                    String _plus_10 = ("\t\t\t\tservice.name : " + _name_5);
+                    InputOutput.<String>println(_plus_10);
+                    String _name_6 = listeBindings.get(i).getBindingRequiered().getService().getName();
+                    String _plus_11 = ("\t\t\t\tisteBindings.get(i).bindingRequiered.service.name : " + _name_6);
+                    InputOutput.<String>println(_plus_11);
+                    String _name_7 = component.getName();
+                    String _plus_12 = ("\t\t\t\tcomponent.name : " + _name_7);
+                    InputOutput.<String>println(_plus_12);
+                    String _name_8 = listeBindings.get(i).getBindingRequiered().getName().getName();
+                    String _plus_13 = ("\t\t\t\tlisteBindings.get(i).bindingRequiered.name.name : " + _name_8);
+                    InputOutput.<String>println(_plus_13);
+                    if ((service.getName().getName().equals(listeBindings.get(i).getBindingRequiered().getService().getName()) && 
+                      component.getName().equals(listeBindings.get(i).getBindingRequiered().getName().getName()))) {
                       isPresent = true;
                     }
                     i++;

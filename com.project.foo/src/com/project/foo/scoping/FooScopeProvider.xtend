@@ -26,7 +26,6 @@ class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider{
 		var List<ImportNormalizer> importedNamespaceResolvers = super.getImportedNamespaceResolvers(context, ignorecase);
 		if (context instanceof Model){
 			var model = (context as Model)
-			println("\nANALYSE MODELE : " + model.name)
 			importedNamespaceResolvers.add(doCreateImportNormalizer(getQualifiedNameConverter().toQualifiedName(model.getName()), true, ignorecase))
 		
 			for (var i = 0; i < model.components.size(); i++){
@@ -34,7 +33,6 @@ class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider{
 			}
 			
 			for (var j = 0; j < model.imports.size(); j++){
-				println(doCreateImportNormalizer(getQualifiedNameConverter().toQualifiedName(model.imports.get(j).importedNamespace), true, ignorecase))
 				importedNamespaceResolvers.add(doCreateImportNormalizer(getQualifiedNameConverter().toQualifiedName(model.imports.get(j).importedNamespace), true, ignorecase))
 				
 			}

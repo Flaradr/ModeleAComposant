@@ -300,6 +300,8 @@ public class FooParsingTest {
       _builder.append("}");
       _builder.newLine();
       _builder.append("\t");
+      _builder.newLine();
+      _builder.append("\t");
       _builder.append("Component A{");
       _builder.newLine();
       _builder.append("\t\t");
@@ -358,6 +360,8 @@ public class FooParsingTest {
       _builder.append("}");
       _builder.newLine();
       _builder.append("\t");
+      _builder.newLine();
+      _builder.append("\t");
       _builder.append("Component B{");
       _builder.newLine();
       _builder.append("\t\t");
@@ -372,6 +376,8 @@ public class FooParsingTest {
       _builder.newLine();
       _builder.append("\t");
       _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("Assembly D{");
@@ -390,6 +396,8 @@ public class FooParsingTest {
       _builder.newLine();
       _builder.append("\t");
       _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("Assembly F{");
@@ -433,6 +441,8 @@ public class FooParsingTest {
       _builder_1.append("}");
       _builder_1.newLine();
       _builder_1.append("\t");
+      _builder_1.newLine();
+      _builder_1.append("\t");
       _builder_1.append("Component B{");
       _builder_1.newLine();
       _builder_1.append("\t\t");
@@ -447,6 +457,8 @@ public class FooParsingTest {
       _builder_1.newLine();
       _builder_1.append("\t");
       _builder_1.append("}");
+      _builder_1.newLine();
+      _builder_1.append("\t");
       _builder_1.newLine();
       _builder_1.append("\t");
       _builder_1.append("Assembly D{");
@@ -465,6 +477,8 @@ public class FooParsingTest {
       _builder_1.newLine();
       _builder_1.append("\t");
       _builder_1.append("}");
+      _builder_1.newLine();
+      _builder_1.append("\t");
       _builder_1.newLine();
       _builder_1.append("\t");
       _builder_1.append("Assembly D{");
@@ -527,6 +541,8 @@ public class FooParsingTest {
       _builder.append("}");
       _builder.newLine();
       _builder.append("\t");
+      _builder.newLine();
+      _builder.append("\t");
       _builder.append("Component B{");
       _builder.newLine();
       _builder.append("\t\t");
@@ -541,6 +557,8 @@ public class FooParsingTest {
       _builder.newLine();
       _builder.append("\t");
       _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("Assembly D{");
@@ -779,7 +797,7 @@ public class FooParsingTest {
       _builder.append("bindings");
       _builder.newLine();
       _builder.append("  \t\t");
-      _builder.append("a1.A.m1 - b1.B.m2");
+      _builder.append("a1.m1 - b1.m2");
       _builder.newLine();
       _builder.append("  \t");
       _builder.append("}");
@@ -844,7 +862,7 @@ public class FooParsingTest {
       _builder_1.append("bindings");
       _builder_1.newLine();
       _builder_1.append("  \t\t");
-      _builder_1.append("a1.A.m1 - b1.B.m2");
+      _builder_1.append("a1.m1 - b1.m2");
       _builder_1.newLine();
       _builder_1.append("  \t");
       _builder_1.append("}");
@@ -856,8 +874,8 @@ public class FooParsingTest {
       this._validationTestHelper.assertError(this._parseHelper.parse(input1), 
         FooPackage.Literals.BINDING, 
         FooValidator.CHECK_BINDING_IS_VALID, 
-        input1.indexOf("b1.B.m2"), 
-        "b1.B.m2".length(), 
+        input1.indexOf("b1.m2"), 
+        "b1.m2".length(), 
         "Return type of the provided service do not match the return type of the requiered service");
       StringConcatenation _builder_2 = new StringConcatenation();
       _builder_2.append("package toto {");
@@ -915,7 +933,7 @@ public class FooParsingTest {
       _builder_2.append("bindings");
       _builder_2.newLine();
       _builder_2.append("  \t\t");
-      _builder_2.append("a1.A.m1 - b1.B.m2");
+      _builder_2.append("a1.m1 - b1.m2");
       _builder_2.newLine();
       _builder_2.append("  \t");
       _builder_2.append("}");
@@ -927,8 +945,8 @@ public class FooParsingTest {
       this._validationTestHelper.assertError(this._parseHelper.parse(input2), 
         FooPackage.Literals.BINDING, 
         FooValidator.CHECK_BINDING_IS_VALID, 
-        input2.indexOf("b1.B.m2"), 
-        "b1.B.m2".length(), 
+        input2.indexOf("b1.m2"), 
+        "b1.m2".length(), 
         "The type of the parameters of the requiered service and the provided service do not match");
       StringConcatenation _builder_3 = new StringConcatenation();
       _builder_3.append("package toto {");
@@ -986,7 +1004,7 @@ public class FooParsingTest {
       _builder_3.append("bindings");
       _builder_3.newLine();
       _builder_3.append("  \t\t");
-      _builder_3.append("a1.A.m1 - b1.B.m2");
+      _builder_3.append("a1.m1 - b1.m2");
       _builder_3.newLine();
       _builder_3.append("  \t");
       _builder_3.append("}");
@@ -997,89 +1015,9 @@ public class FooParsingTest {
       this._validationTestHelper.assertError(this._parseHelper.parse(input3), 
         FooPackage.Literals.BINDING, 
         FooValidator.CHECK_BINDING_IS_VALID, 
-        input3.indexOf("b1.B.m2"), 
-        "b1.B.m2".length(), 
+        input3.indexOf("a1.m1"), 
+        "a1.m1".length(), 
         "Number of parameters between the requiered service and the provided service do not match");
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
-  
-  /**
-   * Teste la methode checkProvidedServiceHasMethod
-   */
-  @Test
-  public void testCheckProvidedServiceHasMethod() {
-    try {
-      this._validationTestHelper.assertNoIssues(this._parseHelper.parse(FooParsingTest.validComponent));
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("package toto {");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("Component A{");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("provided = {m1}");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("requiered = {m2}");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("service requiered type3 m2();");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("}");
-      _builder.newLine();
-      final String input = _builder.toString();
-      this._validationTestHelper.assertError(this._parseHelper.parse(input), 
-        FooPackage.Literals.PROVIDED_SERVICE, 
-        FooValidator.CHECK_P_SERVICE_HAS_METHOD, 
-        input.indexOf("m1"), 
-        "m1".length(), 
-        "The service needs a method declaration");
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
-  
-  /**
-   * Teste la methode checkRequieredServiceHasMethod
-   */
-  @Test
-  public void testCheckRequieredServiceHasMethod() {
-    try {
-      this._validationTestHelper.assertNoIssues(this._parseHelper.parse(FooParsingTest.validComponent));
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("package toto {");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("Component A{");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("provided = {m1}");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("requiered = {m2}");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("service provided type1 m1() {}");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("}");
-      _builder.newLine();
-      final String input = _builder.toString();
-      this._validationTestHelper.assertError(this._parseHelper.parse(input), 
-        FooPackage.Literals.REQUIERED_SERVICE, 
-        FooValidator.CHECK_R_SERVICE_HAS_METHOD, 
-        input.indexOf("m2"), 
-        "m2".length(), 
-        "The service needs a method declaration");
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -1158,13 +1096,13 @@ public class FooParsingTest {
       _builder.append("bindings");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("a1.A.m3 - b1.B.m4");
+      _builder.append("a1.m3 - b1.m4");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("a2.A.m3 - b1.B.m4");
+      _builder.append("a2.m3 - b1.m4");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("b1.B.m1 - a1.A.m1");
+      _builder.append("b1.m1 - a1.m1");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("}");
@@ -1240,10 +1178,10 @@ public class FooParsingTest {
       _builder_1.append("bindings");
       _builder_1.newLine();
       _builder_1.append("\t\t");
-      _builder_1.append("a1.A.m3 - b1.B.m4");
+      _builder_1.append("a1.m3 - b1.m4");
       _builder_1.newLine();
       _builder_1.append("\t\t");
-      _builder_1.append("b1.B.m1 - a1.A.m1");
+      _builder_1.append("b1.m1 - a1.m1");
       _builder_1.newLine();
       _builder_1.append("\t");
       _builder_1.append("}");
@@ -1347,7 +1285,7 @@ public class FooParsingTest {
       _builder.append("package my.company.firstPack {");
       _builder.newLine();
       _builder.append("\t");
-      _builder.append("import static extension my.company.secondPack.*");
+      _builder.append("import my.company.secondPack.*");
       _builder.newLine();
       _builder.newLine();
       _builder.append("\t");
@@ -1420,16 +1358,16 @@ public class FooParsingTest {
       _builder.append("bindings");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("a1.A.m3 - b1.B.m3");
+      _builder.append("a1.m3 - b1.m3");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("a2.A.m3 - b1.B.m3");
+      _builder.append("a2.m3 - b1.m3");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("b1.B.m1 - a1.A.m1");
+      _builder.append("b1.m1 - a1.m1");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("b1.B.m4 - a2.A.m8");
+      _builder.append("b1.m4 - a2.m8");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("}");
@@ -1441,117 +1379,109 @@ public class FooParsingTest {
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("package my.company.firstPack {");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
-      _builder_1.append("import static extension my.company.secondPack.*");
+      _builder_1.append("\t");
+      _builder_1.append("import my.company.secondPack.*");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t");
       _builder_1.append("Component A{");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("provided = {m1,m2,m8}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("requiered = {m3}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("service provided type2 m1(p1 : type1) {}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("service provided void m2() {}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("service provided type3 m8(p8 : type3, p9 : type4) {}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("service requiered type3 m3(p2 : type4);");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t");
       _builder_1.append("}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t");
       _builder_1.append("Component B{");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("provided = {m3}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("requiered = {m1,m4}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("service provided type3 m3 (p4 : type4) { }");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("service requiered type2 m1 (p3 : type1);");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("service requiered type3 m4 (p4_1 : type3, p4_2 : type4);");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t");
       _builder_1.append("}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t");
       _builder_1.append("Assembly Foo{");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("components");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("a1 : A");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("a2 : A");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("b1 : B");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("bindings");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
-      _builder_1.append("a1.A.m3 - b1.B.m3");
+      _builder_1.append("\t\t");
+      _builder_1.append("b1.m3 - b1.m3");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
-      _builder_1.append("a2.A.m3 - b1.B.m3");
+      _builder_1.append("\t\t");
+      _builder_1.append("a1.m3 - b1.m3");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
-      _builder_1.append("b1.B.m1 - a1.A.m1");
+      _builder_1.append("\t\t");
+      _builder_1.append("a2.m3 - b1.m3");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
-      _builder_1.append("b1.B.m4 - a2.A.m8");
+      _builder_1.append("\t\t");
+      _builder_1.append("b1.m1 - a1.m1");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t\t");
-      _builder_1.append("b1.A.m3 - b1.B.m3");
+      _builder_1.append("\t\t");
+      _builder_1.append("b1.m4 - a2.m8");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t");
       _builder_1.append("}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t");
       _builder_1.append("}");
       _builder_1.newLine();
       final String input = _builder_1.toString();
       DomainModel _parse = this._parseHelper.parse(input);
-      int _indexOf = input.indexOf("b1.A.m3");
+      int _indexOf = input.indexOf("b1.m3");
       int _length = "b1.".length();
       int _plus = (_indexOf + _length);
       this._validationTestHelper.assertError(_parse, 
         FooPackage.Literals.BINDING_REQUIERED, 
         FooValidator.CHECK_BINDING_REQUIERED_CAN_USE_METHOD, _plus, 
-        "A.m3".length(), 
-        "The type of the component and the component requiring this method are not the same");
+        "m3".length(), 
+        "This service is not requiered by the component");
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -1564,7 +1494,7 @@ public class FooParsingTest {
       _builder.append("package my.company.firstPack {");
       _builder.newLine();
       _builder.append("\t");
-      _builder.append("import static extension my.company.secondPack.*");
+      _builder.append("import my.company.secondPack.*");
       _builder.newLine();
       _builder.newLine();
       _builder.append("\t");
@@ -1637,16 +1567,16 @@ public class FooParsingTest {
       _builder.append("bindings");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("a1.A.m3 - b1.B.m3");
+      _builder.append("a1.m3 - b1.m3");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("a2.A.m3 - b1.B.m3");
+      _builder.append("a2.m3 - b1.m3");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("b1.B.m1 - a1.A.m1");
+      _builder.append("b1.m1 - a1.m1");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("b1.B.m4 - a2.A.m8");
+      _builder.append("b1.m4 - a2.m8");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("}");
@@ -1658,128 +1588,117 @@ public class FooParsingTest {
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("package my.company.firstPack {");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t");
-      _builder_1.append("import static extension my.company.secondPack.*");
-      _builder_1.newLine();
-      _builder_1.append("\t\t");
-      _builder_1.newLine();
-      _builder_1.append("\t\t\t");
+      _builder_1.append("\t");
       _builder_1.append("Component A{");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("provided = {m1,m2,m8,mk8}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("requiered = {m3,mk0}");
       _builder_1.newLine();
-      _builder_1.append("\t\t");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("service provided type2 m1(p1 : type1) {}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("service provided void m2() {}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("service provided type3 m8(p8 : type3, p9 : type4) {}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("service provided type00 mk8() {}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t");
+      _builder_1.append("\t");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("service requiered type3 m3(p2 : type4);");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("service requiered type00 mk0();");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t");
+      _builder_1.append("\t");
       _builder_1.append("}");
       _builder_1.newLine();
-      _builder_1.append("\t\t");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t");
+      _builder_1.append("\t");
       _builder_1.append("Component B{");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("provided = {m3,mk8}");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("requiered = {m1,m4}");
       _builder_1.newLine();
-      _builder_1.append("\t\t");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("service provided type3 m3 (p4 : type4) { }");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
-      _builder_1.append("service provided type00 mk8() {}");
+      _builder_1.append("\t\t");
+      _builder_1.append("service provided type00 mB8() {}");
+      _builder_1.newLine();
       _builder_1.newLine();
       _builder_1.append("\t\t");
-      _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
       _builder_1.append("service requiered type2 m1 (p3 : type1);");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("service requiered type3 m4 (p4_1 : type3, p4_2 : type4);");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t");
+      _builder_1.append("\t");
       _builder_1.append("}");
       _builder_1.newLine();
-      _builder_1.append("\t\t");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t");
+      _builder_1.append("\t");
       _builder_1.append("Assembly Foo{");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("components");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("a1 : A");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("a2 : A");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("b1 : B");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
+      _builder_1.append("\t\t");
       _builder_1.append("bindings");
       _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
-      _builder_1.append("a1.A.m3 - b1.B.m3");
-      _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
-      _builder_1.append("a2.A.m3 - b1.B.m3");
-      _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
-      _builder_1.append("b1.B.m1 - a1.A.m1");
-      _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
-      _builder_1.append("b1.B.m4 - a2.A.m8");
-      _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
-      _builder_1.append("a1.A.mk0 - b1.B.mk8");
-      _builder_1.newLine();
-      _builder_1.append("\t\t\t\t");
-      _builder_1.append("a2.A.mk0 - b1.A.mk8");
-      _builder_1.newLine();
-      _builder_1.append("\t\t\t");
-      _builder_1.append("}");
+      _builder_1.append("\t\t");
+      _builder_1.append("a1.m3 - b1.m3");
       _builder_1.newLine();
       _builder_1.append("\t\t");
+      _builder_1.append("a2.m3 - b1.m3");
+      _builder_1.newLine();
+      _builder_1.append("\t\t");
+      _builder_1.append("b1.m1 - a1.m1");
+      _builder_1.newLine();
+      _builder_1.append("\t\t");
+      _builder_1.append("b1.m4 - a2.m8");
+      _builder_1.newLine();
+      _builder_1.append("\t\t");
+      _builder_1.append("a1.mk0 - a1.mB8");
+      _builder_1.newLine();
+      _builder_1.append("\t\t");
+      _builder_1.append("a2.mk0 - b1.mB8");
+      _builder_1.newLine();
+      _builder_1.append("\t");
+      _builder_1.append("}");
+      _builder_1.newLine();
       _builder_1.append("}");
       _builder_1.newLine();
       final String input = _builder_1.toString();
       DomainModel _parse = this._parseHelper.parse(input);
-      int _indexOf = input.indexOf("b1.A.mk8");
-      int _length = "b1.".length();
+      int _indexOf = input.indexOf("a1.mB8");
+      int _length = "a1.".length();
       int _plus = (_indexOf + _length);
       this._validationTestHelper.assertError(_parse, 
         FooPackage.Literals.BINDING_PROVIDED, 
         FooValidator.CHECK_BINDING_PROVIDED_CAN_USE_METHOD, _plus, 
-        "A.mk8".length(), 
+        "mB8".length(), 
         "The type of the component and the component requiring this method are not the same");
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

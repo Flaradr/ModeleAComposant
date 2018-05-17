@@ -112,7 +112,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Assembly returns Assembly
 	 *
 	 * Constraint:
-	 *     (name=ID attributes+=ComponentInstance attributes+=ComponentInstance+ (bindingsRequiered+=BindingRequiered bindingsProvided+=BindingProvided)*)
+	 *     (name=ID attributes+=ComponentInstance attributes+=ComponentInstance+ bindings+=Binding*)
 	 */
 	protected void sequence_Assembly(ISerializationContext context, Assembly semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -166,18 +166,18 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Binding returns Binding
 	 *
 	 * Constraint:
-	 *     (mG=BindingRequiered mD=BindingProvided)
+	 *     (bindingRequiered=BindingRequiered bindingProvided=BindingProvided)
 	 */
 	protected void sequence_Binding(ISerializationContext context, Binding semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.BINDING__MG) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.BINDING__MG));
-			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.BINDING__MD) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.BINDING__MD));
+			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.BINDING__BINDING_REQUIERED) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.BINDING__BINDING_REQUIERED));
+			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.BINDING__BINDING_PROVIDED) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.BINDING__BINDING_PROVIDED));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBindingAccess().getMGBindingRequieredParserRuleCall_0_0(), semanticObject.getMG());
-		feeder.accept(grammarAccess.getBindingAccess().getMDBindingProvidedParserRuleCall_2_0(), semanticObject.getMD());
+		feeder.accept(grammarAccess.getBindingAccess().getBindingRequieredBindingRequieredParserRuleCall_0_0(), semanticObject.getBindingRequiered());
+		feeder.accept(grammarAccess.getBindingAccess().getBindingProvidedBindingProvidedParserRuleCall_2_0(), semanticObject.getBindingProvided());
 		feeder.finish();
 	}
 	

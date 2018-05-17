@@ -36,8 +36,8 @@ Assembly:
 	attributes+=ComponentInstance
 	(attributes+=ComponentInstance)+
 	'bindings'
-//	(bindings+=Binding)*
-	(bindingsRequiered += BindingRequiered '-' bindingsProvided += BindingProvided)*
+	(bindings+=Binding)*
+//	(bindingsRequiered += BindingRequiered '-' bindingsProvided += BindingProvided)*
 	'}';
 
 //Structure d'un composant
@@ -47,7 +47,7 @@ ComponentInstance:
 //Lien entre d'un service requis d'un composant X et d'un
 //service fourni d'un composant Y
 Binding:
-	mG=BindingRequiered '-' mD=BindingProvided ;
+	bindingRequiered=BindingRequiered '-' bindingProvided=BindingProvided ;
 
 //Instance du composant ayant besoin d'un service
 BindingRequiered:

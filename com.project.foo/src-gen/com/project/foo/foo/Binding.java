@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.project.foo.foo.Binding#getMG <em>MG</em>}</li>
- *   <li>{@link com.project.foo.foo.Binding#getMD <em>MD</em>}</li>
+ *   <li>{@link com.project.foo.foo.Binding#getBindingRequiered <em>Binding Requiered</em>}</li>
+ *   <li>{@link com.project.foo.foo.Binding#getBindingProvided <em>Binding Provided</em>}</li>
  * </ul>
  *
  * @see com.project.foo.foo.FooPackage#getBinding()
@@ -25,55 +25,55 @@ import org.eclipse.emf.ecore.EObject;
 public interface Binding extends EObject
 {
   /**
-   * Returns the value of the '<em><b>MG</b></em>' containment reference.
+   * Returns the value of the '<em><b>Binding Requiered</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>MG</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Binding Requiered</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>MG</em>' containment reference.
-   * @see #setMG(BindingRequiered)
-   * @see com.project.foo.foo.FooPackage#getBinding_MG()
+   * @return the value of the '<em>Binding Requiered</em>' containment reference.
+   * @see #setBindingRequiered(BindingRequiered)
+   * @see com.project.foo.foo.FooPackage#getBinding_BindingRequiered()
    * @model containment="true"
    * @generated
    */
-  BindingRequiered getMG();
+  BindingRequiered getBindingRequiered();
 
   /**
-   * Sets the value of the '{@link com.project.foo.foo.Binding#getMG <em>MG</em>}' containment reference.
+   * Sets the value of the '{@link com.project.foo.foo.Binding#getBindingRequiered <em>Binding Requiered</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>MG</em>' containment reference.
-   * @see #getMG()
+   * @param value the new value of the '<em>Binding Requiered</em>' containment reference.
+   * @see #getBindingRequiered()
    * @generated
    */
-  void setMG(BindingRequiered value);
+  void setBindingRequiered(BindingRequiered value);
 
   /**
-   * Returns the value of the '<em><b>MD</b></em>' containment reference.
+   * Returns the value of the '<em><b>Binding Provided</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>MD</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Binding Provided</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>MD</em>' containment reference.
-   * @see #setMD(BindingProvided)
-   * @see com.project.foo.foo.FooPackage#getBinding_MD()
+   * @return the value of the '<em>Binding Provided</em>' containment reference.
+   * @see #setBindingProvided(BindingProvided)
+   * @see com.project.foo.foo.FooPackage#getBinding_BindingProvided()
    * @model containment="true"
    * @generated
    */
-  BindingProvided getMD();
+  BindingProvided getBindingProvided();
 
   /**
-   * Sets the value of the '{@link com.project.foo.foo.Binding#getMD <em>MD</em>}' containment reference.
+   * Sets the value of the '{@link com.project.foo.foo.Binding#getBindingProvided <em>Binding Provided</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>MD</em>' containment reference.
-   * @see #getMD()
+   * @param value the new value of the '<em>Binding Provided</em>' containment reference.
+   * @see #getBindingProvided()
    * @generated
    */
-  void setMD(BindingProvided value);
+  void setBindingProvided(BindingProvided value);
 
 } // Binding

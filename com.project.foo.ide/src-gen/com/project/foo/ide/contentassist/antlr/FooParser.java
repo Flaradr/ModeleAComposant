@@ -37,7 +37,6 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
 					put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup(), "rule__QualifiedNameWithWildcard__Group__0");
 					put(grammarAccess.getAssemblyAccess().getGroup(), "rule__Assembly__Group__0");
-					put(grammarAccess.getAssemblyAccess().getGroup_8(), "rule__Assembly__Group_8__0");
 					put(grammarAccess.getComponentInstanceAccess().getGroup(), "rule__ComponentInstance__Group__0");
 					put(grammarAccess.getBindingAccess().getGroup(), "rule__Binding__Group__0");
 					put(grammarAccess.getBindingRequieredAccess().getGroup(), "rule__BindingRequiered__Group__0");
@@ -65,12 +64,11 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAssemblyAccess().getNameAssignment_2(), "rule__Assembly__NameAssignment_2");
 					put(grammarAccess.getAssemblyAccess().getAttributesAssignment_5(), "rule__Assembly__AttributesAssignment_5");
 					put(grammarAccess.getAssemblyAccess().getAttributesAssignment_6(), "rule__Assembly__AttributesAssignment_6");
-					put(grammarAccess.getAssemblyAccess().getBindingsRequieredAssignment_8_0(), "rule__Assembly__BindingsRequieredAssignment_8_0");
-					put(grammarAccess.getAssemblyAccess().getBindingsProvidedAssignment_8_2(), "rule__Assembly__BindingsProvidedAssignment_8_2");
+					put(grammarAccess.getAssemblyAccess().getBindingsAssignment_8(), "rule__Assembly__BindingsAssignment_8");
 					put(grammarAccess.getComponentInstanceAccess().getNameAssignment_0(), "rule__ComponentInstance__NameAssignment_0");
 					put(grammarAccess.getComponentInstanceAccess().getComponentAssignment_2(), "rule__ComponentInstance__ComponentAssignment_2");
-					put(grammarAccess.getBindingAccess().getMGAssignment_0(), "rule__Binding__MGAssignment_0");
-					put(grammarAccess.getBindingAccess().getMDAssignment_2(), "rule__Binding__MDAssignment_2");
+					put(grammarAccess.getBindingAccess().getBindingRequieredAssignment_0(), "rule__Binding__BindingRequieredAssignment_0");
+					put(grammarAccess.getBindingAccess().getBindingProvidedAssignment_2(), "rule__Binding__BindingProvidedAssignment_2");
 					put(grammarAccess.getBindingRequieredAccess().getNameAssignment_0(), "rule__BindingRequiered__NameAssignment_0");
 					put(grammarAccess.getBindingRequieredAccess().getServiceAssignment_2(), "rule__BindingRequiered__ServiceAssignment_2");
 					put(grammarAccess.getBindingProvidedAccess().getNameAssignment_0(), "rule__BindingProvided__NameAssignment_0");

@@ -197,22 +197,13 @@ public interface FooPackage extends EPackage
   int ASSEMBLY__ATTRIBUTES = 1;
 
   /**
-   * The feature id for the '<em><b>Bindings Requiered</b></em>' containment reference list.
+   * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSEMBLY__BINDINGS_REQUIERED = 2;
-
-  /**
-   * The feature id for the '<em><b>Bindings Provided</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ASSEMBLY__BINDINGS_PROVIDED = 3;
+  int ASSEMBLY__BINDINGS = 2;
 
   /**
    * The number of structural features of the '<em>Assembly</em>' class.
@@ -221,7 +212,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSEMBLY_FEATURE_COUNT = 4;
+  int ASSEMBLY_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.project.foo.foo.impl.ComponentInstanceImpl <em>Component Instance</em>}' class.
@@ -271,22 +262,22 @@ public interface FooPackage extends EPackage
   int BINDING = 5;
 
   /**
-   * The feature id for the '<em><b>MG</b></em>' containment reference.
+   * The feature id for the '<em><b>Binding Requiered</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING__MG = 0;
+  int BINDING__BINDING_REQUIERED = 0;
 
   /**
-   * The feature id for the '<em><b>MD</b></em>' containment reference.
+   * The feature id for the '<em><b>Binding Provided</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING__MD = 1;
+  int BINDING__BINDING_PROVIDED = 1;
 
   /**
    * The number of structural features of the '<em>Binding</em>' class.
@@ -862,26 +853,15 @@ public interface FooPackage extends EPackage
   EReference getAssembly_Attributes();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Assembly#getBindingsRequiered <em>Bindings Requiered</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Assembly#getBindings <em>Bindings</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Bindings Requiered</em>'.
-   * @see com.project.foo.foo.Assembly#getBindingsRequiered()
+   * @return the meta object for the containment reference list '<em>Bindings</em>'.
+   * @see com.project.foo.foo.Assembly#getBindings()
    * @see #getAssembly()
    * @generated
    */
-  EReference getAssembly_BindingsRequiered();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Assembly#getBindingsProvided <em>Bindings Provided</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Bindings Provided</em>'.
-   * @see com.project.foo.foo.Assembly#getBindingsProvided()
-   * @see #getAssembly()
-   * @generated
-   */
-  EReference getAssembly_BindingsProvided();
+  EReference getAssembly_Bindings();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.ComponentInstance <em>Component Instance</em>}'.
@@ -926,26 +906,26 @@ public interface FooPackage extends EPackage
   EClass getBinding();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.project.foo.foo.Binding#getMG <em>MG</em>}'.
+   * Returns the meta object for the containment reference '{@link com.project.foo.foo.Binding#getBindingRequiered <em>Binding Requiered</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>MG</em>'.
-   * @see com.project.foo.foo.Binding#getMG()
+   * @return the meta object for the containment reference '<em>Binding Requiered</em>'.
+   * @see com.project.foo.foo.Binding#getBindingRequiered()
    * @see #getBinding()
    * @generated
    */
-  EReference getBinding_MG();
+  EReference getBinding_BindingRequiered();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.project.foo.foo.Binding#getMD <em>MD</em>}'.
+   * Returns the meta object for the containment reference '{@link com.project.foo.foo.Binding#getBindingProvided <em>Binding Provided</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>MD</em>'.
-   * @see com.project.foo.foo.Binding#getMD()
+   * @return the meta object for the containment reference '<em>Binding Provided</em>'.
+   * @see com.project.foo.foo.Binding#getBindingProvided()
    * @see #getBinding()
    * @generated
    */
-  EReference getBinding_MD();
+  EReference getBinding_BindingProvided();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.BindingRequiered <em>Binding Requiered</em>}'.
@@ -1448,20 +1428,12 @@ public interface FooPackage extends EPackage
     EReference ASSEMBLY__ATTRIBUTES = eINSTANCE.getAssembly_Attributes();
 
     /**
-     * The meta object literal for the '<em><b>Bindings Requiered</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Bindings</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ASSEMBLY__BINDINGS_REQUIERED = eINSTANCE.getAssembly_BindingsRequiered();
-
-    /**
-     * The meta object literal for the '<em><b>Bindings Provided</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ASSEMBLY__BINDINGS_PROVIDED = eINSTANCE.getAssembly_BindingsProvided();
+    EReference ASSEMBLY__BINDINGS = eINSTANCE.getAssembly_Bindings();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.ComponentInstanceImpl <em>Component Instance</em>}' class.
@@ -1500,20 +1472,20 @@ public interface FooPackage extends EPackage
     EClass BINDING = eINSTANCE.getBinding();
 
     /**
-     * The meta object literal for the '<em><b>MG</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Binding Requiered</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINDING__MG = eINSTANCE.getBinding_MG();
+    EReference BINDING__BINDING_REQUIERED = eINSTANCE.getBinding_BindingRequiered();
 
     /**
-     * The meta object literal for the '<em><b>MD</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Binding Provided</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINDING__MD = eINSTANCE.getBinding_MD();
+    EReference BINDING__BINDING_PROVIDED = eINSTANCE.getBinding_BindingProvided();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.BindingRequieredImpl <em>Binding Requiered</em>}' class.

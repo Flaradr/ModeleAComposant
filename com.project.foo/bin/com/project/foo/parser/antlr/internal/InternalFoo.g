@@ -418,51 +418,26 @@ ruleAssembly returns [EObject current=null]
 		}
 		(
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAssemblyAccess().getBindingsRequieredBindingRequieredParserRuleCall_8_0_0());
+				{
+					newCompositeNode(grammarAccess.getAssemblyAccess().getBindingsBindingParserRuleCall_8_0());
+				}
+				lv_bindings_8_0=ruleBinding
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAssemblyRule());
 					}
-					lv_bindingsRequiered_8_0=ruleBindingRequiered
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAssemblyRule());
-						}
-						add(
-							$current,
-							"bindingsRequiered",
-							lv_bindingsRequiered_8_0,
-							"com.project.foo.Foo.BindingRequiered");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			otherlv_9='-'
-			{
-				newLeafNode(otherlv_9, grammarAccess.getAssemblyAccess().getHyphenMinusKeyword_8_1());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getAssemblyAccess().getBindingsProvidedBindingProvidedParserRuleCall_8_2_0());
-					}
-					lv_bindingsProvided_10_0=ruleBindingProvided
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getAssemblyRule());
-						}
-						add(
-							$current,
-							"bindingsProvided",
-							lv_bindingsProvided_10_0,
-							"com.project.foo.Foo.BindingProvided");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					add(
+						$current,
+						"bindings",
+						lv_bindings_8_0,
+						"com.project.foo.Foo.Binding");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)*
-		otherlv_11='}'
+		otherlv_9='}'
 		{
-			newLeafNode(otherlv_11, grammarAccess.getAssemblyAccess().getRightCurlyBracketKeyword_9());
+			newLeafNode(otherlv_9, grammarAccess.getAssemblyAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;
@@ -517,6 +492,67 @@ ruleComponentInstance returns [EObject current=null]
 				}
 				ruleQualifiedName
 				{
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleBinding
+entryRuleBinding returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getBindingRule()); }
+	iv_ruleBinding=ruleBinding
+	{ $current=$iv_ruleBinding.current; }
+	EOF;
+
+// Rule Binding
+ruleBinding returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getBindingAccess().getBindingRequieredBindingRequieredParserRuleCall_0_0());
+				}
+				lv_bindingRequiered_0_0=ruleBindingRequiered
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getBindingRule());
+					}
+					set(
+						$current,
+						"bindingRequiered",
+						lv_bindingRequiered_0_0,
+						"com.project.foo.Foo.BindingRequiered");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_1='-'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getBindingAccess().getHyphenMinusKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getBindingAccess().getBindingProvidedBindingProvidedParserRuleCall_2_0());
+				}
+				lv_bindingProvided_2_0=ruleBindingProvided
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getBindingRule());
+					}
+					set(
+						$current,
+						"bindingProvided",
+						lv_bindingProvided_2_0,
+						"com.project.foo.Foo.BindingProvided");
 					afterParserOrEnumRuleCall();
 				}
 			)

@@ -353,19 +353,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAssembly_BindingsRequiered()
+  public EReference getAssembly_Bindings()
   {
     return (EReference)assemblyEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getAssembly_BindingsProvided()
-  {
-    return (EReference)assemblyEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -413,7 +403,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBinding_MG()
+  public EReference getBinding_BindingRequiered()
   {
     return (EReference)bindingEClass.getEStructuralFeatures().get(0);
   }
@@ -423,7 +413,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBinding_MD()
+  public EReference getBinding_BindingProvided()
   {
     return (EReference)bindingEClass.getEStructuralFeatures().get(1);
   }
@@ -823,16 +813,15 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     assemblyEClass = createEClass(ASSEMBLY);
     createEAttribute(assemblyEClass, ASSEMBLY__NAME);
     createEReference(assemblyEClass, ASSEMBLY__ATTRIBUTES);
-    createEReference(assemblyEClass, ASSEMBLY__BINDINGS_REQUIERED);
-    createEReference(assemblyEClass, ASSEMBLY__BINDINGS_PROVIDED);
+    createEReference(assemblyEClass, ASSEMBLY__BINDINGS);
 
     componentInstanceEClass = createEClass(COMPONENT_INSTANCE);
     createEAttribute(componentInstanceEClass, COMPONENT_INSTANCE__NAME);
     createEReference(componentInstanceEClass, COMPONENT_INSTANCE__COMPONENT);
 
     bindingEClass = createEClass(BINDING);
-    createEReference(bindingEClass, BINDING__MG);
-    createEReference(bindingEClass, BINDING__MD);
+    createEReference(bindingEClass, BINDING__BINDING_REQUIERED);
+    createEReference(bindingEClass, BINDING__BINDING_PROVIDED);
 
     bindingRequieredEClass = createEClass(BINDING_REQUIERED);
     createEReference(bindingRequieredEClass, BINDING_REQUIERED__NAME);
@@ -928,16 +917,15 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     initEClass(assemblyEClass, Assembly.class, "Assembly", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAssembly_Name(), ecorePackage.getEString(), "name", null, 0, 1, Assembly.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAssembly_Attributes(), this.getComponentInstance(), null, "attributes", null, 0, -1, Assembly.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAssembly_BindingsRequiered(), this.getBindingRequiered(), null, "bindingsRequiered", null, 0, -1, Assembly.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAssembly_BindingsProvided(), this.getBindingProvided(), null, "bindingsProvided", null, 0, -1, Assembly.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAssembly_Bindings(), this.getBinding(), null, "bindings", null, 0, -1, Assembly.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(componentInstanceEClass, ComponentInstance.class, "ComponentInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComponentInstance_Name(), ecorePackage.getEString(), "name", null, 0, 1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponentInstance_Component(), this.getComponent(), null, "component", null, 0, 1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bindingEClass, Binding.class, "Binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBinding_MG(), this.getBindingRequiered(), null, "mG", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBinding_MD(), this.getBindingProvided(), null, "mD", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBinding_BindingRequiered(), this.getBindingRequiered(), null, "bindingRequiered", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBinding_BindingProvided(), this.getBindingProvided(), null, "bindingProvided", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bindingRequieredEClass, BindingRequiered.class, "BindingRequiered", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBindingRequiered_Name(), this.getComponentInstance(), null, "name", null, 0, 1, BindingRequiered.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

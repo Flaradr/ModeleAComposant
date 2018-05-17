@@ -4,22 +4,20 @@
 package com.project.foo.validation
 
 import com.project.foo.foo.Assembly
-import com.project.foo.foo.Parameter
 import com.project.foo.foo.Binding
+import com.project.foo.foo.BindingProvided
+import com.project.foo.foo.BindingRequiered
 import com.project.foo.foo.Component
 import com.project.foo.foo.ComponentInstance
 import com.project.foo.foo.FooPackage
 import com.project.foo.foo.MProvidedService
 import com.project.foo.foo.MRequieredService
+import com.project.foo.foo.Parameter
 import com.project.foo.foo.ProvidedService
 import com.project.foo.foo.RequieredService
 import org.eclipse.emf.common.util.EList
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.validation.Check
-import com.project.foo.foo.BindingProvided
-import com.project.foo.foo.BindingRequiered
-import com.project.foo.foo.PSignature
-import com.project.foo.foo.RSignature
 
 /**
  * This class contains custom validation rules.
@@ -42,8 +40,6 @@ class FooValidator extends AbstractFooValidator {
 	public static val CHECK_BINDING_REQUIERED_CAN_USE_METHOD = "com.project.foo.foo.CheckBindingRequieredCanUseMethod"
 	public static val CHECK_BINDING_PROVIDED_CAN_USE_METHOD = "com.project.foo.foo.CheckBindingProvidedCanUseMethod"
 	
-	public static val CHECK_P_SERVICE_HAS_METHOD = "com.projetc.foo.foo.CheckProvidedServiceHasMethod"
-	public static val CHECK_R_SERVICE_HAS_METHOD = "com.project.foo.foo.CheckRequieredServiceHasMethod"
 	public static val CHECK_ASSEMBLY_IS_VALID = "com.project.foo.foo.CheckAssemblyIsValid"
 	public static val CHECK_IMPORT_IS_VALID = "com.project.foo.foo.CheckImportIsValid"
 
@@ -192,7 +188,6 @@ class FooValidator extends AbstractFooValidator {
 	 */ 
 	@Check
 	def void checkBindingProvidedCanUseMethod(BindingProvided bindingProvided){
-		//println("\nValue of bindingProvided.Service Name : " + bindingProvided.service.name)
 		val listOfComponent = (bindingProvided.name.eContainer as Assembly).attributes
 		var res = false
 		var i = 0
@@ -223,10 +218,10 @@ class FooValidator extends AbstractFooValidator {
 	 */
 	@Check
 	def void checkBindingIsValid(Binding binding){
-		val nomMethodG = binding.getMG().service
-		val nomMethodD = binding.getMD().service
-		val listOfRequieredServices = (binding.getMG().service.eContainer().eContainer() as Component).MReqServices
-		val listOfProvidedServices = (binding.getMD().service.eContainer().eContainer() as Component).MProvServices	
+		val nomMethodG = binding.bindingRequiered.service
+		val nomMethodD = binding.bindingProvided.service
+		val listOfRequieredServices = (binding.bindingRequiered.service.eContainer().eContainer() as Component).MReqServices
+		val listOfProvidedServices = (binding.bindingProvided.service.eContainer().eContainer() as Component).MProvServices	
 		
 	
 		var String valRetMReq = ""
@@ -246,10 +241,17 @@ class FooValidator extends AbstractFooValidator {
 				signatureOfProvidedMethod = foo.signature.parameters
 			}
 		}
-
+		
+		/* 	
+	 	println("Value of valRetMReq = " + valRetMReq)
+		println("Value of valRetMProv = " + valRetMProv)
+		println("Value of signatureofRequieredMethod : " + signatureofRequieredMethod)
+		println("Value of signatureOfProvidedMethod : " + signatureOfProvidedMethod)
+		*/
+		
 		if (!valRetMReq.equals(valRetMProv)){
 			error("Return type of the provided service do not match the return type of the requiered service",
-				  FooPackage.Literals.BINDING__MD,
+				  FooPackage.Literals.BINDING__BINDING_PROVIDED,
 				  CHECK_BINDING_IS_VALID)
 		}
 
@@ -265,7 +267,7 @@ class FooValidator extends AbstractFooValidator {
 	def signatureEquals(EList<Parameter> signature1, EList<Parameter> signature2){
 		if(!(signature1.size() == signature2.size())){
 			error("Number of parameters between the requiered service and the provided service do not match",
-				  FooPackage.Literals.BINDING__MD,
+				  FooPackage.Literals.BINDING__BINDING_REQUIERED,
 				  CHECK_BINDING_IS_VALID)
 			return
 		}
@@ -274,7 +276,7 @@ class FooValidator extends AbstractFooValidator {
 		while (i < signature1.size() && res){
 			if(!(signature1.get(i).type.equals(signature2.get(i).type))){
 				error("The type of the parameters of the requiered service and the provided service do not match",
-					  FooPackage.Literals.BINDING__MD,
+					  FooPackage.Literals.BINDING__BINDING_PROVIDED,
 					  CHECK_BINDING_IS_VALID)
 			}
 			i++
@@ -290,25 +292,35 @@ class FooValidator extends AbstractFooValidator {
 	@Check
 	def void checkAssemblyIsCorrect(Assembly assembly){
 		var listeComposants = assembly.attributes
-		for (ComponentInstance component : listeComposants){
-		//Recupere liste des composants dans l'assemblage
+		println("\nValue of listeComposants : " + listeComposants)
+		for (ComponentInstance component : listeComposants){//Recupere liste des composants dans l'assemblage
 			var listeServicesRequis = (component.component as Component).listOfRServices.requieredServices
-			for(RequieredService service : listeServicesRequis){
-			//Liste des services requis dans un composant
-				var listeBindings = assembly.bindingsRequiered
+			println("\t(Composant : "+ component.name + ") Value of listeServicesRequis : " + listeServicesRequis)
+			
+			for(RequieredService service : listeServicesRequis){//Liste des services requis dans un composant
+				var listeBindings = assembly.bindings
+				println("\t\tValue of listeBindings : " + listeBindings)
+				
 			 	if(listeBindings.isEmpty() && !listeServicesRequis.isEmpty()){
 					error("The assembly is not correct, there are missing bindings",
 						  FooPackage.Literals.ASSEMBLY__NAME,
 						  CHECK_ASSEMBLY_IS_VALID)
 					return
 				}
-				for(BindingRequiered bindingRequiered : listeBindings){
-				//Liste des bindings dans l'assemblage
+				
+				for(Binding binding : listeBindings){//Liste des bindings dans l'assemblage
+					println("\t\t\tValue of binding : " + binding.bindingRequiered.name.name +"." + binding.bindingRequiered.service.name + "-" +
+														  binding.bindingProvided.name.name + "." + binding.bindingProvided.service.name)
 					var int i = 0
 					var boolean isPresent = false
 					while (i < listeBindings.size() && !isPresent){
-						if(service.name.name.equals(listeBindings.get(i).service.name) && //Comparaison de la méthode requise par l'instance du composant en cours et celle du binding
-							component.name.equals(listeBindings.get(i).name.name)
+						println("\t\t\t\tTEST isPRESENT")
+						println("\t\t\t\tservice.name : " + service.name.name)
+						println("\t\t\t\tisteBindings.get(i).bindingRequiered.service.name : " + listeBindings.get(i).bindingRequiered.service.name)
+						println("\t\t\t\tcomponent.name : " + component.name)
+						println("\t\t\t\tlisteBindings.get(i).bindingRequiered.name.name : " + listeBindings.get(i).bindingRequiered.name.name)
+						if(service.name.name.equals(listeBindings.get(i).bindingRequiered.service.name) && //Comparaison de la méthode requise par l'instance du composant en cours et celle du binding
+							component.name.equals(listeBindings.get(i).bindingRequiered.name.name)
 						){
 							isPresent = true
 						}

@@ -25,8 +25,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.project.foo.foo.impl.BindingImpl#getMG <em>MG</em>}</li>
- *   <li>{@link com.project.foo.foo.impl.BindingImpl#getMD <em>MD</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.BindingImpl#getBindingRequiered <em>Binding Requiered</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.BindingImpl#getBindingProvided <em>Binding Provided</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,24 +34,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
 {
   /**
-   * The cached value of the '{@link #getMG() <em>MG</em>}' containment reference.
+   * The cached value of the '{@link #getBindingRequiered() <em>Binding Requiered</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMG()
+   * @see #getBindingRequiered()
    * @generated
    * @ordered
    */
-  protected BindingRequiered mG;
+  protected BindingRequiered bindingRequiered;
 
   /**
-   * The cached value of the '{@link #getMD() <em>MD</em>}' containment reference.
+   * The cached value of the '{@link #getBindingProvided() <em>Binding Provided</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMD()
+   * @see #getBindingProvided()
    * @generated
    * @ordered
    */
-  protected BindingProvided mD;
+  protected BindingProvided bindingProvided;
 
   /**
    * <!-- begin-user-doc -->
@@ -79,9 +79,9 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
-  public BindingRequiered getMG()
+  public BindingRequiered getBindingRequiered()
   {
-    return mG;
+    return bindingRequiered;
   }
 
   /**
@@ -89,13 +89,13 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetMG(BindingRequiered newMG, NotificationChain msgs)
+  public NotificationChain basicSetBindingRequiered(BindingRequiered newBindingRequiered, NotificationChain msgs)
   {
-    BindingRequiered oldMG = mG;
-    mG = newMG;
+    BindingRequiered oldBindingRequiered = bindingRequiered;
+    bindingRequiered = newBindingRequiered;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FooPackage.BINDING__MG, oldMG, newMG);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FooPackage.BINDING__BINDING_REQUIERED, oldBindingRequiered, newBindingRequiered);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -106,20 +106,20 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMG(BindingRequiered newMG)
+  public void setBindingRequiered(BindingRequiered newBindingRequiered)
   {
-    if (newMG != mG)
+    if (newBindingRequiered != bindingRequiered)
     {
       NotificationChain msgs = null;
-      if (mG != null)
-        msgs = ((InternalEObject)mG).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FooPackage.BINDING__MG, null, msgs);
-      if (newMG != null)
-        msgs = ((InternalEObject)newMG).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FooPackage.BINDING__MG, null, msgs);
-      msgs = basicSetMG(newMG, msgs);
+      if (bindingRequiered != null)
+        msgs = ((InternalEObject)bindingRequiered).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FooPackage.BINDING__BINDING_REQUIERED, null, msgs);
+      if (newBindingRequiered != null)
+        msgs = ((InternalEObject)newBindingRequiered).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FooPackage.BINDING__BINDING_REQUIERED, null, msgs);
+      msgs = basicSetBindingRequiered(newBindingRequiered, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING__MG, newMG, newMG));
+      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING__BINDING_REQUIERED, newBindingRequiered, newBindingRequiered));
   }
 
   /**
@@ -127,9 +127,9 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
-  public BindingProvided getMD()
+  public BindingProvided getBindingProvided()
   {
-    return mD;
+    return bindingProvided;
   }
 
   /**
@@ -137,13 +137,13 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetMD(BindingProvided newMD, NotificationChain msgs)
+  public NotificationChain basicSetBindingProvided(BindingProvided newBindingProvided, NotificationChain msgs)
   {
-    BindingProvided oldMD = mD;
-    mD = newMD;
+    BindingProvided oldBindingProvided = bindingProvided;
+    bindingProvided = newBindingProvided;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FooPackage.BINDING__MD, oldMD, newMD);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FooPackage.BINDING__BINDING_PROVIDED, oldBindingProvided, newBindingProvided);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -154,20 +154,20 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMD(BindingProvided newMD)
+  public void setBindingProvided(BindingProvided newBindingProvided)
   {
-    if (newMD != mD)
+    if (newBindingProvided != bindingProvided)
     {
       NotificationChain msgs = null;
-      if (mD != null)
-        msgs = ((InternalEObject)mD).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FooPackage.BINDING__MD, null, msgs);
-      if (newMD != null)
-        msgs = ((InternalEObject)newMD).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FooPackage.BINDING__MD, null, msgs);
-      msgs = basicSetMD(newMD, msgs);
+      if (bindingProvided != null)
+        msgs = ((InternalEObject)bindingProvided).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FooPackage.BINDING__BINDING_PROVIDED, null, msgs);
+      if (newBindingProvided != null)
+        msgs = ((InternalEObject)newBindingProvided).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FooPackage.BINDING__BINDING_PROVIDED, null, msgs);
+      msgs = basicSetBindingProvided(newBindingProvided, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING__MD, newMD, newMD));
+      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.BINDING__BINDING_PROVIDED, newBindingProvided, newBindingProvided));
   }
 
   /**
@@ -180,10 +180,10 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
   {
     switch (featureID)
     {
-      case FooPackage.BINDING__MG:
-        return basicSetMG(null, msgs);
-      case FooPackage.BINDING__MD:
-        return basicSetMD(null, msgs);
+      case FooPackage.BINDING__BINDING_REQUIERED:
+        return basicSetBindingRequiered(null, msgs);
+      case FooPackage.BINDING__BINDING_PROVIDED:
+        return basicSetBindingProvided(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -198,10 +198,10 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
   {
     switch (featureID)
     {
-      case FooPackage.BINDING__MG:
-        return getMG();
-      case FooPackage.BINDING__MD:
-        return getMD();
+      case FooPackage.BINDING__BINDING_REQUIERED:
+        return getBindingRequiered();
+      case FooPackage.BINDING__BINDING_PROVIDED:
+        return getBindingProvided();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -216,11 +216,11 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
   {
     switch (featureID)
     {
-      case FooPackage.BINDING__MG:
-        setMG((BindingRequiered)newValue);
+      case FooPackage.BINDING__BINDING_REQUIERED:
+        setBindingRequiered((BindingRequiered)newValue);
         return;
-      case FooPackage.BINDING__MD:
-        setMD((BindingProvided)newValue);
+      case FooPackage.BINDING__BINDING_PROVIDED:
+        setBindingProvided((BindingProvided)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -236,11 +236,11 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
   {
     switch (featureID)
     {
-      case FooPackage.BINDING__MG:
-        setMG((BindingRequiered)null);
+      case FooPackage.BINDING__BINDING_REQUIERED:
+        setBindingRequiered((BindingRequiered)null);
         return;
-      case FooPackage.BINDING__MD:
-        setMD((BindingProvided)null);
+      case FooPackage.BINDING__BINDING_PROVIDED:
+        setBindingProvided((BindingProvided)null);
         return;
     }
     super.eUnset(featureID);
@@ -256,10 +256,10 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
   {
     switch (featureID)
     {
-      case FooPackage.BINDING__MG:
-        return mG != null;
-      case FooPackage.BINDING__MD:
-        return mD != null;
+      case FooPackage.BINDING__BINDING_REQUIERED:
+        return bindingRequiered != null;
+      case FooPackage.BINDING__BINDING_PROVIDED:
+        return bindingProvided != null;
     }
     return super.eIsSet(featureID);
   }
