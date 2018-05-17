@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.project.foo.foo.impl.ModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ModelImpl#getImports <em>Imports</em>}</li>
- *   <li>{@link com.project.foo.foo.impl.ModelImpl#getComponent <em>Component</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.ModelImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ModelImpl#getAssembly <em>Assembly</em>}</li>
  * </ul>
  *
@@ -74,14 +74,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EList<Import> imports;
 
   /**
-   * The cached value of the '{@link #getComponent() <em>Component</em>}' containment reference list.
+   * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getComponent()
+   * @see #getComponents()
    * @generated
    * @ordered
    */
-  protected EList<Component> component;
+  protected EList<Component> components;
 
   /**
    * The cached value of the '{@link #getAssembly() <em>Assembly</em>}' containment reference list.
@@ -156,13 +156,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Component> getComponent()
+  public EList<Component> getComponents()
   {
-    if (component == null)
+    if (components == null)
     {
-      component = new EObjectContainmentEList<Component>(Component.class, this, FooPackage.MODEL__COMPONENT);
+      components = new EObjectContainmentEList<Component>(Component.class, this, FooPackage.MODEL__COMPONENTS);
     }
-    return component;
+    return components;
   }
 
   /**
@@ -191,8 +191,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case FooPackage.MODEL__IMPORTS:
         return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
-      case FooPackage.MODEL__COMPONENT:
-        return ((InternalEList<?>)getComponent()).basicRemove(otherEnd, msgs);
+      case FooPackage.MODEL__COMPONENTS:
+        return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
       case FooPackage.MODEL__ASSEMBLY:
         return ((InternalEList<?>)getAssembly()).basicRemove(otherEnd, msgs);
     }
@@ -213,8 +213,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getName();
       case FooPackage.MODEL__IMPORTS:
         return getImports();
-      case FooPackage.MODEL__COMPONENT:
-        return getComponent();
+      case FooPackage.MODEL__COMPONENTS:
+        return getComponents();
       case FooPackage.MODEL__ASSEMBLY:
         return getAssembly();
     }
@@ -239,9 +239,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         getImports().clear();
         getImports().addAll((Collection<? extends Import>)newValue);
         return;
-      case FooPackage.MODEL__COMPONENT:
-        getComponent().clear();
-        getComponent().addAll((Collection<? extends Component>)newValue);
+      case FooPackage.MODEL__COMPONENTS:
+        getComponents().clear();
+        getComponents().addAll((Collection<? extends Component>)newValue);
         return;
       case FooPackage.MODEL__ASSEMBLY:
         getAssembly().clear();
@@ -267,8 +267,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case FooPackage.MODEL__IMPORTS:
         getImports().clear();
         return;
-      case FooPackage.MODEL__COMPONENT:
-        getComponent().clear();
+      case FooPackage.MODEL__COMPONENTS:
+        getComponents().clear();
         return;
       case FooPackage.MODEL__ASSEMBLY:
         getAssembly().clear();
@@ -291,8 +291,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case FooPackage.MODEL__IMPORTS:
         return imports != null && !imports.isEmpty();
-      case FooPackage.MODEL__COMPONENT:
-        return component != null && !component.isEmpty();
+      case FooPackage.MODEL__COMPONENTS:
+        return components != null && !components.isEmpty();
       case FooPackage.MODEL__ASSEMBLY:
         return assembly != null && !assembly.isEmpty();
     }

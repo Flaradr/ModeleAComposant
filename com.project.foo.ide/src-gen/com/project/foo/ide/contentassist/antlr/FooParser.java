@@ -37,6 +37,7 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
 					put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup(), "rule__QualifiedNameWithWildcard__Group__0");
 					put(grammarAccess.getAssemblyAccess().getGroup(), "rule__Assembly__Group__0");
+					put(grammarAccess.getAssemblyAccess().getGroup_8(), "rule__Assembly__Group_8__0");
 					put(grammarAccess.getComponentInstanceAccess().getGroup(), "rule__ComponentInstance__Group__0");
 					put(grammarAccess.getBindingAccess().getGroup(), "rule__Binding__Group__0");
 					put(grammarAccess.getBindingRequieredAccess().getGroup(), "rule__BindingRequiered__Group__0");
@@ -58,13 +59,14 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDomainModelAccess().getModelAssignment(), "rule__DomainModel__ModelAssignment");
 					put(grammarAccess.getModelAccess().getNameAssignment_1(), "rule__Model__NameAssignment_1");
 					put(grammarAccess.getModelAccess().getImportsAssignment_3(), "rule__Model__ImportsAssignment_3");
-					put(grammarAccess.getModelAccess().getComponentAssignment_4(), "rule__Model__ComponentAssignment_4");
+					put(grammarAccess.getModelAccess().getComponentsAssignment_4(), "rule__Model__ComponentsAssignment_4");
 					put(grammarAccess.getModelAccess().getAssemblyAssignment_5(), "rule__Model__AssemblyAssignment_5");
 					put(grammarAccess.getImportAccess().getImportedNamespaceAssignment_1(), "rule__Import__ImportedNamespaceAssignment_1");
 					put(grammarAccess.getAssemblyAccess().getNameAssignment_2(), "rule__Assembly__NameAssignment_2");
 					put(grammarAccess.getAssemblyAccess().getAttributesAssignment_5(), "rule__Assembly__AttributesAssignment_5");
 					put(grammarAccess.getAssemblyAccess().getAttributesAssignment_6(), "rule__Assembly__AttributesAssignment_6");
-					put(grammarAccess.getAssemblyAccess().getBindingsAssignment_8(), "rule__Assembly__BindingsAssignment_8");
+					put(grammarAccess.getAssemblyAccess().getBindingsRequieredAssignment_8_0(), "rule__Assembly__BindingsRequieredAssignment_8_0");
+					put(grammarAccess.getAssemblyAccess().getBindingsProvidedAssignment_8_2(), "rule__Assembly__BindingsProvidedAssignment_8_2");
 					put(grammarAccess.getComponentInstanceAccess().getNameAssignment_0(), "rule__ComponentInstance__NameAssignment_0");
 					put(grammarAccess.getComponentInstanceAccess().getComponentAssignment_2(), "rule__ComponentInstance__ComponentAssignment_2");
 					put(grammarAccess.getBindingAccess().getMGAssignment_0(), "rule__Binding__MGAssignment_0");

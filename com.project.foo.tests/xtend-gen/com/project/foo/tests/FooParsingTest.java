@@ -78,7 +78,7 @@ public class FooParsingTest {
       final DomainModel input = this._parseHelper.parse(FooParsingTest.validComponent);
       Assert.assertNotNull(input);
       final EList<Resource.Diagnostic> errors = input.eResource().getErrors();
-      final Component component = input.getModel().get(0).getComponent().get(0);
+      final Component component = input.getModel().getComponents().get(0);
       Assert.assertEquals("A", component.getName());
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Unexpected errors: ");

@@ -3,78 +3,49 @@
  */
 package com.project.foo.scoping;
 
-import com.google.common.base.Objects;
-import com.project.foo.foo.BindingProvided;
-import com.project.foo.foo.BindingRequiered;
-import com.project.foo.foo.FooPackage;
-import com.project.foo.foo.Import;
-import com.project.foo.foo.PSignature;
-import com.project.foo.foo.RSignature;
+import com.project.foo.foo.Model;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.xtext.EcoreUtil2;
-import org.eclipse.xtext.scoping.IScope;
-import org.eclipse.xtext.scoping.Scopes;
+import org.eclipse.xtext.naming.IQualifiedNameConverter;
+import org.eclipse.xtext.scoping.impl.ImportNormalizer;
 import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 
 /**
- * class FooScopeProvider extends AbstractFooScopeProvider {
- * @Inject
- * private IQualifiedNameProvider qualifiedNameProvider;
+ * This class contains custom scoping description.
  * 
- * override IScope getScope(EObject context, EReference reference){
- * 
- * if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__NAME){
- * val rootElement = EcoreUtil2.getRootContainer(context)
- * val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentInstance)
- * return Scopes.scopeFor(candidates)
- * }
- * if (context instanceof BindingRequiered && reference == FooPackage.Literals.BINDING_REQUIERED__SERVICE){
- * val rootElement = EcoreUtil2.getRootContainer(context)
- * val candidates = EcoreUtil2.getAllContentsOfType(rootElement,RequieredService)
- * return Scopes.scopeFor(candidates)
- * }
- * 
- * if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__NAME){
- * val rootElement = EcoreUtil2.getRootContainer(context)
- * val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ComponentInstance)
- * return Scopes.scopeFor(candidates)
- * }
- * if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__SERVICE){
- * val rootElement = EcoreUtil2.getRootContainer(context)
- * val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ProvidedService)
- * return Scopes.scopeFor(candidates)
- * }
- * 
- * return super.getScope(context, reference);
- * }
- * 
- * }
+ * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
+ * on how and when to use it.
  */
 @SuppressWarnings("all")
 public class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
+  /**
+   * Permet d'auto importer le paquet auquel le modele en cours d'analyse appartient
+   */
   @Override
-  public IScope getScope(final EObject context, final EReference reference) {
-    if (((context instanceof BindingRequiered) && Objects.equal(reference, FooPackage.Literals.BINDING_REQUIERED__SERVICE))) {
-      final EObject rootElement = EcoreUtil2.getRootContainer(context);
-      final List<RSignature> candidates = EcoreUtil2.<RSignature>getAllContentsOfType(rootElement, RSignature.class);
-      return Scopes.scopeFor(candidates);
+  protected List<ImportNormalizer> getImportedNamespaceResolvers(final EObject context, final boolean ignorecase) {
+    List<ImportNormalizer> importedNamespaceResolvers = super.getImportedNamespaceResolvers(context, ignorecase);
+    if ((context instanceof Model)) {
+      Model model = ((Model) context);
+      String _name = model.getName();
+      String _plus = ("\nANALYSE MODELE : " + _name);
+      InputOutput.<String>println(_plus);
+      importedNamespaceResolvers.add(this.doCreateImportNormalizer(this.getQualifiedNameConverter().toQualifiedName(model.getName()), true, ignorecase));
+      for (int i = 0; (i < model.getComponents().size()); i++) {
+        IQualifiedNameConverter _qualifiedNameConverter = this.getQualifiedNameConverter();
+        String _name_1 = model.getName();
+        String _plus_1 = (_name_1 + ".");
+        String _name_2 = model.getComponents().get(i).getName();
+        String _plus_2 = (_plus_1 + _name_2);
+        importedNamespaceResolvers.add(this.doCreateImportNormalizer(_qualifiedNameConverter.toQualifiedName(_plus_2), true, ignorecase));
+      }
+      for (int j = 0; (j < model.getImports().size()); j++) {
+        {
+          InputOutput.<ImportNormalizer>println(this.doCreateImportNormalizer(this.getQualifiedNameConverter().toQualifiedName(model.getImports().get(j).getImportedNamespace()), true, ignorecase));
+          importedNamespaceResolvers.add(this.doCreateImportNormalizer(this.getQualifiedNameConverter().toQualifiedName(model.getImports().get(j).getImportedNamespace()), true, ignorecase));
+        }
+      }
     }
-    if (((context instanceof BindingProvided) && Objects.equal(reference, FooPackage.Literals.BINDING_PROVIDED__SERVICE))) {
-      final EObject rootElement_1 = EcoreUtil2.getRootContainer(context);
-      final List<PSignature> candidates_1 = EcoreUtil2.<PSignature>getAllContentsOfType(rootElement_1, PSignature.class);
-      return Scopes.scopeFor(candidates_1);
-    }
-    return super.getScope(context, reference);
-  }
-  
-  @Override
-  protected String getImportedNamespace(final EObject object) {
-    if ((object instanceof Import)) {
-      return ((Import) object).getImportedNamespace();
-    } else {
-      return super.getImportedNamespace(object);
-    }
+    return importedNamespaceResolvers;
   }
 }

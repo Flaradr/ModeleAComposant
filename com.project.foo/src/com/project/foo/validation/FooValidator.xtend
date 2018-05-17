@@ -295,24 +295,20 @@ class FooValidator extends AbstractFooValidator {
 			var listeServicesRequis = (component.component as Component).listOfRServices.requieredServices
 			for(RequieredService service : listeServicesRequis){
 			//Liste des services requis dans un composant
-				var listeBindings = assembly.bindings
+				var listeBindings = assembly.bindingsRequiered
 			 	if(listeBindings.isEmpty() && !listeServicesRequis.isEmpty()){
 					error("The assembly is not correct, there are missing bindings",
 						  FooPackage.Literals.ASSEMBLY__NAME,
 						  CHECK_ASSEMBLY_IS_VALID)
 					return
 				}
-				for(Binding binding : listeBindings){
+				for(BindingRequiered bindingRequiered : listeBindings){
 				//Liste des bindings dans l'assemblage
 					var int i = 0
 					var boolean isPresent = false
 					while (i < listeBindings.size() && !isPresent){
-						println("\n---------\nValue of service.name : " + service.name.name)
-						println("Value of listeBindings.get(i).MG.service.name : " + listeBindings.get(i).MG.service.name)
-						println("Value of component.name : " + component.name)
-						println("Value of listeBindings.get(i).MG.name.name : " + listeBindings.get(i).MG.name.name)
-						if(service.name.name.equals(listeBindings.get(i).MG.service.name) && //Comparaison de la méthode requise par l'instance du composant en cours et celle du binding
-							component.name.equals(listeBindings.get(i).MG.name.name)
+						if(service.name.name.equals(listeBindings.get(i).service.name) && //Comparaison de la méthode requise par l'instance du composant en cours et celle du binding
+							component.name.equals(listeBindings.get(i).name.name)
 						){
 							isPresent = true
 						}

@@ -4,7 +4,7 @@ generate foo "http://www.project.com/foo/Foo"
 
 //Concerne les modeles
 DomainModel:
-	(model+=Model)*;
+	model=Model;
 
 /*
  * Structure d'un modele, correspond
@@ -14,7 +14,7 @@ DomainModel:
 Model:
 	'package' name=QualifiedName '{'
 	(imports+=Import)*
-	(component+=Component)*
+	(components+=Component)*
 	(assembly+=Assembly)*
 	'}';
 
@@ -36,12 +36,12 @@ Assembly:
 	attributes+=ComponentInstance
 	(attributes+=ComponentInstance)+
 	'bindings'
-	(bindings+=Binding)*
+//	(bindings+=Binding)*
+	(bindingsRequiered += BindingRequiered '-' bindingsProvided += BindingProvided)*
 	'}';
 
 //Structure d'un composant
 ComponentInstance:
-//	name=QualifiedName ':' component=[Component|QualifiedName];
 	name=ID ':' component=[Component|QualifiedName];
 
 //Lien entre d'un service requis d'un composant X et d'un
@@ -51,13 +51,11 @@ Binding:
 
 //Instance du composant ayant besoin d'un service
 BindingRequiered:
-//	name=[ComponentInstance|QualifiedName]'->'service=[RequieredService|QualifiedName];
-	name=[ComponentInstance]"."service=[RSignature];
+	name=[ComponentInstance]"."service=[RSignature|QualifiedName];
 
 //Instance du composant fournissant un service
 BindingProvided:
-//	name=[ComponentInstance|QualifiedName]'->'service=[ProvidedService|QualifiedName];
-	name=[ComponentInstance]"."service=[PSignature];
+	name=[ComponentInstance]"."service=[PSignature|QualifiedName];
 
 //Structure d'un composant
 Component:
@@ -76,7 +74,6 @@ ListOfProvidedServices:
 	'}';
 
 ProvidedService:
-//	name=ID;
 	name=[PSignature];
 	
 //Liste des services requis par un composant X
@@ -87,7 +84,6 @@ ListOfRequieredServices:
 	'}';
 
 RequieredService:
-//	name=ID;
 	name=[RSignature];
 	
 //Signature d'un service fourni
@@ -96,7 +92,6 @@ MProvidedService:
 
 //Signature d'un service fourni
 PSignature:
-//	type=ID name=[ProvidedService]'('parameters+=Parameter?(','parameters+=Parameter)*')';
 	type=ID name=ID'('parameters+=Parameter?(','parameters+=Parameter)*')';
 
 MRequieredService:
@@ -104,7 +99,6 @@ MRequieredService:
 
 //Signature d'un service requis
 RSignature:
-//	type=ID name=[RequieredService]'('parameters+=Parameter?(','parameters+=Parameter)*')';
 	type=ID name=ID'('parameters+=Parameter?(','parameters+=Parameter)*')';
 
 //Parametre dans une signature 

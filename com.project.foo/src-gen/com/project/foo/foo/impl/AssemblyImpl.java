@@ -4,7 +4,8 @@
 package com.project.foo.foo.impl;
 
 import com.project.foo.foo.Assembly;
-import com.project.foo.foo.Binding;
+import com.project.foo.foo.BindingProvided;
+import com.project.foo.foo.BindingRequiered;
 import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.FooPackage;
 
@@ -34,7 +35,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.project.foo.foo.impl.AssemblyImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.AssemblyImpl#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link com.project.foo.foo.impl.AssemblyImpl#getBindings <em>Bindings</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.AssemblyImpl#getBindingsRequiered <em>Bindings Requiered</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.AssemblyImpl#getBindingsProvided <em>Bindings Provided</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,14 +74,24 @@ public class AssemblyImpl extends MinimalEObjectImpl.Container implements Assemb
   protected EList<ComponentInstance> attributes;
 
   /**
-   * The cached value of the '{@link #getBindings() <em>Bindings</em>}' containment reference list.
+   * The cached value of the '{@link #getBindingsRequiered() <em>Bindings Requiered</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBindings()
+   * @see #getBindingsRequiered()
    * @generated
    * @ordered
    */
-  protected EList<Binding> bindings;
+  protected EList<BindingRequiered> bindingsRequiered;
+
+  /**
+   * The cached value of the '{@link #getBindingsProvided() <em>Bindings Provided</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBindingsProvided()
+   * @generated
+   * @ordered
+   */
+  protected EList<BindingProvided> bindingsProvided;
 
   /**
    * <!-- begin-user-doc -->
@@ -144,13 +156,27 @@ public class AssemblyImpl extends MinimalEObjectImpl.Container implements Assemb
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Binding> getBindings()
+  public EList<BindingRequiered> getBindingsRequiered()
   {
-    if (bindings == null)
+    if (bindingsRequiered == null)
     {
-      bindings = new EObjectContainmentEList<Binding>(Binding.class, this, FooPackage.ASSEMBLY__BINDINGS);
+      bindingsRequiered = new EObjectContainmentEList<BindingRequiered>(BindingRequiered.class, this, FooPackage.ASSEMBLY__BINDINGS_REQUIERED);
     }
-    return bindings;
+    return bindingsRequiered;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<BindingProvided> getBindingsProvided()
+  {
+    if (bindingsProvided == null)
+    {
+      bindingsProvided = new EObjectContainmentEList<BindingProvided>(BindingProvided.class, this, FooPackage.ASSEMBLY__BINDINGS_PROVIDED);
+    }
+    return bindingsProvided;
   }
 
   /**
@@ -165,8 +191,10 @@ public class AssemblyImpl extends MinimalEObjectImpl.Container implements Assemb
     {
       case FooPackage.ASSEMBLY__ATTRIBUTES:
         return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
-      case FooPackage.ASSEMBLY__BINDINGS:
-        return ((InternalEList<?>)getBindings()).basicRemove(otherEnd, msgs);
+      case FooPackage.ASSEMBLY__BINDINGS_REQUIERED:
+        return ((InternalEList<?>)getBindingsRequiered()).basicRemove(otherEnd, msgs);
+      case FooPackage.ASSEMBLY__BINDINGS_PROVIDED:
+        return ((InternalEList<?>)getBindingsProvided()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -185,8 +213,10 @@ public class AssemblyImpl extends MinimalEObjectImpl.Container implements Assemb
         return getName();
       case FooPackage.ASSEMBLY__ATTRIBUTES:
         return getAttributes();
-      case FooPackage.ASSEMBLY__BINDINGS:
-        return getBindings();
+      case FooPackage.ASSEMBLY__BINDINGS_REQUIERED:
+        return getBindingsRequiered();
+      case FooPackage.ASSEMBLY__BINDINGS_PROVIDED:
+        return getBindingsProvided();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -209,9 +239,13 @@ public class AssemblyImpl extends MinimalEObjectImpl.Container implements Assemb
         getAttributes().clear();
         getAttributes().addAll((Collection<? extends ComponentInstance>)newValue);
         return;
-      case FooPackage.ASSEMBLY__BINDINGS:
-        getBindings().clear();
-        getBindings().addAll((Collection<? extends Binding>)newValue);
+      case FooPackage.ASSEMBLY__BINDINGS_REQUIERED:
+        getBindingsRequiered().clear();
+        getBindingsRequiered().addAll((Collection<? extends BindingRequiered>)newValue);
+        return;
+      case FooPackage.ASSEMBLY__BINDINGS_PROVIDED:
+        getBindingsProvided().clear();
+        getBindingsProvided().addAll((Collection<? extends BindingProvided>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -233,8 +267,11 @@ public class AssemblyImpl extends MinimalEObjectImpl.Container implements Assemb
       case FooPackage.ASSEMBLY__ATTRIBUTES:
         getAttributes().clear();
         return;
-      case FooPackage.ASSEMBLY__BINDINGS:
-        getBindings().clear();
+      case FooPackage.ASSEMBLY__BINDINGS_REQUIERED:
+        getBindingsRequiered().clear();
+        return;
+      case FooPackage.ASSEMBLY__BINDINGS_PROVIDED:
+        getBindingsProvided().clear();
         return;
     }
     super.eUnset(featureID);
@@ -254,8 +291,10 @@ public class AssemblyImpl extends MinimalEObjectImpl.Container implements Assemb
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case FooPackage.ASSEMBLY__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
-      case FooPackage.ASSEMBLY__BINDINGS:
-        return bindings != null && !bindings.isEmpty();
+      case FooPackage.ASSEMBLY__BINDINGS_REQUIERED:
+        return bindingsRequiered != null && !bindingsRequiered.isEmpty();
+      case FooPackage.ASSEMBLY__BINDINGS_PROVIDED:
+        return bindingsProvided != null && !bindingsProvided.isEmpty();
     }
     return super.eIsSet(featureID);
   }

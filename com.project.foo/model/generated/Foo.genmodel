@@ -12,7 +12,7 @@
     <genClasses ecoreClass="Foo.ecore#//Model">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//Model/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Model/imports"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Model/component"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Model/components"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Model/assembly"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//Import">
@@ -21,7 +21,8 @@
     <genClasses ecoreClass="Foo.ecore#//Assembly">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//Assembly/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Assembly/attributes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Assembly/bindings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Assembly/bindingsRequiered"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Assembly/bindingsProvided"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//ComponentInstance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//ComponentInstance/name"/>

@@ -68,7 +68,7 @@ public interface FooPackage extends EPackage
   int DOMAIN_MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Model</b></em>' containment reference list.
+   * The feature id for the '<em><b>Model</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -114,13 +114,13 @@ public interface FooPackage extends EPackage
   int MODEL__IMPORTS = 1;
 
   /**
-   * The feature id for the '<em><b>Component</b></em>' containment reference list.
+   * The feature id for the '<em><b>Components</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__COMPONENT = 2;
+  int MODEL__COMPONENTS = 2;
 
   /**
    * The feature id for the '<em><b>Assembly</b></em>' containment reference list.
@@ -197,13 +197,22 @@ public interface FooPackage extends EPackage
   int ASSEMBLY__ATTRIBUTES = 1;
 
   /**
-   * The feature id for the '<em><b>Bindings</b></em>' containment reference list.
+   * The feature id for the '<em><b>Bindings Requiered</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSEMBLY__BINDINGS = 2;
+  int ASSEMBLY__BINDINGS_REQUIERED = 2;
+
+  /**
+   * The feature id for the '<em><b>Bindings Provided</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSEMBLY__BINDINGS_PROVIDED = 3;
 
   /**
    * The number of structural features of the '<em>Assembly</em>' class.
@@ -212,7 +221,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSEMBLY_FEATURE_COUNT = 3;
+  int ASSEMBLY_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link com.project.foo.foo.impl.ComponentInstanceImpl <em>Component Instance</em>}' class.
@@ -735,10 +744,10 @@ public interface FooPackage extends EPackage
   EClass getDomainModel();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.DomainModel#getModel <em>Model</em>}'.
+   * Returns the meta object for the containment reference '{@link com.project.foo.foo.DomainModel#getModel <em>Model</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Model</em>'.
+   * @return the meta object for the containment reference '<em>Model</em>'.
    * @see com.project.foo.foo.DomainModel#getModel()
    * @see #getDomainModel()
    * @generated
@@ -778,15 +787,15 @@ public interface FooPackage extends EPackage
   EReference getModel_Imports();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Model#getComponent <em>Component</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Model#getComponents <em>Components</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Component</em>'.
-   * @see com.project.foo.foo.Model#getComponent()
+   * @return the meta object for the containment reference list '<em>Components</em>'.
+   * @see com.project.foo.foo.Model#getComponents()
    * @see #getModel()
    * @generated
    */
-  EReference getModel_Component();
+  EReference getModel_Components();
 
   /**
    * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Model#getAssembly <em>Assembly</em>}'.
@@ -853,15 +862,26 @@ public interface FooPackage extends EPackage
   EReference getAssembly_Attributes();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Assembly#getBindings <em>Bindings</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Assembly#getBindingsRequiered <em>Bindings Requiered</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Bindings</em>'.
-   * @see com.project.foo.foo.Assembly#getBindings()
+   * @return the meta object for the containment reference list '<em>Bindings Requiered</em>'.
+   * @see com.project.foo.foo.Assembly#getBindingsRequiered()
    * @see #getAssembly()
    * @generated
    */
-  EReference getAssembly_Bindings();
+  EReference getAssembly_BindingsRequiered();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Assembly#getBindingsProvided <em>Bindings Provided</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Bindings Provided</em>'.
+   * @see com.project.foo.foo.Assembly#getBindingsProvided()
+   * @see #getAssembly()
+   * @generated
+   */
+  EReference getAssembly_BindingsProvided();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.ComponentInstance <em>Component Instance</em>}'.
@@ -1334,7 +1354,7 @@ public interface FooPackage extends EPackage
     EClass DOMAIN_MODEL = eINSTANCE.getDomainModel();
 
     /**
-     * The meta object literal for the '<em><b>Model</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Model</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1368,12 +1388,12 @@ public interface FooPackage extends EPackage
     EReference MODEL__IMPORTS = eINSTANCE.getModel_Imports();
 
     /**
-     * The meta object literal for the '<em><b>Component</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__COMPONENT = eINSTANCE.getModel_Component();
+    EReference MODEL__COMPONENTS = eINSTANCE.getModel_Components();
 
     /**
      * The meta object literal for the '<em><b>Assembly</b></em>' containment reference list feature.
@@ -1428,12 +1448,20 @@ public interface FooPackage extends EPackage
     EReference ASSEMBLY__ATTRIBUTES = eINSTANCE.getAssembly_Attributes();
 
     /**
-     * The meta object literal for the '<em><b>Bindings</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Bindings Requiered</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ASSEMBLY__BINDINGS = eINSTANCE.getAssembly_Bindings();
+    EReference ASSEMBLY__BINDINGS_REQUIERED = eINSTANCE.getAssembly_BindingsRequiered();
+
+    /**
+     * The meta object literal for the '<em><b>Bindings Provided</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSEMBLY__BINDINGS_PROVIDED = eINSTANCE.getAssembly_BindingsProvided();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.ComponentInstanceImpl <em>Component Instance</em>}' class.

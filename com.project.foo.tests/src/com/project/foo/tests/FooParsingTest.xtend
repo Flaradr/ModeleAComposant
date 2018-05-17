@@ -43,7 +43,7 @@ class FooParsingTest {
 		val input = parse(validComponent)
 		assertNotNull(input)
 		val errors = input.eResource.errors
-		val component = input.model.get(0).component.get(0)
+		val component = input.model.components.get(0)
 		assertEquals("A",component.name)
 
 		/*Comment tester égalités entre tableau alors qu'il faudrait mapper

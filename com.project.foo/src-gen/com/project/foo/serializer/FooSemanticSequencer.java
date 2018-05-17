@@ -112,7 +112,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Assembly returns Assembly
 	 *
 	 * Constraint:
-	 *     (name=ID attributes+=ComponentInstance attributes+=ComponentInstance+ bindings+=Binding*)
+	 *     (name=ID attributes+=ComponentInstance attributes+=ComponentInstance+ (bindingsRequiered+=BindingRequiered bindingsProvided+=BindingProvided)*)
 	 */
 	protected void sequence_Assembly(ISerializationContext context, Assembly semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -124,7 +124,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     BindingProvided returns BindingProvided
 	 *
 	 * Constraint:
-	 *     (name=[ComponentInstance|ID] service=[PSignature|ID])
+	 *     (name=[ComponentInstance|ID] service=[PSignature|QualifiedName])
 	 */
 	protected void sequence_BindingProvided(ISerializationContext context, BindingProvided semanticObject) {
 		if (errorAcceptor != null) {
@@ -135,7 +135,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getBindingProvidedAccess().getNameComponentInstanceIDTerminalRuleCall_0_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_PROVIDED__NAME, false));
-		feeder.accept(grammarAccess.getBindingProvidedAccess().getServicePSignatureIDTerminalRuleCall_2_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_PROVIDED__SERVICE, false));
+		feeder.accept(grammarAccess.getBindingProvidedAccess().getServicePSignatureQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_PROVIDED__SERVICE, false));
 		feeder.finish();
 	}
 	
@@ -145,7 +145,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     BindingRequiered returns BindingRequiered
 	 *
 	 * Constraint:
-	 *     (name=[ComponentInstance|ID] service=[RSignature|ID])
+	 *     (name=[ComponentInstance|ID] service=[RSignature|QualifiedName])
 	 */
 	protected void sequence_BindingRequiered(ISerializationContext context, BindingRequiered semanticObject) {
 		if (errorAcceptor != null) {
@@ -156,7 +156,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getBindingRequieredAccess().getNameComponentInstanceIDTerminalRuleCall_0_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_REQUIERED__NAME, false));
-		feeder.accept(grammarAccess.getBindingRequieredAccess().getServiceRSignatureIDTerminalRuleCall_2_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_REQUIERED__SERVICE, false));
+		feeder.accept(grammarAccess.getBindingRequieredAccess().getServiceRSignatureQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_REQUIERED__SERVICE, false));
 		feeder.finish();
 	}
 	
@@ -226,10 +226,16 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     DomainModel returns DomainModel
 	 *
 	 * Constraint:
-	 *     model+=Model+
+	 *     model=Model
 	 */
 	protected void sequence_DomainModel(ISerializationContext context, DomainModel semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.DOMAIN_MODEL__MODEL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.DOMAIN_MODEL__MODEL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDomainModelAccess().getModelModelParserRuleCall_0(), semanticObject.getModel());
+		feeder.finish();
 	}
 	
 	
@@ -316,7 +322,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (name=QualifiedName imports+=Import* component+=Component* assembly+=Assembly*)
+	 *     (name=QualifiedName imports+=Import* components+=Component* assembly+=Assembly*)
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
