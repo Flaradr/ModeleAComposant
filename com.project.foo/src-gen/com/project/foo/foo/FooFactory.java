@@ -78,13 +78,13 @@ public interface FooFactory extends EFactory
   Binding createBinding();
 
   /**
-   * Returns a new object of class '<em>Binding Requiered</em>'.
+   * Returns a new object of class '<em>Binding Required</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Binding Requiered</em>'.
+   * @return a new object of class '<em>Binding Required</em>'.
    * @generated
    */
-  BindingRequiered createBindingRequiered();
+  BindingRequired createBindingRequired();
 
   /**
    * Returns a new object of class '<em>Binding Provided</em>'.
@@ -123,22 +123,22 @@ public interface FooFactory extends EFactory
   ProvidedService createProvidedService();
 
   /**
-   * Returns a new object of class '<em>List Of Requiered Services</em>'.
+   * Returns a new object of class '<em>List Ofrequired Services</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>List Of Requiered Services</em>'.
+   * @return a new object of class '<em>List Ofrequired Services</em>'.
    * @generated
    */
-  ListOfRequieredServices createListOfRequieredServices();
+  ListOfrequiredServices createListOfrequiredServices();
 
   /**
-   * Returns a new object of class '<em>Requiered Service</em>'.
+   * Returns a new object of class '<em>Required Service</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Requiered Service</em>'.
+   * @return a new object of class '<em>Required Service</em>'.
    * @generated
    */
-  RequieredService createRequieredService();
+  RequiredService createRequiredService();
 
   /**
    * Returns a new object of class '<em>MProvided Service</em>'.
@@ -159,13 +159,13 @@ public interface FooFactory extends EFactory
   PSignature createPSignature();
 
   /**
-   * Returns a new object of class '<em>MRequiered Service</em>'.
+   * Returns a new object of class '<em>MRequired Service</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>MRequiered Service</em>'.
+   * @return a new object of class '<em>MRequired Service</em>'.
    * @generated
    */
-  MRequieredService createMRequieredService();
+  MRequiredService createMRequiredService();
 
   /**
    * Returns a new object of class '<em>RSignature</em>'.

@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.naming.IQualifiedNameConverter;
 import org.eclipse.xtext.scoping.impl.ImportNormalizer;
 import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 
 /**
  * This class contains custom scoping description.
@@ -38,10 +37,7 @@ public class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider {
         importedNamespaceResolvers.add(this.doCreateImportNormalizer(_qualifiedNameConverter.toQualifiedName(_plus_1), true, ignorecase));
       }
       for (int j = 0; (j < model.getImports().size()); j++) {
-        {
-          InputOutput.<ImportNormalizer>println(this.doCreateImportNormalizer(this.getQualifiedNameConverter().toQualifiedName(model.getImports().get(j).getImportedNamespace()), true, ignorecase));
-          importedNamespaceResolvers.add(this.doCreateImportNormalizer(this.getQualifiedNameConverter().toQualifiedName(model.getImports().get(j).getImportedNamespace()), true, ignorecase));
-        }
+        importedNamespaceResolvers.add(this.doCreateImportNormalizer(this.getQualifiedNameConverter().toQualifiedName(model.getImports().get(j).getImportedNamespace()), true, ignorecase));
       }
     }
     return importedNamespaceResolvers;

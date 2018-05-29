@@ -37,7 +37,7 @@ Assembly:
 	(attributes+=ComponentInstance)+
 	'bindings'
 	(bindings+=Binding)*
-//	(bindingsRequiered += BindingRequiered '-' bindingsProvided += BindingProvided)*
+//	(bindingsrequired += Bindingrequired '-' bindingsProvided += BindingProvided)*
 	'}';
 
 //Structure d'un composant
@@ -47,10 +47,10 @@ ComponentInstance:
 //Lien entre d'un service requis d'un composant X et d'un
 //service fourni d'un composant Y
 Binding:
-	bindingRequiered=BindingRequiered '-' bindingProvided=BindingProvided ;
+	bindingRequired=BindingRequired '-' bindingProvided=BindingProvided ;
 
 //Instance du composant ayant besoin d'un service
-BindingRequiered:
+BindingRequired:
 	name=[ComponentInstance]"."service=[RSignature|QualifiedName];
 
 //Instance du composant fournissant un service
@@ -59,11 +59,12 @@ BindingProvided:
 
 //Structure d'un composant
 Component:
-	'Component' name=ID '{'
+	'Component' name=ID ('refines' refinedComponent=[Component|QualifiedName])?'{'
 	listOfPServices = ListOfProvidedServices
-	listOfRServices = ListOfRequieredServices
+	listOfRServices = ListOfrequiredServices
 	(mProvServices += MProvidedService)+
-	(mReqServices += MRequieredService)*
+	(mReqServices += MRequiredService)*
+	(assembly+=Assembly)*
 	'}';
 
 //Liste des services fourni par un composant X
@@ -77,13 +78,13 @@ ProvidedService:
 	name=[PSignature];
 	
 //Liste des services requis par un composant X
-ListOfRequieredServices:
-	{ListOfRequieredServices}'requiered' '=' '{'
-		(requieredServices+=RequieredService?
-		(',' requieredServices+=RequieredService)*)
+ListOfrequiredServices:
+	{ListOfrequiredServices}'required' '=' '{'
+		(requiredServices+=RequiredService?
+		(',' requiredServices+=RequiredService)*)
 	'}';
 
-RequieredService:
+RequiredService:
 	name=[RSignature];
 	
 //Signature d'un service fourni
@@ -94,8 +95,8 @@ MProvidedService:
 PSignature:
 	type=ID name=ID'('parameters+=Parameter?(','parameters+=Parameter)*')';
 
-MRequieredService:
-	'service' 'requiered' signature=RSignature  ';';
+MRequiredService:
+	'service' 'required' signature=RSignature  ';';
 
 //Signature d'un service requis
 RSignature:

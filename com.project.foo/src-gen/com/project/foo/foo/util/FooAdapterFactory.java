@@ -106,9 +106,9 @@ public class FooAdapterFactory extends AdapterFactoryImpl
         return createBindingAdapter();
       }
       @Override
-      public Adapter caseBindingRequiered(BindingRequiered object)
+      public Adapter caseBindingRequired(BindingRequired object)
       {
-        return createBindingRequieredAdapter();
+        return createBindingRequiredAdapter();
       }
       @Override
       public Adapter caseBindingProvided(BindingProvided object)
@@ -131,14 +131,14 @@ public class FooAdapterFactory extends AdapterFactoryImpl
         return createProvidedServiceAdapter();
       }
       @Override
-      public Adapter caseListOfRequieredServices(ListOfRequieredServices object)
+      public Adapter caseListOfrequiredServices(ListOfrequiredServices object)
       {
-        return createListOfRequieredServicesAdapter();
+        return createListOfrequiredServicesAdapter();
       }
       @Override
-      public Adapter caseRequieredService(RequieredService object)
+      public Adapter caseRequiredService(RequiredService object)
       {
-        return createRequieredServiceAdapter();
+        return createRequiredServiceAdapter();
       }
       @Override
       public Adapter caseMProvidedService(MProvidedService object)
@@ -151,9 +151,9 @@ public class FooAdapterFactory extends AdapterFactoryImpl
         return createPSignatureAdapter();
       }
       @Override
-      public Adapter caseMRequieredService(MRequieredService object)
+      public Adapter caseMRequiredService(MRequiredService object)
       {
-        return createMRequieredServiceAdapter();
+        return createMRequiredServiceAdapter();
       }
       @Override
       public Adapter caseRSignature(RSignature object)
@@ -278,16 +278,16 @@ public class FooAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.project.foo.foo.BindingRequiered <em>Binding Requiered</em>}'.
+   * Creates a new adapter for an object of class '{@link com.project.foo.foo.BindingRequired <em>Binding Required</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.project.foo.foo.BindingRequiered
+   * @see com.project.foo.foo.BindingRequired
    * @generated
    */
-  public Adapter createBindingRequieredAdapter()
+  public Adapter createBindingRequiredAdapter()
   {
     return null;
   }
@@ -353,31 +353,31 @@ public class FooAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.project.foo.foo.ListOfRequieredServices <em>List Of Requiered Services</em>}'.
+   * Creates a new adapter for an object of class '{@link com.project.foo.foo.ListOfrequiredServices <em>List Ofrequired Services</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.project.foo.foo.ListOfRequieredServices
+   * @see com.project.foo.foo.ListOfrequiredServices
    * @generated
    */
-  public Adapter createListOfRequieredServicesAdapter()
+  public Adapter createListOfrequiredServicesAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.project.foo.foo.RequieredService <em>Requiered Service</em>}'.
+   * Creates a new adapter for an object of class '{@link com.project.foo.foo.RequiredService <em>Required Service</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.project.foo.foo.RequieredService
+   * @see com.project.foo.foo.RequiredService
    * @generated
    */
-  public Adapter createRequieredServiceAdapter()
+  public Adapter createRequiredServiceAdapter()
   {
     return null;
   }
@@ -413,16 +413,16 @@ public class FooAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.project.foo.foo.MRequieredService <em>MRequiered Service</em>}'.
+   * Creates a new adapter for an object of class '{@link com.project.foo.foo.MRequiredService <em>MRequired Service</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.project.foo.foo.MRequieredService
+   * @see com.project.foo.foo.MRequiredService
    * @generated
    */
-  public Adapter createMRequieredServiceAdapter()
+  public Adapter createMRequiredServiceAdapter()
   {
     return null;
   }

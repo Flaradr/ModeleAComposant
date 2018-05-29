@@ -115,10 +115,10 @@ public class FooSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FooPackage.BINDING_REQUIERED:
+      case FooPackage.BINDING_REQUIRED:
       {
-        BindingRequiered bindingRequiered = (BindingRequiered)theEObject;
-        T result = caseBindingRequiered(bindingRequiered);
+        BindingRequired bindingRequired = (BindingRequired)theEObject;
+        T result = caseBindingRequired(bindingRequired);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -150,17 +150,17 @@ public class FooSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FooPackage.LIST_OF_REQUIERED_SERVICES:
+      case FooPackage.LIST_OFREQUIRED_SERVICES:
       {
-        ListOfRequieredServices listOfRequieredServices = (ListOfRequieredServices)theEObject;
-        T result = caseListOfRequieredServices(listOfRequieredServices);
+        ListOfrequiredServices listOfrequiredServices = (ListOfrequiredServices)theEObject;
+        T result = caseListOfrequiredServices(listOfrequiredServices);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FooPackage.REQUIERED_SERVICE:
+      case FooPackage.REQUIRED_SERVICE:
       {
-        RequieredService requieredService = (RequieredService)theEObject;
-        T result = caseRequieredService(requieredService);
+        RequiredService requiredService = (RequiredService)theEObject;
+        T result = caseRequiredService(requiredService);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -178,10 +178,10 @@ public class FooSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FooPackage.MREQUIERED_SERVICE:
+      case FooPackage.MREQUIRED_SERVICE:
       {
-        MRequieredService mRequieredService = (MRequieredService)theEObject;
-        T result = caseMRequieredService(mRequieredService);
+        MRequiredService mRequiredService = (MRequiredService)theEObject;
+        T result = caseMRequiredService(mRequiredService);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -300,17 +300,17 @@ public class FooSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Binding Requiered</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Binding Required</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Binding Requiered</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Binding Required</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBindingRequiered(BindingRequiered object)
+  public T caseBindingRequired(BindingRequired object)
   {
     return null;
   }
@@ -380,33 +380,33 @@ public class FooSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>List Of Requiered Services</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>List Ofrequired Services</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>List Of Requiered Services</em>'.
+   * @return the result of interpreting the object as an instance of '<em>List Ofrequired Services</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseListOfRequieredServices(ListOfRequieredServices object)
+  public T caseListOfrequiredServices(ListOfrequiredServices object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Requiered Service</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Required Service</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Requiered Service</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Required Service</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRequieredService(RequieredService object)
+  public T caseRequiredService(RequiredService object)
   {
     return null;
   }
@@ -444,17 +444,17 @@ public class FooSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>MRequiered Service</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>MRequired Service</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>MRequiered Service</em>'.
+   * @return the result of interpreting the object as an instance of '<em>MRequired Service</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMRequieredService(MRequieredService object)
+  public T caseMRequiredService(MRequiredService object)
   {
     return null;
   }

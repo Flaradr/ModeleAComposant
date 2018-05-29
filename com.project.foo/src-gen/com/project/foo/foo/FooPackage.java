@@ -262,13 +262,13 @@ public interface FooPackage extends EPackage
   int BINDING = 5;
 
   /**
-   * The feature id for the '<em><b>Binding Requiered</b></em>' containment reference.
+   * The feature id for the '<em><b>Binding Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING__BINDING_REQUIERED = 0;
+  int BINDING__BINDING_REQUIRED = 0;
 
   /**
    * The feature id for the '<em><b>Binding Provided</b></em>' containment reference.
@@ -289,14 +289,14 @@ public interface FooPackage extends EPackage
   int BINDING_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link com.project.foo.foo.impl.BindingRequieredImpl <em>Binding Requiered</em>}' class.
+   * The meta object id for the '{@link com.project.foo.foo.impl.BindingRequiredImpl <em>Binding Required</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.project.foo.foo.impl.BindingRequieredImpl
-   * @see com.project.foo.foo.impl.FooPackageImpl#getBindingRequiered()
+   * @see com.project.foo.foo.impl.BindingRequiredImpl
+   * @see com.project.foo.foo.impl.FooPackageImpl#getBindingRequired()
    * @generated
    */
-  int BINDING_REQUIERED = 6;
+  int BINDING_REQUIRED = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -305,7 +305,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINDING_REQUIERED__NAME = 0;
+  int BINDING_REQUIRED__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Service</b></em>' reference.
@@ -314,16 +314,16 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINDING_REQUIERED__SERVICE = 1;
+  int BINDING_REQUIRED__SERVICE = 1;
 
   /**
-   * The number of structural features of the '<em>Binding Requiered</em>' class.
+   * The number of structural features of the '<em>Binding Required</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING_REQUIERED_FEATURE_COUNT = 2;
+  int BINDING_REQUIRED_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.project.foo.foo.impl.BindingProvidedImpl <em>Binding Provided</em>}' class.
@@ -382,13 +382,22 @@ public interface FooPackage extends EPackage
   int COMPONENT__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Refined Component</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT__REFINED_COMPONENT = 1;
+
+  /**
    * The feature id for the '<em><b>List Of PServices</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT__LIST_OF_PSERVICES = 1;
+  int COMPONENT__LIST_OF_PSERVICES = 2;
 
   /**
    * The feature id for the '<em><b>List Of RServices</b></em>' containment reference.
@@ -397,7 +406,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__LIST_OF_RSERVICES = 2;
+  int COMPONENT__LIST_OF_RSERVICES = 3;
 
   /**
    * The feature id for the '<em><b>MProv Services</b></em>' containment reference list.
@@ -406,7 +415,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__MPROV_SERVICES = 3;
+  int COMPONENT__MPROV_SERVICES = 4;
 
   /**
    * The feature id for the '<em><b>MReq Services</b></em>' containment reference list.
@@ -415,7 +424,16 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__MREQ_SERVICES = 4;
+  int COMPONENT__MREQ_SERVICES = 5;
+
+  /**
+   * The feature id for the '<em><b>Assembly</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT__ASSEMBLY = 6;
 
   /**
    * The number of structural features of the '<em>Component</em>' class.
@@ -424,7 +442,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT_FEATURE_COUNT = 5;
+  int COMPONENT_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link com.project.foo.foo.impl.ListOfProvidedServicesImpl <em>List Of Provided Services</em>}' class.
@@ -483,42 +501,42 @@ public interface FooPackage extends EPackage
   int PROVIDED_SERVICE_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link com.project.foo.foo.impl.ListOfRequieredServicesImpl <em>List Of Requiered Services</em>}' class.
+   * The meta object id for the '{@link com.project.foo.foo.impl.ListOfrequiredServicesImpl <em>List Ofrequired Services</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.project.foo.foo.impl.ListOfRequieredServicesImpl
-   * @see com.project.foo.foo.impl.FooPackageImpl#getListOfRequieredServices()
+   * @see com.project.foo.foo.impl.ListOfrequiredServicesImpl
+   * @see com.project.foo.foo.impl.FooPackageImpl#getListOfrequiredServices()
    * @generated
    */
-  int LIST_OF_REQUIERED_SERVICES = 11;
+  int LIST_OFREQUIRED_SERVICES = 11;
 
   /**
-   * The feature id for the '<em><b>Requiered Services</b></em>' containment reference list.
+   * The feature id for the '<em><b>Required Services</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LIST_OF_REQUIERED_SERVICES__REQUIERED_SERVICES = 0;
+  int LIST_OFREQUIRED_SERVICES__REQUIRED_SERVICES = 0;
 
   /**
-   * The number of structural features of the '<em>List Of Requiered Services</em>' class.
+   * The number of structural features of the '<em>List Ofrequired Services</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LIST_OF_REQUIERED_SERVICES_FEATURE_COUNT = 1;
+  int LIST_OFREQUIRED_SERVICES_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link com.project.foo.foo.impl.RequieredServiceImpl <em>Requiered Service</em>}' class.
+   * The meta object id for the '{@link com.project.foo.foo.impl.RequiredServiceImpl <em>Required Service</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.project.foo.foo.impl.RequieredServiceImpl
-   * @see com.project.foo.foo.impl.FooPackageImpl#getRequieredService()
+   * @see com.project.foo.foo.impl.RequiredServiceImpl
+   * @see com.project.foo.foo.impl.FooPackageImpl#getRequiredService()
    * @generated
    */
-  int REQUIERED_SERVICE = 12;
+  int REQUIRED_SERVICE = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -527,16 +545,16 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REQUIERED_SERVICE__NAME = 0;
+  int REQUIRED_SERVICE__NAME = 0;
 
   /**
-   * The number of structural features of the '<em>Requiered Service</em>' class.
+   * The number of structural features of the '<em>Required Service</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REQUIERED_SERVICE_FEATURE_COUNT = 1;
+  int REQUIRED_SERVICE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.project.foo.foo.impl.MProvidedServiceImpl <em>MProvided Service</em>}' class.
@@ -613,14 +631,14 @@ public interface FooPackage extends EPackage
   int PSIGNATURE_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link com.project.foo.foo.impl.MRequieredServiceImpl <em>MRequiered Service</em>}' class.
+   * The meta object id for the '{@link com.project.foo.foo.impl.MRequiredServiceImpl <em>MRequired Service</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.project.foo.foo.impl.MRequieredServiceImpl
-   * @see com.project.foo.foo.impl.FooPackageImpl#getMRequieredService()
+   * @see com.project.foo.foo.impl.MRequiredServiceImpl
+   * @see com.project.foo.foo.impl.FooPackageImpl#getMRequiredService()
    * @generated
    */
-  int MREQUIERED_SERVICE = 15;
+  int MREQUIRED_SERVICE = 15;
 
   /**
    * The feature id for the '<em><b>Signature</b></em>' containment reference.
@@ -629,16 +647,16 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MREQUIERED_SERVICE__SIGNATURE = 0;
+  int MREQUIRED_SERVICE__SIGNATURE = 0;
 
   /**
-   * The number of structural features of the '<em>MRequiered Service</em>' class.
+   * The number of structural features of the '<em>MRequired Service</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MREQUIERED_SERVICE_FEATURE_COUNT = 1;
+  int MREQUIRED_SERVICE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.project.foo.foo.impl.RSignatureImpl <em>RSignature</em>}' class.
@@ -906,15 +924,15 @@ public interface FooPackage extends EPackage
   EClass getBinding();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.project.foo.foo.Binding#getBindingRequiered <em>Binding Requiered</em>}'.
+   * Returns the meta object for the containment reference '{@link com.project.foo.foo.Binding#getBindingRequired <em>Binding Required</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Binding Requiered</em>'.
-   * @see com.project.foo.foo.Binding#getBindingRequiered()
+   * @return the meta object for the containment reference '<em>Binding Required</em>'.
+   * @see com.project.foo.foo.Binding#getBindingRequired()
    * @see #getBinding()
    * @generated
    */
-  EReference getBinding_BindingRequiered();
+  EReference getBinding_BindingRequired();
 
   /**
    * Returns the meta object for the containment reference '{@link com.project.foo.foo.Binding#getBindingProvided <em>Binding Provided</em>}'.
@@ -928,36 +946,36 @@ public interface FooPackage extends EPackage
   EReference getBinding_BindingProvided();
 
   /**
-   * Returns the meta object for class '{@link com.project.foo.foo.BindingRequiered <em>Binding Requiered</em>}'.
+   * Returns the meta object for class '{@link com.project.foo.foo.BindingRequired <em>Binding Required</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Binding Requiered</em>'.
-   * @see com.project.foo.foo.BindingRequiered
+   * @return the meta object for class '<em>Binding Required</em>'.
+   * @see com.project.foo.foo.BindingRequired
    * @generated
    */
-  EClass getBindingRequiered();
+  EClass getBindingRequired();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingRequiered#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingRequired#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Name</em>'.
-   * @see com.project.foo.foo.BindingRequiered#getName()
-   * @see #getBindingRequiered()
+   * @see com.project.foo.foo.BindingRequired#getName()
+   * @see #getBindingRequired()
    * @generated
    */
-  EReference getBindingRequiered_Name();
+  EReference getBindingRequired_Name();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingRequiered#getService <em>Service</em>}'.
+   * Returns the meta object for the reference '{@link com.project.foo.foo.BindingRequired#getService <em>Service</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Service</em>'.
-   * @see com.project.foo.foo.BindingRequiered#getService()
-   * @see #getBindingRequiered()
+   * @see com.project.foo.foo.BindingRequired#getService()
+   * @see #getBindingRequired()
    * @generated
    */
-  EReference getBindingRequiered_Service();
+  EReference getBindingRequired_Service();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.BindingProvided <em>Binding Provided</em>}'.
@@ -1013,6 +1031,17 @@ public interface FooPackage extends EPackage
   EAttribute getComponent_Name();
 
   /**
+   * Returns the meta object for the reference '{@link com.project.foo.foo.Component#getRefinedComponent <em>Refined Component</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Refined Component</em>'.
+   * @see com.project.foo.foo.Component#getRefinedComponent()
+   * @see #getComponent()
+   * @generated
+   */
+  EReference getComponent_RefinedComponent();
+
+  /**
    * Returns the meta object for the containment reference '{@link com.project.foo.foo.Component#getListOfPServices <em>List Of PServices</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1057,6 +1086,17 @@ public interface FooPackage extends EPackage
   EReference getComponent_MReqServices();
 
   /**
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Component#getAssembly <em>Assembly</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Assembly</em>'.
+   * @see com.project.foo.foo.Component#getAssembly()
+   * @see #getComponent()
+   * @generated
+   */
+  EReference getComponent_Assembly();
+
+  /**
    * Returns the meta object for class '{@link com.project.foo.foo.ListOfProvidedServices <em>List Of Provided Services</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1099,46 +1139,46 @@ public interface FooPackage extends EPackage
   EReference getProvidedService_Name();
 
   /**
-   * Returns the meta object for class '{@link com.project.foo.foo.ListOfRequieredServices <em>List Of Requiered Services</em>}'.
+   * Returns the meta object for class '{@link com.project.foo.foo.ListOfrequiredServices <em>List Ofrequired Services</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>List Of Requiered Services</em>'.
-   * @see com.project.foo.foo.ListOfRequieredServices
+   * @return the meta object for class '<em>List Ofrequired Services</em>'.
+   * @see com.project.foo.foo.ListOfrequiredServices
    * @generated
    */
-  EClass getListOfRequieredServices();
+  EClass getListOfrequiredServices();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.ListOfRequieredServices#getRequieredServices <em>Requiered Services</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.ListOfrequiredServices#getRequiredServices <em>Required Services</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Requiered Services</em>'.
-   * @see com.project.foo.foo.ListOfRequieredServices#getRequieredServices()
-   * @see #getListOfRequieredServices()
+   * @return the meta object for the containment reference list '<em>Required Services</em>'.
+   * @see com.project.foo.foo.ListOfrequiredServices#getRequiredServices()
+   * @see #getListOfrequiredServices()
    * @generated
    */
-  EReference getListOfRequieredServices_RequieredServices();
+  EReference getListOfrequiredServices_RequiredServices();
 
   /**
-   * Returns the meta object for class '{@link com.project.foo.foo.RequieredService <em>Requiered Service</em>}'.
+   * Returns the meta object for class '{@link com.project.foo.foo.RequiredService <em>Required Service</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Requiered Service</em>'.
-   * @see com.project.foo.foo.RequieredService
+   * @return the meta object for class '<em>Required Service</em>'.
+   * @see com.project.foo.foo.RequiredService
    * @generated
    */
-  EClass getRequieredService();
+  EClass getRequiredService();
 
   /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.RequieredService#getName <em>Name</em>}'.
+   * Returns the meta object for the reference '{@link com.project.foo.foo.RequiredService#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Name</em>'.
-   * @see com.project.foo.foo.RequieredService#getName()
-   * @see #getRequieredService()
+   * @see com.project.foo.foo.RequiredService#getName()
+   * @see #getRequiredService()
    * @generated
    */
-  EReference getRequieredService_Name();
+  EReference getRequiredService_Name();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.MProvidedService <em>MProvided Service</em>}'.
@@ -1205,25 +1245,25 @@ public interface FooPackage extends EPackage
   EReference getPSignature_Parameters();
 
   /**
-   * Returns the meta object for class '{@link com.project.foo.foo.MRequieredService <em>MRequiered Service</em>}'.
+   * Returns the meta object for class '{@link com.project.foo.foo.MRequiredService <em>MRequired Service</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>MRequiered Service</em>'.
-   * @see com.project.foo.foo.MRequieredService
+   * @return the meta object for class '<em>MRequired Service</em>'.
+   * @see com.project.foo.foo.MRequiredService
    * @generated
    */
-  EClass getMRequieredService();
+  EClass getMRequiredService();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.project.foo.foo.MRequieredService#getSignature <em>Signature</em>}'.
+   * Returns the meta object for the containment reference '{@link com.project.foo.foo.MRequiredService#getSignature <em>Signature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Signature</em>'.
-   * @see com.project.foo.foo.MRequieredService#getSignature()
-   * @see #getMRequieredService()
+   * @see com.project.foo.foo.MRequiredService#getSignature()
+   * @see #getMRequiredService()
    * @generated
    */
-  EReference getMRequieredService_Signature();
+  EReference getMRequiredService_Signature();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.RSignature <em>RSignature</em>}'.
@@ -1472,12 +1512,12 @@ public interface FooPackage extends EPackage
     EClass BINDING = eINSTANCE.getBinding();
 
     /**
-     * The meta object literal for the '<em><b>Binding Requiered</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Binding Required</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINDING__BINDING_REQUIERED = eINSTANCE.getBinding_BindingRequiered();
+    EReference BINDING__BINDING_REQUIRED = eINSTANCE.getBinding_BindingRequired();
 
     /**
      * The meta object literal for the '<em><b>Binding Provided</b></em>' containment reference feature.
@@ -1488,14 +1528,14 @@ public interface FooPackage extends EPackage
     EReference BINDING__BINDING_PROVIDED = eINSTANCE.getBinding_BindingProvided();
 
     /**
-     * The meta object literal for the '{@link com.project.foo.foo.impl.BindingRequieredImpl <em>Binding Requiered</em>}' class.
+     * The meta object literal for the '{@link com.project.foo.foo.impl.BindingRequiredImpl <em>Binding Required</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.project.foo.foo.impl.BindingRequieredImpl
-     * @see com.project.foo.foo.impl.FooPackageImpl#getBindingRequiered()
+     * @see com.project.foo.foo.impl.BindingRequiredImpl
+     * @see com.project.foo.foo.impl.FooPackageImpl#getBindingRequired()
      * @generated
      */
-    EClass BINDING_REQUIERED = eINSTANCE.getBindingRequiered();
+    EClass BINDING_REQUIRED = eINSTANCE.getBindingRequired();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' reference feature.
@@ -1503,7 +1543,7 @@ public interface FooPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINDING_REQUIERED__NAME = eINSTANCE.getBindingRequiered_Name();
+    EReference BINDING_REQUIRED__NAME = eINSTANCE.getBindingRequired_Name();
 
     /**
      * The meta object literal for the '<em><b>Service</b></em>' reference feature.
@@ -1511,7 +1551,7 @@ public interface FooPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference BINDING_REQUIERED__SERVICE = eINSTANCE.getBindingRequiered_Service();
+    EReference BINDING_REQUIRED__SERVICE = eINSTANCE.getBindingRequired_Service();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.BindingProvidedImpl <em>Binding Provided</em>}' class.
@@ -1558,6 +1598,14 @@ public interface FooPackage extends EPackage
     EAttribute COMPONENT__NAME = eINSTANCE.getComponent_Name();
 
     /**
+     * The meta object literal for the '<em><b>Refined Component</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPONENT__REFINED_COMPONENT = eINSTANCE.getComponent_RefinedComponent();
+
+    /**
      * The meta object literal for the '<em><b>List Of PServices</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1588,6 +1636,14 @@ public interface FooPackage extends EPackage
      * @generated
      */
     EReference COMPONENT__MREQ_SERVICES = eINSTANCE.getComponent_MReqServices();
+
+    /**
+     * The meta object literal for the '<em><b>Assembly</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPONENT__ASSEMBLY = eINSTANCE.getComponent_Assembly();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.ListOfProvidedServicesImpl <em>List Of Provided Services</em>}' class.
@@ -1626,32 +1682,32 @@ public interface FooPackage extends EPackage
     EReference PROVIDED_SERVICE__NAME = eINSTANCE.getProvidedService_Name();
 
     /**
-     * The meta object literal for the '{@link com.project.foo.foo.impl.ListOfRequieredServicesImpl <em>List Of Requiered Services</em>}' class.
+     * The meta object literal for the '{@link com.project.foo.foo.impl.ListOfrequiredServicesImpl <em>List Ofrequired Services</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.project.foo.foo.impl.ListOfRequieredServicesImpl
-     * @see com.project.foo.foo.impl.FooPackageImpl#getListOfRequieredServices()
+     * @see com.project.foo.foo.impl.ListOfrequiredServicesImpl
+     * @see com.project.foo.foo.impl.FooPackageImpl#getListOfrequiredServices()
      * @generated
      */
-    EClass LIST_OF_REQUIERED_SERVICES = eINSTANCE.getListOfRequieredServices();
+    EClass LIST_OFREQUIRED_SERVICES = eINSTANCE.getListOfrequiredServices();
 
     /**
-     * The meta object literal for the '<em><b>Requiered Services</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Required Services</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LIST_OF_REQUIERED_SERVICES__REQUIERED_SERVICES = eINSTANCE.getListOfRequieredServices_RequieredServices();
+    EReference LIST_OFREQUIRED_SERVICES__REQUIRED_SERVICES = eINSTANCE.getListOfrequiredServices_RequiredServices();
 
     /**
-     * The meta object literal for the '{@link com.project.foo.foo.impl.RequieredServiceImpl <em>Requiered Service</em>}' class.
+     * The meta object literal for the '{@link com.project.foo.foo.impl.RequiredServiceImpl <em>Required Service</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.project.foo.foo.impl.RequieredServiceImpl
-     * @see com.project.foo.foo.impl.FooPackageImpl#getRequieredService()
+     * @see com.project.foo.foo.impl.RequiredServiceImpl
+     * @see com.project.foo.foo.impl.FooPackageImpl#getRequiredService()
      * @generated
      */
-    EClass REQUIERED_SERVICE = eINSTANCE.getRequieredService();
+    EClass REQUIRED_SERVICE = eINSTANCE.getRequiredService();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' reference feature.
@@ -1659,7 +1715,7 @@ public interface FooPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REQUIERED_SERVICE__NAME = eINSTANCE.getRequieredService_Name();
+    EReference REQUIRED_SERVICE__NAME = eINSTANCE.getRequiredService_Name();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.MProvidedServiceImpl <em>MProvided Service</em>}' class.
@@ -1714,14 +1770,14 @@ public interface FooPackage extends EPackage
     EReference PSIGNATURE__PARAMETERS = eINSTANCE.getPSignature_Parameters();
 
     /**
-     * The meta object literal for the '{@link com.project.foo.foo.impl.MRequieredServiceImpl <em>MRequiered Service</em>}' class.
+     * The meta object literal for the '{@link com.project.foo.foo.impl.MRequiredServiceImpl <em>MRequired Service</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.project.foo.foo.impl.MRequieredServiceImpl
-     * @see com.project.foo.foo.impl.FooPackageImpl#getMRequieredService()
+     * @see com.project.foo.foo.impl.MRequiredServiceImpl
+     * @see com.project.foo.foo.impl.FooPackageImpl#getMRequiredService()
      * @generated
      */
-    EClass MREQUIERED_SERVICE = eINSTANCE.getMRequieredService();
+    EClass MREQUIRED_SERVICE = eINSTANCE.getMRequiredService();
 
     /**
      * The meta object literal for the '<em><b>Signature</b></em>' containment reference feature.
@@ -1729,7 +1785,7 @@ public interface FooPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MREQUIERED_SERVICE__SIGNATURE = eINSTANCE.getMRequieredService_Signature();
+    EReference MREQUIRED_SERVICE__SIGNATURE = eINSTANCE.getMRequiredService_Signature();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.RSignatureImpl <em>RSignature</em>}' class.

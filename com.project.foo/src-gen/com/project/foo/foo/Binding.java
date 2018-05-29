@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.project.foo.foo.Binding#getBindingRequiered <em>Binding Requiered</em>}</li>
+ *   <li>{@link com.project.foo.foo.Binding#getBindingRequired <em>Binding Required</em>}</li>
  *   <li>{@link com.project.foo.foo.Binding#getBindingProvided <em>Binding Provided</em>}</li>
  * </ul>
  *
@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Binding extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Binding Requiered</b></em>' containment reference.
+   * Returns the value of the '<em><b>Binding Required</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Binding Requiered</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Binding Required</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Binding Requiered</em>' containment reference.
-   * @see #setBindingRequiered(BindingRequiered)
-   * @see com.project.foo.foo.FooPackage#getBinding_BindingRequiered()
+   * @return the value of the '<em>Binding Required</em>' containment reference.
+   * @see #setBindingRequired(BindingRequired)
+   * @see com.project.foo.foo.FooPackage#getBinding_BindingRequired()
    * @model containment="true"
    * @generated
    */
-  BindingRequiered getBindingRequiered();
+  BindingRequired getBindingRequired();
 
   /**
-   * Sets the value of the '{@link com.project.foo.foo.Binding#getBindingRequiered <em>Binding Requiered</em>}' containment reference.
+   * Sets the value of the '{@link com.project.foo.foo.Binding#getBindingRequired <em>Binding Required</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Binding Requiered</em>' containment reference.
-   * @see #getBindingRequiered()
+   * @param value the new value of the '<em>Binding Required</em>' containment reference.
+   * @see #getBindingRequired()
    * @generated
    */
-  void setBindingRequiered(BindingRequiered value);
+  void setBindingRequired(BindingRequired value);
 
   /**
    * Returns the value of the '<em><b>Binding Provided</b></em>' containment reference.

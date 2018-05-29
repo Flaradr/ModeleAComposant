@@ -3,12 +3,13 @@
  */
 package com.project.foo.foo.impl;
 
+import com.project.foo.foo.Assembly;
 import com.project.foo.foo.Component;
 import com.project.foo.foo.FooPackage;
 import com.project.foo.foo.ListOfProvidedServices;
-import com.project.foo.foo.ListOfRequieredServices;
+import com.project.foo.foo.ListOfrequiredServices;
 import com.project.foo.foo.MProvidedService;
-import com.project.foo.foo.MRequieredService;
+import com.project.foo.foo.MRequiredService;
 
 import java.util.Collection;
 
@@ -35,10 +36,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getRefinedComponent <em>Refined Component</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getListOfPServices <em>List Of PServices</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getListOfRServices <em>List Of RServices</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getMProvServices <em>MProv Services</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getMReqServices <em>MReq Services</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getAssembly <em>Assembly</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +69,16 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getRefinedComponent() <em>Refined Component</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRefinedComponent()
+   * @generated
+   * @ordered
+   */
+  protected Component refinedComponent;
+
+  /**
    * The cached value of the '{@link #getListOfPServices() <em>List Of PServices</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -83,7 +96,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
    * @generated
    * @ordered
    */
-  protected ListOfRequieredServices listOfRServices;
+  protected ListOfrequiredServices listOfRServices;
 
   /**
    * The cached value of the '{@link #getMProvServices() <em>MProv Services</em>}' containment reference list.
@@ -103,7 +116,17 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
    * @generated
    * @ordered
    */
-  protected EList<MRequieredService> mReqServices;
+  protected EList<MRequiredService> mReqServices;
+
+  /**
+   * The cached value of the '{@link #getAssembly() <em>Assembly</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAssembly()
+   * @generated
+   * @ordered
+   */
+  protected EList<Assembly> assembly;
 
   /**
    * <!-- begin-user-doc -->
@@ -147,6 +170,49 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.COMPONENT__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Component getRefinedComponent()
+  {
+    if (refinedComponent != null && refinedComponent.eIsProxy())
+    {
+      InternalEObject oldRefinedComponent = (InternalEObject)refinedComponent;
+      refinedComponent = (Component)eResolveProxy(oldRefinedComponent);
+      if (refinedComponent != oldRefinedComponent)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.COMPONENT__REFINED_COMPONENT, oldRefinedComponent, refinedComponent));
+      }
+    }
+    return refinedComponent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Component basicGetRefinedComponent()
+  {
+    return refinedComponent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRefinedComponent(Component newRefinedComponent)
+  {
+    Component oldRefinedComponent = refinedComponent;
+    refinedComponent = newRefinedComponent;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.COMPONENT__REFINED_COMPONENT, oldRefinedComponent, refinedComponent));
   }
 
   /**
@@ -202,7 +268,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
    * <!-- end-user-doc -->
    * @generated
    */
-  public ListOfRequieredServices getListOfRServices()
+  public ListOfrequiredServices getListOfRServices()
   {
     return listOfRServices;
   }
@@ -212,9 +278,9 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetListOfRServices(ListOfRequieredServices newListOfRServices, NotificationChain msgs)
+  public NotificationChain basicSetListOfRServices(ListOfrequiredServices newListOfRServices, NotificationChain msgs)
   {
-    ListOfRequieredServices oldListOfRServices = listOfRServices;
+    ListOfrequiredServices oldListOfRServices = listOfRServices;
     listOfRServices = newListOfRServices;
     if (eNotificationRequired())
     {
@@ -229,7 +295,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setListOfRServices(ListOfRequieredServices newListOfRServices)
+  public void setListOfRServices(ListOfrequiredServices newListOfRServices)
   {
     if (newListOfRServices != listOfRServices)
     {
@@ -264,13 +330,27 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<MRequieredService> getMReqServices()
+  public EList<MRequiredService> getMReqServices()
   {
     if (mReqServices == null)
     {
-      mReqServices = new EObjectContainmentEList<MRequieredService>(MRequieredService.class, this, FooPackage.COMPONENT__MREQ_SERVICES);
+      mReqServices = new EObjectContainmentEList<MRequiredService>(MRequiredService.class, this, FooPackage.COMPONENT__MREQ_SERVICES);
     }
     return mReqServices;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Assembly> getAssembly()
+  {
+    if (assembly == null)
+    {
+      assembly = new EObjectContainmentEList<Assembly>(Assembly.class, this, FooPackage.COMPONENT__ASSEMBLY);
+    }
+    return assembly;
   }
 
   /**
@@ -291,6 +371,8 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
         return ((InternalEList<?>)getMProvServices()).basicRemove(otherEnd, msgs);
       case FooPackage.COMPONENT__MREQ_SERVICES:
         return ((InternalEList<?>)getMReqServices()).basicRemove(otherEnd, msgs);
+      case FooPackage.COMPONENT__ASSEMBLY:
+        return ((InternalEList<?>)getAssembly()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -307,6 +389,9 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
     {
       case FooPackage.COMPONENT__NAME:
         return getName();
+      case FooPackage.COMPONENT__REFINED_COMPONENT:
+        if (resolve) return getRefinedComponent();
+        return basicGetRefinedComponent();
       case FooPackage.COMPONENT__LIST_OF_PSERVICES:
         return getListOfPServices();
       case FooPackage.COMPONENT__LIST_OF_RSERVICES:
@@ -315,6 +400,8 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
         return getMProvServices();
       case FooPackage.COMPONENT__MREQ_SERVICES:
         return getMReqServices();
+      case FooPackage.COMPONENT__ASSEMBLY:
+        return getAssembly();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -333,11 +420,14 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
       case FooPackage.COMPONENT__NAME:
         setName((String)newValue);
         return;
+      case FooPackage.COMPONENT__REFINED_COMPONENT:
+        setRefinedComponent((Component)newValue);
+        return;
       case FooPackage.COMPONENT__LIST_OF_PSERVICES:
         setListOfPServices((ListOfProvidedServices)newValue);
         return;
       case FooPackage.COMPONENT__LIST_OF_RSERVICES:
-        setListOfRServices((ListOfRequieredServices)newValue);
+        setListOfRServices((ListOfrequiredServices)newValue);
         return;
       case FooPackage.COMPONENT__MPROV_SERVICES:
         getMProvServices().clear();
@@ -345,7 +435,11 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
         return;
       case FooPackage.COMPONENT__MREQ_SERVICES:
         getMReqServices().clear();
-        getMReqServices().addAll((Collection<? extends MRequieredService>)newValue);
+        getMReqServices().addAll((Collection<? extends MRequiredService>)newValue);
+        return;
+      case FooPackage.COMPONENT__ASSEMBLY:
+        getAssembly().clear();
+        getAssembly().addAll((Collection<? extends Assembly>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -364,17 +458,23 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
       case FooPackage.COMPONENT__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case FooPackage.COMPONENT__REFINED_COMPONENT:
+        setRefinedComponent((Component)null);
+        return;
       case FooPackage.COMPONENT__LIST_OF_PSERVICES:
         setListOfPServices((ListOfProvidedServices)null);
         return;
       case FooPackage.COMPONENT__LIST_OF_RSERVICES:
-        setListOfRServices((ListOfRequieredServices)null);
+        setListOfRServices((ListOfrequiredServices)null);
         return;
       case FooPackage.COMPONENT__MPROV_SERVICES:
         getMProvServices().clear();
         return;
       case FooPackage.COMPONENT__MREQ_SERVICES:
         getMReqServices().clear();
+        return;
+      case FooPackage.COMPONENT__ASSEMBLY:
+        getAssembly().clear();
         return;
     }
     super.eUnset(featureID);
@@ -392,6 +492,8 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
     {
       case FooPackage.COMPONENT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case FooPackage.COMPONENT__REFINED_COMPONENT:
+        return refinedComponent != null;
       case FooPackage.COMPONENT__LIST_OF_PSERVICES:
         return listOfPServices != null;
       case FooPackage.COMPONENT__LIST_OF_RSERVICES:
@@ -400,6 +502,8 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
         return mProvServices != null && !mProvServices.isEmpty();
       case FooPackage.COMPONENT__MREQ_SERVICES:
         return mReqServices != null && !mReqServices.isEmpty();
+      case FooPackage.COMPONENT__ASSEMBLY:
+        return assembly != null && !assembly.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -29,12 +29,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//Component"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Binding">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bindingRequiered" eType="#//BindingRequiered"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindingRequired" eType="#//BindingRequired"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bindingProvided" eType="#//BindingProvided"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BindingRequiered">
+  <eClassifiers xsi:type="ecore:EClass" name="BindingRequired">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//ComponentInstance"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="service" eType="#//RSignature"/>
   </eClassifiers>
@@ -44,14 +44,17 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="refinedComponent" eType="#//Component"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="listOfPServices" eType="#//ListOfProvidedServices"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="listOfRServices" eType="#//ListOfRequieredServices"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="listOfRServices" eType="#//ListOfrequiredServices"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mProvServices" upperBound="-1"
         eType="#//MProvidedService" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mReqServices" upperBound="-1"
-        eType="#//MRequieredService" containment="true"/>
+        eType="#//MRequiredService" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assembly" upperBound="-1"
+        eType="#//Assembly" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListOfProvidedServices">
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedServices" upperBound="-1"
@@ -60,11 +63,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="ProvidedService">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//PSignature"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ListOfRequieredServices">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requieredServices" upperBound="-1"
-        eType="#//RequieredService" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ListOfrequiredServices">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredServices" upperBound="-1"
+        eType="#//RequiredService" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RequieredService">
+  <eClassifiers xsi:type="ecore:EClass" name="RequiredService">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//RSignature"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MProvidedService">
@@ -77,7 +80,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//Parameter" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MRequieredService">
+  <eClassifiers xsi:type="ecore:EClass" name="MRequiredService">
     <eStructuralFeatures xsi:type="ecore:EReference" name="signature" eType="#//RSignature"
         containment="true"/>
   </eClassifiers>

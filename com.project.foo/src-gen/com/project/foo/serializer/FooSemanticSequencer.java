@@ -7,21 +7,21 @@ import com.google.inject.Inject;
 import com.project.foo.foo.Assembly;
 import com.project.foo.foo.Binding;
 import com.project.foo.foo.BindingProvided;
-import com.project.foo.foo.BindingRequiered;
+import com.project.foo.foo.BindingRequired;
 import com.project.foo.foo.Component;
 import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.DomainModel;
 import com.project.foo.foo.FooPackage;
 import com.project.foo.foo.Import;
 import com.project.foo.foo.ListOfProvidedServices;
-import com.project.foo.foo.ListOfRequieredServices;
+import com.project.foo.foo.ListOfrequiredServices;
 import com.project.foo.foo.MProvidedService;
-import com.project.foo.foo.MRequieredService;
+import com.project.foo.foo.MRequiredService;
 import com.project.foo.foo.Model;
 import com.project.foo.foo.PSignature;
 import com.project.foo.foo.ProvidedService;
 import com.project.foo.foo.RSignature;
-import com.project.foo.foo.RequieredService;
+import com.project.foo.foo.RequiredService;
 import com.project.foo.services.FooGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -57,8 +57,8 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case FooPackage.BINDING_PROVIDED:
 				sequence_BindingProvided(context, (BindingProvided) semanticObject); 
 				return; 
-			case FooPackage.BINDING_REQUIERED:
-				sequence_BindingRequiered(context, (BindingRequiered) semanticObject); 
+			case FooPackage.BINDING_REQUIRED:
+				sequence_BindingRequired(context, (BindingRequired) semanticObject); 
 				return; 
 			case FooPackage.COMPONENT:
 				sequence_Component(context, (Component) semanticObject); 
@@ -75,14 +75,14 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case FooPackage.LIST_OF_PROVIDED_SERVICES:
 				sequence_ListOfProvidedServices(context, (ListOfProvidedServices) semanticObject); 
 				return; 
-			case FooPackage.LIST_OF_REQUIERED_SERVICES:
-				sequence_ListOfRequieredServices(context, (ListOfRequieredServices) semanticObject); 
+			case FooPackage.LIST_OFREQUIRED_SERVICES:
+				sequence_ListOfrequiredServices(context, (ListOfrequiredServices) semanticObject); 
 				return; 
 			case FooPackage.MPROVIDED_SERVICE:
 				sequence_MProvidedService(context, (MProvidedService) semanticObject); 
 				return; 
-			case FooPackage.MREQUIERED_SERVICE:
-				sequence_MRequieredService(context, (MRequieredService) semanticObject); 
+			case FooPackage.MREQUIRED_SERVICE:
+				sequence_MRequiredService(context, (MRequiredService) semanticObject); 
 				return; 
 			case FooPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
@@ -99,8 +99,8 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case FooPackage.RSIGNATURE:
 				sequence_RSignature(context, (RSignature) semanticObject); 
 				return; 
-			case FooPackage.REQUIERED_SERVICE:
-				sequence_RequieredService(context, (RequieredService) semanticObject); 
+			case FooPackage.REQUIRED_SERVICE:
+				sequence_RequiredService(context, (RequiredService) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -142,21 +142,21 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     BindingRequiered returns BindingRequiered
+	 *     BindingRequired returns BindingRequired
 	 *
 	 * Constraint:
 	 *     (name=[ComponentInstance|ID] service=[RSignature|QualifiedName])
 	 */
-	protected void sequence_BindingRequiered(ISerializationContext context, BindingRequiered semanticObject) {
+	protected void sequence_BindingRequired(ISerializationContext context, BindingRequired semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.BINDING_REQUIERED__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.BINDING_REQUIERED__NAME));
-			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.BINDING_REQUIERED__SERVICE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.BINDING_REQUIERED__SERVICE));
+			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.BINDING_REQUIRED__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.BINDING_REQUIRED__NAME));
+			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.BINDING_REQUIRED__SERVICE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.BINDING_REQUIRED__SERVICE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBindingRequieredAccess().getNameComponentInstanceIDTerminalRuleCall_0_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_REQUIERED__NAME, false));
-		feeder.accept(grammarAccess.getBindingRequieredAccess().getServiceRSignatureQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_REQUIERED__SERVICE, false));
+		feeder.accept(grammarAccess.getBindingRequiredAccess().getNameComponentInstanceIDTerminalRuleCall_0_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_REQUIRED__NAME, false));
+		feeder.accept(grammarAccess.getBindingRequiredAccess().getServiceRSignatureQualifiedNameParserRuleCall_2_0_1(), semanticObject.eGet(FooPackage.Literals.BINDING_REQUIRED__SERVICE, false));
 		feeder.finish();
 	}
 	
@@ -166,17 +166,17 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Binding returns Binding
 	 *
 	 * Constraint:
-	 *     (bindingRequiered=BindingRequiered bindingProvided=BindingProvided)
+	 *     (bindingRequired=BindingRequired bindingProvided=BindingProvided)
 	 */
 	protected void sequence_Binding(ISerializationContext context, Binding semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.BINDING__BINDING_REQUIERED) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.BINDING__BINDING_REQUIERED));
+			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.BINDING__BINDING_REQUIRED) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.BINDING__BINDING_REQUIRED));
 			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.BINDING__BINDING_PROVIDED) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.BINDING__BINDING_PROVIDED));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBindingAccess().getBindingRequieredBindingRequieredParserRuleCall_0_0(), semanticObject.getBindingRequiered());
+		feeder.accept(grammarAccess.getBindingAccess().getBindingRequiredBindingRequiredParserRuleCall_0_0(), semanticObject.getBindingRequired());
 		feeder.accept(grammarAccess.getBindingAccess().getBindingProvidedBindingProvidedParserRuleCall_2_0(), semanticObject.getBindingProvided());
 		feeder.finish();
 	}
@@ -210,10 +210,12 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Constraint:
 	 *     (
 	 *         name=ID 
+	 *         refinedComponent=[Component|QualifiedName]? 
 	 *         listOfPServices=ListOfProvidedServices 
-	 *         listOfRServices=ListOfRequieredServices 
+	 *         listOfRServices=ListOfrequiredServices 
 	 *         mProvServices+=MProvidedService+ 
-	 *         mReqServices+=MRequieredService*
+	 *         mReqServices+=MRequiredService* 
+	 *         assembly+=Assembly*
 	 *     )
 	 */
 	protected void sequence_Component(ISerializationContext context, Component semanticObject) {
@@ -271,12 +273,12 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     ListOfRequieredServices returns ListOfRequieredServices
+	 *     ListOfrequiredServices returns ListOfrequiredServices
 	 *
 	 * Constraint:
-	 *     (requieredServices+=RequieredService? requieredServices+=RequieredService*)
+	 *     (requiredServices+=RequiredService? requiredServices+=RequiredService*)
 	 */
-	protected void sequence_ListOfRequieredServices(ISerializationContext context, ListOfRequieredServices semanticObject) {
+	protected void sequence_ListOfrequiredServices(ISerializationContext context, ListOfrequiredServices semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -301,18 +303,18 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     MRequieredService returns MRequieredService
+	 *     MRequiredService returns MRequiredService
 	 *
 	 * Constraint:
 	 *     signature=RSignature
 	 */
-	protected void sequence_MRequieredService(ISerializationContext context, MRequieredService semanticObject) {
+	protected void sequence_MRequiredService(ISerializationContext context, MRequiredService semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.MREQUIERED_SERVICE__SIGNATURE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.MREQUIERED_SERVICE__SIGNATURE));
+			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.MREQUIRED_SERVICE__SIGNATURE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.MREQUIRED_SERVICE__SIGNATURE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMRequieredServiceAccess().getSignatureRSignatureParserRuleCall_2_0(), semanticObject.getSignature());
+		feeder.accept(grammarAccess.getMRequiredServiceAccess().getSignatureRSignatureParserRuleCall_2_0(), semanticObject.getSignature());
 		feeder.finish();
 	}
 	
@@ -394,18 +396,18 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     RequieredService returns RequieredService
+	 *     RequiredService returns RequiredService
 	 *
 	 * Constraint:
 	 *     name=[RSignature|ID]
 	 */
-	protected void sequence_RequieredService(ISerializationContext context, RequieredService semanticObject) {
+	protected void sequence_RequiredService(ISerializationContext context, RequiredService semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.REQUIERED_SERVICE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.REQUIERED_SERVICE__NAME));
+			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.REQUIRED_SERVICE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.REQUIRED_SERVICE__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getRequieredServiceAccess().getNameRSignatureIDTerminalRuleCall_0_1(), semanticObject.eGet(FooPackage.Literals.REQUIERED_SERVICE__NAME, false));
+		feeder.accept(grammarAccess.getRequiredServiceAccess().getNameRSignatureIDTerminalRuleCall_0_1(), semanticObject.eGet(FooPackage.Literals.REQUIRED_SERVICE__NAME, false));
 		feeder.finish();
 	}
 	

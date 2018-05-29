@@ -6,23 +6,22 @@ package com.project.foo.validation;
 import com.project.foo.foo.Assembly;
 import com.project.foo.foo.Binding;
 import com.project.foo.foo.BindingProvided;
-import com.project.foo.foo.BindingRequiered;
+import com.project.foo.foo.BindingRequired;
 import com.project.foo.foo.Component;
 import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.FooPackage;
 import com.project.foo.foo.MProvidedService;
-import com.project.foo.foo.MRequieredService;
+import com.project.foo.foo.MRequiredService;
 import com.project.foo.foo.PSignature;
 import com.project.foo.foo.Parameter;
 import com.project.foo.foo.ProvidedService;
 import com.project.foo.foo.RSignature;
-import com.project.foo.foo.RequieredService;
+import com.project.foo.foo.RequiredService;
 import com.project.foo.validation.AbstractFooValidator;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.validation.Check;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 
 /**
  * This class contains custom validation rules.
@@ -180,17 +179,17 @@ public class FooValidator extends AbstractFooValidator {
    * au sein d'un composant
    */
   @Check
-  public void checkRequieredServiceNameIsUnique(final RequieredService rs) {
+  public void checkRequieredServiceNameIsUnique(final RequiredService rs) {
     EObject tmp = EcoreUtil2.getNextSibling(rs);
     while ((tmp != null)) {
       {
-        boolean _equals = rs.getName().equals(((RequieredService) tmp).getName());
+        boolean _equals = rs.getName().equals(((RequiredService) tmp).getName());
         if (_equals) {
           RSignature _name = rs.getName();
           String _plus = ("The name of a requiered service should be unique in a component: \'" + _name);
           String _plus_1 = (_plus + "\'");
           this.error(_plus_1, 
-            FooPackage.Literals.REQUIERED_SERVICE__NAME, 
+            FooPackage.Literals.REQUIRED_SERVICE__NAME, 
             FooValidator.CHECK_R_SERVICE_NAME_IS_UNIQUE);
         }
         tmp = EcoreUtil2.getNextSibling(tmp);
@@ -203,7 +202,7 @@ public class FooValidator extends AbstractFooValidator {
    * le composant X et pas un autre
    */
   @Check
-  public void checkBindingRequieredCanUseMethod(final BindingRequiered bindingRequiered) {
+  public void checkBindingRequieredCanUseMethod(final BindingRequired bindingRequiered) {
     EObject _eContainer = bindingRequiered.getName().eContainer();
     final EList<ComponentInstance> listOfComponent = ((Assembly) _eContainer).getAttributes();
     boolean res = false;
@@ -225,7 +224,7 @@ public class FooValidator extends AbstractFooValidator {
     boolean _not = (!_equals);
     if (_not) {
       this.error("This service is not requiered by the component", 
-        FooPackage.Literals.BINDING_REQUIERED__SERVICE, 
+        FooPackage.Literals.BINDING_REQUIRED__SERVICE, 
         FooValidator.CHECK_BINDING_REQUIERED_CAN_USE_METHOD);
     }
   }
@@ -272,17 +271,17 @@ public class FooValidator extends AbstractFooValidator {
    */
   @Check
   public void checkBindingIsValid(final Binding binding) {
-    final RSignature nomMethodG = binding.getBindingRequiered().getService();
+    final RSignature nomMethodG = binding.getBindingRequired().getService();
     final PSignature nomMethodD = binding.getBindingProvided().getService();
-    EObject _eContainer = binding.getBindingRequiered().getService().eContainer().eContainer();
-    final EList<MRequieredService> listOfRequieredServices = ((Component) _eContainer).getMReqServices();
+    EObject _eContainer = binding.getBindingRequired().getService().eContainer().eContainer();
+    final EList<MRequiredService> listOfRequieredServices = ((Component) _eContainer).getMReqServices();
     EObject _eContainer_1 = binding.getBindingProvided().getService().eContainer().eContainer();
     final EList<MProvidedService> listOfProvidedServices = ((Component) _eContainer_1).getMProvServices();
     String valRetMReq = "";
     String valRetMProv = "";
     EList<Parameter> signatureofRequieredMethod = null;
     EList<Parameter> signatureOfProvidedMethod = null;
-    for (final MRequieredService foo : listOfRequieredServices) {
+    for (final MRequiredService foo : listOfRequieredServices) {
       boolean _equals = foo.getSignature().getName().equals(nomMethodG.getName());
       if (_equals) {
         valRetMReq = foo.getSignature().getType();
@@ -319,7 +318,7 @@ public class FooValidator extends AbstractFooValidator {
     boolean _not = (!_equals);
     if (_not) {
       this.error("Number of parameters between the requiered service and the provided service do not match", 
-        FooPackage.Literals.BINDING__BINDING_REQUIERED, 
+        FooPackage.Literals.BINDING__BINDING_REQUIRED, 
         FooValidator.CHECK_BINDING_IS_VALID);
       return;
     }
@@ -348,20 +347,13 @@ public class FooValidator extends AbstractFooValidator {
   @Check
   public void checkAssemblyIsCorrect(final Assembly assembly) {
     EList<ComponentInstance> listeComposants = assembly.getAttributes();
-    InputOutput.<String>println(("\nValue of listeComposants : " + listeComposants));
     for (final ComponentInstance component : listeComposants) {
       {
         Component _component = component.getComponent();
-        EList<RequieredService> listeServicesRequis = ((Component) _component).getListOfRServices().getRequieredServices();
-        String _name = component.getName();
-        String _plus = ("\t(Composant : " + _name);
-        String _plus_1 = (_plus + ") Value of listeServicesRequis : ");
-        String _plus_2 = (_plus_1 + listeServicesRequis);
-        InputOutput.<String>println(_plus_2);
-        for (final RequieredService service : listeServicesRequis) {
+        EList<RequiredService> listeServicesRequis = ((Component) _component).getListOfRServices().getRequiredServices();
+        for (final RequiredService service : listeServicesRequis) {
           {
             EList<Binding> listeBindings = assembly.getBindings();
-            InputOutput.<String>println(("\t\tValue of listeBindings : " + listeBindings));
             if ((listeBindings.isEmpty() && (!listeServicesRequis.isEmpty()))) {
               this.error("The assembly is not correct, there are missing bindings", 
                 FooPackage.Literals.ASSEMBLY__NAME, 
@@ -370,37 +362,12 @@ public class FooValidator extends AbstractFooValidator {
             }
             for (final Binding binding : listeBindings) {
               {
-                String _name_1 = binding.getBindingRequiered().getName().getName();
-                String _plus_3 = ("\t\t\tValue of binding : " + _name_1);
-                String _plus_4 = (_plus_3 + ".");
-                String _name_2 = binding.getBindingRequiered().getService().getName();
-                String _plus_5 = (_plus_4 + _name_2);
-                String _plus_6 = (_plus_5 + "-");
-                String _name_3 = binding.getBindingProvided().getName().getName();
-                String _plus_7 = (_plus_6 + _name_3);
-                String _plus_8 = (_plus_7 + ".");
-                String _name_4 = binding.getBindingProvided().getService().getName();
-                String _plus_9 = (_plus_8 + _name_4);
-                InputOutput.<String>println(_plus_9);
                 int i = 0;
                 boolean isPresent = false;
                 while (((i < listeBindings.size()) && (!isPresent))) {
                   {
-                    InputOutput.<String>println("\t\t\t\tTEST isPRESENT");
-                    String _name_5 = service.getName().getName();
-                    String _plus_10 = ("\t\t\t\tservice.name : " + _name_5);
-                    InputOutput.<String>println(_plus_10);
-                    String _name_6 = listeBindings.get(i).getBindingRequiered().getService().getName();
-                    String _plus_11 = ("\t\t\t\tisteBindings.get(i).bindingRequiered.service.name : " + _name_6);
-                    InputOutput.<String>println(_plus_11);
-                    String _name_7 = component.getName();
-                    String _plus_12 = ("\t\t\t\tcomponent.name : " + _name_7);
-                    InputOutput.<String>println(_plus_12);
-                    String _name_8 = listeBindings.get(i).getBindingRequiered().getName().getName();
-                    String _plus_13 = ("\t\t\t\tlisteBindings.get(i).bindingRequiered.name.name : " + _name_8);
-                    InputOutput.<String>println(_plus_13);
-                    if ((service.getName().getName().equals(listeBindings.get(i).getBindingRequiered().getService().getName()) && 
-                      component.getName().equals(listeBindings.get(i).getBindingRequiered().getName().getName()))) {
+                    if ((service.getName().getName().equals(listeBindings.get(i).getBindingRequired().getService().getName()) && 
+                      component.getName().equals(listeBindings.get(i).getBindingRequired().getName().getName()))) {
                       isPresent = true;
                     }
                     i++;

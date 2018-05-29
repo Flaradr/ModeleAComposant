@@ -17,10 +17,12 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.project.foo.foo.Component#getName <em>Name</em>}</li>
+ *   <li>{@link com.project.foo.foo.Component#getRefinedComponent <em>Refined Component</em>}</li>
  *   <li>{@link com.project.foo.foo.Component#getListOfPServices <em>List Of PServices</em>}</li>
  *   <li>{@link com.project.foo.foo.Component#getListOfRServices <em>List Of RServices</em>}</li>
  *   <li>{@link com.project.foo.foo.Component#getMProvServices <em>MProv Services</em>}</li>
  *   <li>{@link com.project.foo.foo.Component#getMReqServices <em>MReq Services</em>}</li>
+ *   <li>{@link com.project.foo.foo.Component#getAssembly <em>Assembly</em>}</li>
  * </ul>
  *
  * @see com.project.foo.foo.FooPackage#getComponent()
@@ -54,6 +56,32 @@ public interface Component extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Refined Component</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Refined Component</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Refined Component</em>' reference.
+   * @see #setRefinedComponent(Component)
+   * @see com.project.foo.foo.FooPackage#getComponent_RefinedComponent()
+   * @model
+   * @generated
+   */
+  Component getRefinedComponent();
+
+  /**
+   * Sets the value of the '{@link com.project.foo.foo.Component#getRefinedComponent <em>Refined Component</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Refined Component</em>' reference.
+   * @see #getRefinedComponent()
+   * @generated
+   */
+  void setRefinedComponent(Component value);
 
   /**
    * Returns the value of the '<em><b>List Of PServices</b></em>' containment reference.
@@ -90,12 +118,12 @@ public interface Component extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>List Of RServices</em>' containment reference.
-   * @see #setListOfRServices(ListOfRequieredServices)
+   * @see #setListOfRServices(ListOfrequiredServices)
    * @see com.project.foo.foo.FooPackage#getComponent_ListOfRServices()
    * @model containment="true"
    * @generated
    */
-  ListOfRequieredServices getListOfRServices();
+  ListOfrequiredServices getListOfRServices();
 
   /**
    * Sets the value of the '{@link com.project.foo.foo.Component#getListOfRServices <em>List Of RServices</em>}' containment reference.
@@ -105,7 +133,7 @@ public interface Component extends EObject
    * @see #getListOfRServices()
    * @generated
    */
-  void setListOfRServices(ListOfRequieredServices value);
+  void setListOfRServices(ListOfrequiredServices value);
 
   /**
    * Returns the value of the '<em><b>MProv Services</b></em>' containment reference list.
@@ -125,7 +153,7 @@ public interface Component extends EObject
 
   /**
    * Returns the value of the '<em><b>MReq Services</b></em>' containment reference list.
-   * The list contents are of type {@link com.project.foo.foo.MRequieredService}.
+   * The list contents are of type {@link com.project.foo.foo.MRequiredService}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>MReq Services</em>' containment reference list isn't clear,
@@ -137,6 +165,22 @@ public interface Component extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<MRequieredService> getMReqServices();
+  EList<MRequiredService> getMReqServices();
+
+  /**
+   * Returns the value of the '<em><b>Assembly</b></em>' containment reference list.
+   * The list contents are of type {@link com.project.foo.foo.Assembly}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Assembly</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Assembly</em>' containment reference list.
+   * @see com.project.foo.foo.FooPackage#getComponent_Assembly()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Assembly> getAssembly();
 
 } // Component

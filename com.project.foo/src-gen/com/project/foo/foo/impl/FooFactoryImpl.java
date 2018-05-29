@@ -71,16 +71,16 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
       case FooPackage.ASSEMBLY: return createAssembly();
       case FooPackage.COMPONENT_INSTANCE: return createComponentInstance();
       case FooPackage.BINDING: return createBinding();
-      case FooPackage.BINDING_REQUIERED: return createBindingRequiered();
+      case FooPackage.BINDING_REQUIRED: return createBindingRequired();
       case FooPackage.BINDING_PROVIDED: return createBindingProvided();
       case FooPackage.COMPONENT: return createComponent();
       case FooPackage.LIST_OF_PROVIDED_SERVICES: return createListOfProvidedServices();
       case FooPackage.PROVIDED_SERVICE: return createProvidedService();
-      case FooPackage.LIST_OF_REQUIERED_SERVICES: return createListOfRequieredServices();
-      case FooPackage.REQUIERED_SERVICE: return createRequieredService();
+      case FooPackage.LIST_OFREQUIRED_SERVICES: return createListOfrequiredServices();
+      case FooPackage.REQUIRED_SERVICE: return createRequiredService();
       case FooPackage.MPROVIDED_SERVICE: return createMProvidedService();
       case FooPackage.PSIGNATURE: return createPSignature();
-      case FooPackage.MREQUIERED_SERVICE: return createMRequieredService();
+      case FooPackage.MREQUIRED_SERVICE: return createMRequiredService();
       case FooPackage.RSIGNATURE: return createRSignature();
       case FooPackage.PARAMETER: return createParameter();
       default:
@@ -159,10 +159,10 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public BindingRequiered createBindingRequiered()
+  public BindingRequired createBindingRequired()
   {
-    BindingRequieredImpl bindingRequiered = new BindingRequieredImpl();
-    return bindingRequiered;
+    BindingRequiredImpl bindingRequired = new BindingRequiredImpl();
+    return bindingRequired;
   }
 
   /**
@@ -214,10 +214,10 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ListOfRequieredServices createListOfRequieredServices()
+  public ListOfrequiredServices createListOfrequiredServices()
   {
-    ListOfRequieredServicesImpl listOfRequieredServices = new ListOfRequieredServicesImpl();
-    return listOfRequieredServices;
+    ListOfrequiredServicesImpl listOfrequiredServices = new ListOfrequiredServicesImpl();
+    return listOfrequiredServices;
   }
 
   /**
@@ -225,10 +225,10 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public RequieredService createRequieredService()
+  public RequiredService createRequiredService()
   {
-    RequieredServiceImpl requieredService = new RequieredServiceImpl();
-    return requieredService;
+    RequiredServiceImpl requiredService = new RequiredServiceImpl();
+    return requiredService;
   }
 
   /**
@@ -258,10 +258,10 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MRequieredService createMRequieredService()
+  public MRequiredService createMRequiredService()
   {
-    MRequieredServiceImpl mRequieredService = new MRequieredServiceImpl();
-    return mRequieredService;
+    MRequiredServiceImpl mRequiredService = new MRequiredServiceImpl();
+    return mRequiredService;
   }
 
   /**

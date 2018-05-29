@@ -725,7 +725,7 @@ public class FooParsingTest {
       _builder.newLine();
       final String input = _builder.toString();
       this._validationTestHelper.assertError(this._parseHelper.parse(input), 
-        FooPackage.Literals.REQUIERED_SERVICE, 
+        FooPackage.Literals.REQUIRED_SERVICE, 
         FooValidator.CHECK_R_SERVICE_NAME_IS_UNIQUE, 
         input.indexOf("m2"), 
         2, 
@@ -1423,7 +1423,6 @@ public class FooParsingTest {
       _builder_1.append("\t\t");
       _builder_1.append("service provided type3 m3 (p4 : type4) { }");
       _builder_1.newLine();
-      _builder_1.newLine();
       _builder_1.append("\t\t");
       _builder_1.append("service requiered type2 m1 (p3 : type1);");
       _builder_1.newLine();
@@ -1478,7 +1477,7 @@ public class FooParsingTest {
       int _length = "b1.".length();
       int _plus = (_indexOf + _length);
       this._validationTestHelper.assertError(_parse, 
-        FooPackage.Literals.BINDING_REQUIERED, 
+        FooPackage.Literals.BINDING_REQUIRED, 
         FooValidator.CHECK_BINDING_REQUIERED_CAN_USE_METHOD, _plus, 
         "m3".length(), 
         "This service is not requiered by the component");

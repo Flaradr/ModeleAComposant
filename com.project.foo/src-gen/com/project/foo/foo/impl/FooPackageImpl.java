@@ -6,7 +6,7 @@ package com.project.foo.foo.impl;
 import com.project.foo.foo.Assembly;
 import com.project.foo.foo.Binding;
 import com.project.foo.foo.BindingProvided;
-import com.project.foo.foo.BindingRequiered;
+import com.project.foo.foo.BindingRequired;
 import com.project.foo.foo.Component;
 import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.DomainModel;
@@ -14,15 +14,15 @@ import com.project.foo.foo.FooFactory;
 import com.project.foo.foo.FooPackage;
 import com.project.foo.foo.Import;
 import com.project.foo.foo.ListOfProvidedServices;
-import com.project.foo.foo.ListOfRequieredServices;
+import com.project.foo.foo.ListOfrequiredServices;
 import com.project.foo.foo.MProvidedService;
-import com.project.foo.foo.MRequieredService;
+import com.project.foo.foo.MRequiredService;
 import com.project.foo.foo.Model;
 import com.project.foo.foo.PSignature;
 import com.project.foo.foo.Parameter;
 import com.project.foo.foo.ProvidedService;
 import com.project.foo.foo.RSignature;
-import com.project.foo.foo.RequieredService;
+import com.project.foo.foo.RequiredService;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -86,7 +86,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass bindingRequieredEClass = null;
+  private EClass bindingRequiredEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,14 +121,14 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass listOfRequieredServicesEClass = null;
+  private EClass listOfrequiredServicesEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass requieredServiceEClass = null;
+  private EClass requiredServiceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -149,7 +149,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass mRequieredServiceEClass = null;
+  private EClass mRequiredServiceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -403,7 +403,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBinding_BindingRequiered()
+  public EReference getBinding_BindingRequired()
   {
     return (EReference)bindingEClass.getEStructuralFeatures().get(0);
   }
@@ -423,9 +423,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getBindingRequiered()
+  public EClass getBindingRequired()
   {
-    return bindingRequieredEClass;
+    return bindingRequiredEClass;
   }
 
   /**
@@ -433,9 +433,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBindingRequiered_Name()
+  public EReference getBindingRequired_Name()
   {
-    return (EReference)bindingRequieredEClass.getEStructuralFeatures().get(0);
+    return (EReference)bindingRequiredEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -443,9 +443,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBindingRequiered_Service()
+  public EReference getBindingRequired_Service()
   {
-    return (EReference)bindingRequieredEClass.getEStructuralFeatures().get(1);
+    return (EReference)bindingRequiredEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -503,7 +503,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponent_ListOfPServices()
+  public EReference getComponent_RefinedComponent()
   {
     return (EReference)componentEClass.getEStructuralFeatures().get(1);
   }
@@ -513,7 +513,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponent_ListOfRServices()
+  public EReference getComponent_ListOfPServices()
   {
     return (EReference)componentEClass.getEStructuralFeatures().get(2);
   }
@@ -523,7 +523,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponent_MProvServices()
+  public EReference getComponent_ListOfRServices()
   {
     return (EReference)componentEClass.getEStructuralFeatures().get(3);
   }
@@ -533,9 +533,29 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponent_MReqServices()
+  public EReference getComponent_MProvServices()
   {
     return (EReference)componentEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getComponent_MReqServices()
+  {
+    return (EReference)componentEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getComponent_Assembly()
+  {
+    return (EReference)componentEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -583,9 +603,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getListOfRequieredServices()
+  public EClass getListOfrequiredServices()
   {
-    return listOfRequieredServicesEClass;
+    return listOfrequiredServicesEClass;
   }
 
   /**
@@ -593,9 +613,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getListOfRequieredServices_RequieredServices()
+  public EReference getListOfrequiredServices_RequiredServices()
   {
-    return (EReference)listOfRequieredServicesEClass.getEStructuralFeatures().get(0);
+    return (EReference)listOfrequiredServicesEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -603,9 +623,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getRequieredService()
+  public EClass getRequiredService()
   {
-    return requieredServiceEClass;
+    return requiredServiceEClass;
   }
 
   /**
@@ -613,9 +633,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRequieredService_Name()
+  public EReference getRequiredService_Name()
   {
-    return (EReference)requieredServiceEClass.getEStructuralFeatures().get(0);
+    return (EReference)requiredServiceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -683,9 +703,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMRequieredService()
+  public EClass getMRequiredService()
   {
-    return mRequieredServiceEClass;
+    return mRequiredServiceEClass;
   }
 
   /**
@@ -693,9 +713,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMRequieredService_Signature()
+  public EReference getMRequiredService_Signature()
   {
-    return (EReference)mRequieredServiceEClass.getEStructuralFeatures().get(0);
+    return (EReference)mRequiredServiceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -820,12 +840,12 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     createEReference(componentInstanceEClass, COMPONENT_INSTANCE__COMPONENT);
 
     bindingEClass = createEClass(BINDING);
-    createEReference(bindingEClass, BINDING__BINDING_REQUIERED);
+    createEReference(bindingEClass, BINDING__BINDING_REQUIRED);
     createEReference(bindingEClass, BINDING__BINDING_PROVIDED);
 
-    bindingRequieredEClass = createEClass(BINDING_REQUIERED);
-    createEReference(bindingRequieredEClass, BINDING_REQUIERED__NAME);
-    createEReference(bindingRequieredEClass, BINDING_REQUIERED__SERVICE);
+    bindingRequiredEClass = createEClass(BINDING_REQUIRED);
+    createEReference(bindingRequiredEClass, BINDING_REQUIRED__NAME);
+    createEReference(bindingRequiredEClass, BINDING_REQUIRED__SERVICE);
 
     bindingProvidedEClass = createEClass(BINDING_PROVIDED);
     createEReference(bindingProvidedEClass, BINDING_PROVIDED__NAME);
@@ -833,10 +853,12 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
 
     componentEClass = createEClass(COMPONENT);
     createEAttribute(componentEClass, COMPONENT__NAME);
+    createEReference(componentEClass, COMPONENT__REFINED_COMPONENT);
     createEReference(componentEClass, COMPONENT__LIST_OF_PSERVICES);
     createEReference(componentEClass, COMPONENT__LIST_OF_RSERVICES);
     createEReference(componentEClass, COMPONENT__MPROV_SERVICES);
     createEReference(componentEClass, COMPONENT__MREQ_SERVICES);
+    createEReference(componentEClass, COMPONENT__ASSEMBLY);
 
     listOfProvidedServicesEClass = createEClass(LIST_OF_PROVIDED_SERVICES);
     createEReference(listOfProvidedServicesEClass, LIST_OF_PROVIDED_SERVICES__PROVIDED_SERVICES);
@@ -844,11 +866,11 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     providedServiceEClass = createEClass(PROVIDED_SERVICE);
     createEReference(providedServiceEClass, PROVIDED_SERVICE__NAME);
 
-    listOfRequieredServicesEClass = createEClass(LIST_OF_REQUIERED_SERVICES);
-    createEReference(listOfRequieredServicesEClass, LIST_OF_REQUIERED_SERVICES__REQUIERED_SERVICES);
+    listOfrequiredServicesEClass = createEClass(LIST_OFREQUIRED_SERVICES);
+    createEReference(listOfrequiredServicesEClass, LIST_OFREQUIRED_SERVICES__REQUIRED_SERVICES);
 
-    requieredServiceEClass = createEClass(REQUIERED_SERVICE);
-    createEReference(requieredServiceEClass, REQUIERED_SERVICE__NAME);
+    requiredServiceEClass = createEClass(REQUIRED_SERVICE);
+    createEReference(requiredServiceEClass, REQUIRED_SERVICE__NAME);
 
     mProvidedServiceEClass = createEClass(MPROVIDED_SERVICE);
     createEReference(mProvidedServiceEClass, MPROVIDED_SERVICE__SIGNATURE);
@@ -858,8 +880,8 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     createEAttribute(pSignatureEClass, PSIGNATURE__NAME);
     createEReference(pSignatureEClass, PSIGNATURE__PARAMETERS);
 
-    mRequieredServiceEClass = createEClass(MREQUIERED_SERVICE);
-    createEReference(mRequieredServiceEClass, MREQUIERED_SERVICE__SIGNATURE);
+    mRequiredServiceEClass = createEClass(MREQUIRED_SERVICE);
+    createEReference(mRequiredServiceEClass, MREQUIRED_SERVICE__SIGNATURE);
 
     rSignatureEClass = createEClass(RSIGNATURE);
     createEAttribute(rSignatureEClass, RSIGNATURE__TYPE);
@@ -924,12 +946,12 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     initEReference(getComponentInstance_Component(), this.getComponent(), null, "component", null, 0, 1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bindingEClass, Binding.class, "Binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBinding_BindingRequiered(), this.getBindingRequiered(), null, "bindingRequiered", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBinding_BindingRequired(), this.getBindingRequired(), null, "bindingRequired", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBinding_BindingProvided(), this.getBindingProvided(), null, "bindingProvided", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(bindingRequieredEClass, BindingRequiered.class, "BindingRequiered", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBindingRequiered_Name(), this.getComponentInstance(), null, "name", null, 0, 1, BindingRequiered.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBindingRequiered_Service(), this.getRSignature(), null, "service", null, 0, 1, BindingRequiered.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(bindingRequiredEClass, BindingRequired.class, "BindingRequired", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBindingRequired_Name(), this.getComponentInstance(), null, "name", null, 0, 1, BindingRequired.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBindingRequired_Service(), this.getRSignature(), null, "service", null, 0, 1, BindingRequired.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(bindingProvidedEClass, BindingProvided.class, "BindingProvided", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBindingProvided_Name(), this.getComponentInstance(), null, "name", null, 0, 1, BindingProvided.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -937,10 +959,12 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
 
     initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComponent_RefinedComponent(), this.getComponent(), null, "refinedComponent", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponent_ListOfPServices(), this.getListOfProvidedServices(), null, "listOfPServices", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComponent_ListOfRServices(), this.getListOfRequieredServices(), null, "listOfRServices", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComponent_ListOfRServices(), this.getListOfrequiredServices(), null, "listOfRServices", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponent_MProvServices(), this.getMProvidedService(), null, "mProvServices", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComponent_MReqServices(), this.getMRequieredService(), null, "mReqServices", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComponent_MReqServices(), this.getMRequiredService(), null, "mReqServices", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComponent_Assembly(), this.getAssembly(), null, "assembly", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(listOfProvidedServicesEClass, ListOfProvidedServices.class, "ListOfProvidedServices", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getListOfProvidedServices_ProvidedServices(), this.getProvidedService(), null, "providedServices", null, 0, -1, ListOfProvidedServices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -948,11 +972,11 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     initEClass(providedServiceEClass, ProvidedService.class, "ProvidedService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getProvidedService_Name(), this.getPSignature(), null, "name", null, 0, 1, ProvidedService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(listOfRequieredServicesEClass, ListOfRequieredServices.class, "ListOfRequieredServices", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getListOfRequieredServices_RequieredServices(), this.getRequieredService(), null, "requieredServices", null, 0, -1, ListOfRequieredServices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(listOfrequiredServicesEClass, ListOfrequiredServices.class, "ListOfrequiredServices", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getListOfrequiredServices_RequiredServices(), this.getRequiredService(), null, "requiredServices", null, 0, -1, ListOfrequiredServices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(requieredServiceEClass, RequieredService.class, "RequieredService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRequieredService_Name(), this.getRSignature(), null, "name", null, 0, 1, RequieredService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(requiredServiceEClass, RequiredService.class, "RequiredService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRequiredService_Name(), this.getRSignature(), null, "name", null, 0, 1, RequiredService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mProvidedServiceEClass, MProvidedService.class, "MProvidedService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMProvidedService_Signature(), this.getPSignature(), null, "signature", null, 0, 1, MProvidedService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -962,8 +986,8 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     initEAttribute(getPSignature_Name(), ecorePackage.getEString(), "name", null, 0, 1, PSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPSignature_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, PSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(mRequieredServiceEClass, MRequieredService.class, "MRequieredService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMRequieredService_Signature(), this.getRSignature(), null, "signature", null, 0, 1, MRequieredService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(mRequiredServiceEClass, MRequiredService.class, "MRequiredService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMRequiredService_Signature(), this.getRSignature(), null, "signature", null, 0, 1, MRequiredService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(rSignatureEClass, RSignature.class, "RSignature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRSignature_Type(), ecorePackage.getEString(), "type", null, 0, 1, RSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

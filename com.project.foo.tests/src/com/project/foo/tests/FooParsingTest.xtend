@@ -362,7 +362,7 @@ class FooParsingTest {
 			}
 			'''
 		input.parse.assertError(
-			FooPackage.Literals.REQUIERED_SERVICE,
+			FooPackage.Literals.REQUIRED_SERVICE,
 			FooValidator.CHECK_R_SERVICE_NAME_IS_UNIQUE,
 			input.indexOf("m2"),
 			2,
@@ -688,7 +688,6 @@ class FooParsingTest {
 				requiered = {m1,m4}
 		
 				service provided type3 m3 (p4 : type4) { }
-		
 				service requiered type2 m1 (p3 : type1);
 				service requiered type3 m4 (p4_1 : type3, p4_2 : type4);
 			}
@@ -709,7 +708,7 @@ class FooParsingTest {
 		'''
 
 		input.parse.assertError(
-			FooPackage.Literals.BINDING_REQUIERED,
+			FooPackage.Literals.BINDING_REQUIRED,
 			FooValidator.CHECK_BINDING_REQUIERED_CAN_USE_METHOD,
 			input.indexOf("b1.m3") + "b1.".length,
 			"m3".length,
