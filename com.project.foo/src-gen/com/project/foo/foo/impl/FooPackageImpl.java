@@ -10,8 +10,10 @@ import com.project.foo.foo.BindingRequired;
 import com.project.foo.foo.Component;
 import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.DomainModel;
+import com.project.foo.foo.Expression;
 import com.project.foo.foo.FooFactory;
 import com.project.foo.foo.FooPackage;
+import com.project.foo.foo.If;
 import com.project.foo.foo.Import;
 import com.project.foo.foo.ListOfProvidedServices;
 import com.project.foo.foo.ListOfrequiredServices;
@@ -23,6 +25,7 @@ import com.project.foo.foo.Parameter;
 import com.project.foo.foo.ProvidedService;
 import com.project.foo.foo.RSignature;
 import com.project.foo.foo.RequiredService;
+import com.project.foo.foo.While;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -136,6 +139,27 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * @generated
    */
   private EClass mProvidedServiceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass ifEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass whileEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -663,6 +687,86 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getMProvidedService_Expressions()
+  {
+    return (EReference)mProvidedServiceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getExpression()
+  {
+    return expressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExpression_Conditions()
+  {
+    return (EAttribute)expressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpression_Expressions()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIf()
+  {
+    return ifEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIf_Else()
+  {
+    return (EReference)ifEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIf_Expression()
+  {
+    return (EReference)ifEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getWhile()
+  {
+    return whileEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getPSignature()
   {
     return pSignatureEClass;
@@ -874,6 +978,17 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
 
     mProvidedServiceEClass = createEClass(MPROVIDED_SERVICE);
     createEReference(mProvidedServiceEClass, MPROVIDED_SERVICE__SIGNATURE);
+    createEReference(mProvidedServiceEClass, MPROVIDED_SERVICE__EXPRESSIONS);
+
+    expressionEClass = createEClass(EXPRESSION);
+    createEAttribute(expressionEClass, EXPRESSION__CONDITIONS);
+    createEReference(expressionEClass, EXPRESSION__EXPRESSIONS);
+
+    ifEClass = createEClass(IF);
+    createEReference(ifEClass, IF__ELSE);
+    createEReference(ifEClass, IF__EXPRESSION);
+
+    whileEClass = createEClass(WHILE);
 
     pSignatureEClass = createEClass(PSIGNATURE);
     createEAttribute(pSignatureEClass, PSIGNATURE__TYPE);
@@ -922,6 +1037,8 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    ifEClass.getESuperTypes().add(this.getExpression());
+    whileEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(domainModelEClass, DomainModel.class, "DomainModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -980,6 +1097,17 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
 
     initEClass(mProvidedServiceEClass, MProvidedService.class, "MProvidedService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMProvidedService_Signature(), this.getPSignature(), null, "signature", null, 0, 1, MProvidedService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMProvidedService_Expressions(), this.getExpression(), null, "expressions", null, 0, -1, MProvidedService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExpression_Conditions(), ecorePackage.getEString(), "conditions", null, 0, -1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_Expressions(), this.getExpression(), null, "expressions", null, 0, -1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(ifEClass, If.class, "If", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getIf_Else(), this.getIf(), null, "else", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIf_Expression(), this.getExpression(), null, "expression", null, 0, 1, If.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(whileEClass, While.class, "While", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(pSignatureEClass, PSignature.class, "PSignature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPSignature_Type(), ecorePackage.getEString(), "type", null, 0, 1, PSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

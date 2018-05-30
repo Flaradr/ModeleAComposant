@@ -146,6 +146,21 @@ public class FooAdapterFactory extends AdapterFactoryImpl
         return createMProvidedServiceAdapter();
       }
       @Override
+      public Adapter caseExpression(Expression object)
+      {
+        return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseIf(If object)
+      {
+        return createIfAdapter();
+      }
+      @Override
+      public Adapter caseWhile(While object)
+      {
+        return createWhileAdapter();
+      }
+      @Override
       public Adapter casePSignature(PSignature object)
       {
         return createPSignatureAdapter();
@@ -393,6 +408,51 @@ public class FooAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMProvidedServiceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.project.foo.foo.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.project.foo.foo.Expression
+   * @generated
+   */
+  public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.project.foo.foo.If <em>If</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.project.foo.foo.If
+   * @generated
+   */
+  public Adapter createIfAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.project.foo.foo.While <em>While</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.project.foo.foo.While
+   * @generated
+   */
+  public Adapter createWhileAdapter()
   {
     return null;
   }

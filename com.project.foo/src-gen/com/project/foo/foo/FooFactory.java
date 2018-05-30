@@ -150,6 +150,33 @@ public interface FooFactory extends EFactory
   MProvidedService createMProvidedService();
 
   /**
+   * Returns a new object of class '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression</em>'.
+   * @generated
+   */
+  Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>If</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If</em>'.
+   * @generated
+   */
+  If createIf();
+
+  /**
+   * Returns a new object of class '<em>While</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>While</em>'.
+   * @generated
+   */
+  While createWhile();
+
+  /**
    * Returns a new object of class '<em>PSignature</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

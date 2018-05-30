@@ -31,6 +31,11 @@ public class FooParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getExpressionAccess().getAlternatives(), "rule__Expression__Alternatives");
+					put(grammarAccess.getIfAccess().getAlternatives_2_1(), "rule__If__Alternatives_2_1");
+					put(grammarAccess.getIfAccess().getAlternatives_8_1(), "rule__If__Alternatives_8_1");
+					put(grammarAccess.getWhileAccess().getAlternatives_2_1(), "rule__While__Alternatives_2_1");
+					put(grammarAccess.getConditionAccess().getAlternatives_1(), "rule__Condition__Alternatives_1");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
@@ -52,6 +57,15 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getListOfrequiredServicesAccess().getGroup_4(), "rule__ListOfrequiredServices__Group_4__0");
 					put(grammarAccess.getListOfrequiredServicesAccess().getGroup_4_1(), "rule__ListOfrequiredServices__Group_4_1__0");
 					put(grammarAccess.getMProvidedServiceAccess().getGroup(), "rule__MProvidedService__Group__0");
+					put(grammarAccess.getExpressionAccess().getGroup_2(), "rule__Expression__Group_2__0");
+					put(grammarAccess.getIfAccess().getGroup(), "rule__If__Group__0");
+					put(grammarAccess.getIfAccess().getGroup_2(), "rule__If__Group_2__0");
+					put(grammarAccess.getIfAccess().getGroup_8(), "rule__If__Group_8__0");
+					put(grammarAccess.getIfAccess().getGroup_8_1_1(), "rule__If__Group_8_1_1__0");
+					put(grammarAccess.getWhileAccess().getGroup(), "rule__While__Group__0");
+					put(grammarAccess.getWhileAccess().getGroup_2(), "rule__While__Group_2__0");
+					put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
+					put(grammarAccess.getStatementAccess().getGroup(), "rule__Statement__Group__0");
 					put(grammarAccess.getPSignatureAccess().getGroup(), "rule__PSignature__Group__0");
 					put(grammarAccess.getPSignatureAccess().getGroup_4(), "rule__PSignature__Group_4__0");
 					put(grammarAccess.getMRequiredServiceAccess().getGroup(), "rule__MRequiredService__Group__0");
@@ -90,6 +104,15 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getListOfrequiredServicesAccess().getRequiredServicesAssignment_4_1_1(), "rule__ListOfrequiredServices__RequiredServicesAssignment_4_1_1");
 					put(grammarAccess.getRequiredServiceAccess().getNameAssignment(), "rule__RequiredService__NameAssignment");
 					put(grammarAccess.getMProvidedServiceAccess().getSignatureAssignment_2(), "rule__MProvidedService__SignatureAssignment_2");
+					put(grammarAccess.getMProvidedServiceAccess().getExpressionsAssignment_4(), "rule__MProvidedService__ExpressionsAssignment_4");
+					put(grammarAccess.getIfAccess().getConditionsAssignment_2_0(), "rule__If__ConditionsAssignment_2_0");
+					put(grammarAccess.getIfAccess().getConditionsAssignment_3(), "rule__If__ConditionsAssignment_3");
+					put(grammarAccess.getIfAccess().getExpressionsAssignment_6(), "rule__If__ExpressionsAssignment_6");
+					put(grammarAccess.getIfAccess().getElseAssignment_8_1_0(), "rule__If__ElseAssignment_8_1_0");
+					put(grammarAccess.getIfAccess().getExpressionAssignment_8_1_1_1(), "rule__If__ExpressionAssignment_8_1_1_1");
+					put(grammarAccess.getWhileAccess().getConditionsAssignment_2_0(), "rule__While__ConditionsAssignment_2_0");
+					put(grammarAccess.getWhileAccess().getConditionsAssignment_3(), "rule__While__ConditionsAssignment_3");
+					put(grammarAccess.getWhileAccess().getExpressionsAssignment_6(), "rule__While__ExpressionsAssignment_6");
 					put(grammarAccess.getPSignatureAccess().getTypeAssignment_0(), "rule__PSignature__TypeAssignment_0");
 					put(grammarAccess.getPSignatureAccess().getNameAssignment_1(), "rule__PSignature__NameAssignment_1");
 					put(grammarAccess.getPSignatureAccess().getParametersAssignment_3(), "rule__PSignature__ParametersAssignment_3");

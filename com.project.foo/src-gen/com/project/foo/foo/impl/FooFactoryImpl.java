@@ -79,6 +79,9 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
       case FooPackage.LIST_OFREQUIRED_SERVICES: return createListOfrequiredServices();
       case FooPackage.REQUIRED_SERVICE: return createRequiredService();
       case FooPackage.MPROVIDED_SERVICE: return createMProvidedService();
+      case FooPackage.EXPRESSION: return createExpression();
+      case FooPackage.IF: return createIf();
+      case FooPackage.WHILE: return createWhile();
       case FooPackage.PSIGNATURE: return createPSignature();
       case FooPackage.MREQUIRED_SERVICE: return createMRequiredService();
       case FooPackage.RSIGNATURE: return createRSignature();
@@ -240,6 +243,39 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
   {
     MProvidedServiceImpl mProvidedService = new MProvidedServiceImpl();
     return mProvidedService;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public If createIf()
+  {
+    IfImpl if_ = new IfImpl();
+    return if_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public While createWhile()
+  {
+    WhileImpl while_ = new WhileImpl();
+    return while_;
   }
 
   /**

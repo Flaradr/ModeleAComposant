@@ -3,6 +3,8 @@
  */
 package com.project.foo.foo;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.project.foo.foo.MProvidedService#getSignature <em>Signature</em>}</li>
+ *   <li>{@link com.project.foo.foo.MProvidedService#getExpressions <em>Expressions</em>}</li>
  * </ul>
  *
  * @see com.project.foo.foo.FooPackage#getMProvidedService()
@@ -48,5 +51,21 @@ public interface MProvidedService extends EObject
    * @generated
    */
   void setSignature(PSignature value);
+
+  /**
+   * Returns the value of the '<em><b>Expressions</b></em>' containment reference list.
+   * The list contents are of type {@link com.project.foo.foo.Expression}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Expressions</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Expressions</em>' containment reference list.
+   * @see com.project.foo.foo.FooPackage#getMProvidedService_Expressions()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Expression> getExpressions();
 
 } // MProvidedService

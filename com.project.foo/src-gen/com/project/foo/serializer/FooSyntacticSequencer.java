@@ -11,6 +11,7 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -22,18 +23,34 @@ public class FooSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected FooGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Component___AssemblyKeyword_8_0_0_ColonKeyword_8_0_1__q;
+	protected AbstractElementAlias match_If_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0;
+	protected AbstractElementAlias match_While_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (FooGrammarAccess) access;
 		match_Component___AssemblyKeyword_8_0_0_ColonKeyword_8_0_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getComponentAccess().getAssemblyKeyword_8_0_0()), new TokenAlias(false, false, grammarAccess.getComponentAccess().getColonKeyword_8_0_1()));
+		match_If_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getIfAccess().getAmpersandAmpersandKeyword_2_1_1()), new TokenAlias(false, false, grammarAccess.getIfAccess().getVerticalLineVerticalLineKeyword_2_1_0()));
+		match_While_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getWhileAccess().getAmpersandAmpersandKeyword_2_1_1()), new TokenAlias(false, false, grammarAccess.getWhileAccess().getVerticalLineVerticalLineKeyword_2_1_0()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (ruleCall.getRule() == grammarAccess.getStatementRule())
+			return getStatementToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	/**
+	 * Statement : 
+	 * 	"Lorem" "Ipsum"
+	 * ;
+	 */
+	protected String getStatementToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "LoremIpsum";
+	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -43,6 +60,10 @@ public class FooSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_Component___AssemblyKeyword_8_0_0_ColonKeyword_8_0_1__q.equals(syntax))
 				emit_Component___AssemblyKeyword_8_0_0_ColonKeyword_8_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_If_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0.equals(syntax))
+				emit_If_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_While_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0.equals(syntax))
+				emit_While_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -57,6 +78,28 @@ public class FooSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     mReqServices+=MRequiredService (ambiguity) assemblies+=[Assembly|QualifiedName]
 	 */
 	protected void emit_Component___AssemblyKeyword_8_0_0_ColonKeyword_8_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '&&' | '||'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     conditions+=Condition (ambiguity) conditions+=Condition
+	 */
+	protected void emit_If_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '||' | '&&'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     conditions+=Condition (ambiguity) conditions+=Condition
+	 */
+	protected void emit_While_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

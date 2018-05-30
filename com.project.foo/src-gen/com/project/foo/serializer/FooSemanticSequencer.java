@@ -11,7 +11,9 @@ import com.project.foo.foo.BindingRequired;
 import com.project.foo.foo.Component;
 import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.DomainModel;
+import com.project.foo.foo.Expression;
 import com.project.foo.foo.FooPackage;
+import com.project.foo.foo.If;
 import com.project.foo.foo.Import;
 import com.project.foo.foo.ListOfProvidedServices;
 import com.project.foo.foo.ListOfrequiredServices;
@@ -22,6 +24,7 @@ import com.project.foo.foo.PSignature;
 import com.project.foo.foo.ProvidedService;
 import com.project.foo.foo.RSignature;
 import com.project.foo.foo.RequiredService;
+import com.project.foo.foo.While;
 import com.project.foo.services.FooGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -69,6 +72,12 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case FooPackage.DOMAIN_MODEL:
 				sequence_DomainModel(context, (DomainModel) semanticObject); 
 				return; 
+			case FooPackage.EXPRESSION:
+				sequence_Expression(context, (Expression) semanticObject); 
+				return; 
+			case FooPackage.IF:
+				sequence_If(context, (If) semanticObject); 
+				return; 
 			case FooPackage.IMPORT:
 				sequence_Import(context, (Import) semanticObject); 
 				return; 
@@ -101,6 +110,9 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case FooPackage.REQUIRED_SERVICE:
 				sequence_RequiredService(context, (RequiredService) semanticObject); 
+				return; 
+			case FooPackage.WHILE:
+				sequence_While(context, (While) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -243,6 +255,31 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Expression returns Expression
+	 *
+	 * Constraint:
+	 *     {Expression}
+	 */
+	protected void sequence_Expression(ISerializationContext context, Expression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns If
+	 *     If returns If
+	 *
+	 * Constraint:
+	 *     (conditions+=Condition* conditions+=Condition expressions+=Expression (else=If | expression=Expression)?)
+	 */
+	protected void sequence_If(ISerializationContext context, If semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Import returns Import
 	 *
 	 * Constraint:
@@ -288,16 +325,10 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     MProvidedService returns MProvidedService
 	 *
 	 * Constraint:
-	 *     signature=PSignature
+	 *     (signature=PSignature expressions+=Expression+)
 	 */
 	protected void sequence_MProvidedService(ISerializationContext context, MProvidedService semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.MPROVIDED_SERVICE__SIGNATURE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.MPROVIDED_SERVICE__SIGNATURE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMProvidedServiceAccess().getSignaturePSignatureParserRuleCall_2_0(), semanticObject.getSignature());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -409,6 +440,19 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getRequiredServiceAccess().getNameRSignatureIDTerminalRuleCall_0_1(), semanticObject.eGet(FooPackage.Literals.REQUIRED_SERVICE__NAME, false));
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expression returns While
+	 *     While returns While
+	 *
+	 * Constraint:
+	 *     (conditions+=Condition* conditions+=Condition expressions+=Expression)
+	 */
+	protected void sequence_While(ISerializationContext context, While semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

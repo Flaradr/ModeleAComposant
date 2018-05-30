@@ -89,7 +89,32 @@ RequiredService:
 	
 //Signature d'un service fourni
 MProvidedService:
-	'service' 'provided' signature=PSignature'{''}';
+	'service' 'provided' signature=PSignature'{'
+		(expressions+=Expression)+
+	'}';
+
+Expression:
+	If | While | {Expression}Statement;
+
+If :
+	'if' '(' (conditions+=Condition('||'|'&&'))*conditions+=Condition ')' '{'
+		expressions+=Expression
+	'}'(=>'else'(else=If | '{' 
+		(expression=Expression)
+	'}'))?;
+	
+While :
+	'while''('(conditions+=Condition('||'|'&&'))*conditions+=Condition ')' '{'
+		expressions+=Expression
+	'}';
+	
+Condition:
+	'!'?('true'|'false')
+;
+
+Statement : 
+	"Lorem" "Ipsum"
+;
 
 //Signature d'un service fourni
 PSignature:
