@@ -1796,9 +1796,9 @@ rule__Component__Group__8__Impl
 	}
 :
 (
-	{ before(grammarAccess.getComponentAccess().getAssemblyAssignment_8()); }
-	(rule__Component__AssemblyAssignment_8)*
-	{ after(grammarAccess.getComponentAccess().getAssemblyAssignment_8()); }
+	{ before(grammarAccess.getComponentAccess().getGroup_8()); }
+	(rule__Component__Group_8__0)*
+	{ after(grammarAccess.getComponentAccess().getGroup_8()); }
 )
 ;
 finally {
@@ -1879,6 +1879,114 @@ rule__Component__Group_2__1__Impl
 	{ before(grammarAccess.getComponentAccess().getRefinedComponentAssignment_2_1()); }
 	(rule__Component__RefinedComponentAssignment_2_1)
 	{ after(grammarAccess.getComponentAccess().getRefinedComponentAssignment_2_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Component__Group_8__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Component__Group_8__0__Impl
+	rule__Component__Group_8__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Component__Group_8__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getComponentAccess().getGroup_8_0()); }
+	(rule__Component__Group_8_0__0)?
+	{ after(grammarAccess.getComponentAccess().getGroup_8_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Component__Group_8__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Component__Group_8__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Component__Group_8__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getComponentAccess().getAssembliesAssignment_8_1()); }
+	(rule__Component__AssembliesAssignment_8_1)
+	{ after(grammarAccess.getComponentAccess().getAssembliesAssignment_8_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Component__Group_8_0__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Component__Group_8_0__0__Impl
+	rule__Component__Group_8_0__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Component__Group_8_0__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getComponentAccess().getAssemblyKeyword_8_0_0()); }
+	'assembly'
+	{ after(grammarAccess.getComponentAccess().getAssemblyKeyword_8_0_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Component__Group_8_0__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Component__Group_8_0__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Component__Group_8_0__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getComponentAccess().getColonKeyword_8_0_1()); }
+	':'
+	{ after(grammarAccess.getComponentAccess().getColonKeyword_8_0_1()); }
 )
 ;
 finally {
@@ -3539,15 +3647,19 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Component__AssemblyAssignment_8
+rule__Component__AssembliesAssignment_8_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getComponentAccess().getAssemblyAssemblyParserRuleCall_8_0()); }
-		ruleAssembly
-		{ after(grammarAccess.getComponentAccess().getAssemblyAssemblyParserRuleCall_8_0()); }
+		{ before(grammarAccess.getComponentAccess().getAssembliesAssemblyCrossReference_8_1_0()); }
+		(
+			{ before(grammarAccess.getComponentAccess().getAssembliesAssemblyQualifiedNameParserRuleCall_8_1_0_1()); }
+			ruleQualifiedName
+			{ after(grammarAccess.getComponentAccess().getAssembliesAssemblyQualifiedNameParserRuleCall_8_1_0_1()); }
+		)
+		{ after(grammarAccess.getComponentAccess().getAssembliesAssemblyCrossReference_8_1_0()); }
 	)
 ;
 finally {

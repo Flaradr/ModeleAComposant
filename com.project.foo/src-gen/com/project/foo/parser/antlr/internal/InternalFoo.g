@@ -806,26 +806,35 @@ ruleComponent returns [EObject current=null]
 		)*
 		(
 			(
+				otherlv_9='assembly'
 				{
-					newCompositeNode(grammarAccess.getComponentAccess().getAssemblyAssemblyParserRuleCall_8_0());
+					newLeafNode(otherlv_9, grammarAccess.getComponentAccess().getAssemblyKeyword_8_0_0());
 				}
-				lv_assembly_9_0=ruleAssembly
+				otherlv_10=':'
 				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getComponentRule());
+					newLeafNode(otherlv_10, grammarAccess.getComponentAccess().getColonKeyword_8_0_1());
+				}
+			)?
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getComponentRule());
+						}
 					}
-					add(
-						$current,
-						"assembly",
-						lv_assembly_9_0,
-						"com.project.foo.Foo.Assembly");
-					afterParserOrEnumRuleCall();
-				}
+					{
+						newCompositeNode(grammarAccess.getComponentAccess().getAssembliesAssemblyCrossReference_8_1_0());
+					}
+					ruleQualifiedName
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)*
-		otherlv_10='}'
+		otherlv_12='}'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getComponentAccess().getRightCurlyBracketKeyword_9());
+			newLeafNode(otherlv_12, grammarAccess.getComponentAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;

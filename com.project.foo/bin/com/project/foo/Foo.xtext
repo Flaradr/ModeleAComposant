@@ -64,7 +64,7 @@ Component:
 	listOfRServices = ListOfrequiredServices
 	(mProvServices += MProvidedService)+
 	(mReqServices += MRequiredService)*
-	(assembly+=Assembly)*
+	(('assembly' ':')?assemblies+=[Assembly|QualifiedName])*
 	'}';
 
 //Liste des services fourni par un composant X

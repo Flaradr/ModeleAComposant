@@ -43,6 +43,8 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBindingProvidedAccess().getGroup(), "rule__BindingProvided__Group__0");
 					put(grammarAccess.getComponentAccess().getGroup(), "rule__Component__Group__0");
 					put(grammarAccess.getComponentAccess().getGroup_2(), "rule__Component__Group_2__0");
+					put(grammarAccess.getComponentAccess().getGroup_8(), "rule__Component__Group_8__0");
+					put(grammarAccess.getComponentAccess().getGroup_8_0(), "rule__Component__Group_8_0__0");
 					put(grammarAccess.getListOfProvidedServicesAccess().getGroup(), "rule__ListOfProvidedServices__Group__0");
 					put(grammarAccess.getListOfProvidedServicesAccess().getGroup_3(), "rule__ListOfProvidedServices__Group_3__0");
 					put(grammarAccess.getListOfProvidedServicesAccess().getGroup_3_1(), "rule__ListOfProvidedServices__Group_3_1__0");
@@ -80,7 +82,7 @@ public class FooParser extends AbstractContentAssistParser {
 					put(grammarAccess.getComponentAccess().getListOfRServicesAssignment_5(), "rule__Component__ListOfRServicesAssignment_5");
 					put(grammarAccess.getComponentAccess().getMProvServicesAssignment_6(), "rule__Component__MProvServicesAssignment_6");
 					put(grammarAccess.getComponentAccess().getMReqServicesAssignment_7(), "rule__Component__MReqServicesAssignment_7");
-					put(grammarAccess.getComponentAccess().getAssemblyAssignment_8(), "rule__Component__AssemblyAssignment_8");
+					put(grammarAccess.getComponentAccess().getAssembliesAssignment_8_1(), "rule__Component__AssembliesAssignment_8_1");
 					put(grammarAccess.getListOfProvidedServicesAccess().getProvidedServicesAssignment_3_0(), "rule__ListOfProvidedServices__ProvidedServicesAssignment_3_0");
 					put(grammarAccess.getListOfProvidedServicesAccess().getProvidedServicesAssignment_3_1_1(), "rule__ListOfProvidedServices__ProvidedServicesAssignment_3_1_1");
 					put(grammarAccess.getProvidedServiceAccess().getNameAssignment(), "rule__ProvidedService__NameAssignment");

@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.project.foo.foo.Component#getListOfRServices <em>List Of RServices</em>}</li>
  *   <li>{@link com.project.foo.foo.Component#getMProvServices <em>MProv Services</em>}</li>
  *   <li>{@link com.project.foo.foo.Component#getMReqServices <em>MReq Services</em>}</li>
- *   <li>{@link com.project.foo.foo.Component#getAssembly <em>Assembly</em>}</li>
+ *   <li>{@link com.project.foo.foo.Component#getAssemblies <em>Assemblies</em>}</li>
  * </ul>
  *
  * @see com.project.foo.foo.FooPackage#getComponent()
@@ -168,19 +168,19 @@ public interface Component extends EObject
   EList<MRequiredService> getMReqServices();
 
   /**
-   * Returns the value of the '<em><b>Assembly</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Assemblies</b></em>' reference list.
    * The list contents are of type {@link com.project.foo.foo.Assembly}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Assembly</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Assemblies</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Assembly</em>' containment reference list.
-   * @see com.project.foo.foo.FooPackage#getComponent_Assembly()
-   * @model containment="true"
+   * @return the value of the '<em>Assemblies</em>' reference list.
+   * @see com.project.foo.foo.FooPackage#getComponent_Assemblies()
+   * @model
    * @generated
    */
-  EList<Assembly> getAssembly();
+  EList<Assembly> getAssemblies();
 
 } // Component

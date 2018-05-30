@@ -427,13 +427,13 @@ public interface FooPackage extends EPackage
   int COMPONENT__MREQ_SERVICES = 5;
 
   /**
-   * The feature id for the '<em><b>Assembly</b></em>' containment reference list.
+   * The feature id for the '<em><b>Assemblies</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMPONENT__ASSEMBLY = 6;
+  int COMPONENT__ASSEMBLIES = 6;
 
   /**
    * The number of structural features of the '<em>Component</em>' class.
@@ -1086,15 +1086,15 @@ public interface FooPackage extends EPackage
   EReference getComponent_MReqServices();
 
   /**
-   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Component#getAssembly <em>Assembly</em>}'.
+   * Returns the meta object for the reference list '{@link com.project.foo.foo.Component#getAssemblies <em>Assemblies</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Assembly</em>'.
-   * @see com.project.foo.foo.Component#getAssembly()
+   * @return the meta object for the reference list '<em>Assemblies</em>'.
+   * @see com.project.foo.foo.Component#getAssemblies()
    * @see #getComponent()
    * @generated
    */
-  EReference getComponent_Assembly();
+  EReference getComponent_Assemblies();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.ListOfProvidedServices <em>List Of Provided Services</em>}'.
@@ -1638,12 +1638,12 @@ public interface FooPackage extends EPackage
     EReference COMPONENT__MREQ_SERVICES = eINSTANCE.getComponent_MReqServices();
 
     /**
-     * The meta object literal for the '<em><b>Assembly</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Assemblies</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMPONENT__ASSEMBLY = eINSTANCE.getComponent_Assembly();
+    EReference COMPONENT__ASSEMBLIES = eINSTANCE.getComponent_Assemblies();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.ListOfProvidedServicesImpl <em>List Of Provided Services</em>}' class.

@@ -215,7 +215,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         listOfRServices=ListOfrequiredServices 
 	 *         mProvServices+=MProvidedService+ 
 	 *         mReqServices+=MRequiredService* 
-	 *         assembly+=Assembly*
+	 *         assemblies+=[Assembly|QualifiedName]*
 	 *     )
 	 */
 	protected void sequence_Component(ISerializationContext context, Component semanticObject) {

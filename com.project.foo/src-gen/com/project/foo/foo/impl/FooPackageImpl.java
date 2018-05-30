@@ -553,7 +553,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponent_Assembly()
+  public EReference getComponent_Assemblies()
   {
     return (EReference)componentEClass.getEStructuralFeatures().get(6);
   }
@@ -858,7 +858,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     createEReference(componentEClass, COMPONENT__LIST_OF_RSERVICES);
     createEReference(componentEClass, COMPONENT__MPROV_SERVICES);
     createEReference(componentEClass, COMPONENT__MREQ_SERVICES);
-    createEReference(componentEClass, COMPONENT__ASSEMBLY);
+    createEReference(componentEClass, COMPONENT__ASSEMBLIES);
 
     listOfProvidedServicesEClass = createEClass(LIST_OF_PROVIDED_SERVICES);
     createEReference(listOfProvidedServicesEClass, LIST_OF_PROVIDED_SERVICES__PROVIDED_SERVICES);
@@ -964,7 +964,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     initEReference(getComponent_ListOfRServices(), this.getListOfrequiredServices(), null, "listOfRServices", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponent_MProvServices(), this.getMProvidedService(), null, "mProvServices", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponent_MReqServices(), this.getMRequiredService(), null, "mReqServices", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComponent_Assembly(), this.getAssembly(), null, "assembly", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComponent_Assemblies(), this.getAssembly(), null, "assemblies", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(listOfProvidedServicesEClass, ListOfProvidedServices.class, "ListOfProvidedServices", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getListOfProvidedServices_ProvidedServices(), this.getProvidedService(), null, "providedServices", null, 0, -1, ListOfProvidedServices.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

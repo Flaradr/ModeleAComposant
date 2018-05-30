@@ -46,7 +46,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Component/listOfRServices"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Component/mProvServices"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Component/mReqServices"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Component/assembly"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Foo.ecore#//Component/assemblies"/>
     </genClasses>
     <genClasses ecoreClass="Foo.ecore#//ListOfProvidedServices">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//ListOfProvidedServices/providedServices"/>

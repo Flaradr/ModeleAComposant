@@ -53,8 +53,8 @@
         eType="#//MProvidedService" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mReqServices" upperBound="-1"
         eType="#//MRequiredService" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="assembly" upperBound="-1"
-        eType="#//Assembly" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assemblies" unique="false"
+        upperBound="-1" eType="#//Assembly"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListOfProvidedServices">
     <eStructuralFeatures xsi:type="ecore:EReference" name="providedServices" upperBound="-1"

@@ -418,8 +418,13 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMProvServicesMProvidedServiceParserRuleCall_6_0 = (RuleCall)cMProvServicesAssignment_6.eContents().get(0);
 		private final Assignment cMReqServicesAssignment_7 = (Assignment)cGroup.eContents().get(7);
 		private final RuleCall cMReqServicesMRequiredServiceParserRuleCall_7_0 = (RuleCall)cMReqServicesAssignment_7.eContents().get(0);
-		private final Assignment cAssemblyAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cAssemblyAssemblyParserRuleCall_8_0 = (RuleCall)cAssemblyAssignment_8.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Group cGroup_8_0 = (Group)cGroup_8.eContents().get(0);
+		private final Keyword cAssemblyKeyword_8_0_0 = (Keyword)cGroup_8_0.eContents().get(0);
+		private final Keyword cColonKeyword_8_0_1 = (Keyword)cGroup_8_0.eContents().get(1);
+		private final Assignment cAssembliesAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final CrossReference cAssembliesAssemblyCrossReference_8_1_0 = (CrossReference)cAssembliesAssignment_8_1.eContents().get(0);
+		private final RuleCall cAssembliesAssemblyQualifiedNameParserRuleCall_8_1_0_1 = (RuleCall)cAssembliesAssemblyCrossReference_8_1_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		////Structure d'un composant
@@ -428,14 +433,13 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		//	listOfPServices=ListOfProvidedServices
 		//	listOfRServices=ListOfrequiredServices
 		//	mProvServices+=MProvidedService+
-		//	mReqServices+=MRequiredService*
-		//	assembly+=Assembly*
+		//	mReqServices+=MRequiredService* (('assembly' ':')? assemblies+=[Assembly|QualifiedName])*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Component' name=ID ('refines' refinedComponent=[Component|QualifiedName])? '{' listOfPServices=ListOfProvidedServices
-		//listOfRServices=ListOfrequiredServices mProvServices+=MProvidedService+ mReqServices+=MRequiredService*
-		//assembly+=Assembly* '}'
+		//listOfRServices=ListOfrequiredServices mProvServices+=MProvidedService+ mReqServices+=MRequiredService* (('assembly'
+		//':')? assemblies+=[Assembly|QualifiedName])* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'Component'
@@ -489,11 +493,26 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		//MRequiredService
 		public RuleCall getMReqServicesMRequiredServiceParserRuleCall_7_0() { return cMReqServicesMRequiredServiceParserRuleCall_7_0; }
 		
-		//assembly+=Assembly*
-		public Assignment getAssemblyAssignment_8() { return cAssemblyAssignment_8; }
+		//(('assembly' ':')? assemblies+=[Assembly|QualifiedName])*
+		public Group getGroup_8() { return cGroup_8; }
 		
-		//Assembly
-		public RuleCall getAssemblyAssemblyParserRuleCall_8_0() { return cAssemblyAssemblyParserRuleCall_8_0; }
+		//('assembly' ':')?
+		public Group getGroup_8_0() { return cGroup_8_0; }
+		
+		//'assembly'
+		public Keyword getAssemblyKeyword_8_0_0() { return cAssemblyKeyword_8_0_0; }
+		
+		//':'
+		public Keyword getColonKeyword_8_0_1() { return cColonKeyword_8_0_1; }
+		
+		//assemblies+=[Assembly|QualifiedName]
+		public Assignment getAssembliesAssignment_8_1() { return cAssembliesAssignment_8_1; }
+		
+		//[Assembly|QualifiedName]
+		public CrossReference getAssembliesAssemblyCrossReference_8_1_0() { return cAssembliesAssemblyCrossReference_8_1_0; }
+		
+		//QualifiedName
+		public RuleCall getAssembliesAssemblyQualifiedNameParserRuleCall_8_1_0_1() { return cAssembliesAssemblyQualifiedNameParserRuleCall_8_1_0_1; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
@@ -1084,8 +1103,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	//	listOfPServices=ListOfProvidedServices
 	//	listOfRServices=ListOfrequiredServices
 	//	mProvServices+=MProvidedService+
-	//	mReqServices+=MRequiredService*
-	//	assembly+=Assembly*
+	//	mReqServices+=MRequiredService* (('assembly' ':')? assemblies+=[Assembly|QualifiedName])*
 	//	'}';
 	public ComponentElements getComponentAccess() {
 		return pComponent;
