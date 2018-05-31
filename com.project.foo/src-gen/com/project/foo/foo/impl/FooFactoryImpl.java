@@ -82,6 +82,9 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
       case FooPackage.EXPRESSION: return createExpression();
       case FooPackage.IF: return createIf();
       case FooPackage.WHILE: return createWhile();
+      case FooPackage.CONDITION: return createCondition();
+      case FooPackage.STR: return createStr();
+      case FooPackage.COMPARISON: return createComparison();
       case FooPackage.PSIGNATURE: return createPSignature();
       case FooPackage.MREQUIRED_SERVICE: return createMRequiredService();
       case FooPackage.RSIGNATURE: return createRSignature();
@@ -276,6 +279,39 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
   {
     WhileImpl while_ = new WhileImpl();
     return while_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Condition createCondition()
+  {
+    ConditionImpl condition = new ConditionImpl();
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Str createStr()
+  {
+    StrImpl str = new StrImpl();
+    return str;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Comparison createComparison()
+  {
+    ComparisonImpl comparison = new ComparisonImpl();
+    return comparison;
   }
 
   /**

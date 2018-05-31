@@ -22,35 +22,27 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class FooSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected FooGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Comparison_EqualsSignEqualsSignKeyword_1_4_or_GreaterThanSignEqualsSignKeyword_1_3_or_GreaterThanSignKeyword_1_1_or_LessThanSignEqualsSignKeyword_1_2_or_LessThanSignKeyword_1_0;
 	protected AbstractElementAlias match_Component___AssemblyKeyword_8_0_0_ColonKeyword_8_0_1__q;
+	protected AbstractElementAlias match_Condition_ExclamationMarkKeyword_0_q;
 	protected AbstractElementAlias match_If_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0;
 	protected AbstractElementAlias match_While_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (FooGrammarAccess) access;
+		match_Comparison_EqualsSignEqualsSignKeyword_1_4_or_GreaterThanSignEqualsSignKeyword_1_3_or_GreaterThanSignKeyword_1_1_or_LessThanSignEqualsSignKeyword_1_2_or_LessThanSignKeyword_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getComparisonAccess().getEqualsSignEqualsSignKeyword_1_4()), new TokenAlias(false, false, grammarAccess.getComparisonAccess().getGreaterThanSignEqualsSignKeyword_1_3()), new TokenAlias(false, false, grammarAccess.getComparisonAccess().getGreaterThanSignKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getComparisonAccess().getLessThanSignEqualsSignKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getComparisonAccess().getLessThanSignKeyword_1_0()));
 		match_Component___AssemblyKeyword_8_0_0_ColonKeyword_8_0_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getComponentAccess().getAssemblyKeyword_8_0_0()), new TokenAlias(false, false, grammarAccess.getComponentAccess().getColonKeyword_8_0_1()));
+		match_Condition_ExclamationMarkKeyword_0_q = new TokenAlias(false, true, grammarAccess.getConditionAccess().getExclamationMarkKeyword_0());
 		match_If_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getIfAccess().getAmpersandAmpersandKeyword_2_1_1()), new TokenAlias(false, false, grammarAccess.getIfAccess().getVerticalLineVerticalLineKeyword_2_1_0()));
 		match_While_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getWhileAccess().getAmpersandAmpersandKeyword_2_1_1()), new TokenAlias(false, false, grammarAccess.getWhileAccess().getVerticalLineVerticalLineKeyword_2_1_0()));
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getStatementRule())
-			return getStatementToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
-	/**
-	 * Statement : 
-	 * 	"Lorem" "Ipsum"
-	 * ;
-	 */
-	protected String getStatementToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "LoremIpsum";
-	}
 	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
@@ -58,8 +50,12 @@ public class FooSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Component___AssemblyKeyword_8_0_0_ColonKeyword_8_0_1__q.equals(syntax))
+			if (match_Comparison_EqualsSignEqualsSignKeyword_1_4_or_GreaterThanSignEqualsSignKeyword_1_3_or_GreaterThanSignKeyword_1_1_or_LessThanSignEqualsSignKeyword_1_2_or_LessThanSignKeyword_1_0.equals(syntax))
+				emit_Comparison_EqualsSignEqualsSignKeyword_1_4_or_GreaterThanSignEqualsSignKeyword_1_3_or_GreaterThanSignKeyword_1_1_or_LessThanSignEqualsSignKeyword_1_2_or_LessThanSignKeyword_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Component___AssemblyKeyword_8_0_0_ColonKeyword_8_0_1__q.equals(syntax))
 				emit_Component___AssemblyKeyword_8_0_0_ColonKeyword_8_0_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Condition_ExclamationMarkKeyword_0_q.equals(syntax))
+				emit_Condition_ExclamationMarkKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_If_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0.equals(syntax))
 				emit_If_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_While_AmpersandAmpersandKeyword_2_1_1_or_VerticalLineVerticalLineKeyword_2_1_0.equals(syntax))
@@ -70,6 +66,17 @@ public class FooSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Ambiguous syntax:
+	 *     '<' | '>' | '<=' | '>=' | '=='
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     leftMember=ID (ambiguity) rightMember=ID
+	 */
+	protected void emit_Comparison_EqualsSignEqualsSignKeyword_1_4_or_GreaterThanSignEqualsSignKeyword_1_3_or_GreaterThanSignKeyword_1_1_or_LessThanSignEqualsSignKeyword_1_2_or_LessThanSignKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
 	 *     ('assembly' ':')?
 	 *
 	 * This ambiguous syntax occurs at:
@@ -78,6 +85,18 @@ public class FooSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     mReqServices+=MRequiredService (ambiguity) assemblies+=[Assembly|QualifiedName]
 	 */
 	protected void emit_Component___AssemblyKeyword_8_0_0_ColonKeyword_8_0_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '!'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) conditions+=Comparison
+	 *     (rule start) (ambiguity) conditions+=Str
+	 */
+	protected void emit_Condition_ExclamationMarkKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

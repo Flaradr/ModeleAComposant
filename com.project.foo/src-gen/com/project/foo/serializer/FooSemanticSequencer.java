@@ -8,10 +8,11 @@ import com.project.foo.foo.Assembly;
 import com.project.foo.foo.Binding;
 import com.project.foo.foo.BindingProvided;
 import com.project.foo.foo.BindingRequired;
+import com.project.foo.foo.Comparison;
 import com.project.foo.foo.Component;
 import com.project.foo.foo.ComponentInstance;
+import com.project.foo.foo.Condition;
 import com.project.foo.foo.DomainModel;
-import com.project.foo.foo.Expression;
 import com.project.foo.foo.FooPackage;
 import com.project.foo.foo.If;
 import com.project.foo.foo.Import;
@@ -24,6 +25,7 @@ import com.project.foo.foo.PSignature;
 import com.project.foo.foo.ProvidedService;
 import com.project.foo.foo.RSignature;
 import com.project.foo.foo.RequiredService;
+import com.project.foo.foo.Str;
 import com.project.foo.foo.While;
 import com.project.foo.services.FooGrammarAccess;
 import java.util.Set;
@@ -63,17 +65,20 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case FooPackage.BINDING_REQUIRED:
 				sequence_BindingRequired(context, (BindingRequired) semanticObject); 
 				return; 
+			case FooPackage.COMPARISON:
+				sequence_Comparison(context, (Comparison) semanticObject); 
+				return; 
 			case FooPackage.COMPONENT:
 				sequence_Component(context, (Component) semanticObject); 
 				return; 
 			case FooPackage.COMPONENT_INSTANCE:
 				sequence_ComponentInstance(context, (ComponentInstance) semanticObject); 
 				return; 
+			case FooPackage.CONDITION:
+				sequence_Condition(context, (Condition) semanticObject); 
+				return; 
 			case FooPackage.DOMAIN_MODEL:
 				sequence_DomainModel(context, (DomainModel) semanticObject); 
-				return; 
-			case FooPackage.EXPRESSION:
-				sequence_Expression(context, (Expression) semanticObject); 
 				return; 
 			case FooPackage.IF:
 				sequence_If(context, (If) semanticObject); 
@@ -110,6 +115,9 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case FooPackage.REQUIRED_SERVICE:
 				sequence_RequiredService(context, (RequiredService) semanticObject); 
+				return; 
+			case FooPackage.STR:
+				sequence_Str(context, (Str) semanticObject); 
 				return; 
 			case FooPackage.WHILE:
 				sequence_While(context, (While) semanticObject); 
@@ -196,6 +204,27 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Comparison returns Comparison
+	 *
+	 * Constraint:
+	 *     (leftMember=ID rightMember=ID)
+	 */
+	protected void sequence_Comparison(ISerializationContext context, Comparison semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.COMPARISON__LEFT_MEMBER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.COMPARISON__LEFT_MEMBER));
+			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.COMPARISON__RIGHT_MEMBER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.COMPARISON__RIGHT_MEMBER));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getComparisonAccess().getLeftMemberIDTerminalRuleCall_0_0(), semanticObject.getLeftMember());
+		feeder.accept(grammarAccess.getComparisonAccess().getRightMemberIDTerminalRuleCall_2_0(), semanticObject.getRightMember());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     ComponentInstance returns ComponentInstance
 	 *
 	 * Constraint:
@@ -237,6 +266,18 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Condition returns Condition
+	 *
+	 * Constraint:
+	 *     (conditions+=Comparison | conditions+=Str)+
+	 */
+	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     DomainModel returns DomainModel
 	 *
 	 * Constraint:
@@ -255,23 +296,11 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Expression returns Expression
-	 *
-	 * Constraint:
-	 *     {Expression}
-	 */
-	protected void sequence_Expression(ISerializationContext context, Expression semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Expression returns If
 	 *     If returns If
 	 *
 	 * Constraint:
-	 *     (conditions+=Condition* conditions+=Condition expressions+=Expression (else=If | expression=Expression)?)
+	 *     (conditions+=Condition* conditions+=Condition (str+=Str | if+=If | while+=While)+ (else=If | (if+=If? ((str+=Str | while+=While)? if+=If?)*))?)
 	 */
 	protected void sequence_If(ISerializationContext context, If semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -445,11 +474,24 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Expression returns Str
+	 *     Str returns Str
+	 *
+	 * Constraint:
+	 *     (value+=ID (value+=ID value+=ID?)*)
+	 */
+	protected void sequence_Str(ISerializationContext context, Str semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Expression returns While
 	 *     While returns While
 	 *
 	 * Constraint:
-	 *     (conditions+=Condition* conditions+=Condition expressions+=Expression)
+	 *     (conditions+=Condition* conditions+=Condition (str+=Str | if+=If | while+=While)+)
 	 */
 	protected void sequence_While(ISerializationContext context, While semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

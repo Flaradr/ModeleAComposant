@@ -64,15 +64,30 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//MProvidedService/signature"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//MProvidedService/expressions"/>
     </genClasses>
-    <genClasses ecoreClass="Foo.ecore#//Expression">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//Expression/conditions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Expression/expressions"/>
-    </genClasses>
+    <genClasses ecoreClass="Foo.ecore#//Expression"/>
     <genClasses ecoreClass="Foo.ecore#//If">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//If/conditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//If/str"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//If/if"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//If/while"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//If/else"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//If/expression"/>
     </genClasses>
-    <genClasses ecoreClass="Foo.ecore#//While"/>
+    <genClasses ecoreClass="Foo.ecore#//While">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//While/conditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//While/str"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//While/if"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//While/while"/>
+    </genClasses>
+    <genClasses ecoreClass="Foo.ecore#//Condition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Foo.ecore#//Condition/conditions"/>
+    </genClasses>
+    <genClasses ecoreClass="Foo.ecore#//Str">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//Str/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Foo.ecore#//Comparison">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//Comparison/leftMember"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//Comparison/rightMember"/>
+    </genClasses>
     <genClasses ecoreClass="Foo.ecore#//PSignature">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//PSignature/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Foo.ecore#//PSignature/name"/>

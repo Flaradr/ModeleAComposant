@@ -727,15 +727,13 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cIfParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cWhileParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Action cExpressionAction_2_0 = (Action)cGroup_2.eContents().get(0);
-		private final RuleCall cStatementParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
+		private final RuleCall cStrParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Expression:
-		//	If | While | {Expression} Statement;
+		//	If | While | Str;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//If | While | {Expression} Statement
+		//If | While | Str
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//If
@@ -744,14 +742,8 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		//While
 		public RuleCall getWhileParserRuleCall_1() { return cWhileParserRuleCall_1; }
 		
-		//{Expression} Statement
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//{Expression}
-		public Action getExpressionAction_2_0() { return cExpressionAction_2_0; }
-		
-		//Statement
-		public RuleCall getStatementParserRuleCall_2_1() { return cStatementParserRuleCall_2_1; }
+		//Str
+		public RuleCall getStrParserRuleCall_2() { return cStrParserRuleCall_2; }
 	}
 	public class IfElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.If");
@@ -768,8 +760,15 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConditionsConditionParserRuleCall_3_0 = (RuleCall)cConditionsAssignment_3.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cExpressionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cExpressionsExpressionParserRuleCall_6_0 = (RuleCall)cExpressionsAssignment_6.eContents().get(0);
+		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
+		private final Group cGroup_6_0 = (Group)cAlternatives_6.eContents().get(0);
+		private final Assignment cStrAssignment_6_0_0 = (Assignment)cGroup_6_0.eContents().get(0);
+		private final RuleCall cStrStrParserRuleCall_6_0_0_0 = (RuleCall)cStrAssignment_6_0_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_6_0_1 = (Keyword)cGroup_6_0.eContents().get(1);
+		private final Assignment cIfAssignment_6_1 = (Assignment)cAlternatives_6.eContents().get(1);
+		private final RuleCall cIfIfParserRuleCall_6_1_0 = (RuleCall)cIfAssignment_6_1.eContents().get(0);
+		private final Assignment cWhileAssignment_6_2 = (Assignment)cAlternatives_6.eContents().get(2);
+		private final RuleCall cWhileWhileParserRuleCall_6_2_0 = (RuleCall)cWhileAssignment_6_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cElseKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
@@ -778,19 +777,25 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cElseIfParserRuleCall_8_1_0_0 = (RuleCall)cElseAssignment_8_1_0.eContents().get(0);
 		private final Group cGroup_8_1_1 = (Group)cAlternatives_8_1.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_8_1_1_0 = (Keyword)cGroup_8_1_1.eContents().get(0);
-		private final Assignment cExpressionAssignment_8_1_1_1 = (Assignment)cGroup_8_1_1.eContents().get(1);
-		private final RuleCall cExpressionExpressionParserRuleCall_8_1_1_1_0 = (RuleCall)cExpressionAssignment_8_1_1_1.eContents().get(0);
+		private final Alternatives cAlternatives_8_1_1_1 = (Alternatives)cGroup_8_1_1.eContents().get(1);
+		private final Group cGroup_8_1_1_1_0 = (Group)cAlternatives_8_1_1_1.eContents().get(0);
+		private final Assignment cStrAssignment_8_1_1_1_0_0 = (Assignment)cGroup_8_1_1_1_0.eContents().get(0);
+		private final RuleCall cStrStrParserRuleCall_8_1_1_1_0_0_0 = (RuleCall)cStrAssignment_8_1_1_1_0_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_8_1_1_1_0_1 = (Keyword)cGroup_8_1_1_1_0.eContents().get(1);
+		private final Assignment cIfAssignment_8_1_1_1_1 = (Assignment)cAlternatives_8_1_1_1.eContents().get(1);
+		private final RuleCall cIfIfParserRuleCall_8_1_1_1_1_0 = (RuleCall)cIfAssignment_8_1_1_1_1.eContents().get(0);
+		private final Assignment cWhileAssignment_8_1_1_1_2 = (Assignment)cAlternatives_8_1_1_1.eContents().get(2);
+		private final RuleCall cWhileWhileParserRuleCall_8_1_1_1_2_0 = (RuleCall)cWhileAssignment_8_1_1_1_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_8_1_1_2 = (Keyword)cGroup_8_1_1.eContents().get(2);
 		
 		//If:
-		//	'if' '(' (conditions+=Condition ('||' | '&&'))* conditions+=Condition ')' '{'
-		//	expressions+=Expression
-		//	'}' ('else' (else=If | '{'
-		//	expression=Expression '}'))?;
+		//	'if' '(' (conditions+=Condition ('||' | '&&'))* conditions+=Condition ')' '{' (str+=Str ';' | if+=If | while+=While)+
+		//	'}' (=> 'else' (else=If | '{' (str+=Str ';' | if+=If | while+=While)+
+		//	'}'))?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'if' '(' (conditions+=Condition ('||' | '&&'))* conditions+=Condition ')' '{' expressions+=Expression '}' ('else'
-		//(else=If | '{' expression=Expression '}'))?
+		//'if' '(' (conditions+=Condition ('||' | '&&'))* conditions+=Condition ')' '{' (str+=Str ';' | if+=If | while+=While)+
+		//'}' (=> 'else' (else=If | '{' (str+=Str ';' | if+=If | while+=While)+ '}'))?
 		public Group getGroup() { return cGroup; }
 		
 		//'if'
@@ -829,22 +834,43 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
 		
-		//expressions+=Expression
-		public Assignment getExpressionsAssignment_6() { return cExpressionsAssignment_6; }
+		//(str+=Str ';' | if+=If | while+=While)+
+		public Alternatives getAlternatives_6() { return cAlternatives_6; }
 		
-		//Expression
-		public RuleCall getExpressionsExpressionParserRuleCall_6_0() { return cExpressionsExpressionParserRuleCall_6_0; }
+		//str+=Str ';'
+		public Group getGroup_6_0() { return cGroup_6_0; }
+		
+		//str+=Str
+		public Assignment getStrAssignment_6_0_0() { return cStrAssignment_6_0_0; }
+		
+		//Str
+		public RuleCall getStrStrParserRuleCall_6_0_0_0() { return cStrStrParserRuleCall_6_0_0_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_6_0_1() { return cSemicolonKeyword_6_0_1; }
+		
+		//if+=If
+		public Assignment getIfAssignment_6_1() { return cIfAssignment_6_1; }
+		
+		//If
+		public RuleCall getIfIfParserRuleCall_6_1_0() { return cIfIfParserRuleCall_6_1_0; }
+		
+		//while+=While
+		public Assignment getWhileAssignment_6_2() { return cWhileAssignment_6_2; }
+		
+		//While
+		public RuleCall getWhileWhileParserRuleCall_6_2_0() { return cWhileWhileParserRuleCall_6_2_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 		
-		//('else' (else=If | '{' expression=Expression '}'))?
+		//(=> 'else' (else=If | '{' (str+=Str ';' | if+=If | while+=While)+ '}'))?
 		public Group getGroup_8() { return cGroup_8; }
 		
-		//'else'
+		//=> 'else'
 		public Keyword getElseKeyword_8_0() { return cElseKeyword_8_0; }
 		
-		//else=If | '{' expression=Expression '}'
+		//else=If | '{' (str+=Str ';' | if+=If | while+=While)+ '}'
 		public Alternatives getAlternatives_8_1() { return cAlternatives_8_1; }
 		
 		//else=If
@@ -853,17 +879,38 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		//If
 		public RuleCall getElseIfParserRuleCall_8_1_0_0() { return cElseIfParserRuleCall_8_1_0_0; }
 		
-		//'{' expression=Expression '}'
+		//'{' (str+=Str ';' | if+=If | while+=While)+ '}'
 		public Group getGroup_8_1_1() { return cGroup_8_1_1; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_8_1_1_0() { return cLeftCurlyBracketKeyword_8_1_1_0; }
 		
-		//expression=Expression
-		public Assignment getExpressionAssignment_8_1_1_1() { return cExpressionAssignment_8_1_1_1; }
+		//(str+=Str ';' | if+=If | while+=While)+
+		public Alternatives getAlternatives_8_1_1_1() { return cAlternatives_8_1_1_1; }
 		
-		//Expression
-		public RuleCall getExpressionExpressionParserRuleCall_8_1_1_1_0() { return cExpressionExpressionParserRuleCall_8_1_1_1_0; }
+		//str+=Str ';'
+		public Group getGroup_8_1_1_1_0() { return cGroup_8_1_1_1_0; }
+		
+		//str+=Str
+		public Assignment getStrAssignment_8_1_1_1_0_0() { return cStrAssignment_8_1_1_1_0_0; }
+		
+		//Str
+		public RuleCall getStrStrParserRuleCall_8_1_1_1_0_0_0() { return cStrStrParserRuleCall_8_1_1_1_0_0_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_8_1_1_1_0_1() { return cSemicolonKeyword_8_1_1_1_0_1; }
+		
+		//if+=If
+		public Assignment getIfAssignment_8_1_1_1_1() { return cIfAssignment_8_1_1_1_1; }
+		
+		//If
+		public RuleCall getIfIfParserRuleCall_8_1_1_1_1_0() { return cIfIfParserRuleCall_8_1_1_1_1_0; }
+		
+		//while+=While
+		public Assignment getWhileAssignment_8_1_1_1_2() { return cWhileAssignment_8_1_1_1_2; }
+		
+		//While
+		public RuleCall getWhileWhileParserRuleCall_8_1_1_1_2_0() { return cWhileWhileParserRuleCall_8_1_1_1_2_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_8_1_1_2() { return cRightCurlyBracketKeyword_8_1_1_2; }
@@ -883,17 +930,25 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConditionsConditionParserRuleCall_3_0 = (RuleCall)cConditionsAssignment_3.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cExpressionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cExpressionsExpressionParserRuleCall_6_0 = (RuleCall)cExpressionsAssignment_6.eContents().get(0);
+		private final Alternatives cAlternatives_6 = (Alternatives)cGroup.eContents().get(6);
+		private final Group cGroup_6_0 = (Group)cAlternatives_6.eContents().get(0);
+		private final Assignment cStrAssignment_6_0_0 = (Assignment)cGroup_6_0.eContents().get(0);
+		private final RuleCall cStrStrParserRuleCall_6_0_0_0 = (RuleCall)cStrAssignment_6_0_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_6_0_1 = (Keyword)cGroup_6_0.eContents().get(1);
+		private final Assignment cIfAssignment_6_1 = (Assignment)cAlternatives_6.eContents().get(1);
+		private final RuleCall cIfIfParserRuleCall_6_1_0 = (RuleCall)cIfAssignment_6_1.eContents().get(0);
+		private final Assignment cWhileAssignment_6_2 = (Assignment)cAlternatives_6.eContents().get(2);
+		private final RuleCall cWhileWhileParserRuleCall_6_2_0 = (RuleCall)cWhileAssignment_6_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//While:
-		//	'while' '(' (conditions+=Condition ('||' | '&&'))* conditions+=Condition ')' '{'
-		//	expressions+=Expression
+		//	'while' '(' (conditions+=Condition ('||' | '&&'))* conditions+=Condition ')' '{' (str+=Str ';' | if+=If |
+		//	while+=While)+
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'while' '(' (conditions+=Condition ('||' | '&&'))* conditions+=Condition ')' '{' expressions+=Expression '}'
+		//'while' '(' (conditions+=Condition ('||' | '&&'))* conditions+=Condition ')' '{' (str+=Str ';' | if+=If | while+=While)+
+		//'}'
 		public Group getGroup() { return cGroup; }
 		
 		//'while'
@@ -932,11 +987,32 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
 		
-		//expressions+=Expression
-		public Assignment getExpressionsAssignment_6() { return cExpressionsAssignment_6; }
+		//(str+=Str ';' | if+=If | while+=While)+
+		public Alternatives getAlternatives_6() { return cAlternatives_6; }
 		
-		//Expression
-		public RuleCall getExpressionsExpressionParserRuleCall_6_0() { return cExpressionsExpressionParserRuleCall_6_0; }
+		//str+=Str ';'
+		public Group getGroup_6_0() { return cGroup_6_0; }
+		
+		//str+=Str
+		public Assignment getStrAssignment_6_0_0() { return cStrAssignment_6_0_0; }
+		
+		//Str
+		public RuleCall getStrStrParserRuleCall_6_0_0_0() { return cStrStrParserRuleCall_6_0_0_0; }
+		
+		//';'
+		public Keyword getSemicolonKeyword_6_0_1() { return cSemicolonKeyword_6_0_1; }
+		
+		//if+=If
+		public Assignment getIfAssignment_6_1() { return cIfAssignment_6_1; }
+		
+		//If
+		public RuleCall getIfIfParserRuleCall_6_1_0() { return cIfIfParserRuleCall_6_1_0; }
+		
+		//while+=While
+		public Assignment getWhileAssignment_6_2() { return cWhileAssignment_6_2; }
+		
+		//While
+		public RuleCall getWhileWhileParserRuleCall_6_2_0() { return cWhileWhileParserRuleCall_6_2_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
@@ -946,46 +1022,137 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cExclamationMarkKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Keyword cTrueKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
-		private final Keyword cFalseKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Assignment cConditionsAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cConditionsComparisonParserRuleCall_1_0_0 = (RuleCall)cConditionsAssignment_1_0.eContents().get(0);
+		private final Assignment cConditionsAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final RuleCall cConditionsStrParserRuleCall_1_1_0 = (RuleCall)cConditionsAssignment_1_1.eContents().get(0);
 		
 		//Condition:
-		//	'!'? ('true' | 'false');
+		//	'!'? (conditions+=Comparison | conditions+=Str)+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'!'? ('true' | 'false')
+		//'!'? (conditions+=Comparison | conditions+=Str)+
 		public Group getGroup() { return cGroup; }
 		
 		//'!'?
 		public Keyword getExclamationMarkKeyword_0() { return cExclamationMarkKeyword_0; }
 		
-		//'true' | 'false'
+		//(conditions+=Comparison | conditions+=Str)+
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//'true'
-		public Keyword getTrueKeyword_1_0() { return cTrueKeyword_1_0; }
+		//conditions+=Comparison
+		public Assignment getConditionsAssignment_1_0() { return cConditionsAssignment_1_0; }
 		
-		//'false'
-		public Keyword getFalseKeyword_1_1() { return cFalseKeyword_1_1; }
+		//Comparison
+		public RuleCall getConditionsComparisonParserRuleCall_1_0_0() { return cConditionsComparisonParserRuleCall_1_0_0; }
+		
+		//conditions+=Str
+		public Assignment getConditionsAssignment_1_1() { return cConditionsAssignment_1_1; }
+		
+		//Str
+		public RuleCall getConditionsStrParserRuleCall_1_1_0() { return cConditionsStrParserRuleCall_1_1_0; }
 	}
-	public class StatementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.Statement");
+	public class StrElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.Str");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLoremKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cIpsumKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cValueIDTerminalRuleCall_0_0 = (RuleCall)cValueAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cValueIDTerminalRuleCall_1_1_0 = (RuleCall)cValueAssignment_1_1.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cValueAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cValueIDTerminalRuleCall_1_3_0 = (RuleCall)cValueAssignment_1_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
 		
-		//Statement:
-		//	"Lorem" "Ipsum";
+		//Str:
+		//	value+=ID ('.' value+=ID '(' value+=ID? ')')*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"Lorem" "Ipsum"
+		//value+=ID ('.' value+=ID '(' value+=ID? ')')*
 		public Group getGroup() { return cGroup; }
 		
-		//"Lorem"
-		public Keyword getLoremKeyword_0() { return cLoremKeyword_0; }
+		//value+=ID
+		public Assignment getValueAssignment_0() { return cValueAssignment_0; }
 		
-		//"Ipsum"
-		public Keyword getIpsumKeyword_1() { return cIpsumKeyword_1; }
+		//ID
+		public RuleCall getValueIDTerminalRuleCall_0_0() { return cValueIDTerminalRuleCall_0_0; }
+		
+		//('.' value+=ID '(' value+=ID? ')')*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+		
+		//value+=ID
+		public Assignment getValueAssignment_1_1() { return cValueAssignment_1_1; }
+		
+		//ID
+		public RuleCall getValueIDTerminalRuleCall_1_1_0() { return cValueIDTerminalRuleCall_1_1_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1_2() { return cLeftParenthesisKeyword_1_2; }
+		
+		//value+=ID?
+		public Assignment getValueAssignment_1_3() { return cValueAssignment_1_3; }
+		
+		//ID
+		public RuleCall getValueIDTerminalRuleCall_1_3_0() { return cValueIDTerminalRuleCall_1_3_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_1_4() { return cRightParenthesisKeyword_1_4; }
+	}
+	public class ComparisonElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.Comparison");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cLeftMemberAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLeftMemberIDTerminalRuleCall_0_0 = (RuleCall)cLeftMemberAssignment_0.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Keyword cLessThanSignKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Keyword cLessThanSignEqualsSignKeyword_1_2 = (Keyword)cAlternatives_1.eContents().get(2);
+		private final Keyword cGreaterThanSignEqualsSignKeyword_1_3 = (Keyword)cAlternatives_1.eContents().get(3);
+		private final Keyword cEqualsSignEqualsSignKeyword_1_4 = (Keyword)cAlternatives_1.eContents().get(4);
+		private final Assignment cRightMemberAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRightMemberIDTerminalRuleCall_2_0 = (RuleCall)cRightMemberAssignment_2.eContents().get(0);
+		
+		//Comparison:
+		//	leftMember=ID ('<' | '>' | '<=' | '>=' | '==') rightMember=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//leftMember=ID ('<' | '>' | '<=' | '>=' | '==') rightMember=ID
+		public Group getGroup() { return cGroup; }
+		
+		//leftMember=ID
+		public Assignment getLeftMemberAssignment_0() { return cLeftMemberAssignment_0; }
+		
+		//ID
+		public RuleCall getLeftMemberIDTerminalRuleCall_0_0() { return cLeftMemberIDTerminalRuleCall_0_0; }
+		
+		//'<' | '>' | '<=' | '>=' | '=='
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//'<'
+		public Keyword getLessThanSignKeyword_1_0() { return cLessThanSignKeyword_1_0; }
+		
+		//'>'
+		public Keyword getGreaterThanSignKeyword_1_1() { return cGreaterThanSignKeyword_1_1; }
+		
+		//'<='
+		public Keyword getLessThanSignEqualsSignKeyword_1_2() { return cLessThanSignEqualsSignKeyword_1_2; }
+		
+		//'>='
+		public Keyword getGreaterThanSignEqualsSignKeyword_1_3() { return cGreaterThanSignEqualsSignKeyword_1_3; }
+		
+		//'=='
+		public Keyword getEqualsSignEqualsSignKeyword_1_4() { return cEqualsSignEqualsSignKeyword_1_4; }
+		
+		//rightMember=ID
+		public Assignment getRightMemberAssignment_2() { return cRightMemberAssignment_2; }
+		
+		//ID
+		public RuleCall getRightMemberIDTerminalRuleCall_2_0() { return cRightMemberIDTerminalRuleCall_2_0; }
 	}
 	public class PSignatureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.project.foo.Foo.PSignature");
@@ -1192,7 +1359,8 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	private final IfElements pIf;
 	private final WhileElements pWhile;
 	private final ConditionElements pCondition;
-	private final StatementElements pStatement;
+	private final StrElements pStr;
+	private final ComparisonElements pComparison;
 	private final PSignatureElements pPSignature;
 	private final MRequiredServiceElements pMRequiredService;
 	private final RSignatureElements pRSignature;
@@ -1227,7 +1395,8 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		this.pIf = new IfElements();
 		this.pWhile = new WhileElements();
 		this.pCondition = new ConditionElements();
-		this.pStatement = new StatementElements();
+		this.pStr = new StrElements();
+		this.pComparison = new ComparisonElements();
 		this.pPSignature = new PSignatureElements();
 		this.pMRequiredService = new MRequiredServiceElements();
 		this.pRSignature = new RSignatureElements();
@@ -1458,7 +1627,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Expression:
-	//	If | While | {Expression} Statement;
+	//	If | While | Str;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
 	}
@@ -1468,10 +1637,9 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//If:
-	//	'if' '(' (conditions+=Condition ('||' | '&&'))* conditions+=Condition ')' '{'
-	//	expressions+=Expression
-	//	'}' ('else' (else=If | '{'
-	//	expression=Expression '}'))?;
+	//	'if' '(' (conditions+=Condition ('||' | '&&'))* conditions+=Condition ')' '{' (str+=Str ';' | if+=If | while+=While)+
+	//	'}' (=> 'else' (else=If | '{' (str+=Str ';' | if+=If | while+=While)+
+	//	'}'))?;
 	public IfElements getIfAccess() {
 		return pIf;
 	}
@@ -1481,8 +1649,8 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//While:
-	//	'while' '(' (conditions+=Condition ('||' | '&&'))* conditions+=Condition ')' '{'
-	//	expressions+=Expression
+	//	'while' '(' (conditions+=Condition ('||' | '&&'))* conditions+=Condition ')' '{' (str+=Str ';' | if+=If |
+	//	while+=While)+
 	//	'}';
 	public WhileElements getWhileAccess() {
 		return pWhile;
@@ -1493,7 +1661,7 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Condition:
-	//	'!'? ('true' | 'false');
+	//	'!'? (conditions+=Comparison | conditions+=Str)+;
 	public ConditionElements getConditionAccess() {
 		return pCondition;
 	}
@@ -1502,14 +1670,24 @@ public class FooGrammarAccess extends AbstractGrammarElementFinder {
 		return getConditionAccess().getRule();
 	}
 	
-	//Statement:
-	//	"Lorem" "Ipsum";
-	public StatementElements getStatementAccess() {
-		return pStatement;
+	//Str:
+	//	value+=ID ('.' value+=ID '(' value+=ID? ')')*;
+	public StrElements getStrAccess() {
+		return pStr;
 	}
 	
-	public ParserRule getStatementRule() {
-		return getStatementAccess().getRule();
+	public ParserRule getStrRule() {
+		return getStrAccess().getRule();
+	}
+	
+	//Comparison:
+	//	leftMember=ID ('<' | '>' | '<=' | '>=' | '==') rightMember=ID;
+	public ComparisonElements getComparisonAccess() {
+		return pComparison;
+	}
+	
+	public ParserRule getComparisonRule() {
+		return getComparisonAccess().getRule();
 	}
 	
 	////Signature d'un service fourni

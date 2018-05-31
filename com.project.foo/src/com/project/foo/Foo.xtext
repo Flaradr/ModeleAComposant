@@ -94,27 +94,36 @@ MProvidedService:
 	'}';
 
 Expression:
-	If | While | {Expression}Statement;
+	If | While | Str;
 
 If :
 	'if' '(' (conditions+=Condition('||'|'&&'))*conditions+=Condition ')' '{'
-		expressions+=Expression
+		(str+=Str ';'|
+		 if+=If|
+		 while+=While)+
 	'}'(=>'else'(else=If | '{' 
-		(expression=Expression)
+		(str+=Str ';'|
+		 if+=If|
+		 while+=While)+
 	'}'))?;
 	
 While :
 	'while''('(conditions+=Condition('||'|'&&'))*conditions+=Condition ')' '{'
-		expressions+=Expression
+		(str+=Str ';'|
+		 if+=If|
+		 while+=While)+
 	'}';
 	
 Condition:
-	'!'?('true'|'false')
+	'!'?(conditions+=Comparison|conditions+=Str)+;
+	
+Str:
+	value+=ID('.'value+=ID'('value+=ID?')')*;
+	
+Comparison:
+	leftMember=ID ('<'|'>'|'<='|'>='|'==') rightMember=ID
 ;
 
-Statement : 
-	"Lorem" "Ipsum"
-;
 
 //Signature d'un service fourni
 PSignature:

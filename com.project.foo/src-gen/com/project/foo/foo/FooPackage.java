@@ -604,31 +604,13 @@ public interface FooPackage extends EPackage
   int EXPRESSION = 14;
 
   /**
-   * The feature id for the '<em><b>Conditions</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__CONDITIONS = 0;
-
-  /**
-   * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__EXPRESSIONS = 1;
-
-  /**
    * The number of structural features of the '<em>Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 2;
+  int EXPRESSION_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link com.project.foo.foo.impl.IfImpl <em>If</em>}' class.
@@ -641,22 +623,40 @@ public interface FooPackage extends EPackage
   int IF = 15;
 
   /**
-   * The feature id for the '<em><b>Conditions</b></em>' attribute list.
+   * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IF__CONDITIONS = EXPRESSION__CONDITIONS;
+  int IF__CONDITIONS = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+   * The feature id for the '<em><b>Str</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int IF__EXPRESSIONS = EXPRESSION__EXPRESSIONS;
+  int IF__STR = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>If</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF__IF = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>While</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF__WHILE = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Else</b></em>' containment reference.
@@ -665,16 +665,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IF__ELSE = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IF__EXPRESSION = EXPRESSION_FEATURE_COUNT + 1;
+  int IF__ELSE = EXPRESSION_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>If</em>' class.
@@ -683,7 +674,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int IF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int IF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link com.project.foo.foo.impl.WhileImpl <em>While</em>}' class.
@@ -696,22 +687,40 @@ public interface FooPackage extends EPackage
   int WHILE = 16;
 
   /**
-   * The feature id for the '<em><b>Conditions</b></em>' attribute list.
+   * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WHILE__CONDITIONS = EXPRESSION__CONDITIONS;
+  int WHILE__CONDITIONS = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+   * The feature id for the '<em><b>Str</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int WHILE__EXPRESSIONS = EXPRESSION__EXPRESSIONS;
+  int WHILE__STR = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>If</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHILE__IF = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>While</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHILE__WHILE = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>While</em>' class.
@@ -720,7 +729,100 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int WHILE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+  int WHILE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link com.project.foo.foo.impl.ConditionImpl <em>Condition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.project.foo.foo.impl.ConditionImpl
+   * @see com.project.foo.foo.impl.FooPackageImpl#getCondition()
+   * @generated
+   */
+  int CONDITION = 17;
+
+  /**
+   * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__CONDITIONS = 0;
+
+  /**
+   * The number of structural features of the '<em>Condition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.project.foo.foo.impl.StrImpl <em>Str</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.project.foo.foo.impl.StrImpl
+   * @see com.project.foo.foo.impl.FooPackageImpl#getStr()
+   * @generated
+   */
+  int STR = 18;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STR__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Str</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link com.project.foo.foo.impl.ComparisonImpl <em>Comparison</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.project.foo.foo.impl.ComparisonImpl
+   * @see com.project.foo.foo.impl.FooPackageImpl#getComparison()
+   * @generated
+   */
+  int COMPARISON = 19;
+
+  /**
+   * The feature id for the '<em><b>Left Member</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARISON__LEFT_MEMBER = 0;
+
+  /**
+   * The feature id for the '<em><b>Right Member</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARISON__RIGHT_MEMBER = 1;
+
+  /**
+   * The number of structural features of the '<em>Comparison</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARISON_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link com.project.foo.foo.impl.PSignatureImpl <em>PSignature</em>}' class.
@@ -730,7 +832,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getPSignature()
    * @generated
    */
-  int PSIGNATURE = 17;
+  int PSIGNATURE = 20;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -776,7 +878,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getMRequiredService()
    * @generated
    */
-  int MREQUIRED_SERVICE = 18;
+  int MREQUIRED_SERVICE = 21;
 
   /**
    * The feature id for the '<em><b>Signature</b></em>' containment reference.
@@ -804,7 +906,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getRSignature()
    * @generated
    */
-  int RSIGNATURE = 19;
+  int RSIGNATURE = 22;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -850,7 +952,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 20;
+  int PARAMETER = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1361,28 +1463,6 @@ public interface FooPackage extends EPackage
   EClass getExpression();
 
   /**
-   * Returns the meta object for the attribute list '{@link com.project.foo.foo.Expression#getConditions <em>Conditions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Conditions</em>'.
-   * @see com.project.foo.foo.Expression#getConditions()
-   * @see #getExpression()
-   * @generated
-   */
-  EAttribute getExpression_Conditions();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Expression#getExpressions <em>Expressions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Expressions</em>'.
-   * @see com.project.foo.foo.Expression#getExpressions()
-   * @see #getExpression()
-   * @generated
-   */
-  EReference getExpression_Expressions();
-
-  /**
    * Returns the meta object for class '{@link com.project.foo.foo.If <em>If</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1391,6 +1471,50 @@ public interface FooPackage extends EPackage
    * @generated
    */
   EClass getIf();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.If#getConditions <em>Conditions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Conditions</em>'.
+   * @see com.project.foo.foo.If#getConditions()
+   * @see #getIf()
+   * @generated
+   */
+  EReference getIf_Conditions();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.If#getStr <em>Str</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Str</em>'.
+   * @see com.project.foo.foo.If#getStr()
+   * @see #getIf()
+   * @generated
+   */
+  EReference getIf_Str();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.If#getIf <em>If</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>If</em>'.
+   * @see com.project.foo.foo.If#getIf()
+   * @see #getIf()
+   * @generated
+   */
+  EReference getIf_If();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.If#getWhile <em>While</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>While</em>'.
+   * @see com.project.foo.foo.If#getWhile()
+   * @see #getIf()
+   * @generated
+   */
+  EReference getIf_While();
 
   /**
    * Returns the meta object for the containment reference '{@link com.project.foo.foo.If#getElse <em>Else</em>}'.
@@ -1404,17 +1528,6 @@ public interface FooPackage extends EPackage
   EReference getIf_Else();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.project.foo.foo.If#getExpression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expression</em>'.
-   * @see com.project.foo.foo.If#getExpression()
-   * @see #getIf()
-   * @generated
-   */
-  EReference getIf_Expression();
-
-  /**
    * Returns the meta object for class '{@link com.project.foo.foo.While <em>While</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1423,6 +1536,124 @@ public interface FooPackage extends EPackage
    * @generated
    */
   EClass getWhile();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.While#getConditions <em>Conditions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Conditions</em>'.
+   * @see com.project.foo.foo.While#getConditions()
+   * @see #getWhile()
+   * @generated
+   */
+  EReference getWhile_Conditions();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.While#getStr <em>Str</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Str</em>'.
+   * @see com.project.foo.foo.While#getStr()
+   * @see #getWhile()
+   * @generated
+   */
+  EReference getWhile_Str();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.While#getIf <em>If</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>If</em>'.
+   * @see com.project.foo.foo.While#getIf()
+   * @see #getWhile()
+   * @generated
+   */
+  EReference getWhile_If();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.While#getWhile <em>While</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>While</em>'.
+   * @see com.project.foo.foo.While#getWhile()
+   * @see #getWhile()
+   * @generated
+   */
+  EReference getWhile_While();
+
+  /**
+   * Returns the meta object for class '{@link com.project.foo.foo.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Condition</em>'.
+   * @see com.project.foo.foo.Condition
+   * @generated
+   */
+  EClass getCondition();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Condition#getConditions <em>Conditions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Conditions</em>'.
+   * @see com.project.foo.foo.Condition#getConditions()
+   * @see #getCondition()
+   * @generated
+   */
+  EReference getCondition_Conditions();
+
+  /**
+   * Returns the meta object for class '{@link com.project.foo.foo.Str <em>Str</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Str</em>'.
+   * @see com.project.foo.foo.Str
+   * @generated
+   */
+  EClass getStr();
+
+  /**
+   * Returns the meta object for the attribute list '{@link com.project.foo.foo.Str#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Value</em>'.
+   * @see com.project.foo.foo.Str#getValue()
+   * @see #getStr()
+   * @generated
+   */
+  EAttribute getStr_Value();
+
+  /**
+   * Returns the meta object for class '{@link com.project.foo.foo.Comparison <em>Comparison</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Comparison</em>'.
+   * @see com.project.foo.foo.Comparison
+   * @generated
+   */
+  EClass getComparison();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.project.foo.foo.Comparison#getLeftMember <em>Left Member</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Left Member</em>'.
+   * @see com.project.foo.foo.Comparison#getLeftMember()
+   * @see #getComparison()
+   * @generated
+   */
+  EAttribute getComparison_LeftMember();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.project.foo.foo.Comparison#getRightMember <em>Right Member</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Right Member</em>'.
+   * @see com.project.foo.foo.Comparison#getRightMember()
+   * @see #getComparison()
+   * @generated
+   */
+  EAttribute getComparison_RightMember();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.PSignature <em>PSignature</em>}'.
@@ -1977,22 +2208,6 @@ public interface FooPackage extends EPackage
     EClass EXPRESSION = eINSTANCE.getExpression();
 
     /**
-     * The meta object literal for the '<em><b>Conditions</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EXPRESSION__CONDITIONS = eINSTANCE.getExpression_Conditions();
-
-    /**
-     * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION__EXPRESSIONS = eINSTANCE.getExpression_Expressions();
-
-    /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.IfImpl <em>If</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2003,20 +2218,44 @@ public interface FooPackage extends EPackage
     EClass IF = eINSTANCE.getIf();
 
     /**
+     * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF__CONDITIONS = eINSTANCE.getIf_Conditions();
+
+    /**
+     * The meta object literal for the '<em><b>Str</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF__STR = eINSTANCE.getIf_Str();
+
+    /**
+     * The meta object literal for the '<em><b>If</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF__IF = eINSTANCE.getIf_If();
+
+    /**
+     * The meta object literal for the '<em><b>While</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF__WHILE = eINSTANCE.getIf_While();
+
+    /**
      * The meta object literal for the '<em><b>Else</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference IF__ELSE = eINSTANCE.getIf_Else();
-
-    /**
-     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference IF__EXPRESSION = eINSTANCE.getIf_Expression();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.WhileImpl <em>While</em>}' class.
@@ -2027,6 +2266,100 @@ public interface FooPackage extends EPackage
      * @generated
      */
     EClass WHILE = eINSTANCE.getWhile();
+
+    /**
+     * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WHILE__CONDITIONS = eINSTANCE.getWhile_Conditions();
+
+    /**
+     * The meta object literal for the '<em><b>Str</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WHILE__STR = eINSTANCE.getWhile_Str();
+
+    /**
+     * The meta object literal for the '<em><b>If</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WHILE__IF = eINSTANCE.getWhile_If();
+
+    /**
+     * The meta object literal for the '<em><b>While</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WHILE__WHILE = eINSTANCE.getWhile_While();
+
+    /**
+     * The meta object literal for the '{@link com.project.foo.foo.impl.ConditionImpl <em>Condition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.project.foo.foo.impl.ConditionImpl
+     * @see com.project.foo.foo.impl.FooPackageImpl#getCondition()
+     * @generated
+     */
+    EClass CONDITION = eINSTANCE.getCondition();
+
+    /**
+     * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITION__CONDITIONS = eINSTANCE.getCondition_Conditions();
+
+    /**
+     * The meta object literal for the '{@link com.project.foo.foo.impl.StrImpl <em>Str</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.project.foo.foo.impl.StrImpl
+     * @see com.project.foo.foo.impl.FooPackageImpl#getStr()
+     * @generated
+     */
+    EClass STR = eINSTANCE.getStr();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STR__VALUE = eINSTANCE.getStr_Value();
+
+    /**
+     * The meta object literal for the '{@link com.project.foo.foo.impl.ComparisonImpl <em>Comparison</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.project.foo.foo.impl.ComparisonImpl
+     * @see com.project.foo.foo.impl.FooPackageImpl#getComparison()
+     * @generated
+     */
+    EClass COMPARISON = eINSTANCE.getComparison();
+
+    /**
+     * The meta object literal for the '<em><b>Left Member</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPARISON__LEFT_MEMBER = eINSTANCE.getComparison_LeftMember();
+
+    /**
+     * The meta object literal for the '<em><b>Right Member</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMPARISON__RIGHT_MEMBER = eINSTANCE.getComparison_RightMember();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.PSignatureImpl <em>PSignature</em>}' class.
