@@ -68,6 +68,8 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
       case FooPackage.DOMAIN_MODEL: return createDomainModel();
       case FooPackage.MODEL: return createModel();
       case FooPackage.IMPORT: return createImport();
+      case FooPackage.REFINE: return createRefine();
+      case FooPackage.ELEMENT: return createElement();
       case FooPackage.ASSEMBLY: return createAssembly();
       case FooPackage.COMPONENT_INSTANCE: return createComponentInstance();
       case FooPackage.BINDING: return createBinding();
@@ -125,6 +127,28 @@ public class FooFactoryImpl extends EFactoryImpl implements FooFactory
   {
     ImportImpl import_ = new ImportImpl();
     return import_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Refine createRefine()
+  {
+    RefineImpl refine = new RefineImpl();
+    return refine;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Element createElement()
+  {
+    ElementImpl element = new ElementImpl();
+    return element;
   }
 
   /**

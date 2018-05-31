@@ -5,8 +5,6 @@ package com.project.foo.foo;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Component</b></em>'.
@@ -17,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.project.foo.foo.Component#getName <em>Name</em>}</li>
- *   <li>{@link com.project.foo.foo.Component#getRefinedComponent <em>Refined Component</em>}</li>
  *   <li>{@link com.project.foo.foo.Component#getListOfPServices <em>List Of PServices</em>}</li>
  *   <li>{@link com.project.foo.foo.Component#getListOfRServices <em>List Of RServices</em>}</li>
  *   <li>{@link com.project.foo.foo.Component#getMProvServices <em>MProv Services</em>}</li>
@@ -29,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Component extends EObject
+public interface Component extends Element
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -56,32 +53,6 @@ public interface Component extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Refined Component</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Refined Component</em>' reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Refined Component</em>' reference.
-   * @see #setRefinedComponent(Component)
-   * @see com.project.foo.foo.FooPackage#getComponent_RefinedComponent()
-   * @model
-   * @generated
-   */
-  Component getRefinedComponent();
-
-  /**
-   * Sets the value of the '{@link com.project.foo.foo.Component#getRefinedComponent <em>Refined Component</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Refined Component</em>' reference.
-   * @see #getRefinedComponent()
-   * @generated
-   */
-  void setRefinedComponent(Component value);
 
   /**
    * Returns the value of the '<em><b>List Of PServices</b></em>' containment reference.

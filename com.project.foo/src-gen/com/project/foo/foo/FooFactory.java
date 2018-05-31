@@ -51,6 +51,24 @@ public interface FooFactory extends EFactory
   Import createImport();
 
   /**
+   * Returns a new object of class '<em>Refine</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Refine</em>'.
+   * @generated
+   */
+  Refine createRefine();
+
+  /**
+   * Returns a new object of class '<em>Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Element</em>'.
+   * @generated
+   */
+  Element createElement();
+
+  /**
    * Returns a new object of class '<em>Assembly</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

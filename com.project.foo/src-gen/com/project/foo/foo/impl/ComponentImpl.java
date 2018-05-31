@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -37,7 +36,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getRefinedComponent <em>Refined Component</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getListOfPServices <em>List Of PServices</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getListOfRServices <em>List Of RServices</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ComponentImpl#getMProvServices <em>MProv Services</em>}</li>
@@ -47,7 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ComponentImpl extends MinimalEObjectImpl.Container implements Component
+public class ComponentImpl extends ElementImpl implements Component
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -68,16 +66,6 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getRefinedComponent() <em>Refined Component</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRefinedComponent()
-   * @generated
-   * @ordered
-   */
-  protected Component refinedComponent;
 
   /**
    * The cached value of the '{@link #getListOfPServices() <em>List Of PServices</em>}' containment reference.
@@ -171,49 +159,6 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.COMPONENT__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Component getRefinedComponent()
-  {
-    if (refinedComponent != null && refinedComponent.eIsProxy())
-    {
-      InternalEObject oldRefinedComponent = (InternalEObject)refinedComponent;
-      refinedComponent = (Component)eResolveProxy(oldRefinedComponent);
-      if (refinedComponent != oldRefinedComponent)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, FooPackage.COMPONENT__REFINED_COMPONENT, oldRefinedComponent, refinedComponent));
-      }
-    }
-    return refinedComponent;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Component basicGetRefinedComponent()
-  {
-    return refinedComponent;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRefinedComponent(Component newRefinedComponent)
-  {
-    Component oldRefinedComponent = refinedComponent;
-    refinedComponent = newRefinedComponent;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FooPackage.COMPONENT__REFINED_COMPONENT, oldRefinedComponent, refinedComponent));
   }
 
   /**
@@ -388,9 +333,6 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
     {
       case FooPackage.COMPONENT__NAME:
         return getName();
-      case FooPackage.COMPONENT__REFINED_COMPONENT:
-        if (resolve) return getRefinedComponent();
-        return basicGetRefinedComponent();
       case FooPackage.COMPONENT__LIST_OF_PSERVICES:
         return getListOfPServices();
       case FooPackage.COMPONENT__LIST_OF_RSERVICES:
@@ -418,9 +360,6 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
     {
       case FooPackage.COMPONENT__NAME:
         setName((String)newValue);
-        return;
-      case FooPackage.COMPONENT__REFINED_COMPONENT:
-        setRefinedComponent((Component)newValue);
         return;
       case FooPackage.COMPONENT__LIST_OF_PSERVICES:
         setListOfPServices((ListOfProvidedServices)newValue);
@@ -457,9 +396,6 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
       case FooPackage.COMPONENT__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case FooPackage.COMPONENT__REFINED_COMPONENT:
-        setRefinedComponent((Component)null);
-        return;
       case FooPackage.COMPONENT__LIST_OF_PSERVICES:
         setListOfPServices((ListOfProvidedServices)null);
         return;
@@ -491,8 +427,6 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
     {
       case FooPackage.COMPONENT__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case FooPackage.COMPONENT__REFINED_COMPONENT:
-        return refinedComponent != null;
       case FooPackage.COMPONENT__LIST_OF_PSERVICES:
         return listOfPServices != null;
       case FooPackage.COMPONENT__LIST_OF_RSERVICES:

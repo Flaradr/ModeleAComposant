@@ -16,6 +16,7 @@ Model:
 	(imports+=Import)*
 	(components+=Component)*
 	(assembly+=Assembly)*
+	(refiningList+=Refine)*
 	'}';
 
 	
@@ -28,7 +29,13 @@ Import:
 QualifiedNameWithWildcard:
     QualifiedName '.*'?;
 
-
+Refine:
+	'refine' eltToRefine=[Element] 'with' refiningElt=[Element];
+	
+Element:
+	Component|Binding
+;
+			 
 //Structure d'un assemblage
 Assembly:
 	{Assembly}'Assembly' name=ID '{'
@@ -37,7 +44,6 @@ Assembly:
 	(attributes+=ComponentInstance)+
 	'bindings'
 	(bindings+=Binding)*
-//	(bindingsrequired += Bindingrequired '-' bindingsProvided += BindingProvided)*
 	'}';
 
 //Structure d'un composant
@@ -59,7 +65,7 @@ BindingProvided:
 
 //Structure d'un composant
 Component:
-	'Component' name=ID ('refines' refinedComponent=[Component|QualifiedName])?'{'
+	'Component' name=ID '{'
 	listOfPServices = ListOfProvidedServices
 	listOfRServices = ListOfrequiredServices
 	(mProvServices += MProvidedService)+
@@ -98,18 +104,18 @@ Expression:
 
 If :
 	'if' '(' (conditions+=Condition('||'|'&&'))*conditions+=Condition ')' '{'
-		(str+=Str ';'|
+		(str+=Str |
 		 if+=If|
 		 while+=While)+
 	'}'(=>'else'(else=If | '{' 
-		(str+=Str ';'|
+		(str+=Str|
 		 if+=If|
 		 while+=While)+
 	'}'))?;
 	
 While :
 	'while''('(conditions+=Condition('||'|'&&'))*conditions+=Condition ')' '{'
-		(str+=Str ';'|
+		(str+=Str |
 		 if+=If|
 		 while+=While)+
 	'}';
@@ -118,7 +124,7 @@ Condition:
 	'!'?(conditions+=Comparison|conditions+=Str)+;
 	
 Str:
-	value+=ID('.'value+=ID'('value+=ID?')')*;
+	value+=ID('.'value+=ID'('value+=ID?')')*';'?;
 	
 Comparison:
 	leftMember=ID ('<'|'>'|'<='|'>='|'==') rightMember=ID

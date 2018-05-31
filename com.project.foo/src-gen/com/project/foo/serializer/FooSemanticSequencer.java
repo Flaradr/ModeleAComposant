@@ -24,6 +24,7 @@ import com.project.foo.foo.Model;
 import com.project.foo.foo.PSignature;
 import com.project.foo.foo.ProvidedService;
 import com.project.foo.foo.RSignature;
+import com.project.foo.foo.Refine;
 import com.project.foo.foo.RequiredService;
 import com.project.foo.foo.Str;
 import com.project.foo.foo.While;
@@ -113,6 +114,9 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case FooPackage.RSIGNATURE:
 				sequence_RSignature(context, (RSignature) semanticObject); 
 				return; 
+			case FooPackage.REFINE:
+				sequence_Refine(context, (Refine) semanticObject); 
+				return; 
 			case FooPackage.REQUIRED_SERVICE:
 				sequence_RequiredService(context, (RequiredService) semanticObject); 
 				return; 
@@ -183,6 +187,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Element returns Binding
 	 *     Binding returns Binding
 	 *
 	 * Constraint:
@@ -246,12 +251,12 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     Element returns Component
 	 *     Component returns Component
 	 *
 	 * Constraint:
 	 *     (
 	 *         name=ID 
-	 *         refinedComponent=[Component|QualifiedName]? 
 	 *         listOfPServices=ListOfProvidedServices 
 	 *         listOfRServices=ListOfrequiredServices 
 	 *         mProvServices+=MProvidedService+ 
@@ -300,7 +305,12 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     If returns If
 	 *
 	 * Constraint:
-	 *     (conditions+=Condition* conditions+=Condition (str+=Str | if+=If | while+=While)+ (else=If | (if+=If? ((str+=Str | while+=While)? if+=If?)*))?)
+	 *     (
+	 *         conditions+=Condition* 
+	 *         conditions+=Condition 
+	 *         (str+=Str | if+=If | while+=While)+ 
+	 *         (else=If | (while+=While? ((str+=Str | if+=If)? while+=While?)*))?
+	 *     )
 	 */
 	protected void sequence_If(ISerializationContext context, If semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -384,7 +394,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (name=QualifiedName imports+=Import* components+=Component* assembly+=Assembly*)
+	 *     (name=QualifiedName imports+=Import* components+=Component* assembly+=Assembly* refiningList+=Refine*)
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -451,6 +461,27 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_RSignature(ISerializationContext context, RSignature semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Refine returns Refine
+	 *
+	 * Constraint:
+	 *     (eltToRefine=[Element|ID] refiningElt=[Element|ID])
+	 */
+	protected void sequence_Refine(ISerializationContext context, Refine semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.REFINE__ELT_TO_REFINE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.REFINE__ELT_TO_REFINE));
+			if (transientValues.isValueTransient(semanticObject, FooPackage.Literals.REFINE__REFINING_ELT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FooPackage.Literals.REFINE__REFINING_ELT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRefineAccess().getEltToRefineElementIDTerminalRuleCall_1_0_1(), semanticObject.eGet(FooPackage.Literals.REFINE__ELT_TO_REFINE, false));
+		feeder.accept(grammarAccess.getRefineAccess().getRefiningEltElementIDTerminalRuleCall_3_0_1(), semanticObject.eGet(FooPackage.Literals.REFINE__REFINING_ELT, false));
+		feeder.finish();
 	}
 	
 	

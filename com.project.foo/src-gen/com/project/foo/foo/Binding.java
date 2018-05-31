@@ -3,7 +3,6 @@
  */
 package com.project.foo.foo;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Binding extends EObject
+public interface Binding extends Element
 {
   /**
    * Returns the value of the '<em><b>Binding Required</b></em>' containment reference.

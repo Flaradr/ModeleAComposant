@@ -132,13 +132,22 @@ public interface FooPackage extends EPackage
   int MODEL__ASSEMBLY = 3;
 
   /**
+   * The feature id for the '<em><b>Refining List</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__REFINING_LIST = 4;
+
+  /**
    * The number of structural features of the '<em>Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 4;
+  int MODEL_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link com.project.foo.foo.impl.ImportImpl <em>Import</em>}' class.
@@ -169,6 +178,62 @@ public interface FooPackage extends EPackage
   int IMPORT_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link com.project.foo.foo.impl.RefineImpl <em>Refine</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.project.foo.foo.impl.RefineImpl
+   * @see com.project.foo.foo.impl.FooPackageImpl#getRefine()
+   * @generated
+   */
+  int REFINE = 3;
+
+  /**
+   * The feature id for the '<em><b>Elt To Refine</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFINE__ELT_TO_REFINE = 0;
+
+  /**
+   * The feature id for the '<em><b>Refining Elt</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFINE__REFINING_ELT = 1;
+
+  /**
+   * The number of structural features of the '<em>Refine</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFINE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link com.project.foo.foo.impl.ElementImpl <em>Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.project.foo.foo.impl.ElementImpl
+   * @see com.project.foo.foo.impl.FooPackageImpl#getElement()
+   * @generated
+   */
+  int ELEMENT = 4;
+
+  /**
+   * The number of structural features of the '<em>Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELEMENT_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link com.project.foo.foo.impl.AssemblyImpl <em>Assembly</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -176,7 +241,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getAssembly()
    * @generated
    */
-  int ASSEMBLY = 3;
+  int ASSEMBLY = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -222,7 +287,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getComponentInstance()
    * @generated
    */
-  int COMPONENT_INSTANCE = 4;
+  int COMPONENT_INSTANCE = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -259,7 +324,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getBinding()
    * @generated
    */
-  int BINDING = 5;
+  int BINDING = 7;
 
   /**
    * The feature id for the '<em><b>Binding Required</b></em>' containment reference.
@@ -268,7 +333,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINDING__BINDING_REQUIRED = 0;
+  int BINDING__BINDING_REQUIRED = ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Binding Provided</b></em>' containment reference.
@@ -277,7 +342,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINDING__BINDING_PROVIDED = 1;
+  int BINDING__BINDING_PROVIDED = ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Binding</em>' class.
@@ -286,7 +351,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINDING_FEATURE_COUNT = 2;
+  int BINDING_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link com.project.foo.foo.impl.BindingRequiredImpl <em>Binding Required</em>}' class.
@@ -296,7 +361,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getBindingRequired()
    * @generated
    */
-  int BINDING_REQUIRED = 6;
+  int BINDING_REQUIRED = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -333,7 +398,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getBindingProvided()
    * @generated
    */
-  int BINDING_PROVIDED = 7;
+  int BINDING_PROVIDED = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -370,7 +435,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getComponent()
    * @generated
    */
-  int COMPONENT = 8;
+  int COMPONENT = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -379,16 +444,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Refined Component</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPONENT__REFINED_COMPONENT = 1;
+  int COMPONENT__NAME = ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>List Of PServices</b></em>' containment reference.
@@ -397,7 +453,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__LIST_OF_PSERVICES = 2;
+  int COMPONENT__LIST_OF_PSERVICES = ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>List Of RServices</b></em>' containment reference.
@@ -406,7 +462,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__LIST_OF_RSERVICES = 3;
+  int COMPONENT__LIST_OF_RSERVICES = ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>MProv Services</b></em>' containment reference list.
@@ -415,7 +471,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__MPROV_SERVICES = 4;
+  int COMPONENT__MPROV_SERVICES = ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>MReq Services</b></em>' containment reference list.
@@ -424,7 +480,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__MREQ_SERVICES = 5;
+  int COMPONENT__MREQ_SERVICES = ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Assemblies</b></em>' reference list.
@@ -433,7 +489,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__ASSEMBLIES = 6;
+  int COMPONENT__ASSEMBLIES = ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Component</em>' class.
@@ -442,7 +498,7 @@ public interface FooPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT_FEATURE_COUNT = 7;
+  int COMPONENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link com.project.foo.foo.impl.ListOfProvidedServicesImpl <em>List Of Provided Services</em>}' class.
@@ -452,7 +508,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getListOfProvidedServices()
    * @generated
    */
-  int LIST_OF_PROVIDED_SERVICES = 9;
+  int LIST_OF_PROVIDED_SERVICES = 11;
 
   /**
    * The feature id for the '<em><b>Provided Services</b></em>' containment reference list.
@@ -480,7 +536,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getProvidedService()
    * @generated
    */
-  int PROVIDED_SERVICE = 10;
+  int PROVIDED_SERVICE = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -508,7 +564,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getListOfrequiredServices()
    * @generated
    */
-  int LIST_OFREQUIRED_SERVICES = 11;
+  int LIST_OFREQUIRED_SERVICES = 13;
 
   /**
    * The feature id for the '<em><b>Required Services</b></em>' containment reference list.
@@ -536,7 +592,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getRequiredService()
    * @generated
    */
-  int REQUIRED_SERVICE = 12;
+  int REQUIRED_SERVICE = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' reference.
@@ -564,7 +620,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getMProvidedService()
    * @generated
    */
-  int MPROVIDED_SERVICE = 13;
+  int MPROVIDED_SERVICE = 15;
 
   /**
    * The feature id for the '<em><b>Signature</b></em>' containment reference.
@@ -601,7 +657,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 14;
+  int EXPRESSION = 16;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -620,7 +676,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getIf()
    * @generated
    */
-  int IF = 15;
+  int IF = 17;
 
   /**
    * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
@@ -684,7 +740,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getWhile()
    * @generated
    */
-  int WHILE = 16;
+  int WHILE = 18;
 
   /**
    * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
@@ -739,7 +795,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getCondition()
    * @generated
    */
-  int CONDITION = 17;
+  int CONDITION = 19;
 
   /**
    * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
@@ -767,7 +823,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getStr()
    * @generated
    */
-  int STR = 18;
+  int STR = 20;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute list.
@@ -795,7 +851,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getComparison()
    * @generated
    */
-  int COMPARISON = 19;
+  int COMPARISON = 21;
 
   /**
    * The feature id for the '<em><b>Left Member</b></em>' attribute.
@@ -832,7 +888,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getPSignature()
    * @generated
    */
-  int PSIGNATURE = 20;
+  int PSIGNATURE = 22;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -878,7 +934,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getMRequiredService()
    * @generated
    */
-  int MREQUIRED_SERVICE = 21;
+  int MREQUIRED_SERVICE = 23;
 
   /**
    * The feature id for the '<em><b>Signature</b></em>' containment reference.
@@ -906,7 +962,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getRSignature()
    * @generated
    */
-  int RSIGNATURE = 22;
+  int RSIGNATURE = 24;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -952,7 +1008,7 @@ public interface FooPackage extends EPackage
    * @see com.project.foo.foo.impl.FooPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 23;
+  int PARAMETER = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1058,6 +1114,17 @@ public interface FooPackage extends EPackage
   EReference getModel_Assembly();
 
   /**
+   * Returns the meta object for the containment reference list '{@link com.project.foo.foo.Model#getRefiningList <em>Refining List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Refining List</em>'.
+   * @see com.project.foo.foo.Model#getRefiningList()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_RefiningList();
+
+  /**
    * Returns the meta object for class '{@link com.project.foo.foo.Import <em>Import</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1077,6 +1144,48 @@ public interface FooPackage extends EPackage
    * @generated
    */
   EAttribute getImport_ImportedNamespace();
+
+  /**
+   * Returns the meta object for class '{@link com.project.foo.foo.Refine <em>Refine</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Refine</em>'.
+   * @see com.project.foo.foo.Refine
+   * @generated
+   */
+  EClass getRefine();
+
+  /**
+   * Returns the meta object for the reference '{@link com.project.foo.foo.Refine#getEltToRefine <em>Elt To Refine</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Elt To Refine</em>'.
+   * @see com.project.foo.foo.Refine#getEltToRefine()
+   * @see #getRefine()
+   * @generated
+   */
+  EReference getRefine_EltToRefine();
+
+  /**
+   * Returns the meta object for the reference '{@link com.project.foo.foo.Refine#getRefiningElt <em>Refining Elt</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Refining Elt</em>'.
+   * @see com.project.foo.foo.Refine#getRefiningElt()
+   * @see #getRefine()
+   * @generated
+   */
+  EReference getRefine_RefiningElt();
+
+  /**
+   * Returns the meta object for class '{@link com.project.foo.foo.Element <em>Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Element</em>'.
+   * @see com.project.foo.foo.Element
+   * @generated
+   */
+  EClass getElement();
 
   /**
    * Returns the meta object for class '{@link com.project.foo.foo.Assembly <em>Assembly</em>}'.
@@ -1269,17 +1378,6 @@ public interface FooPackage extends EPackage
    * @generated
    */
   EAttribute getComponent_Name();
-
-  /**
-   * Returns the meta object for the reference '{@link com.project.foo.foo.Component#getRefinedComponent <em>Refined Component</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Refined Component</em>'.
-   * @see com.project.foo.foo.Component#getRefinedComponent()
-   * @see #getComponent()
-   * @generated
-   */
-  EReference getComponent_RefinedComponent();
 
   /**
    * Returns the meta object for the containment reference '{@link com.project.foo.foo.Component#getListOfPServices <em>List Of PServices</em>}'.
@@ -1878,6 +1976,14 @@ public interface FooPackage extends EPackage
     EReference MODEL__ASSEMBLY = eINSTANCE.getModel_Assembly();
 
     /**
+     * The meta object literal for the '<em><b>Refining List</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__REFINING_LIST = eINSTANCE.getModel_RefiningList();
+
+    /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.ImportImpl <em>Import</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1894,6 +2000,42 @@ public interface FooPackage extends EPackage
      * @generated
      */
     EAttribute IMPORT__IMPORTED_NAMESPACE = eINSTANCE.getImport_ImportedNamespace();
+
+    /**
+     * The meta object literal for the '{@link com.project.foo.foo.impl.RefineImpl <em>Refine</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.project.foo.foo.impl.RefineImpl
+     * @see com.project.foo.foo.impl.FooPackageImpl#getRefine()
+     * @generated
+     */
+    EClass REFINE = eINSTANCE.getRefine();
+
+    /**
+     * The meta object literal for the '<em><b>Elt To Refine</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REFINE__ELT_TO_REFINE = eINSTANCE.getRefine_EltToRefine();
+
+    /**
+     * The meta object literal for the '<em><b>Refining Elt</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REFINE__REFINING_ELT = eINSTANCE.getRefine_RefiningElt();
+
+    /**
+     * The meta object literal for the '{@link com.project.foo.foo.impl.ElementImpl <em>Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.project.foo.foo.impl.ElementImpl
+     * @see com.project.foo.foo.impl.FooPackageImpl#getElement()
+     * @generated
+     */
+    EClass ELEMENT = eINSTANCE.getElement();
 
     /**
      * The meta object literal for the '{@link com.project.foo.foo.impl.AssemblyImpl <em>Assembly</em>}' class.
@@ -2050,14 +2192,6 @@ public interface FooPackage extends EPackage
      * @generated
      */
     EAttribute COMPONENT__NAME = eINSTANCE.getComponent_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Refined Component</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMPONENT__REFINED_COMPONENT = eINSTANCE.getComponent_RefinedComponent();
 
     /**
      * The meta object literal for the '<em><b>List Of PServices</b></em>' containment reference feature.

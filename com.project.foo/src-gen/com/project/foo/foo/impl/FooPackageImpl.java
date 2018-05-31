@@ -12,6 +12,7 @@ import com.project.foo.foo.Component;
 import com.project.foo.foo.ComponentInstance;
 import com.project.foo.foo.Condition;
 import com.project.foo.foo.DomainModel;
+import com.project.foo.foo.Element;
 import com.project.foo.foo.Expression;
 import com.project.foo.foo.FooFactory;
 import com.project.foo.foo.FooPackage;
@@ -26,6 +27,7 @@ import com.project.foo.foo.PSignature;
 import com.project.foo.foo.Parameter;
 import com.project.foo.foo.ProvidedService;
 import com.project.foo.foo.RSignature;
+import com.project.foo.foo.Refine;
 import com.project.foo.foo.RequiredService;
 import com.project.foo.foo.Str;
 import com.project.foo.foo.While;
@@ -65,6 +67,20 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * @generated
    */
   private EClass importEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass refineEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass elementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -351,6 +367,16 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getModel_RefiningList()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getImport()
   {
     return importEClass;
@@ -364,6 +390,46 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
   public EAttribute getImport_ImportedNamespace()
   {
     return (EAttribute)importEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRefine()
+  {
+    return refineEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRefine_EltToRefine()
+  {
+    return (EReference)refineEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRefine_RefiningElt()
+  {
+    return (EReference)refineEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getElement()
+  {
+    return elementEClass;
   }
 
   /**
@@ -551,7 +617,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponent_RefinedComponent()
+  public EReference getComponent_ListOfPServices()
   {
     return (EReference)componentEClass.getEStructuralFeatures().get(1);
   }
@@ -561,7 +627,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponent_ListOfPServices()
+  public EReference getComponent_ListOfRServices()
   {
     return (EReference)componentEClass.getEStructuralFeatures().get(2);
   }
@@ -571,7 +637,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponent_ListOfRServices()
+  public EReference getComponent_MProvServices()
   {
     return (EReference)componentEClass.getEStructuralFeatures().get(3);
   }
@@ -581,7 +647,7 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponent_MProvServices()
+  public EReference getComponent_MReqServices()
   {
     return (EReference)componentEClass.getEStructuralFeatures().get(4);
   }
@@ -591,19 +657,9 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComponent_MReqServices()
-  {
-    return (EReference)componentEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getComponent_Assemblies()
   {
-    return (EReference)componentEClass.getEStructuralFeatures().get(6);
+    return (EReference)componentEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1074,9 +1130,16 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     createEReference(modelEClass, MODEL__IMPORTS);
     createEReference(modelEClass, MODEL__COMPONENTS);
     createEReference(modelEClass, MODEL__ASSEMBLY);
+    createEReference(modelEClass, MODEL__REFINING_LIST);
 
     importEClass = createEClass(IMPORT);
     createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
+
+    refineEClass = createEClass(REFINE);
+    createEReference(refineEClass, REFINE__ELT_TO_REFINE);
+    createEReference(refineEClass, REFINE__REFINING_ELT);
+
+    elementEClass = createEClass(ELEMENT);
 
     assemblyEClass = createEClass(ASSEMBLY);
     createEAttribute(assemblyEClass, ASSEMBLY__NAME);
@@ -1101,7 +1164,6 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
 
     componentEClass = createEClass(COMPONENT);
     createEAttribute(componentEClass, COMPONENT__NAME);
-    createEReference(componentEClass, COMPONENT__REFINED_COMPONENT);
     createEReference(componentEClass, COMPONENT__LIST_OF_PSERVICES);
     createEReference(componentEClass, COMPONENT__LIST_OF_RSERVICES);
     createEReference(componentEClass, COMPONENT__MPROV_SERVICES);
@@ -1196,6 +1258,8 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    bindingEClass.getESuperTypes().add(this.getElement());
+    componentEClass.getESuperTypes().add(this.getElement());
     ifEClass.getESuperTypes().add(this.getExpression());
     whileEClass.getESuperTypes().add(this.getExpression());
     strEClass.getESuperTypes().add(this.getExpression());
@@ -1209,9 +1273,16 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
     initEReference(getModel_Imports(), this.getImport(), null, "imports", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Components(), this.getComponent(), null, "components", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Assembly(), this.getAssembly(), null, "assembly", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_RefiningList(), this.getRefine(), null, "refiningList", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(refineEClass, Refine.class, "Refine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRefine_EltToRefine(), this.getElement(), null, "eltToRefine", null, 0, 1, Refine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRefine_RefiningElt(), this.getElement(), null, "refiningElt", null, 0, 1, Refine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(assemblyEClass, Assembly.class, "Assembly", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAssembly_Name(), ecorePackage.getEString(), "name", null, 0, 1, Assembly.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1236,7 +1307,6 @@ public class FooPackageImpl extends EPackageImpl implements FooPackage
 
     initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComponent_RefinedComponent(), this.getComponent(), null, "refinedComponent", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponent_ListOfPServices(), this.getListOfProvidedServices(), null, "listOfPServices", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponent_ListOfRServices(), this.getListOfrequiredServices(), null, "listOfRServices", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComponent_MProvServices(), this.getMProvidedService(), null, "mProvServices", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -8,6 +8,7 @@ import com.project.foo.foo.Component;
 import com.project.foo.foo.FooPackage;
 import com.project.foo.foo.Import;
 import com.project.foo.foo.Model;
+import com.project.foo.foo.Refine;
 
 import java.util.Collection;
 
@@ -37,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.project.foo.foo.impl.ModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ModelImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link com.project.foo.foo.impl.ModelImpl#getAssembly <em>Assembly</em>}</li>
+ *   <li>{@link com.project.foo.foo.impl.ModelImpl#getRefiningList <em>Refining List</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,6 +94,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @ordered
    */
   protected EList<Assembly> assembly;
+
+  /**
+   * The cached value of the '{@link #getRefiningList() <em>Refining List</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRefiningList()
+   * @generated
+   * @ordered
+   */
+  protected EList<Refine> refiningList;
 
   /**
    * <!-- begin-user-doc -->
@@ -184,6 +196,20 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Refine> getRefiningList()
+  {
+    if (refiningList == null)
+    {
+      refiningList = new EObjectContainmentEList<Refine>(Refine.class, this, FooPackage.MODEL__REFINING_LIST);
+    }
+    return refiningList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -195,6 +221,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
       case FooPackage.MODEL__ASSEMBLY:
         return ((InternalEList<?>)getAssembly()).basicRemove(otherEnd, msgs);
+      case FooPackage.MODEL__REFINING_LIST:
+        return ((InternalEList<?>)getRefiningList()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -217,6 +245,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return getComponents();
       case FooPackage.MODEL__ASSEMBLY:
         return getAssembly();
+      case FooPackage.MODEL__REFINING_LIST:
+        return getRefiningList();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -247,6 +277,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         getAssembly().clear();
         getAssembly().addAll((Collection<? extends Assembly>)newValue);
         return;
+      case FooPackage.MODEL__REFINING_LIST:
+        getRefiningList().clear();
+        getRefiningList().addAll((Collection<? extends Refine>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -273,6 +307,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
       case FooPackage.MODEL__ASSEMBLY:
         getAssembly().clear();
         return;
+      case FooPackage.MODEL__REFINING_LIST:
+        getRefiningList().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -295,6 +332,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return components != null && !components.isEmpty();
       case FooPackage.MODEL__ASSEMBLY:
         return assembly != null && !assembly.isEmpty();
+      case FooPackage.MODEL__REFINING_LIST:
+        return refiningList != null && !refiningList.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.project.foo.foo.Model#getImports <em>Imports</em>}</li>
  *   <li>{@link com.project.foo.foo.Model#getComponents <em>Components</em>}</li>
  *   <li>{@link com.project.foo.foo.Model#getAssembly <em>Assembly</em>}</li>
+ *   <li>{@link com.project.foo.foo.Model#getRefiningList <em>Refining List</em>}</li>
  * </ul>
  *
  * @see com.project.foo.foo.FooPackage#getModel()
@@ -101,5 +102,21 @@ public interface Model extends EObject
    * @generated
    */
   EList<Assembly> getAssembly();
+
+  /**
+   * Returns the value of the '<em><b>Refining List</b></em>' containment reference list.
+   * The list contents are of type {@link com.project.foo.foo.Refine}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Refining List</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Refining List</em>' containment reference list.
+   * @see com.project.foo.foo.FooPackage#getModel_RefiningList()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Refine> getRefiningList();
 
 } // Model
