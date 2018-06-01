@@ -33,8 +33,7 @@ Refine:
 	'refine' eltToRefine=[Element] 'with' refiningElt=[Element];
 	
 Element:
-	Component|Binding
-;
+	Component|Binding;
 			 
 //Structure d'un assemblage
 Assembly:

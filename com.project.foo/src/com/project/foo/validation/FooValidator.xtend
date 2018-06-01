@@ -18,6 +18,7 @@ import com.project.foo.foo.RequiredService
 import org.eclipse.emf.common.util.EList
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.validation.Check
+import com.project.foo.foo.Refine
 
 /**
  * This class contains custom validation rules.
@@ -316,4 +317,16 @@ class FooValidator extends AbstractFooValidator {
 			}
 		}
 	}
+	
+	@Check
+	def void checkRefinementIsPossible(Refine ref){
+		var eltToRefineName = ref.eltToRefine.eClass.name
+		var refiningEltName = ref.refiningElt.eClass.name
+		
+		if (!eltToRefineName.equals(refiningEltName)){
+			error("The refinement cannot be between a component and a binding",
+				  null)
+		}
+	}
+	
 }

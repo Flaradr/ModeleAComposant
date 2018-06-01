@@ -16,6 +16,7 @@ import com.project.foo.foo.PSignature;
 import com.project.foo.foo.Parameter;
 import com.project.foo.foo.ProvidedService;
 import com.project.foo.foo.RSignature;
+import com.project.foo.foo.Refine;
 import com.project.foo.foo.RequiredService;
 import com.project.foo.validation.AbstractFooValidator;
 import org.eclipse.emf.common.util.EList;
@@ -383,6 +384,18 @@ public class FooValidator extends AbstractFooValidator {
           }
         }
       }
+    }
+  }
+  
+  @Check
+  public void checkRefinementIsPossible(final Refine ref) {
+    String eltToRefineName = ref.getEltToRefine().eClass().getName();
+    String refiningEltName = ref.getRefiningElt().eClass().getName();
+    boolean _equals = eltToRefineName.equals(refiningEltName);
+    boolean _not = (!_equals);
+    if (_not) {
+      this.error("The refinement cannot be between a component and a binding", 
+        null);
     }
   }
 }
