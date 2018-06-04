@@ -143,7 +143,7 @@ class FooValidator extends AbstractFooValidator {
 	 	var tmp = EcoreUtil2.getNextSibling(rs)
 	 	while(tmp !== null){
 	 		if(rs.name.equals((tmp as RequiredService).name)){
-	 			error("The name of a requiered service should be unique in a component: '"+rs.name+"'",
+	 			error("The name of a required service should be unique in a component: '"+rs.name+"'",
 	 				FooPackage.Literals.REQUIRED_SERVICE__NAME,
 	 				CHECK_R_SERVICE_NAME_IS_UNIQUE)
 	 		}
@@ -177,7 +177,7 @@ class FooValidator extends AbstractFooValidator {
 		val componentTypeOfService = (bindingRequiered.service.eContainer.eContainer as Component).name
 
 		if (!typeOfInstance.equals(componentTypeOfService)){
-			error("This service is not requiered by the component",
+			error("This service is not required by the component",
 				  FooPackage.Literals.BINDING_REQUIRED__SERVICE,
 				  CHECK_BINDING_REQUIERED_CAN_USE_METHOD)
 		}
@@ -214,7 +214,7 @@ class FooValidator extends AbstractFooValidator {
 	 * i.e. Pas d'erreur si la signature et le type de retour
 	 *  d'un service fourni et d'un service requis sont identique
 	 * @param binding en cours d'analyse
-	 * @error <b>Return type of the provided service do not match the return type of the requiered service</b>
+	 * @error <b>Return type of the provided service do not match the return type of the required service</b>
 	 * if the signatures or the return type do not match
 	 */
 	@Check
@@ -244,7 +244,7 @@ class FooValidator extends AbstractFooValidator {
 		}
 		
 		if (!valRetMReq.equals(valRetMProv)){
-			error("Return type of the provided service do not match the return type of the requiered service",
+			error("Return type of the provided service do not match the return type of the required service",
 				  FooPackage.Literals.BINDING__BINDING_PROVIDED,
 				  CHECK_BINDING_IS_VALID)
 		}
@@ -260,7 +260,7 @@ class FooValidator extends AbstractFooValidator {
 	 */
 	def signatureEquals(EList<Parameter> signature1, EList<Parameter> signature2){
 		if(!(signature1.size() == signature2.size())){
-			error("Number of parameters between the requiered service and the provided service do not match",
+			error("Number of parameters between the required service and the provided service do not match",
 				  FooPackage.Literals.BINDING__BINDING_REQUIRED,
 				  CHECK_BINDING_IS_VALID)
 			return
@@ -269,7 +269,7 @@ class FooValidator extends AbstractFooValidator {
 		var boolean res = true
 		while (i < signature1.size() && res){
 			if(!(signature1.get(i).type.equals(signature2.get(i).type))){
-				error("The type of the parameters of the requiered service and the provided service do not match",
+				error("The type of the parameters of the required service and the provided service do not match",
 					  FooPackage.Literals.BINDING__BINDING_PROVIDED,
 					  CHECK_BINDING_IS_VALID)
 			}

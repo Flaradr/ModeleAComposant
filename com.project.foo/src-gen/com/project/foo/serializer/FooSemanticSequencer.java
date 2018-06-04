@@ -305,12 +305,7 @@ public class FooSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     If returns If
 	 *
 	 * Constraint:
-	 *     (
-	 *         conditions+=Condition* 
-	 *         conditions+=Condition 
-	 *         (str+=Str | if+=If | while+=While)+ 
-	 *         (else=If | (while+=While? ((str+=Str | if+=If)? while+=While?)*))?
-	 *     )
+	 *     (conditions+=Condition* conditions+=Condition (str+=Str | if+=If | while+=While)+ (else=If | (str+=Str? ((if+=If | while+=While)? str+=Str?)*))?)
 	 */
 	protected void sequence_If(ISerializationContext context, If semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

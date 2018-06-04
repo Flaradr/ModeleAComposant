@@ -187,7 +187,7 @@ public class FooValidator extends AbstractFooValidator {
         boolean _equals = rs.getName().equals(((RequiredService) tmp).getName());
         if (_equals) {
           RSignature _name = rs.getName();
-          String _plus = ("The name of a requiered service should be unique in a component: \'" + _name);
+          String _plus = ("The name of a required service should be unique in a component: \'" + _name);
           String _plus_1 = (_plus + "\'");
           this.error(_plus_1, 
             FooPackage.Literals.REQUIRED_SERVICE__NAME, 
@@ -224,7 +224,7 @@ public class FooValidator extends AbstractFooValidator {
     boolean _equals = typeOfInstance.equals(componentTypeOfService);
     boolean _not = (!_equals);
     if (_not) {
-      this.error("This service is not requiered by the component", 
+      this.error("This service is not required by the component", 
         FooPackage.Literals.BINDING_REQUIRED__SERVICE, 
         FooValidator.CHECK_BINDING_REQUIERED_CAN_USE_METHOD);
     }
@@ -267,7 +267,7 @@ public class FooValidator extends AbstractFooValidator {
    * i.e. Pas d'erreur si la signature et le type de retour
    *  d'un service fourni et d'un service requis sont identique
    * @param binding en cours d'analyse
-   * @error <b>Return type of the provided service do not match the return type of the requiered service</b>
+   * @error <b>Return type of the provided service do not match the return type of the required service</b>
    * if the signatures or the return type do not match
    */
   @Check
@@ -299,7 +299,7 @@ public class FooValidator extends AbstractFooValidator {
     boolean _equals_2 = valRetMReq.equals(valRetMProv);
     boolean _not = (!_equals_2);
     if (_not) {
-      this.error("Return type of the provided service do not match the return type of the requiered service", 
+      this.error("Return type of the provided service do not match the return type of the required service", 
         FooPackage.Literals.BINDING__BINDING_PROVIDED, 
         FooValidator.CHECK_BINDING_IS_VALID);
     }
@@ -318,7 +318,7 @@ public class FooValidator extends AbstractFooValidator {
     boolean _equals = (_size == _size_1);
     boolean _not = (!_equals);
     if (_not) {
-      this.error("Number of parameters between the requiered service and the provided service do not match", 
+      this.error("Number of parameters between the required service and the provided service do not match", 
         FooPackage.Literals.BINDING__BINDING_REQUIRED, 
         FooValidator.CHECK_BINDING_IS_VALID);
       return;
@@ -330,7 +330,7 @@ public class FooValidator extends AbstractFooValidator {
         boolean _equals_1 = signature1.get(i).getType().equals(signature2.get(i).getType());
         boolean _not_1 = (!_equals_1);
         if (_not_1) {
-          this.error("The type of the parameters of the requiered service and the provided service do not match", 
+          this.error("The type of the parameters of the required service and the provided service do not match", 
             FooPackage.Literals.BINDING__BINDING_PROVIDED, 
             FooValidator.CHECK_BINDING_IS_VALID);
         }

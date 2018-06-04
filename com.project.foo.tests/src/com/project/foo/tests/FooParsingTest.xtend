@@ -26,12 +26,16 @@ class FooParsingTest {
 		package toto {
 			Component A{
 				provided = {m1,m2}
-				requiered = {m3}
+				required = {m3}
 
-				service provided type2 m1(p1 : type2) {}
-				service provided type1 m2(p2 : type1) {}
+				service provided type2 m1(p1 : type2) {
+					Lorem Ipsum;
+				}
+				service provided type1 m2(p2 : type1) {
+					Foo;
+				}
 
-				service requiered type3 m3();
+				service required type3 m3();
 			}
 		}'''
 
@@ -48,10 +52,10 @@ class FooParsingTest {
 
 		/*Comment tester égalités entre tableau alors qu'il faudrait mapper
 		 * .name à chaque attribut de component.provided.providedServices
-		 * et component.requiered.requieredServices ?
+		 * et component.required.requiredServices ?
 		 */
 		//assertEquals("[m1,m2]",component.provided.providedServices)
-		//assertEquals("[m3]",component.requiered.requieredServices)
+		//assertEquals("[m3]",component.required.requiredServices)
 
 		assertTrue('''Unexpected errors: «errors.join(", ")»''', errors.isEmpty)
 	}
@@ -67,7 +71,7 @@ class FooParsingTest {
 			package toto {
 				Component a{
 					provided = {m1}
-					requiered = {}
+					required = {}
 
 					service provided type2 m1(p1 : type2) {}
 				}
@@ -90,15 +94,19 @@ class FooParsingTest {
 			package toto {
 				Component A{
 					provided = {m1}
-					requiered = {}
+					required = {}
 
-					service provided type2 m1(p1 : type2) {}
+					service provided type2 m1(p1 : type2) {
+						Foo;
+					}
 				}
 				Component B{
 					provided = {m2}
-					requiered = {}
+					required = {}
 
-					service provided type2 m2(p1 : type2) {}
+					service provided type2 m2(p1 : type2) {
+						Bar;
+					}
 				}
 				Assembly D{
 					components
@@ -114,15 +122,19 @@ class FooParsingTest {
 			package toto {
 				Component A{
 					provided = {m1}
-					requiered = {}
+					required = {}
 
-					service provided type2 m1(p1 : type2) {}
+					service provided type2 m1(p1 : type2) {
+						Foo;
+					}
 				}
 				Component B{
 					provided = {m2}
-					requiered = {}
+					required = {}
 
-					service provided type2 m2(p1 : type2) {}
+					service provided type2 m2(p1 : type2) {
+						Bar;
+					}
 				}
 				Assembly d{
 					components
@@ -154,19 +166,19 @@ class FooParsingTest {
 			package toto {
 				Component A{
 					provided = {m1,m2}
-					requiered = {m3}
+					required = {m3}
 
-					service provided type2 m1(p1 : type2) {}
-					service provided type1 m2(p2 : type1) {}
+					service provided type2 m1(p1 : type2) {foo;}
+					service provided type1 m2(p2 : type1) {bar;}
 
-					service requiered type3 m3();
+					service required type3 m3();
 				}
 				
 				Component A{
 					provided = {m7}
-					requiered = {}
+					required = {}
 
-					service provide type1 m7() {}
+					service provide type1 m7() {barfoo;}
 				}
 			}
 		'''
@@ -187,16 +199,16 @@ class FooParsingTest {
 		package toto {
 			Component A{
 				provided = {m1}
-				requiered = {}
+				required = {}
 
-				service provided type2 m1(p1 : type2) {}
+				service provided type2 m1(p1 : type2) {foo;}
 			}
 			
 			Component B{
 				provided = {m2}
-				requiered = {}
+				required = {}
 
-				service provided type2 m2(p1 : type2) {}
+				service provided type2 m2(p1 : type2) {bar;}
 			}
 			
 			Assembly D{
@@ -220,16 +232,16 @@ class FooParsingTest {
 		package toto {
 			Component A{
 				provided = {m1}
-				requiered = {}
+				required = {}
 
-				service provided type2 m1(p1 : type2) {}
+				service provided type2 m1(p1 : type2) {foo;}
 			}
 			
 			Component B{
 				provided = {m2}
-				requiered = {}
+				required = {}
 
-				service provided type2 m2(p1 : type2) {}
+				service provided type2 m2(p1 : type2) {bar;}
 			}
 			
 			Assembly D{
@@ -264,16 +276,16 @@ class FooParsingTest {
 		package toto {
 			Component A{
 				provided = {m1}
-				requiered = {}
+				required = {}
 
-				service provided type2 m1(p1 : type2) {}
+				service provided type2 m1(p1 : type2) {foo;}
 			}
 			
 			Component B{
 				provided = {m2}
-				requiered = {}
+				required = {}
 
-				service provided type2 m2(p1 : type2) {}
+				service provided type2 m2(p1 : type2) {bar;}
 			}
 			
 			Assembly D{
@@ -290,15 +302,15 @@ class FooParsingTest {
 		package toto {
 			Component A{
 				provided = {m1}
-				requiered = {}
+				required = {}
 
-				service provided type2 m1(p1 : type2) {}
+				service provided type2 m1(p1 : type2) {foobar;}
 			}
 			Component B{
 				provided = {m2}
-				requiered = {}
+				required = {}
 
-				service provided type2 m2(p1 : type2) {}
+				service provided type2 m2(p1 : type2) {barfoo;}
 			}
 			Assembly D{
 				components
@@ -328,7 +340,7 @@ class FooParsingTest {
 			package toto {
 				Component A{
 					provided = {m1,m1}
-					requiered = {}
+					required = {}
 
 					service provided type1 m1() {}
 				}
@@ -354,10 +366,10 @@ class FooParsingTest {
 			package toto{
 				Component A{
 					provided = {m1}
-					requiered = {m2,m2}
+					required = {m2,m2}
 
-					service provided type1 m1() {}
-					service requiered type3 m2();
+					service provided type1 m1() {foo;}
+					service required type3 m2();
 				}
 			}
 			'''
@@ -366,7 +378,7 @@ class FooParsingTest {
 			FooValidator.CHECK_R_SERVICE_NAME_IS_UNIQUE,
 			input.indexOf("m2"),
 			2,
-			"The name of a requiered service should be unique in a component")
+			"The name of a required service should be unique in a component")
 	}
 
 	/*************************************************************
@@ -382,17 +394,21 @@ class FooParsingTest {
 			package toto {
 			  	Component A{
 			  		provided = {m0}
-			  		requiered = {m1}
+			  		required = {m1}
 
-			  		service provided type0 m0() {}
-			  		service requiered type1 m1 ();
+			  		service provided type0 m0() {
+			  			Foo;
+			  		}
+			  		service required type1 m1 ();
 			  	}
 
 			  	Component B{
 			  		provided = {m2}
-			  		requiered = {}
+			  		required = {}
 
-			  		service provided type1 m2(){}
+			  		service provided type1 m2(){
+			  			Bar;
+			  		}
 			  	}
 
 			  	Assembly T{
@@ -410,17 +426,21 @@ class FooParsingTest {
 			package toto {
 			  	Component A{
 			  		provided = {m0}
-			  		requiered = {m1}
+			  		required = {m1}
 
-			  		service provided type0 m0() {}
-			  		service requiered type1 m1 (p1 : type1, p2 : type2);
+			  		service provided type0 m0() {
+			  			Foo;
+			  		}
+			  		service required type1 m1 (p1 : type1, p2 : type2);
 			  	}
 
 			  	Component B{
 			  		provided = {m2}
-			  		requiered = {}
+			  		required = {}
 
-			  		service provided type2 m2(p21 : type1, p22 : type2){}
+			  		service provided type2 m2(p21 : type1, p22 : type2){
+			  			Bar;
+			  		}
 			  	}
 
 			  	Assembly T{
@@ -437,23 +457,27 @@ class FooParsingTest {
 	  		FooValidator.CHECK_BINDING_IS_VALID,
 	  		input1.indexOf("b1.m2"),
 	  		"b1.m2".length,
-	  		"Return type of the provided service do not match the return type of the requiered service")
+	  		"Return type of the provided service do not match the return type of the required service")
 
 	  	val input2 = '''
 			package toto {
 			  	Component A{
 			  		provided = {m0}
-			  		requiered = {m1}
+			  		required = {m1}
 
-			  		service provided type0 m0() {}
-			  		service requiered type2 m1 (p1 : type1, p2 : type2);
+			  		service provided type0 m0() {
+			  			Foo;
+			  		}
+			  		service required type2 m1 (p1 : type1, p2 : type2);
 			  	}
 
 			  	Component B{
 			  		provided = {m2}
-			  		requiered = {}
+			  		required = {}
 
-			  		service provided type2 m2(p7 : type1, p3 : type3){}
+			  		service provided type2 m2(p7 : type1, p3 : type3){
+			  			Bar;
+			  		}
 			  	}
 
 			  	Assembly T{
@@ -470,23 +494,27 @@ class FooParsingTest {
 	  		FooValidator.CHECK_BINDING_IS_VALID,
 	  		input2.indexOf("b1.m2"),
 	  		"b1.m2".length,
-	  		"The type of the parameters of the requiered service and the provided service do not match")
+	  		"The type of the parameters of the required service and the provided service do not match")
 
 	  	val input3 = '''
 			package toto {
 			  	Component A{
 			  		provided = {m0}
-			  		requiered = {m1}
+			  		required = {m1}
 
-			  		service provided type0 m0() {}
-			  		service requiered type2 m1 (p1 : type1, p2 : type2, p3 : type0);
+			  		service provided type0 m0() {
+			  			Foo;
+			  		}
+			  		service required type2 m1 (p1 : type1, p2 : type2, p3 : type0);
 			  	}
 
 			  	Component B{
 			  		provided = {m2}
-			  		requiered = {}
+			  		required = {}
 
-			  		service provided type2 m2(p7 : type1, p3 : type3){}
+			  		service provided type2 m2(p7 : type1, p3 : type3){
+			  			Bar;
+			  		}
 			  	}
 
 			  	Assembly T{
@@ -503,7 +531,7 @@ class FooParsingTest {
 	  		FooValidator.CHECK_BINDING_IS_VALID,
 	  		input3.indexOf("a1.m1"),
 	  		"a1.m1".length,
-	  		"Number of parameters between the requiered service and the provided service do not match")
+	  		"Number of parameters between the required service and the provided service do not match")
 
 	}
 
@@ -517,21 +545,29 @@ class FooParsingTest {
 			package toto {
 				Component A{
 					provided = {m1,m2}
-					requiered = {m3}
+					required = {m3}
 
-					service provided type2 m1(p1 : type1) {}
-					service provided void m2() {}
+					service provided type2 m1(p1 : type1) {
+						Foo;
+					}
+					service provided void m2() {
+						bar;
+					}
 
-					service requiered type3 m3(p2 : type4);
+					service required type3 m3(p2 : type4);
 				}
 
 				Component B{
 					provided = {m4}
-					requiered = {m1}
+					required = {m1}
 
-					service provided type3 m4 (p4 : type4) { }
+					service provided type3 m4 (p4 : type4) { 
+						while(!false){
+							toto;
+						}
+					}
 
-					service requiered type2 m1 (p3 : type1);
+					service required type2 m1 (p3 : type1);
 				}
 
 				Assembly Foo{
@@ -552,21 +588,27 @@ class FooParsingTest {
 			package toto {
 				Component A{
 					provided = {m1,m2}
-					requiered = {m3}
+					required = {m3}
 
-					service provided type2 m1(p1 : type1) {}
-					service provided void m2() {}
+					service provided type2 m1(p1 : type1) {
+						foo;
+					}
+					service provided void m2() {
+						Bar;
+					}
 
-					service requiered type3 m3(p2 : type4);
+					service required type3 m3(p2 : type4);
 				}
 
 				Component B{
 					provided = {m4}
-					requiered = {m1}
+					required = {m1}
 
-					service provided type3 m4 (p4 : type4) { }
+					service provided type3 m4 (p4 : type4) { 
+						foobar;
+					}
 
-					service requiered type2 m1 (p3 : type1);
+					service required type2 m1 (p3 : type1);
 				}
 
 				Assembly Foo{
@@ -591,21 +633,27 @@ class FooParsingTest {
 			package toto {
 				Component A{
 					provided = {m1,m2}
-					requiered = {m3}
+					required = {m3}
 
-					service provided type2 m1(p1 : type1) {}
-					service provided void m2() {}
+					service provided type2 m1(p1 : type1) {
+						foo;
+					}
+					service provided void m2() {
+						Bar;
+					}
 
-					service requiered type3 m3(p2 : type4);
+					service required type3 m3(p2 : type4);
 				}
 
 				Component B{
 					provided = {m4}
-					requiered = {m1}
+					required = {m1}
 
-					service provided type3 m4 (p4 : type4) { }
+					service provided type3 m4 (p4 : type4) { 
+						foobar;
+					}
 
-					service requiered type2 m1 (p3 : type1);
+					service required type2 m1 (p3 : type1);
 				}
 
 				Assembly Foo{
@@ -634,23 +682,27 @@ class FooParsingTest {
 			
 				Component A{
 					provided = {m1,m2,m8}
-					requiered = {m3}
+					required = {m3}
 			
-					service provided type2 m1(p1 : type1) {}
-					service provided void m2() {}
-					service provided type3 m8(p8 : type3, p9 : type4) {}
+					service provided type2 m1(p1 : type1) {foo;}
+					service provided void m2() {b;}
+					service provided type3 m8(p8 : type3, p9 : type4) {
+						while(K.equals(p) && !bar){
+							foo;
+						}
+					}
 			
-					service requiered type3 m3(p2 : type4);
+					service required type3 m3(p2 : type4);
 				}
 			
 				Component B{
 					provided = {m3}
-					requiered = {m1,m4}
+					required = {m1,m4}
 			
-					service provided type3 m3 (p4 : type4) { }
+					service provided type3 m3 (p4 : type4) {f; }
 			
-					service requiered type2 m1 (p3 : type1);
-					service requiered type3 m4 (p4_1 : type3, p4_2 : type4);
+					service required type2 m1 (p3 : type1);
+					service required type3 m4 (p4_1 : type3, p4_2 : type4);
 				}
 			
 				Assembly Foo{
@@ -674,22 +726,22 @@ class FooParsingTest {
 		
 			Component A{
 				provided = {m1,m2,m8}
-				requiered = {m3}
+				required = {m3}
 		
-				service provided type2 m1(p1 : type1) {}
-				service provided void m2() {}
-				service provided type3 m8(p8 : type3, p9 : type4) {}
+				service provided type2 m1(p1 : type1) {foo;}
+				service provided void m2() {bar;}
+				service provided type3 m8(p8 : type3, p9 : type4) {foobar;}
 		
-				service requiered type3 m3(p2 : type4);
+				service required type3 m3(p2 : type4);
 			}
 		
 			Component B{
 				provided = {m3}
-				requiered = {m1,m4}
+				required = {m1,m4}
 		
-				service provided type3 m3 (p4 : type4) { }
-				service requiered type2 m1 (p3 : type1);
-				service requiered type3 m4 (p4_1 : type3, p4_2 : type4);
+				service provided type3 m3 (p4 : type4) { foobar; }
+				service required type2 m1 (p3 : type1);
+				service required type3 m4 (p4_1 : type3, p4_2 : type4);
 			}
 		
 			Assembly Foo{
@@ -712,7 +764,7 @@ class FooParsingTest {
 			FooValidator.CHECK_BINDING_REQUIERED_CAN_USE_METHOD,
 			input.indexOf("b1.m3") + "b1.".length,
 			"m3".length,
-			"This service is not requiered by the component")
+			"This service is not required by the component")
 	}
 	
 	@Test
@@ -723,23 +775,31 @@ class FooParsingTest {
 			
 				Component A{
 					provided = {m1,m2,m8}
-					requiered = {m3}
+					required = {m3}
 			
-					service provided type2 m1(p1 : type1) {}
-					service provided void m2() {}
-					service provided type3 m8(p8 : type3, p9 : type4) {}
+					service provided type2 m1(p1 : type1) {
+						Bar;
+					}
+					service provided void m2() {
+						FooBar;
+					}
+					service provided type3 m8(p8 : type3, p9 : type4) {
+						Bar;
+					}
 			
-					service requiered type3 m3(p2 : type4);
+					service required type3 m3(p2 : type4);
 				}
 			
 				Component B{
 					provided = {m3}
-					requiered = {m1,m4}
+					required = {m1,m4}
 			
-					service provided type3 m3 (p4 : type4) { }
+					service provided type3 m3 (p4 : type4) { 
+						Foo;
+					}
 			
-					service requiered type2 m1 (p3 : type1);
-					service requiered type3 m4 (p4_1 : type3, p4_2 : type4);
+					service required type2 m1 (p3 : type1);
+					service required type3 m4 (p4_1 : type3, p4_2 : type4);
 				}
 			
 				Assembly Foo{
@@ -761,26 +821,42 @@ class FooParsingTest {
 		package my.company.firstPack {
 			Component A{
 				provided = {m1,m2,m8,mk8}
-				requiered = {m3,mk0}
+				required = {m3,mk0}
 		
-				service provided type2 m1(p1 : type1) {}
-				service provided void m2() {}
-				service provided type3 m8(p8 : type3, p9 : type4) {}
-				service provided type00 mk8() {}
+				service provided type2 m1(p1 : type1) {
+					Foo;
+				}
+				service provided void m2() {
+					Foo;
+				}
+				service provided type3 m8(p8 : type3, p9 : type4) {
+					if(true){
+						Foo;
+					}
+				}
+				service provided type00 mk8() {
+					if (!false && k.equals(bar)){
+						foo;
+					}
+				}
 			
-				service requiered type3 m3(p2 : type4);
-				service requiered type00 mk0();
+				service required type3 m3(p2 : type4);
+				service required type00 mk0();
 			}
 		
 			Component B{
 				provided = {m3,mk8}
-				requiered = {m1,m4}
+				required = {m1,m4}
 		
-				service provided type3 m3 (p4 : type4) { }
-				service provided type00 mB8() {}
+				service provided type3 m3 (p4 : type4) { 
+					Bar;
+				}
+				service provided type00 mB8() {
+					Bar;
+				}
 		
-				service requiered type2 m1 (p3 : type1);
-				service requiered type3 m4 (p4_1 : type3, p4_2 : type4);
+				service required type2 m1 (p3 : type1);
+				service required type3 m4 (p4_1 : type3, p4_2 : type4);
 			}
 		
 			Assembly Foo{
