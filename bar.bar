@@ -1,16 +1,19 @@
-
 package my.company.thirdPack{
-import static extension my.company.firstPack.*
+import  my.company.firstPack.*
 
 	Component D{
 		provided = {m1,m2}
-		requiered = {r0,r3}
+		required = {r0,r3}
 
-		service provided type2 m1 (p1 : type1) {}
-		service provided type3 m2 (p3 : type4) {}
+		service provided type2 m1 (p1 : type1) {
+			Foo;
+		}
+		service provided type3 m2 (p3 : type4) {
+			Bar;
+		}
 
-		service requiered type3 r0(p8 : type3, p9 : type4);
-		service requiered void r3();
+		service required type3 r0(p8 : type3, p9 : type4);
+		service required void r3();
 	}
 
 	Assembly FooBar{
