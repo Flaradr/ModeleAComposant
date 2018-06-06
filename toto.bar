@@ -1,0 +1,33 @@
+package my.company.secondPack{
+	import my.company.firstPack.*
+	import my.company.thirdPack.*
+
+
+	Component C{
+		provided = {m1,m2}
+		required = {r3}
+
+		service provided type2 m1 (p1 : type1) {
+			Foo;
+		}
+		service provided type3 m2 (p3 : type4) {
+			while(!false){
+				toto;
+			}
+		}
+
+		service required void r3();
+	}
+
+	Assembly Bar{
+		components
+		a : A
+		b : B
+		c : C
+		bindings
+		a.A.m3 - c.C.m2
+		b.B.m1 - c.C.m1
+		b.B.m4 - a.A.m8
+		c.C.r3 - a.A.m2
+	}
+}
