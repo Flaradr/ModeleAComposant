@@ -3,41 +3,40 @@
  */
 package com.project.foo.scoping
 
-import com.project.foo.foo.Model
-import java.util.List
+import com.project.foo.foo.FooPackage
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.xtext.scoping.impl.ImportNormalizer
-import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.scoping.IScope
+import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.scoping.Scopes
+import com.project.foo.foo.BindingRequired
+import com.project.foo.foo.BindingProvided
+import com.project.foo.foo.ProvidedService
+import com.project.foo.foo.RequiredService
 
 /**
  * This class contains custom scoping description.
- *
+ * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
-
-class FooScopeProvider extends ImportedNamespaceAwareLocalScopeProvider{
+class FooScopeProvider extends AbstractFooScopeProvider {
+ 
+ 	//Modification scope des bindings cote requis et fournis, lié à l'ensemble d'un modèle
+ 	//et pas défini au sein de l'assemblage
+	override IScope getScope(EObject context, EReference reference){
+		if (context instanceof BindingRequired && reference == FooPackage.Literals.BINDING_REQUIRED__TYPE){
+			val rootElement = EcoreUtil2.getRootContainer(context)
+			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,RequiredService)
+			return Scopes.scopeFor(candidates)
+ 		}
+ 		if (context instanceof BindingProvided && reference == FooPackage.Literals.BINDING_PROVIDED__TYPE){
+			val rootElement = EcoreUtil2.getRootContainer(context)
+			val candidates = EcoreUtil2.getAllContentsOfType(rootElement,ProvidedService)
+			return Scopes.scopeFor(candidates)
+ 		}
+ 		return super.getScope(context, reference);
+	} 
 	
-	/*
-	 *Permet d'auto importer le paquet auquel le modele en cours d'analyse appartient 
-	 *ainsi que les services des composants import�s
-	 */
-	override protected List<ImportNormalizer> getImportedNamespaceResolvers(EObject context, boolean ignorecase){
-		var List<ImportNormalizer> importedNamespaceResolvers = super.getImportedNamespaceResolvers(context, ignorecase);
-		if (context instanceof Model){
-			var model = (context as Model)
-			importedNamespaceResolvers.add(doCreateImportNormalizer(getQualifiedNameConverter().toQualifiedName(model.getName()), true, ignorecase))
-		
-			for (var i = 0; i < model.components.size(); i++){
-				importedNamespaceResolvers.add(doCreateImportNormalizer(getQualifiedNameConverter().toQualifiedName(model.name+"."+model.components.get(i).name), true, ignorecase))
-			}
-			
-			for (var j = 0; j < model.imports.size(); j++){
-				importedNamespaceResolvers.add(doCreateImportNormalizer(getQualifiedNameConverter().toQualifiedName(model.imports.get(j).importedNamespace), true, ignorecase))
-				
-			}
-		}
-		return importedNamespaceResolvers;
-	}	
 	
 }
